@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    volumes:
+      - .:/app
+    ports:
+      - '25800:25800'
+    command: ["npm", "run", "develop", "--", "--host", "0.0.0.0", "--port", "25800"]
