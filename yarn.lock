@@ -7606,9 +7606,9 @@ regjsparser@^0.3.0:
   dependencies:
     jsesc "~0.5.0"
 
-rehype-decorate@^1.0.0-rc.1:
-  version "1.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/rehype-decorate/-/rehype-decorate-1.0.0-rc.1.tgz#366763ff7505cc956b9dff7880a650ccb60c005d"
+rehype-decorate@^1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/rehype-decorate/-/rehype-decorate-1.0.0-rc.2.tgz#156f19077eeeb4d3ea20d74e6236747760dca32d"
 
 rehype-react@^3.0.3:
   version "3.0.3"
