@@ -40,8 +40,17 @@ const createPages = (
   return graphql(buildQuery()).then(result => {
     if (result.errors) return Promise.reject(result.errors)
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      buildPage(ctx, { node, actions })
+    const { edges } = result.data.allMarkdownRemark
+
+    edges.forEach(({ node }, idx) => {
+      const next = edges[idx + 1]
+      const prev = edges[idx - 1]
+      buildPage(ctx, {
+        node,
+        actions,
+        next: next && next.node,
+        previous: prev && prev.node,
+      })
     })
   })
 }
@@ -52,7 +61,7 @@ const createPages = (
 
 function buildPage(
   ctx /*: Context */,
-  { node, actions } /*: { node: any, actions: Actions } */
+  { node, actions, next, previous } /*: { node: any, actions: Actions } */
 ) {
   const { createPage } = actions
 
@@ -64,6 +73,8 @@ function buildPage(
     nodeType: 'post',
     title: node.frontmatter.title,
     slug: node.fields.slug,
+    previous,
+    next,
     ...(extraContext || {}),
   }
 

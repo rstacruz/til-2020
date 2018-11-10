@@ -139,7 +139,12 @@ const h2SectionStyle = css.global`
       margin-bottom: 0; */
       /* border-top: solid 8px var(--accent);
       border-bottom: 0; */
-      box-shadow: 0 1px 2px #8883;
+      box-shadow: 0 1px 2px #8883, 0 16px 24px #8881;
+    }
+
+    &:first-of-type {
+      box-shadow: none;
+      background: transparent;
     }
 
     & + .h2-section {

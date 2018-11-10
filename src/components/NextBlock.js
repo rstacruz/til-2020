@@ -26,6 +26,7 @@ const style = css`
     color: var(--heading-color);
     padding-top: 1.5em;
     font-size: 0.9em;
+    font-weight: bold;
   }
 
   .next-block > strong {
