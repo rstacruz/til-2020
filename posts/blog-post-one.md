@@ -11,9 +11,11 @@ date: '2015-05-06T23:46:37.121Z'
 
 Before I tell you why I prefer _styled-jsx_, let's learn about some programming concepts&mdash;It'll all make sense later, trust me!
 
-<blockquote></blockquote>
+<next-block>Let's get started!</next-block>
 
 ## Imperative vs. declarative code
+
+### Approach 1
 
 There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a **declarative** style of writing, where we try to express logic without providing any instructions.
 
@@ -25,6 +27,8 @@ There are two styles of expressing data. The most common way is to simply write 
 }
 ```
 
+### Approach 2
+
 There are cases when this style may not be flexible enough, so some systems take an **imperative** approach. In contrast to the declarative style, it's a piece of code with instructions that runs procedurally. Here's an example of a Ruby [gem specification](https://guides.rubygems.org/specification-reference/), which defines a Ruby package's metadata:
 
 ```rb
@@ -35,7 +39,7 @@ Gem::Specification.new do |spec|
 end
 ```
 
-<blockquote>Next: What's the difference?</blockquote>
+<next-block>What's the difference?</next-block>
 
 ## But they look the same!
 
@@ -48,7 +52,9 @@ Ruby's gem specification style is _imperative_ because we're issuing instruction
 
 On the other hand, JavaScript's _declarative_ style isn't concerned with any instructions or control flow. It's not a piece of code that talks to your system, it's really just a table of keys and values.
 
-<blockquote>Next: What makes imperative-style different?</blockquote>
+<blockquote class='next-block'>
+Next: What makes imperative-style different?
+</blockquote>
 
 ## Imperative is powerful
 
