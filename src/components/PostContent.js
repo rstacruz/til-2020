@@ -1,5 +1,6 @@
 import React from 'react'
 import decorate from 'rehype-decorate'
+import sectionize from 'rehype-sectionize-headings'
 import RehypeReact from 'rehype-react'
 
 const PostContent = ({ htmlAst }) => {
@@ -9,6 +10,7 @@ const PostContent = ({ htmlAst }) => {
 
   let ast = htmlAst
   ast = decorate(ast)
+  ast = sectionize(ast)
   return toReact(ast)
 }
 

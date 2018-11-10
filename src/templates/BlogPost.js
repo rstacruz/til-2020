@@ -2,8 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PostContent from '../components/PostContent'
-import decorate from 'rehype-decorate'
+import BlogPostContent from '../components/BlogPostContent'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -20,7 +19,7 @@ class BlogPostTemplate extends React.Component {
         />
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
-        <PostContent htmlAst={post.htmlAst} />
+        <BlogPostContent htmlAst={post.htmlAst} />
         {previous && (
           <Link to={previous.fields.slug} rel="prev">
             ← {previous.frontmatter.title}
