@@ -11,7 +11,7 @@ date: '2015-05-06T23:46:37.121Z'
 
 Before I tell you why I prefer _styled-jsx_, let's learn about some programming concepts&mdash;It'll all make sense later, trust me!
 
-<next-block>Let's get started!</next-block>
+<next-block title="Let's get started!"></next-block>
 
 ## Imperative vs. declarative code
 
@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
 end
 ```
 
-<next-block>What's the difference?</next-block>
+<next-block title="What's the difference?"></next-block>
 
 ## But they look the same!
 
@@ -52,9 +52,7 @@ Ruby's gem specification style is _imperative_ because we're issuing instruction
 
 On the other hand, JavaScript's _declarative_ style isn't concerned with any instructions or control flow. It's not a piece of code that talks to your system, it's really just a table of keys and values.
 
-<blockquote class='next-block'>
-Next: What makes imperative-style different?
-</blockquote>
+<next-block title="What makes imperative-style different?"></next-block>
 
 ## Imperative is powerful
 
@@ -68,7 +66,7 @@ Gem::Specification.new do |spec|
 end
 ```
 
-<blockquote>Next: What makes declarative-style different?</blockquote>
+<next-block title="What makes declarative-style different?"></next-block>
 
 ## Declarative is easier to understand
 
@@ -98,7 +96,7 @@ In contrast, here's how it may be _declaratively_ defined in a JavaScript packag
 
 JavaScript's _declarative aproach_ may be less flexible than the _imperative_ one, but the constraints of a JSON format makes things more predictable and easier to glance.
 
-<blockquote>Next: What does this have to do with CSS?</blockquote>
+<next-block title="What does this have to do with CSS?"></next-block>
 
 ## CSS is declarative
 
@@ -119,9 +117,13 @@ Array.from(document.querySelectorAll('button')).forEach(button => {
 })
 ```
 
-<blockquote>Next: What about CSS-in-JS?</blockquote>
+<next-block title="What about CSS-in-JS?"></next-block>
 
 ## A lot of CSS-in-JS is imperative
+
+###
+
+<!-- {.literate-section} -->
 
 At first glance, we can say that most CSS-in-JS solutions require you to write in a declarative style, since it's mostly just taking CSS and putting it in JavaScript. Here's how you would define a blue button using [styled-components]:
 
@@ -162,7 +164,7 @@ const Button = styled.a`
 `
 ```
 
-<blockquote>Next: Let's look at how styled-jsx solves this.</blockquote>
+<next-block title="Let's look at how styled-jsx solves this."></next-block>
 
 ## Declarative CSS with styled-jsx
 
@@ -190,6 +192,8 @@ const style = css`
   }
 `
 ```
+
+<next-block title="Let's recap what we've learned."></next-block>
 
 [styled-components]: https://www.styled-components.com/
 [styled-jsx]: https://github.com/zeit/styled-jsx

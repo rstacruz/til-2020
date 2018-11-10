@@ -31,45 +31,7 @@ const BlogPostContent = ({ htmlAst }) => {
  */
 
 const style = css`
-  :root {
-    --text-color: #303030;
-    --heading-color: #080808;
-    --border-color: #7080903c;
-    --code-background: #fcfcfc;
-    --accent: #ffeaa7;
-    --accent2: #fdcb6e;
-
-    --horizontal-rule: {
-      content: '';
-      display: block;
-      height: 2px;
-      background: linear-gradient(to right, var(--accent) 20%, transparent 20%);
-    }
-
-    --h2-font: {
-      font-weight: normal;
-      font-family: 'Alegreya', serif;
-      font-style: normal;
-    }
-
-    --h3-font: {
-      font-weight: normal;
-      font-family: 'Alegreya', sans-serif;
-      font-style: italic;
-    }
-
-    --code-font: {
-      font-family: cousine, monospace;
-      letter-spacing: -0.04em;
-    }
-
-    --em-style: {
-      font-family: 'Alegreya', sans-serif;
-      font-size: 1.15em;
-      line-height: 0.2em;
-      font-style: italic;
-    }
-  }
+  @import 'src/styles/variables';
 
   .blog-post-content {
     font-size: 16px;
@@ -103,27 +65,6 @@ const style = css`
 
     & :global(em) {
       @apply --em-style;
-    }
-
-    & :global(blockquote:last-child) {
-      font-style: normal;
-      margin: 0;
-      color: #666;
-      padding-top: 1.5em;
-      font-size: 1em;
-      font-family: 'Inconsolata', sans-serif;
-    }
-
-    & :global(blockquote:last-child::after) {
-      content: 'v';
-      color: var(--accent);
-      display: block;
-      font-size: 2em;
-    }
-
-    & :global(blockquote:last-child::before) {
-      @apply --horizontal-rule;
-      margin-bottom: 16px;
     }
 
     & :global(.h2-section) {
@@ -170,6 +111,11 @@ const style = css`
       margin-bottom: 0.3em;
     }
 
+    /* Support empty headings */
+    & :global(.h3-section > h3:empty) {
+      display: none;
+    }
+
     & :global(.h3-section > .body),
     & :global(.h3-section > .body > :first-child) {
       margin-top: 0;
@@ -207,9 +153,10 @@ const style = css`
 
     & :global(code) {
       @apply --code-font;
-      padding: 0.2em 0.5em;
+      padding: 0.2em 0.2em;
       font-size: 0.9em;
       background: var(--code-background);
+      background: color-mod(var(--accent));
     }
 
     & :global(pre code) {

@@ -1,0 +1,39 @@
+:root {
+  --text-color: #303030;
+  --heading-color: #080808;
+  --border-color: #7080903c;
+  --code-background: #fcfcfc;
+  --accent: #ffeaa7;
+  --accent2: #fdcb6e;
+
+  --horizontal-rule: {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent) 20%, transparent 20%);
+  }
+
+  --h2-font: {
+    font-weight: normal;
+    font-family: 'Alegreya', serif;
+    font-style: normal;
+  }
+
+  --h3-font: {
+    font-weight: normal;
+    font-family: 'Alegreya', sans-serif;
+    font-style: italic;
+  }
+
+  --code-font: {
+    font-family: cousine, monospace;
+    letter-spacing: -0.04em;
+  }
+
+  --em-style: {
+    font-family: 'Alegreya', sans-serif;
+    font-size: 1.15em;
+    line-height: 0.2em;
+    font-style: italic;
+  }
+}
