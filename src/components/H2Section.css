@@ -64,6 +64,7 @@
 
   & > h2 {
     color: var(--accent);
+    text-shadow: none;
   }
 
   & > .body {

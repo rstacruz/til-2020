@@ -27,8 +27,8 @@ class H2Section extends React.Component {
       <Waypoint
         onEnter={this.onEnter}
         onLeave={this.onLeave}
-        topOffset="20%"
-        bottomOffset="80%"
+        topOffset="60%"
+        bottomOffset="40%"
       >
         <section className={className}>{children}</section>
       </Waypoint>
