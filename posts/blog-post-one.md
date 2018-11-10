@@ -3,11 +3,15 @@ title: My first post
 date: '2015-05-06T23:46:37.121Z'
 ---
 
-# CSS-in-JavaScript
+## Why I love styled-jsx
+
+<!-- {.-large} -->
 
 [styled-jsx] has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that's easier to understand.
 
 Before I tell you why I prefer _styled-jsx_, let's learn about some programming concepts&mdash;It'll all make sense later, trust me!
+
+<blockquote></blockquote>
 
 ## Imperative vs. declarative code
 
@@ -31,6 +35,8 @@ Gem::Specification.new do |spec|
 end
 ```
 
+<blockquote>Next: What's the difference?</blockquote>
+
 ## But they look the same!
 
 Ruby's gem specification style is _imperative_ because we're issuing instructions that are to be ran sequentially. It can keep variables, call functions, and do all the things you can do in a Ruby program. Think of the Ruby gemspec as a program talking to the system:
@@ -41,6 +47,8 @@ Ruby's gem specification style is _imperative_ because we're issuing instruction
 > - _Finish building._
 
 On the other hand, JavaScript's _declarative_ style isn't concerned with any instructions or control flow. It's not a piece of code that talks to your system, it's really just a table of keys and values.
+
+<blockquote>Next: What makes imperative-style different?</blockquote>
 
 ## Imperative is powerful
 
@@ -54,6 +62,8 @@ Gem::Specification.new do |spec|
 end
 ```
 
+<blockquote>Next: What makes declarative-style different?</blockquote>
+
 ## Declarative is easier to understand
 
 Imperative conventions give developers a great amount of flexibility. However, this power comes at the cost of _complexity_. Here's an example where development dependencies are _imperatively_ defined in a Ruby gem, taking advantage of Ruby's `Array#each` to reduce redundancy.
@@ -65,6 +75,8 @@ Gem::Specification.new do |spec|
   end
 end
 ```
+
+### Declarative in JavaScript
 
 In contrast, here's how it may be _declaratively_ defined in a JavaScript package's `package.json`.
 
@@ -79,6 +91,8 @@ In contrast, here's how it may be _declaratively_ defined in a JavaScript packag
 ```
 
 JavaScript's _declarative aproach_ may be less flexible than the _imperative_ one, but the constraints of a JSON format makes things more predictable and easier to glance.
+
+<blockquote>Next: What does this have to do with CSS?</blockquote>
 
 ## CSS is declarative
 
@@ -99,15 +113,19 @@ Array.from(document.querySelectorAll('button')).forEach(button => {
 })
 ```
 
-## A lot of JS-in-CSS is imperative
+<blockquote>Next: What about CSS-in-JS?</blockquote>
 
-At first glance, we can say that most JS-in-CSS solutions require you to write in a declarative style, since it's mostly just taking CSS and putting it in JavaScript. Here's how you would define a blue button using [styled-components]:
+## A lot of CSS-in-JS is imperative
+
+At first glance, we can say that most CSS-in-JS solutions require you to write in a declarative style, since it's mostly just taking CSS and putting it in JavaScript. Here's how you would define a blue button using [styled-components]:
 
 ```js
 const Button = styled.a`
   background: blue;
 `
 ```
+
+### Where it breaks down
 
 However, how would you start making red `danger` buttons? With _styled-components_, you'll have to provide a function which returns a CSS fragment depending on how you would interpret `props`:
 
@@ -124,7 +142,11 @@ const Button = styled.a`
 `
 ```
 
-This is where it starts to break down. We're now mixing the declarative nature of CSS with some rules that are written in an imperative style. We're also now interweaving 2 languages together&mdash;CSS and JavaScript&mdash;where your brain may have to switch contexts mid-way. This brain-context-switching is even more apparent in some other CSS-in-JS libraries:
+This is where it starts to break down. We're now mixing the declarative nature of CSS with some rules that are written in an imperative style. We're also now interweaving 2 languages together&mdash;CSS and JavaScript&mdash;where your brain may have to switch contexts mid-way.
+
+### Interpolation
+
+This brain-context-switching is even more apparent in some other CSS-in-JS libraries:
 
 ```css
 // using emotion
@@ -133,6 +155,8 @@ const Button = styled.a`
   opacity: ${props => props.isHidden ? 0 : 1};
 `
 ```
+
+<blockquote>Next: Let's look at how styled-jsx solves this.</blockquote>
 
 ## Declarative CSS with styled-jsx
 

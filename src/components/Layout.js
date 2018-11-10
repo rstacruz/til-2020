@@ -26,6 +26,16 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
+
+        <style jsx global>{`
+          @import url('https://fonts.googleapis.com/css?family=Alegreya:400,400i');
+          @import url('https://fonts.googleapis.com/css?family=Cousine');
+          @import url('https://fonts.googleapis.com/css?family=Roboto');
+          @import url('https://fonts.googleapis.com/css?family=Fira+Mono:300,400');
+          @import url('https://fonts.googleapis.com/css?family=PT+Mono:300,400');
+          @import url('https://fonts.googleapis.com/css?family=Montserrat');
+        `}</style>
+
         {/*<h1>{data.site.siteMetadata.title}</h1>*/}
         <div>{children}</div>
       </>

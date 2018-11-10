@@ -17,9 +17,11 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <BlogPostContent htmlAst={post.htmlAst} />
+        <BlogPostContent
+          title={post.frontmatter.title}
+          date={post.frontmatter.date}
+          htmlAst={post.htmlAst}
+        />
         {previous && (
           <Link to={previous.fields.slug} rel="prev">
             ← {previous.frontmatter.title}
