@@ -23,10 +23,17 @@ const style = css`
   .next-block {
     font-style: normal;
     margin: 0;
-    color: #666;
+    color: var(--heading-color);
+    font-weight: bold;
     padding-top: 1.5em;
     font-size: 1em;
     font-family: 'Inconsolata', sans-serif;
+  }
+
+  .next-block > :global(strong) {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.2em;
   }
 
   .next-block::after {

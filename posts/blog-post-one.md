@@ -3,7 +3,7 @@ title: My first post
 date: '2015-05-06T23:46:37.121Z'
 ---
 
-## Why I love styled-jsx
+## Why I love styled-jsx for CSS
 
 <!-- {.-large} -->
 
@@ -69,6 +69,8 @@ end
 <next-block title="What makes declarative-style different?"></next-block>
 
 ## Declarative is easier to understand
+
+### Imperative in Ruby
 
 Imperative conventions give developers a great amount of flexibility. However, this power comes at the cost of _complexity_. Here's an example where development dependencies are _imperatively_ defined in a Ruby gem, taking advantage of Ruby's `Array#each` to reduce redundancy.
 

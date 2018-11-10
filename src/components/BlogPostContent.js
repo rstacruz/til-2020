@@ -67,21 +67,24 @@ const style = css`
       @apply --em-style;
     }
 
+    & :global(strong) {
+      background: var(--accent);
+      font-weight: normal;
+    }
+
     & :global(.h2-section) {
-      border: solid 2px var(--border-color);
       padding-left: calc((100vw - 960px) / 2);
       padding-right: calc((100vw - 960px) / 2);
       padding-top: 64px;
       padding-bottom: 64px;
-      margin: 32px;
+      /* margin: 32px; */
       margin-top: 0;
       margin-bottom: 0;
+      border-top: solid 8px var(--accent);
     }
 
-    & :global(.h2-section:not(:last-child)) {
-      margin-top: -2px;
-      border-top: 0;
-      margin-bottom: 0;
+    & :global(.h2-section:nth-child(2n + 2)) {
+      /* box-shadow: 0 1px 2px #7892, 0 32px 48px #7891; */
     }
 
     & :global(.h2-section > h1),
@@ -93,8 +96,10 @@ const style = css`
     }
 
     & :global(.h2-section > h2.-large) {
+      max-width: 50%;
+      line-height: 1.3;
       font-size: calc(
-        1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2
+        1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2
       ); /* TODO modular-scale */
     }
 
@@ -141,8 +146,8 @@ const style = css`
     }
 
     & :global(pre) {
-      background: #fefefe;
-      color: #456;
+      background: white;
+      color: #458;
       box-shadow: inset 0 0 0 2px var(--accent), 0 16px 24px #f8f8aa0a;
       margin: 2.5em 0;
       line-height: 1.4;
