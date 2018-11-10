@@ -29,6 +29,5 @@ module.exports = {
     'react/prop-types': 0
   },
 
-  Enables parser for Flow annotatinos
-  parser: 'babel-eslint',
+  parser: 'babel-eslint'
 }

@@ -80,26 +80,25 @@ const style = css`
       margin-top: 0;
       margin-bottom: 0;
       border-top: solid 8px var(--accent);
+      border: solid 16px var(--accent);
+      border-bottom: 0;
     }
 
     & :global(.h2-section:nth-child(2n + 2)) {
       /* box-shadow: 0 1px 2px #7892, 0 32px 48px #7891; */
     }
 
-    & :global(.h2-section > h1),
     & :global(.h2-section > h2) {
-      font-size: calc(1.2em * 1.2 * 1.2 * 1.2); /* TODO modular-scale */
       @apply --h2-font;
+      @apply --font-size-5;
       color: var(--heading-color);
       margin-bottom: 1em;
     }
 
     & :global(.h2-section > h2.-large) {
+      @apply --font-size-7;
       max-width: 50%;
       line-height: 1.3;
-      font-size: calc(
-        1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2
-      ); /* TODO modular-scale */
     }
 
     & :global(.h3-section > h3) {
@@ -108,10 +107,7 @@ const style = css`
       text-transform: uppercase;
       font-size: 0.95em;
       color: var(--accent-text);
-      font-family: 'Fira Mono';
-      letter-spacing: 0.05em;
       font-weight: bold;
-      font-style: normal;
       margin-bottom: 0.3em;
     }
 

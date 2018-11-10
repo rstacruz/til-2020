@@ -18,7 +18,7 @@ const NextBlock = ({ title }) => {
 }
 
 const style = css`
-  @import 'src/styles/variables';
+  @import 'src/styles/variables.css';
 
   .next-block {
     font-style: normal;
