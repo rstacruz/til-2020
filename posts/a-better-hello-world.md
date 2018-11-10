@@ -1,13 +1,9 @@
 ---
-title: A better Hello World
+title: A Better Hello World Program
 date: '2017-09-19'
 # description: "Hello world programs aren't as useful today as they were before. Here's what I propose..."
 # tags: [Development]
 ---
-
-## A better <br> "Hello World"
-
-<!-- {.-large} -->
 
 The "Hello world" program is usually the first introduction to any programming language. It demonstrates the minimum amount you need to write a C program. It looks like this in the C programming language:
 

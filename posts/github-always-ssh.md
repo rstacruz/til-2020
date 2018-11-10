@@ -6,9 +6,7 @@ date: '2018-06-09'
 # tags: [Development]
 ---
 
-## Force git to use SSH on GitHub
-
-<!-- {.-large} -->
+It's pretty easy, have a look.
 
 ## Always SSH (recommended)
 

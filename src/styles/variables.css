@@ -5,6 +5,7 @@
 }
 
 :root {
+  --mute-text-color: #708090;
   --text-color: #303030;
   --heading-color: #080808;
   --border-color: #7080903c;
@@ -81,5 +82,10 @@
 
   --font-size-7: {
     font-size: calc(1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
+  }
+
+  --container-padding: {
+    padding-left: calc((100vw - 960px) / 2);
+    padding-right: calc((100vw - 960px) / 2);
   }
 }

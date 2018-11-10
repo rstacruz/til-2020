@@ -129,9 +129,8 @@ const h2SectionStyle = css.global`
 
   .h2-section {
     & {
+      @apply --container-padding;
       background: white;
-      padding-left: calc((100vw - 960px) / 2);
-      padding-right: calc((100vw - 960px) / 2);
       padding-top: 64px;
       padding-bottom: 64px;
       margin: 16px;
@@ -145,6 +144,7 @@ const h2SectionStyle = css.global`
     &:first-of-type {
       box-shadow: none;
       background: transparent;
+      padding-top: 0;
     }
 
     & + .h2-section {

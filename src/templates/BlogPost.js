@@ -1,8 +1,9 @@
+import { graphql, Link } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
 import BlogPostContent from '../components/BlogPostContent'
+import Layout from '../components/Layout'
+import BlogPostTitle from '../components/BlogPostTitle'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -10,18 +11,16 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
     const { previous, next } = this.props.pageContext
+    const { title, date } = post.frontmatter
 
     return (
       <Layout location={this.props.location}>
         <Helmet
           meta={[{ name: 'description', content: siteDescription }]}
-          title={`${post.frontmatter.title} | ${siteTitle}`}
+          title={`${title} | ${siteTitle}`}
         />
-        <BlogPostContent
-          title={post.frontmatter.title}
-          date={post.frontmatter.date}
-          htmlAst={post.htmlAst}
-        />
+        <BlogPostTitle title={title} date={date} />
+        <BlogPostContent title={title} date={date} htmlAst={post.htmlAst} />
         {previous && (
           <Link to={previous.fields.slug} rel="prev">
             ← {previous.frontmatter.title}
