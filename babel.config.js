@@ -40,11 +40,5 @@ module.exports = {
         regenerator: true,
       },
     ],
-    [
-      'styled-jsx/babel',
-      {
-        plugins: ['styled-jsx-plugin-postcss'],
-      },
-    ],
   ],
 }

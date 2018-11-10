@@ -15,8 +15,8 @@
   --border-color: #7080903c;
   --code-background: #fcfcfc;
 
-  /* --accent: color-mod(var(--yellow)); */
-  --accent: color-mod(var(--mint) tint(40%) saturation(-20%));
+  --accent: color-mod(var(--yellow));
+  /* --accent: color-mod(var(--mint) tint(40%) saturation(-20%)); */
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
 
   --accent-text: color-mod(

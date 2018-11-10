@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import BlogPostContent from '../components/BlogPostContent'
 import Layout from '../components/Layout'
 import BlogPostTitle from '../components/BlogPostTitle'
+import { MainHeading } from './MainHeading'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${title} | ${siteTitle}`}
         />
+        <MainHeading />
         <BlogPostTitle title={title} date={date} />
         <BlogPostContent title={title} date={date} htmlAst={post.htmlAst} />
         {previous && (
