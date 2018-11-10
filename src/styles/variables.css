@@ -1,9 +1,18 @@
 :root {
+  --yellow: #ffeaa7;
+  --mint: #55efc4;
+  --poster: #81ecec;
+}
+
+:root {
   --text-color: #303030;
   --heading-color: #080808;
   --border-color: #7080903c;
   --code-background: #fcfcfc;
-  --accent: #ffeaa7;
+
+  --accent: color-mod(var(--yellow));
+  --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
+
   --accent-text: color-mod(
     var(--accent) shade(20%) saturation(+30%) hue(-10deg)
   );
@@ -12,27 +21,42 @@
     content: '';
     display: block;
     height: 2px;
-    background: linear-gradient(to right, var(--accent) 20%, transparent 20%);
+    background: linear-gradient(
+      to right,
+      var(--co-accent),
+      var(--accent) 20%,
+      transparent 20%
+    );
+  }
+
+  /* --h2-font: {
+    font-weight: 900;
+    font-family: 'Chivo', sans-serif;
+    letter-spacing: -0.02em;
+  } */
+
+  --body-font: {
+    font-family: 'IBM Plex Sans', system-ui;
   }
 
   --h2-font: {
     font-weight: normal;
-    font-family: 'Chivo', sans-serif;
-    font-style: 900;
-    letter-spacing: -0.04em;
-  }
-
-  --h2-font-xxxx: {
-    font-weight: normal;
-    font-family: 'Alegreya', serif;
+    font-family: 'Alegreya', system-ui;
     font-style: normal;
   }
 
   --h3-font: {
     font-weight: bold;
-    font-family: 'Fira Mono';
+    font-family: 'IBM Plex Mono', system-ui;
     font-style: normal;
     letter-spacing: 0.05em;
+  }
+
+  --monolike-font: {
+    font-weight: normal;
+    font-family: 'IBM Plex Mono', system-ui;
+    font-style: normal;
+    letter-spacing: -0.05em;
   }
 
   --code-font: {
@@ -51,9 +75,11 @@
     font-size: calc(1.2em * 1.2 * 1.2 * 1.2 * 1.2);
   }
 
+  --font-size-6: {
+    font-size: calc(1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
+  }
+
   --font-size-7: {
-    font-size: calc(
-      1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2
-    );
+    font-size: calc(1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
   }
 }

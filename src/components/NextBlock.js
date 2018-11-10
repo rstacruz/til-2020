@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import css from 'styled-jsx/css'
+import { global as css } from 'styled-jsx/css'
 
 const NextBlock = ({ title }) => {
   return (
@@ -21,16 +21,14 @@ const style = css`
   @import 'src/styles/variables.css';
 
   .next-block {
-    font-style: normal;
+    @apply --monolike-font;
     margin: 0;
     color: var(--heading-color);
-    font-weight: bold;
     padding-top: 1.5em;
-    font-size: 1em;
-    font-family: 'Inconsolata', sans-serif;
+    font-size: 0.9em;
   }
 
-  .next-block > :global(strong) {
+  .next-block > strong {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.2em;

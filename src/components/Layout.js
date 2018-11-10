@@ -31,9 +31,8 @@ const Layout = ({ children }) => (
           @import url('https://fonts.googleapis.com/css?family=Alegreya:400,400i');
           @import url('https://fonts.googleapis.com/css?family=Cousine');
           @import url('https://fonts.googleapis.com/css?family=Roboto');
-          @import url('https://fonts.googleapis.com/css?family=Fira+Mono:300,400');
-          @import url('https://fonts.googleapis.com/css?family=PT+Mono:300,400');
-          @import url('https://fonts.googleapis.com/css?family=Chivo:700,900');
+          @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+          @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400');
         `}</style>
 
         {/*<h1>{data.site.siteMetadata.title}</h1>*/}
