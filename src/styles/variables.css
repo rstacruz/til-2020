@@ -5,17 +5,22 @@
 }
 
 :root {
+  --column-size: 66%;
+}
+
+:root {
   --mute-text-color: #708090;
   --text-color: #303030;
   --heading-color: #080808;
   --border-color: #7080903c;
   --code-background: #fcfcfc;
 
-  --accent: color-mod(var(--yellow));
+  /* --accent: color-mod(var(--yellow)); */
+  --accent: color-mod(var(--mint) tint(40%) saturation(-20%));
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
 
   --accent-text: color-mod(
-    var(--accent) shade(20%) saturation(+30%) hue(-10deg)
+    var(--accent) shade(40%) saturation(+30%) hue(-10deg)
   );
 
   --horizontal-rule: {
@@ -46,8 +51,8 @@
   }
 
   --h2-font: {
-    font-weight: 400;
-    font-family: 'Iosevka Web', system-ui;
+    font-weight: 700;
+    font-family: 'Chivo', system-ui;
   }
 
   --h3-font: {
@@ -65,13 +70,12 @@
   }
 
   --code-font: {
-    font-family: cousine, monospace;
-    letter-spacing: -0.04em;
+    font-family: 'Iosevka Web', monospace;
   }
 
   --em-style: {
     font-family: 'Alegreya', sans-serif;
-    font-size: 1.15em;
+    font-size: 1.1em;
     line-height: 0.2em;
     font-style: italic;
   }
@@ -93,7 +97,14 @@
   }
 
   --container-padding: {
-    padding-left: calc((100vw - 960px) / 2);
-    padding-right: calc((100vw - 960px) / 2);
+    & {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    @media (min-width: 1000px) {
+      padding-left: calc((100vw - 960px) / 2);
+      padding-right: calc((100vw - 960px) / 2);
+    }
   }
 }

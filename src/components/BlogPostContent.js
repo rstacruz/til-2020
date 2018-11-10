@@ -20,10 +20,7 @@ const BlogPostContent = ({ htmlAst }) => {
   return (
     <div className="blog-post-content">
       <PostContent htmlAst={htmlAst} />
-
       <style jsx>{style}</style>
-      <style jsx>{h2SectionStyle}</style>
-      <style jsx>{h3SectionStyle}</style>
     </div>
   )
 }
@@ -38,19 +35,21 @@ const style = css.global`
   .blog-post-content {
     & {
       @apply --body-font;
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 16.5px;
+      font-weight: 500;
+      line-height: 1.55;
       color: var(--text-color);
     }
 
-    & :global(a, a:visited) {
+    & a,
+    & a:visited {
       @apply --em-style;
       color: var(--text-color);
       text-decoration: none;
       white-space: nowrap;
     }
 
-    & :global(a::after) {
+    & a::after {
       content: '#';
       display: inline-block;
       font-size: 0.8em;
@@ -65,33 +64,33 @@ const style = css.global`
       color: white;
     }
 
-    & :global(em) {
+    & em {
       @apply --em-style;
     }
 
-    & :global(strong) {
+    & strong {
       background: var(--accent);
       font-weight: normal;
     }
 
-    & :global(p, ul, ol, pre, h3) {
+    & p,
+    & ul,
+    & ol,
+    & pre,
+    & h3 {
       margin-top: 1.5em;
       margin-bottom: 1.5em;
     }
 
-    & :global(h3 + p) {
+    & h3 + p {
       margin-top: -1.5em;
     }
 
-    & :global(p) {
-      width: 60%;
-    }
-
-    & :global(pre) {
+    & pre {
       background: white;
       /* color: #458; */
       box-shadow: inset 0 0 0 2px var(--accent);
-      /* , 0 16px 24px color-mod(var(--accent) alpha(4%)); */
+      /* box-shadow: inset 0 0 0 2px var(--accent), 0 12px 18px color-mod(var(--accent) alpha(8%)); */
       margin: 2.5em 0;
       line-height: 1.4;
       padding: 24px;
@@ -99,7 +98,7 @@ const style = css.global`
       font-size: 0.86em;
     }
 
-    & :global(code) {
+    & code {
       @apply --code-font;
       padding: 0.2em 0.2em;
       font-size: 0.9em;
@@ -107,93 +106,10 @@ const style = css.global`
       background: color-mod(var(--accent));
     }
 
-    & :global(pre code) {
+    & pre code {
       background: transparent;
       padding: 0;
       font-size: 1em;
-    }
-  }
-`
-
-const h2SectionStyle = css.global`
-  @import 'src/styles/variables.css';
-
-  /* body {
-    background: linear-gradient(45deg,
-      white 20%,
-      color-mod(var(--accent) tint(30%)) 20%,
-      color-mod(var(--accent) tint(20%) hue(-30deg)) 70%,
-      white 70%);
-    background-size: 800px 800px;
-  } */
-
-  .h2-section {
-    & {
-      @apply --container-padding;
-      background: white;
-      padding-top: 64px;
-      padding-bottom: 64px;
-      margin: 16px;
-      /* margin-top: 0;
-      margin-bottom: 0; */
-      /* border-top: solid 8px var(--accent);
-      border-bottom: 0; */
-      box-shadow: 0 1px 2px #8883, 0 16px 24px #8881;
-    }
-
-    &:first-of-type {
-      box-shadow: none;
-      background: transparent;
-      padding-top: 0;
-    }
-
-    & + .h2-section {
-      margin-top: -14px;
-    }
-
-    & > h2 {
-      @apply --h2-font;
-      @apply --font-size-4;
-      font-weight: 700;
-      color: var(--heading-color);
-      margin-bottom: 32px;
-      line-height: 1.3;
-      text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%));
-    }
-
-    & > h2.-large {
-      @apply --font-size-7;
-    }
-
-    & > h1::after,
-    & > h2::after {
-      margin-top: 32px;
-      @apply --horizontal-rule;
-    }
-  }
-`
-
-const h3SectionStyle = css.global`
-  @import 'src/styles/variables.css';
-
-  .h3-section {
-    & > h3 {
-      @apply --h3-font;
-      margin-top: 3.5em;
-      text-transform: uppercase;
-      font-size: 0.95em;
-      color: var(--accent-text);
-      font-weight: bold;
-      margin-bottom: 0.3em;
-    }
-
-    & > h3:empty {
-      display: none;
-    }
-
-    & > .body,
-    & > .body > :first-child {
-      margin-top: 0;
     }
   }
 `

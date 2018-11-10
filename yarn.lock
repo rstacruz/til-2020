@@ -8187,10 +8187,10 @@ rehype-react@^3.0.3:
     has "^1.0.1"
     hast-to-hyperscript "^5.0.0"
 
-rehype-sectionize-headings@^1.0.0-rc.2:
-  version "1.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/rehype-sectionize-headings/-/rehype-sectionize-headings-1.0.0-rc.2.tgz#f0304201acc5b1c7930223e8343c49f0ed23586d"
-  integrity sha512-qNUi0G1vzOf4/wQgA/eMjJvYY06aaBqwM3w+Jw4Ce9IfgwSyVe6X/pIWUjoAaDhWQ/deQOddrrJS0HmAVz3mRw==
+rehype-sectionize-headings@^1.0.0-rc.3:
+  version "1.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/rehype-sectionize-headings/-/rehype-sectionize-headings-1.0.0-rc.3.tgz#8b75eef488e0cf28c08b00f159a6791c4f431e51"
+  integrity sha512-dvw4CuZ/4TA1JvyH/Qkn663JvzF2l3b6Tz8V7KnovYhQwrIbTQnAOsdk+4oR/h7W2xb4ckuH9Kn6Sqhab1M7xw==
 
 relay-compiler@1.5.0:
   version "1.5.0"

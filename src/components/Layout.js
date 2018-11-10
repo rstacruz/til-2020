@@ -29,11 +29,9 @@ const Layout = ({ children }) => (
 
         <style jsx global>{`
           @import url('https://typeof.net/Iosevka/iosevka/webfont.css');
-          @import url('https://fonts.googleapis.com/css?family=Alegreya:400,400i');
-          @import url('https://fonts.googleapis.com/css?family=Cousine');
-          @import url('https://fonts.googleapis.com/css?family=Roboto');
+          @import url('https://fonts.googleapis.com/css?family=Alegreya:400i');
           @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
-          @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400');
+          @import url('https://fonts.googleapis.com/css?family=Chivo:400,700');
         `}</style>
 
         {/*<h1>{data.site.siteMetadata.title}</h1>*/}

@@ -21,14 +21,14 @@ const style = css`
     @apply --container-padding;
 
     & {
-      margin: 16px;
+      margin: 0;
     }
 
     & > h1 {
       @apply --h1-font;
       @apply --font-size-7;
       max-width: 50%;
-      text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%));
+      text-shadow: 2px 2px white, 4px 4px 0 color-mod(var(--accent) alpha(80%));
       margin: 0;
       padding: 0;
       line-height: 1.2;
