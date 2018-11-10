@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import BlogPostContent from '../components/BlogPostContent'
 import Layout from '../components/Layout'
 import BlogPostTitle from '../components/BlogPostTitle'
-import { MainHeading } from './MainHeading'
+import { MainHeading } from '../components/MainHeading'
 
 class BlogPostTemplate extends React.Component {
   render() {

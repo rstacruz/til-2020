@@ -1,0 +1,26 @@
+@import '../styles/variables.css';
+
+.main-heading {
+  padding: 32px;
+
+  & > a,
+  & > a:visited {
+    display: block;
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'chivo', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  & > a::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+    background: var(--accent);
+  }
+}

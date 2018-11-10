@@ -37,8 +37,7 @@
   }
 
   & strong {
-    background: var(--accent);
-    font-weight: normal;
+    font-weight: bold;
   }
 
   & p,
@@ -71,7 +70,7 @@
     padding: 0.2em 0.2em;
     font-size: 0.9em;
     background: var(--code-background);
-    background: color-mod(var(--accent));
+    background: var(--highlighter-color);
   }
 
   & pre code {

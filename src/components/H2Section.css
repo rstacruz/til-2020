@@ -4,13 +4,12 @@
   & {
     @apply --container-padding;
     background: white;
-    padding-top: 96px;
-    padding-bottom: 96px;
+    padding-top: 128px;
+    padding-bottom: 128px;
     position: relative;
   }
 
   &:not(:first-of-type) {
-    border-top: solid 32px color-mod(var(--accent) alpha(20%));
   }
 
   &:first-of-type {
@@ -42,4 +41,22 @@
     margin-top: 16px;
     @apply --horizontal-rule;
   }
+}
+
+/* .h2-section:not(:first-of-type)::before {
+  content: '';
+  display: block;
+  width: 128px;
+  height: 2em;
+  margin-top: -128px;
+  margin-bottom: 80px;
+
+  background: linear-gradient(30deg, var(--accent), var(--co-accent));
+} */
+
+.h2-separator {
+  height: 4px;
+  background: #fdfdfd;
+  box-shadow: inset 0 4px 4px -4px color-mod(var(--accent) shade(20%) alpha(90%)),
+    inset 0 -3px 2px -4px color-mod(var(--accent) shade(20%) alpha(90%));
 }

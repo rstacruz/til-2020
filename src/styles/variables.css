@@ -5,7 +5,7 @@
 }
 
 :root {
-  --column-size: 66%;
+  --column-size: 60%;
 }
 
 :root {
@@ -16,8 +16,10 @@
   --code-background: #fcfcfc;
 
   --accent: color-mod(var(--yellow));
+  /* --accent: color-mod(tomato tint(30%)); */
   /* --accent: color-mod(var(--mint) tint(40%) saturation(-20%)); */
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
+  --highlighter-color: color-mod(var(--accent) alpha(50%));
 
   --accent-text: color-mod(
     var(--accent) shade(40%) saturation(+30%) hue(-10deg)
@@ -66,7 +68,7 @@
     font-weight: normal;
     font-family: 'Iosevka Web', system-ui;
     font-style: normal;
-    letter-spacing: 0.1em;
+    letter-spacing: 0em;
   }
 
   --code-font: {
