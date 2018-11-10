@@ -31,8 +31,7 @@ const BlogPostContent = ({ htmlAst }) => {
  */
 
 const style = css`
-  @import 'src/styles/variables';
-
+  @import 'src/styles/variables.css';
   .blog-post-content {
     font-size: 16px;
     line-height: 1.6;
@@ -108,7 +107,7 @@ const style = css`
       margin-top: 3.5em;
       text-transform: uppercase;
       font-size: 0.95em;
-      color: var(--accent2);
+      color: var(--accent-text);
       font-family: 'Fira Mono';
       letter-spacing: 0.05em;
       font-weight: bold;

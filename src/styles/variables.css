@@ -4,7 +4,9 @@
   --border-color: #7080903c;
   --code-background: #fcfcfc;
   --accent: #ffeaa7;
-  --accent2: #fdcb6e;
+  --accent-text: color-mod(
+    var(--accent) shade(30%) saturation(+30%) hue(-10deg)
+  );
 
   --horizontal-rule: {
     content: '';

@@ -10,8 +10,6 @@ date: '2018-06-09'
 
 <!-- {.-large} -->
 
-It's actually pretty easy, let me show you.
-
 ## Always SSH (recommended)
 
 This forces GitHub to always use SSH, even for HTTPS URL's! This way, you can use `https://` GitHub URL's and they will still use your SSH key.
