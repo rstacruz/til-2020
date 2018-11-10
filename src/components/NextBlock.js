@@ -22,11 +22,11 @@ const style = css`
 
   .next-block {
     @apply --monolike-font;
+    clear: both;
     margin: 0;
     color: var(--heading-color);
     padding-top: 1.5em;
     font-size: 0.9em;
-    font-weight: bold;
   }
 
   .next-block > strong {

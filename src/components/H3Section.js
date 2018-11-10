@@ -35,6 +35,32 @@ const style = css.global`
       margin-top: 0;
     }
   }
+
+  .h3-section.-literate-style {
+    max-width: 100vw;
+
+    & > ::after,
+    & > .body::after {
+      content: '';
+      display: table;
+      clear: both;
+      zoom: 1;
+    }
+
+    & > .body > p {
+      width: 50%;
+      float: left;
+      padding-right: 32px;
+      margin-top: 0;
+    }
+
+    & > .body > pre,
+    & > .body > blockquote {
+      width: 50%;
+      float: right;
+      margin-top: 0;
+    }
+  }
 `
 
 export default H3Section

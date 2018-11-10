@@ -4,11 +4,11 @@ import css from 'styled-jsx/css'
 const H2Section = ({ children, className }) => (
   <section className={className}>
     {children}
-    <style jsx>{style2}</style>
+    <style jsx>{style}</style>
   </section>
 )
 
-const style2 = css.global`
+const style = css.global`
   @import 'src/styles/variables.css';
 
   .h2-section {

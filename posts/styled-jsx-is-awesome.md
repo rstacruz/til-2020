@@ -11,6 +11,8 @@ Before I tell you why I prefer _styled-jsx_, let's learn about some programming 
 
 ### Approach 1
 
+<!-- {.-literate-style} -->
+
 There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a **declarative** style of writing, where we try to express logic without providing any instructions.
 
 ```js
@@ -23,7 +25,9 @@ There are two styles of expressing data. The most common way is to simply write 
 
 ### Approach 2
 
-There are cases when this style may not be flexible enough, so some systems take an **imperative** approach. In contrast to the declarative style, it's a piece of code with instructions that runs procedurally. Here's an example of a Ruby [gem specification](https://guides.rubygems.org/specification-reference/), which defines a Ruby package's metadata:
+<!-- {.-literate-style} -->
+
+There are cases when this style may not be flexible enough, so some systems take an **imperative** approach. In contrast to the declarative style, it's a piece of code with instructions that runs procedurally. Here's an example of a Ruby [gem specification](https://guides.rubygems.org/specification-reference/), which defines a Ruby package's metadata.
 
 ```rb
 Gem::Specification.new do |spec|
@@ -50,7 +54,11 @@ On the other hand, JavaScript's _declarative_ style isn't concerned with any ins
 
 ## Imperative is powerful
 
-Imperative style gives you the power to write expressions that you can't easily do with a declarative-style conventions. For instance, here's an example gem specification where the list of files are gathered via a system command (`git ls-files`):
+###
+
+<!-- {.-literate-style} -->
+
+Imperative style gives you the power to write expressions that you can't easily do with a declarative-style conventions. For instance, here's an example gem specification where the list of files are gathered via a system command (`git ls-files`).
 
 ```rb
 Gem::Specification.new do |spec|
@@ -66,6 +74,8 @@ end
 
 ### Imperative in Ruby
 
+<!-- {.-literate-style} -->
+
 Imperative conventions give developers a great amount of flexibility. However, this power comes at the cost of _complexity_. Here's an example where development dependencies are _imperatively_ defined in a Ruby gem, taking advantage of Ruby's `Array#each` to reduce redundancy.
 
 ```rb
@@ -77,6 +87,8 @@ end
 ```
 
 ### Declarative in JavaScript
+
+<!-- {.-literate-style} -->
 
 In contrast, here's how it may be _declaratively_ defined in a JavaScript package's `package.json`.
 
