@@ -3,9 +3,8 @@
 .h2-section {
   & {
     @apply --container-padding;
-    background: white;
-    padding-top: 128px;
-    padding-bottom: 128px;
+    padding-top: 64px;
+    padding-bottom: 96px;
     position: relative;
   }
 
@@ -41,6 +40,46 @@
     margin-top: 16px;
     @apply --horizontal-rule;
   }
+
+  margin: 0 16px;
+}
+
+.h2-section {
+  & {
+    transition: background-color 250ms linear, box-shadow 250ms linear,
+      transform 250ms ease-in;
+  }
+
+  & > h2,
+  & > .body {
+    transition: opacity 250ms linear, color 250ms linear;
+  }
+}
+
+.h2-section:not(:first-child).-inactive {
+  & {
+    background-color: transparent;
+    transform: scale(0.99);
+  }
+
+  & > h2 {
+    color: var(--accent);
+  }
+
+  & > .body {
+    opacity: 0.2;
+  }
+}
+
+.h2-section.-active {
+  background-color: white;
+  box-shadow: 0 2px 3px #3451, 0 16px 24px #3451;
+  transform: scale(1);
+}
+
+.h2-section:first-child {
+  background-color: white;
+  box-shadow: none;
 }
 
 /* .h2-section:not(:first-of-type)::before {
