@@ -89,7 +89,7 @@ const style = css.global`
 
     & :global(pre) {
       background: white;
-      color: #458;
+      /* color: #458; */
       box-shadow: inset 0 0 0 2px var(--accent);
       /* , 0 16px 24px color-mod(var(--accent) alpha(4%)); */
       margin: 2.5em 0;
@@ -153,10 +153,10 @@ const h2SectionStyle = css.global`
 
     & > h2 {
       @apply --h2-font;
-      @apply --font-size-6;
+      @apply --font-size-4;
+      font-weight: 700;
       color: var(--heading-color);
       margin-bottom: 32px;
-      max-width: 50%;
       line-height: 1.3;
       text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%));
     }

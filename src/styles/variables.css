@@ -40,24 +40,28 @@
     font-family: 'IBM Plex Sans', system-ui;
   }
 
+  --h1-font: {
+    font-weight: 200;
+    font-family: 'Iosevka Web', system-ui;
+  }
+
   --h2-font: {
-    font-weight: normal;
-    font-family: 'Alegreya', system-ui;
-    font-style: normal;
+    font-weight: 400;
+    font-family: 'Iosevka Web', system-ui;
   }
 
   --h3-font: {
-    font-weight: bold;
-    font-family: 'IBM Plex Mono', system-ui;
+    font-weight: 400;
+    font-family: 'Iosevka Web', system-ui;
     font-style: normal;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
   }
 
   --monolike-font: {
     font-weight: normal;
-    font-family: 'IBM Plex Mono', system-ui;
+    font-family: 'Iosevka Web', system-ui;
     font-style: normal;
-    letter-spacing: -0.05em;
+    letter-spacing: 0.1em;
   }
 
   --code-font: {
@@ -70,6 +74,10 @@
     font-size: 1.15em;
     line-height: 0.2em;
     font-style: italic;
+  }
+
+  --font-size-4: {
+    font-size: calc(1.2em * 1.2 * 1.2 * 1.2);
   }
 
   --font-size-5: {

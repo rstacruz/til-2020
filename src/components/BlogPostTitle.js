@@ -25,7 +25,7 @@ const style = css`
     }
 
     & > h1 {
-      @apply --h2-font;
+      @apply --h1-font;
       @apply --font-size-7;
       max-width: 50%;
       text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%));

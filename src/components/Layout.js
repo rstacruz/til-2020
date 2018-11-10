@@ -28,6 +28,7 @@ const Layout = ({ children }) => (
         </Helmet>
 
         <style jsx global>{`
+          @import url('https://typeof.net/Iosevka/iosevka/webfont.css');
           @import url('https://fonts.googleapis.com/css?family=Alegreya:400,400i');
           @import url('https://fonts.googleapis.com/css?family=Cousine');
           @import url('https://fonts.googleapis.com/css?family=Roboto');

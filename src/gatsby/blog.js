@@ -92,7 +92,7 @@ function buildPage(
 function buildQuery() {
   return `
   {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
       edges {
         node {
           id

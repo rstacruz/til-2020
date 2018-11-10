@@ -7,8 +7,6 @@ date: '2018-11-08'
 
 Before I tell you why I prefer _styled-jsx_, let's learn about some programming concepts&mdash;It'll all make sense later, trust me!
 
-<next-block title="Let's get started!"></next-block>
-
 ## Imperative vs. declarative code
 
 ### Approach 1
