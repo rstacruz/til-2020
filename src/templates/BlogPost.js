@@ -15,14 +15,14 @@ export type Props = {
   location: string,
   pageContext: {
     previous: PageNode,
-    next: PageNode,
+    next: PageNode
   },
   data: {
     markdownRemark: PageNode & {
-      htmlAst: HastNode,
+      htmlAst: HastNode
     },
-    site: { siteMetadata: { title: string } },
-  },
+    site: { siteMetadata: { title: string } }
+  }
 }
 
 class BlogPostTemplate extends React.Component<Props> {
@@ -68,7 +68,7 @@ function transformHtmlAst(ast: HastNode): HastNode {
   ast = decorate(ast)
   ast = sectionize(ast, {
     h2: { sectionTag: 'h2-section' },
-    h3: { sectionTag: 'h3-section' },
+    h3: { sectionTag: 'h3-section' }
   })
   return ast
 }

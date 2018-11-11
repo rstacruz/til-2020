@@ -1,10 +1,12 @@
 @import 'src/styles/variables.css';
 
 .main-heading {
-  padding: 32px 16px;
+  padding: 48px 16px;
   display: flex;
-  margin-top: 32px;
-  margin-bottom: -112px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .left,
@@ -14,6 +16,7 @@
 
 .right {
   text-align: right;
+  @apply --font-size--1;
 }
 
 .main-heading :global(.home-link),
@@ -31,21 +34,25 @@
   content: '';
   display: inline-block;
   vertical-align: middle;
-  width: 48px;
-  height: 24px;
+  width: 64px;
+  height: 6px;
+  border-radius: 3px;
+  border: solid 2px var(--accent);
   margin-right: 16px;
-  background: repeating-linear-gradient(
+  /* background: repeating-linear-gradient(
       45deg,
       white,
       white 4px,
       transparent 4px,
       transparent 6px
     ),
-    linear-gradient(30deg, var(--accent), var(--co-accent));
+    linear-gradient(30deg, var(--accent), var(--co-accent)); */
 }
 
 .prefix {
   white-space: nowrap;
+  display: block;
+  margin-bottom: 16px;
 }
 
 .prefix::before {

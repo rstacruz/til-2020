@@ -10,3 +10,8 @@
   @apply --monolike-font;
   font-weight: normal;
 }
+
+.post-title-snip.-small {
+  white-space: nowrap;
+  text-transform: uppercase;
+}

@@ -4,8 +4,7 @@
   @apply --container-padding;
 
   & {
-    margin: 0 32px;
-    margin-bottom: 32px;
+    margin: 32px;
     padding-bottom: 128px;
     padding-top: 40vh;
     @apply --shadow-paper;

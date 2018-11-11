@@ -17,5 +17,6 @@
     @apply --font-size--1;
     color: var(--mute-text-color);
     margin-left: 16px;
+    letter-spacing: 0.02em;
   }
 }

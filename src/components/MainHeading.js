@@ -17,7 +17,7 @@ export const MainHeading = ({ title, slug }) => {
           </Link>
           {' / '}
         </span>
-        <PostTitleSnip {...{ slug, title }} />
+        <PostTitleSnip {...{ slug, title }} variant="-small" />
       </span>
 
       <style jsx>{style}</style>
