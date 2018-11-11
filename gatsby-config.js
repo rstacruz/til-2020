@@ -9,31 +9,31 @@ function supportsManifest() {
 module.exports = {
   pathPrefix: '/tilnext',
   siteMetadata: {
-    title: 'TIL',
+    title: 'TIL'
   },
   plugins: [
-    'gatsby-plugin-styled-jsx',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-styled-jsx',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/posts`,
-      },
+        path: `${__dirname}/posts`
+      }
     },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-component'],
-      },
+        plugins: ['gatsby-remark-component']
+      }
     },
     ...(supportsManifest()
       ? [
@@ -46,10 +46,10 @@ module.exports = {
               background_color: '#663399',
               theme_color: '#663399',
               display: 'minimal-ui',
-              icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-            },
-          },
+              icon: 'src/images/gatsby-icon.png' // This path is relative to the root of the site.
+            }
+          }
         ]
-      : []),
-  ],
+      : [])
+  ]
 }

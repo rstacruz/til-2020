@@ -1,4 +1,4 @@
-@import '../styles/variables.css';
+@import 'src/styles/variables.css';
 
 .h2-section {
   & {
@@ -6,13 +6,14 @@
     padding-top: 64px;
     padding-bottom: 96px;
     position: relative;
+    margin: 0 32px;
   }
 
   & + .h2-section {
     margin-top: -14px;
   }
 
-  & > h2 {
+  & > :global(h2) {
     @apply --h2-font;
     @apply --font-size-4;
     color: var(--heading-color);
@@ -21,17 +22,6 @@
     text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%));
     max-width: var(--column-size);
   }
-
-  & > h2.-large {
-    @apply --font-size-7;
-  }
-
-  /* & > h2::before {
-    margin-bottom: 32px;
-    @apply --horizontal-rule;
-  } */
-
-  margin: 0 32px;
 }
 
 .h2-section {
@@ -41,7 +31,7 @@
   }
 
   & > h2,
-  & > .body {
+  & > :global(.body) {
     transition: opacity 250ms linear, color 250ms linear;
   }
 }
@@ -52,12 +42,12 @@
     transform: scale(0.99);
   }
 
-  & > h2 {
+  & > :global(h2) {
     color: var(--accent);
     text-shadow: none;
   }
 
-  & > .body {
+  & > :global(.body) {
     opacity: 0.2;
   }
 }
@@ -65,11 +55,4 @@
 .h2-section.-active {
   @apply --shadow-paper;
   background-color: white;
-}
-
-.h2-separator {
-  height: 4px;
-  background: #fdfdfd;
-  box-shadow: inset 0 4px 4px -4px color-mod(var(--accent) shade(20%) alpha(90%)),
-    inset 0 -3px 2px -4px color-mod(var(--accent) shade(20%) alpha(90%));
 }
