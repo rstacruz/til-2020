@@ -1,6 +1,4 @@
 import React from 'react'
-import decorate from 'rehype-decorate'
-import sectionize from 'rehype-sectionize-headings'
 import RehypeReact from 'rehype-react'
 import NextBlock from './NextBlock'
 import H2Section from './H2Section'
@@ -16,13 +14,7 @@ const PostContent = ({ htmlAst }) => {
     },
   }).Compiler
 
-  let ast = htmlAst
-  ast = decorate(ast)
-  ast = sectionize(ast, {
-    h2: { sectionTag: 'h2-section' },
-    h3: { sectionTag: 'h3-section' },
-  })
-  return toReact(ast)
+  return toReact(htmlAst)
 }
 
 export default PostContent

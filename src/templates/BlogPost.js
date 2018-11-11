@@ -3,6 +3,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import BlogPostContent from '../components/BlogPostContent'
 import BlogPostTitle from '../components/BlogPostTitle'
+import decorate from 'rehype-decorate'
+import sectionize from 'rehype-sectionize-headings'
 import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
 
@@ -14,6 +16,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     const { title, date } = post.frontmatter
     const { slug } = post.fields
+    const htmlAst = transformHtmlAst(post.htmlAst)
 
     return (
       <Layout location={this.props.location}>
@@ -21,9 +24,9 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${title} | ${siteTitle}`}
         />
-        <MainHeading title={title} slug={slug} />
-        <BlogPostTitle title={title} date={date} />
-        <BlogPostContent title={title} date={date} htmlAst={post.htmlAst} />
+        <MainHeading {...{ title, slug }} />
+        <BlogPostTitle {...{ title, date }} />
+        <BlogPostContent {...{ title, date, htmlAst }} />
         {previous && (
           <Link to={previous.fields.slug} rel="prev">
             ← {previous.frontmatter.title}
@@ -37,6 +40,15 @@ class BlogPostTemplate extends React.Component {
       </Layout>
     )
   }
+}
+
+function transformHtmlAst(ast) {
+  ast = decorate(ast)
+  ast = sectionize(ast, {
+    h2: { sectionTag: 'h2-section' },
+    h3: { sectionTag: 'h3-section' },
+  })
+  return ast
 }
 
 export default BlogPostTemplate
