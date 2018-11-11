@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/tilnext',
   siteMetadata: {
     title: 'TIL',
   },
