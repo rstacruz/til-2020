@@ -1,19 +1,22 @@
 @import '../styles/variables.css';
 
 .main-heading {
-  padding: 32px;
-
-  & > div {
-    display: inline-block;
+  & {
+    padding: 32px;
+    display: flex;
   }
 
-  & > div > .title {
-    @apply --monolike-font;
-    margin-left: 16px;
+  & > .left,
+  & > .right {
+    flex: 1 1 auto;
   }
 
-  & > a,
-  & > a:visited {
+  & > .right {
+    text-align: right;
+  }
+
+  & > .right > .prefix > a,
+  & > .right > .prefix > a:visited {
     display: inline-block;
     color: #111;
     text-decoration: none;
@@ -23,7 +26,7 @@
     letter-spacing: 0.1em;
   }
 
-  & > a::before {
+  & > .left > .brand::before {
     content: '';
     display: inline-block;
     vertical-align: middle;
@@ -31,5 +34,37 @@
     height: 32px;
     margin-right: 16px;
     background: var(--accent);
+  }
+
+  & > .right > .prefix {
+    white-space: nowrap;
+  }
+
+  & > .right > .prefix::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 30vw;
+    height: 6px;
+    border-radius: 3px;
+    border: solid 2px var(--accent);
+    margin-right: 32px;
+  }
+
+  & > .right > .prefix,
+  & > .left {
+    animation: fade-in 1000ms linear;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

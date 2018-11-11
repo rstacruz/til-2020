@@ -7,9 +7,16 @@ import { PostTitleSnip } from './PostTitleSnip'
 export const MainHeading = ({ title, slug }) => {
   return (
     <div className="main-heading">
-      <Link to="/">TIL</Link>
-      {' / '}
-      <PostTitleSnip {...{ slug, title }} />
+      <span className="left">
+        <Link to="/" className="brand" />
+      </span>
+      <span className="right">
+        <span className="prefix">
+          <Link to="/">TIL</Link>
+          {' / '}
+        </span>
+        <PostTitleSnip {...{ slug, title }} />
+      </span>
     </div>
   )
 }

@@ -28,7 +28,7 @@ const IndexPage = (props: Props) => {
   const data = props.data
   const { edges } = data.allMarkdownRemark
 
-  const pages: PageNode[] = edges.map(edge => ({
+  const pages = edges.map((edge: { node: PageNode }) => ({
     node: edge.node,
     key: edge.node.fields.slug,
   }))
