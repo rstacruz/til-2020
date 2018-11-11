@@ -1,0 +1,32 @@
+@import '../styles/variables.css';
+
+.post-link {
+  & > a {
+    padding: 16px 0;
+    display: block;
+    @apply --monolike-font;
+    border-top: solid 1px var(--border-color);
+  }
+
+  & > a,
+  & > a:visited {
+    text-decoration: none;
+    color: var(--heading-color);
+  }
+
+  & > a > .title {
+    font-weight: normal;
+  }
+
+  & > a > .date {
+    @apply --font-size--1;
+    color: var(--mute-text-color);
+    margin-left: 16px;
+  }
+}
+
+.post-list {
+  max-width: 860px;
+  margin: 32px auto;
+  border-bottom: solid 1px var(--border-color);
+}

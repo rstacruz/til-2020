@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@babel/node": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
     "eslint": "^5.8.0",
     "gh-pages": "^2.0.1",
     "nodemon": "^1.18.6",

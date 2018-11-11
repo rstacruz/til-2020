@@ -1,33 +1,44 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+/*
+ * Home page
+ * =========
+ *
+ * @flow
+ */
 
-const IndexPage = props => {
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import PostLink from '../components/PostLink'
+
+export type Props = {
+  data: {
+    site: {
+      siteMetadata: { title: string },
+    },
+    allMarkdownRemark: {
+      edges: Array<{
+        node: {
+          excerpt: string,
+          fields: { slug: string },
+          frontmatter: { title: string, date: string },
+        },
+      }>,
+    },
+  },
+}
+
+const IndexPage = (props: Props) => {
   const data = props.data
   const { edges } = data.allMarkdownRemark
 
   return (
     <Layout>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      {edges.map(edge => (
-        <Item node={edge.node} key={edge.node.fields.slug} />
-      ))}
+      <div className="post-list">
+        {edges.map(edge => (
+          <PostLink node={edge.node} key={edge.node.fields.slug} />
+        ))}
+      </div>
     </Layout>
-  )
-}
-
-export const Item = ({ node }) => {
-  const { slug } = node.fields
-  const { title, date } = node.frontmatter
-  return (
-    <div>
-      <Link to={slug}>
-        <strong>{title || slug}</strong>
-        <small>{date}</small>
-      </Link>
-    </div>
   )
 }
 
