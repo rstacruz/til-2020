@@ -24,9 +24,3 @@
     margin-left: 16px;
   }
 }
-
-.post-list {
-  max-width: 860px;
-  margin: 32px auto;
-  border-bottom: solid 1px var(--border-color);
-}

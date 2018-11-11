@@ -8,7 +8,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PostLink from '../components/PostLink'
+import PageList from '../components/PageList'
+import { type PageNode } from '../types'
 
 export type Props = {
   data: {
@@ -17,11 +18,7 @@ export type Props = {
     },
     allMarkdownRemark: {
       edges: Array<{
-        node: {
-          excerpt: string,
-          fields: { slug: string },
-          frontmatter: { title: string, date: string },
-        },
+        node: PageNode,
       }>,
     },
   },
@@ -31,13 +28,14 @@ const IndexPage = (props: Props) => {
   const data = props.data
   const { edges } = data.allMarkdownRemark
 
+  const pages: PageNode[] = edges.map(edge => ({
+    node: edge.node,
+    key: edge.node.fields.slug,
+  }))
+
   return (
     <Layout>
-      <div className="post-list">
-        {edges.map(edge => (
-          <PostLink node={edge.node} key={edge.node.fields.slug} />
-        ))}
-      </div>
+      <PageList pages={pages} />
     </Layout>
   )
 }
