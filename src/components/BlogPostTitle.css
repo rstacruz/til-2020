@@ -10,7 +10,6 @@
   & > h1 {
     @apply --h1-font;
     @apply --font-size-7;
-    max-width: 50%;
     text-shadow: 2px 2px white, 4px 4px 0 color-mod(var(--accent) alpha(80%));
     margin: 0;
     padding: 0;
@@ -18,20 +17,38 @@
     margin-top: 1em;
   }
 
+  @media (min-width: 768.1px) {
+    & > h1 {
+      max-width: 50%;
+    }
+  }
+
   & > hr {
     display: block;
     border: 0;
     @apply --horizontal-rule;
-    margin: 48px 0;
+    margin: 16px 0;
+  }
+
+  @media (min-width: 768.1px) {
+    & > hr {
+      margin: 48px 0;
+    }
   }
 
   & > .byline {
     @apply --h3-font;
     text-transform: uppercase;
     font-weight: bold;
-    margin-top: 2em;
+    margin-top: 1em;
     color: var(--accent-text);
     font-size: 0.9em;
+  }
+
+  @media (min-width: 768.1px) {
+    & > .byline {
+      margin-top: 2em;
+    }
   }
 }
 
