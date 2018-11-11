@@ -1,31 +1,17 @@
 import React from 'react'
 import Waypoint from 'react-waypoint'
-import debugjs from 'debug'
 import './H2Section.css'
-
-const debug = debugjs('app:H2Section')
 
 class H2Section extends React.Component {
   state = {
-    entered: true,
-  }
-
-  constructor(props) {
-    super(props)
-    debug('constructor', this.props.className)
-  }
-
-  componentDidMount() {
-    debug('componentDidMount', this.props.className)
+    entered: false,
   }
 
   onEnter = () => {
-    debug('onenter', this.props.className)
     this.setState({ entered: true })
   }
 
   onLeave = () => {
-    debug('onleave', this.props.className)
     this.setState({ entered: false })
   }
 
