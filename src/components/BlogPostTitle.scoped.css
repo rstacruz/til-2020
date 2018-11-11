@@ -44,17 +44,26 @@
   }
 
   & > .byline {
-    @apply --h3-font;
-    text-transform: uppercase;
-    font-weight: bold;
+    font-family: 'Chivo', system-ui;
+    font-weight: normal;
     margin-top: 1em;
     color: var(--accent-text);
-    font-size: 0.9em;
+  }
+
+  & > .byline::before {
+    content: '';
+    display: inline-block;
+    background: var(--accent-text);
+    width: 32px;
+    vertical-align: middle;
+    height: 2px;
+    margin-right: 16px;
+    margin-left: -16px;
   }
 
   @media (min-width: 768.1px) {
     & > .byline {
-      margin: 2.5em 0;
+      margin: 2em 0;
     }
   }
 }
