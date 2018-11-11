@@ -1,4 +1,4 @@
-@import '../styles/variables.css';
+@import 'src/styles/variables.css';
 
 .blog-post-title {
   @apply --container-padding;

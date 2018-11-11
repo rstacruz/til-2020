@@ -1,4 +1,4 @@
-@import '../styles/variables.css';
+@import 'src/styles/variables.css';
 
 .next-block {
   @apply --monolike-font;
@@ -10,7 +10,7 @@
   font-size: 0.9em;
 }
 
-.next-block > strong {
+strong {
   font-weight: bold;
   text-transform: uppercase;
   padding: 0.2em;
@@ -18,13 +18,6 @@
   color: var(--accent-text);
   font-style: normal;
 }
-
-/* .next-block::after {
-  content: 'v';
-  color: var(--accent);
-  display: block;
-  font-size: 2em;
-} */
 
 .next-block::after {
   content: '';

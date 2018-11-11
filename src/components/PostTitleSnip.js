@@ -1,6 +1,6 @@
 import Overdrive from 'react-overdrive'
 import React from 'react'
-import './PostTitleSnip.css'
+import style from './PostTitleSnip.scoped.css'
 
 export const PostTitleSnip = ({ slug, title }) => {
   return (
@@ -8,6 +8,8 @@ export const PostTitleSnip = ({ slug, title }) => {
       <Overdrive id={`post-${slug}`}>
         <strong className="post-title-snip">{title}</strong>
       </Overdrive>
+
+      <style jsx>{style}</style>
     </span>
   )
 }

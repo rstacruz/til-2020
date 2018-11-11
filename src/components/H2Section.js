@@ -1,10 +1,10 @@
 import React from 'react'
 import Waypoint from 'react-waypoint'
-import './H2Section.css'
+import style from './H2Section.scoped.css'
 
 class H2Section extends React.Component {
   state = {
-    entered: false,
+    entered: false
   }
 
   onEnter = () => {
@@ -18,7 +18,7 @@ class H2Section extends React.Component {
   render() {
     const className = [
       this.props.className,
-      this.state.entered ? '-active' : '-inactive',
+      this.state.entered ? '-active' : '-inactive'
     ].join(' ')
 
     const { children } = this.props
@@ -30,7 +30,10 @@ class H2Section extends React.Component {
         topOffset="60%"
         bottomOffset="40%"
       >
-        <section className={className}>{children}</section>
+        <section className={className}>
+          {children}
+          <style jsx>{style}</style>
+        </section>
       </Waypoint>
     )
   }
