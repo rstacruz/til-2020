@@ -46,8 +46,9 @@ class BlogPostTemplate extends React.Component<Props> {
           title={`${title} | ${siteTitle}`}
         />
         <MainHeading {...{ title, slug }} />
-        <BlogPostTitle {...{ title, date, body: titleBody }} />
-        <BlogPostContent {...{ title, date, body: sections.slice(1) }} />
+        <BlogPostContent
+          {...{ title, date, titleBody, body: sections.slice(1) }}
+        />
 
         {previous && (
           <Link to={previous.fields.slug} rel="prev">
