@@ -7,9 +7,12 @@
     background: white;
     margin: 32px;
     padding-bottom: 128px;
-    padding-top: 40vh;
+    padding-top: 128px;
     @apply --shadow-paper;
-    border: solid 1px #ddd;
+    position: relative;
+    margin-top: 256px;
+    border: solid 1px #eee;
+    z-index: 5;
   }
 
   & > h1 {

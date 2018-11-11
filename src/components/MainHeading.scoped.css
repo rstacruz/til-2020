@@ -1,13 +1,13 @@
 @import 'src/styles/variables.css';
 
 .main-heading {
-  padding: 48px 16px;
+  padding: 16px;
+  padding-right: 64px;
   display: flex;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
 }
 
 .left,
