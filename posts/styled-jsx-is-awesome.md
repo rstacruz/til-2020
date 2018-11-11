@@ -176,9 +176,9 @@ const Button = styled.a`
 
 ## Declarative CSS with styled-jsx
 
-[styled-jsx] lets me write CSS in a declarative fashion. It also minimizes the interweaving of CSS and JavaScript code. This, in my opinion, makes styled-jsx code easier-to-understand, even at the modest cost of a little extra verbosity.
+### No props logic required
 
-How would you style a danger button differently in _styled-jsx_? Just use CSS classes as you normally would. Simple!
+<!-- {.-literate-style} -->
 
 ```js
 const Button = ({ children, danger }) => {
@@ -200,6 +200,12 @@ const style = css`
   }
 `
 ```
+
+[styled-jsx] lets me write CSS in a declarative fashion. It also minimizes the interweaving of CSS and JavaScript code. This, in my opinion, makes styled-jsx code easier-to-understand, even at the modest cost of a little extra verbosity.
+
+How would you style a danger button differently in _styled-jsx_? Just use CSS classes as you normally would. Simple!
+
+In this example, we simply declare a class rule with `.button.danger`, just as we would with regular CSS. There's no need for the props to be parsed from the CSS block.
 
 <next-block title="Let's recap what we've learned."></next-block>
 

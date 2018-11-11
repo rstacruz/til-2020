@@ -25,7 +25,8 @@
   }
 }
 
-.h3-section.-literate-style {
+.h3-section.-literate-style,
+.h3-section.-reverse-literate-style {
   max-width: 100vw;
 
   & > ::after,
@@ -48,5 +49,19 @@
     width: 50%;
     float: right;
     margin-top: 0;
+  }
+}
+
+.h3-section.-reverse-literate-style {
+  & > .body > p {
+    width: 50%;
+    float: right;
+    padding-left: 32px;
+  }
+
+  & > .body > pre,
+  & > .body > blockquote {
+    width: 50%;
+    float: left;
   }
 }

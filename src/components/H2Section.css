@@ -35,10 +35,10 @@
     @apply --font-size-7;
   }
 
-  & > h2::before {
+  /* & > h2::before {
     margin-bottom: 32px;
     @apply --horizontal-rule;
-  }
+  } */
 
   margin: 0 16px;
 }
@@ -74,7 +74,6 @@
 .h2-section.-active {
   background-color: white;
   box-shadow: 0 2px 3px #3451, 0 16px 24px #3451;
-  transform: scale(1);
 }
 
 .h2-section:first-child {
