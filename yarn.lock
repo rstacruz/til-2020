@@ -4275,6 +4275,18 @@ gatsby-plugin-react-helmet@^3.0.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-remove-trailing-slashes@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-trailing-slashes/-/gatsby-plugin-remove-trailing-slashes-2.0.5.tgz#91f4c8e5268369a64fc0a564ec2c1389987909d3"
+  integrity sha512-02bLTBCuPTv4Kgv+D2lXmMnwcqQK1JBeO5FBBgtwVUZrnzAOCNIoSFwQePNl9NrBOjrxvq3KureqlwzV0t3oVQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
+gatsby-plugin-styled-jsx-webpack-loader@^1.0.0-rc.1:
+  version "1.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-jsx-webpack-loader/-/gatsby-plugin-styled-jsx-webpack-loader-1.0.0-rc.1.tgz#2187c1088741807e1b229d86e3681ed50f4e8f1c"
+  integrity sha512-qJYmFy3CdQ0vB8oEhWBONF+mX5zRH/4SxbVmD42zHXkIenZH9K2a7bdYguuexPX/GYbMBJHvIN7shesXvqsKCQ==
+
 gatsby-plugin-styled-jsx@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-jsx/-/gatsby-plugin-styled-jsx-3.0.2.tgz#c6136ee3731742a8c38e4c0e3c4efff7563d5504"
