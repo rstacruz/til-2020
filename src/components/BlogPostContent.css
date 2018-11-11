@@ -1,5 +1,10 @@
 @import '../styles/variables.css';
 
+.blog-post-content {
+  background: color-mod(var(--highlighter-color) alpha(20%));
+  box-shadow: inset 20vw 0 0 white, inset 0 128px 0 white;
+}
+
 .blog-post-content,
 .MarkdownBody {
   & {
@@ -8,7 +13,6 @@
     font-weight: 500;
     line-height: 1.55;
     color: var(--text-color);
-    background: #fefefe;
   }
 
   & a,

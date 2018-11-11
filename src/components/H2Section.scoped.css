@@ -10,7 +10,7 @@
   }
 
   & + .h2-section {
-    margin-top: -14px;
+    margin-top: 32px;
   }
 
   & > :global(h2) {
@@ -27,7 +27,7 @@
 .h2-section {
   & {
     transition: background-color 250ms linear, box-shadow 250ms linear,
-      transform 250ms ease-in;
+      transform 250ms ease-in, filter 250ms linear;
   }
 
   & > h2,
@@ -38,8 +38,10 @@
 
 .h2-section.-inactive {
   & {
-    background-color: transparent;
     transform: scale(0.99);
+    background: white;
+    box-shadow: 0 1px 2px #1241;
+    z-index: 1;
   }
 
   & > :global(h2) {
@@ -55,4 +57,5 @@
 .h2-section.-active {
   @apply --shadow-paper;
   background-color: white;
+  z-index: 5;
 }
