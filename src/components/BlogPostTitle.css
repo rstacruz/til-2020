@@ -4,7 +4,12 @@
   @apply --container-padding;
 
   & {
-    margin: 0 16px;
+    margin: 0 32px;
+    margin-bottom: 32px;
+    padding-bottom: 128px;
+    padding-top: 40vh;
+    @apply --shadow-paper;
+    border: solid 1px #ddd;
   }
 
   & > h1 {
@@ -14,7 +19,6 @@
     margin: 0;
     padding: 0;
     line-height: 1.2;
-    margin-top: 1em;
   }
 
   @media (min-width: 768.1px) {
@@ -47,7 +51,7 @@
 
   @media (min-width: 768.1px) {
     & > .byline {
-      margin-top: 2em;
+      margin: 2.5em 0;
     }
   }
 }

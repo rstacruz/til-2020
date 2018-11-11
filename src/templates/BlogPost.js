@@ -1,3 +1,5 @@
+// @flow
+
 import { graphql, Link } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
@@ -7,8 +9,23 @@ import decorate from 'rehype-decorate'
 import sectionize from 'rehype-sectionize-headings'
 import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
+import { type PageNode, type HastNode } from '../types'
 
-class BlogPostTemplate extends React.Component {
+export type Props = {
+  location: string,
+  pageContext: {
+    previous: PageNode,
+    next: PageNode,
+  },
+  data: {
+    markdownRemark: PageNode & {
+      htmlAst: HastNode,
+    },
+    site: { siteMetadata: { title: string } },
+  },
+}
+
+class BlogPostTemplate extends React.Component<Props> {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -17,6 +34,10 @@ class BlogPostTemplate extends React.Component {
     const { title, date } = post.frontmatter
     const { slug } = post.fields
     const htmlAst = transformHtmlAst(post.htmlAst)
+    const sections = htmlAst.children || []
+
+    // The first part of the excerpt that will be promoted to the title card
+    const titleBody = (sections[0] && sections[0].children) || []
 
     return (
       <Layout location={this.props.location}>
@@ -25,8 +46,9 @@ class BlogPostTemplate extends React.Component {
           title={`${title} | ${siteTitle}`}
         />
         <MainHeading {...{ title, slug }} />
-        <BlogPostTitle {...{ title, date }} />
-        <BlogPostContent {...{ title, date, htmlAst }} />
+        <BlogPostTitle {...{ title, date, body: titleBody }} />
+        <BlogPostContent {...{ title, date, body: sections.slice(1) }} />
+
         {previous && (
           <Link to={previous.fields.slug} rel="prev">
             ← {previous.frontmatter.title}
@@ -42,7 +64,7 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-function transformHtmlAst(ast) {
+function transformHtmlAst(ast: HastNode): HastNode {
   ast = decorate(ast)
   ast = sectionize(ast, {
     h2: { sectionTag: 'h2-section' },

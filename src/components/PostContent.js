@@ -1,10 +1,16 @@
+// @flow
 import React from 'react'
 import RehypeReact from 'rehype-react'
 import NextBlock from './NextBlock'
 import H2Section from './H2Section'
 import H3Section from './H3Section'
+import { type HastNode } from '../types'
 
-const PostContent = ({ htmlAst }) => {
+export type Props = {
+  body: HastNode[],
+}
+
+const PostContent = ({ body }: Props) => {
   const toReact = new RehypeReact({
     createElement: React.createElement,
     components: {
@@ -14,7 +20,7 @@ const PostContent = ({ htmlAst }) => {
     },
   }).Compiler
 
-  return toReact(htmlAst)
+  return body.map(toReact)
 }
 
 export default PostContent

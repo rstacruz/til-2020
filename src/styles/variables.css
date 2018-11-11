@@ -113,4 +113,9 @@
       padding-right: calc((100vw - 960px) / 2);
     }
   }
+
+  --shadow-paper: {
+    border-radius: 2px;
+    box-shadow: 0 2px 3px #3451, 0 16px 24px #3451;
+  }
 }

@@ -3,12 +3,19 @@
  * ===============
  *
  * Blog post content
+ *
+ * @flow
  */
 
 import React from 'react'
 import PostContent from './PostContent'
 import Overdrive from 'react-overdrive'
 import './BlogPostContent.css'
+import { type HastNode } from '../types'
+
+export type Props = {
+  body: HastNode[],
+}
 
 /**
  * Blog post content.
@@ -17,10 +24,10 @@ import './BlogPostContent.css'
  *     <BlogPostContent htmlAst={htmlAst} />
  */
 
-const BlogPostContent = ({ htmlAst }) => {
+const BlogPostContent = ({ body }: Props) => {
   return (
     <div className="blog-post-content">
-      <PostContent htmlAst={htmlAst} />
+      <PostContent {...{ body }} />
     </div>
   )
 }

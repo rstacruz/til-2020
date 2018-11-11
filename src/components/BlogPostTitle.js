@@ -1,7 +1,11 @@
 import React from 'react'
 import './BlogPostTitle.css'
+import PostContent from './PostContent'
 
-const BlogPostTitle = ({ title, date }) => {
+// For MarkdownBody
+import './BlogPostContent.css'
+
+const BlogPostTitle = ({ title, date, body }) => {
   return (
     <div className="blog-post-title">
       <h1>
@@ -9,7 +13,10 @@ const BlogPostTitle = ({ title, date }) => {
       </h1>
       <p className="byline">Written by Rico Sta. Cruz / {date}</p>
 
-      <hr />
+      {/* <hr /> */}
+      <div className="MarkdownBody">
+        <PostContent body={body} />
+      </div>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 @import '../styles/variables.css';
 
-.blog-post-content {
+.blog-post-content,
+.MarkdownBody {
   & {
     @apply --body-font;
     font-size: 16.5px;

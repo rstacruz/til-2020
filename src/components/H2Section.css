@@ -8,15 +8,6 @@
     position: relative;
   }
 
-  &:not(:first-of-type) {
-  }
-
-  &:first-of-type {
-    box-shadow: none;
-    background: transparent;
-    padding-top: 0;
-  }
-
   & + .h2-section {
     margin-top: -14px;
   }
@@ -40,7 +31,7 @@
     @apply --horizontal-rule;
   } */
 
-  margin: 0 16px;
+  margin: 0 32px;
 }
 
 .h2-section {
@@ -55,7 +46,7 @@
   }
 }
 
-.h2-section:not(:first-child).-inactive {
+.h2-section.-inactive {
   & {
     background-color: transparent;
     transform: scale(0.99);
@@ -72,25 +63,9 @@
 }
 
 .h2-section.-active {
+  @apply --shadow-paper;
   background-color: white;
-  box-shadow: 0 2px 3px #3451, 0 16px 24px #3451;
 }
-
-.h2-section:first-child {
-  background-color: white;
-  box-shadow: none;
-}
-
-/* .h2-section:not(:first-of-type)::before {
-  content: '';
-  display: block;
-  width: 128px;
-  height: 2em;
-  margin-top: -128px;
-  margin-bottom: 80px;
-
-  background: linear-gradient(30deg, var(--accent), var(--co-accent));
-} */
 
 .h2-separator {
   height: 4px;

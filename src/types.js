@@ -10,3 +10,9 @@ export type PageNode = {
     date: string,
   },
 }
+
+export type HastNode = {
+  type: 'element' | 'comment' | 'text',
+  tagName: string,
+  children?: HastNode[],
+}

@@ -2,8 +2,10 @@
 
 .main-heading {
   & {
-    padding: 32px;
+    padding: 32px 16px;
     display: flex;
+    margin-top: 32px;
+    margin-bottom: -112px;
   }
 
   & > .left,
@@ -44,7 +46,7 @@
     content: '';
     display: inline-block;
     vertical-align: middle;
-    width: 30vw;
+    width: 10vw;
     height: 6px;
     border-radius: 3px;
     border: solid 2px var(--accent);
