@@ -48,6 +48,7 @@
     font-weight: normal;
     margin-top: 1em;
     color: var(--accent-text);
+    font-size: 0.9em;
   }
 
   & > .byline::before {
@@ -63,7 +64,7 @@
 
   @media (min-width: 768.1px) {
     & > .byline {
-      margin: 2em 0;
+      margin: 2.5em 0;
     }
   }
 }
