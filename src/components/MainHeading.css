@@ -32,10 +32,17 @@
     content: '';
     display: inline-block;
     vertical-align: middle;
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     margin-right: 16px;
-    background: var(--accent);
+    background: repeating-linear-gradient(
+        45deg,
+        white,
+        white 4px,
+        transparent 4px,
+        transparent 6px
+      ),
+      linear-gradient(30deg, var(--accent), var(--co-accent));
   }
 
   & > .right > .prefix {
