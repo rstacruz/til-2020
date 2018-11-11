@@ -17,9 +17,11 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-### In modern times
+<next-block title="What's wrong with that?"></next-block>
 
-In more modern languages however, this example isn't as useful anymore. Here's the same example in Python:
+## A modern "Hello world"
+
+In more modern languages however, this example isn't as useful anymore. Here's the same example in Python. Notice how it doesn't teach anything other than `print`.
 
 ```py
 # hello.py
@@ -28,7 +30,9 @@ print "Hello, world!"
 
 <next-block title="Let's improve on this."></next-block>
 
-## A better hello world
+## Improving "Hello world"
+
+### "Hello world" in JavaScript
 
 In today's world of more succint programming languages, we need a different "hello world" to demonstrate language features better. Here's what I propose:
 
@@ -55,9 +59,7 @@ This simple example demonstrates a few more things than printing strings, such a
 
 <next-block title="Let's look at some more examples."></next-block>
 
-## More examples
-
-### Go version
+## Example: Go version
 
 I've started writing these kinds of programs for languages that I'm learning. Here's how it'd look like in Go, which I've added to my [Go cheatsheet](https://ricostacruz.com/cheatsheets/go):
 
@@ -77,7 +79,7 @@ func getGreeting(name string) (string) {
 }
 ```
 
-### Elixir version
+## Example: Elixir version
 
 Here's an Elixir version, also at the [Elixir cheatsheet](https://ricostacruz.com/cheatsheets/elixir):
 
