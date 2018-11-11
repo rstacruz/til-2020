@@ -1,23 +1,19 @@
-@import '../styles/variables.css';
+@import 'src/styles/variables.css';
 
-.post-link {
-  & > a {
+.post-link > :global(a) {
+  & {
     padding: 16px 0;
     display: block;
     border-top: solid 1px var(--border-color);
   }
 
-  & > a,
-  & > a:visited {
+  &,
+  &:visited {
     text-decoration: none;
     color: var(--heading-color);
   }
 
-  & > a > * > .title {
-    font-weight: normal;
-  }
-
-  & > a > .date {
+  & > .date {
     @apply --font-size--1;
     color: var(--mute-text-color);
     margin-left: 16px;
