@@ -26,6 +26,7 @@ module.exports = {
     ],
   ],
   plugins: [
+    ['styled-jsx/babel', { plugins: ['styled-jsx-plugin-postcss'] }],
     [
       '@babel/plugin-proposal-class-properties',
       {

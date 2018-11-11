@@ -7,5 +7,29 @@ const templatePath = require('path').resolve(
 )
 
 module.exports = blog({
-  templatePath,
+  templatePath
 })
+
+module.exports = {
+  ...module.exports,
+  onCreateWebpackConfig: ({ actions, loaders }) => {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /\.scoped\.css$/,
+            use: [
+              loaders.js(),
+              {
+                loader: require('styled-jsx/webpack').loader,
+                options: {
+                  // plugins: ['styled-jsx-plugin-postcss']
+                }
+              }
+            ]
+          }
+        ]
+      }
+    })
+  }
+}

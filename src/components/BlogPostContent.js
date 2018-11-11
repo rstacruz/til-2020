@@ -14,7 +14,7 @@ import './BlogPostContent.css'
 import { type HastNode } from '../types'
 
 export type Props = {
-  body: HastNode[],
+  body: HastNode[]
 }
 
 /**

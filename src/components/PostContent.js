@@ -1,5 +1,13 @@
-// @flow
-import React from 'react'
+/*
+ * PostContent
+ * ===========
+ *
+ * Renders a Remark HAST as React nodes.
+ *
+ * @flow
+ */
+
+import * as React from 'react'
 import RehypeReact from 'rehype-react'
 import NextBlock from './NextBlock'
 import H2Section from './H2Section'
@@ -10,7 +18,7 @@ export type Props = {
   body: HastNode[],
 }
 
-const PostContent = ({ body }: Props) => {
+const PostContent = ({ body }: Props): React.Node => {
   const toReact = new RehypeReact({
     createElement: React.createElement,
     components: {
