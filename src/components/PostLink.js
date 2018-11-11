@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import './PostLink.css'
+import { PostTitleSnip } from './PostTitleSnip'
 
 const PostLink = ({ node }) => {
   const { slug } = node.fields
@@ -8,7 +9,7 @@ const PostLink = ({ node }) => {
   return (
     <article className="post-link">
       <Link to={slug}>
-        <strong className="title">{title || slug}</strong>
+        <PostTitleSnip {...{ slug, title }} />
         <small className="date">{date}</small>
       </Link>
     </article>

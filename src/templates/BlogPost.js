@@ -2,8 +2,8 @@ import { graphql, Link } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 import BlogPostContent from '../components/BlogPostContent'
-import Layout from '../components/Layout'
 import BlogPostTitle from '../components/BlogPostTitle'
+import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
 
 class BlogPostTemplate extends React.Component {
@@ -13,6 +13,7 @@ class BlogPostTemplate extends React.Component {
     const siteDescription = post.excerpt
     const { previous, next } = this.props.pageContext
     const { title, date } = post.frontmatter
+    const { slug } = post.fields
 
     return (
       <Layout location={this.props.location}>
@@ -20,7 +21,7 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${title} | ${siteTitle}`}
         />
-        <MainHeading />
+        <MainHeading title={title} slug={slug} />
         <BlogPostTitle title={title} date={date} />
         <BlogPostContent title={title} date={date} htmlAst={post.htmlAst} />
         {previous && (
@@ -51,6 +52,9 @@ export const pageQuery = graphql`
       id
       excerpt
       htmlAst
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

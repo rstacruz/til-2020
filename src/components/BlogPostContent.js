@@ -7,6 +7,7 @@
 
 import React from 'react'
 import PostContent from './PostContent'
+import Overdrive from 'react-overdrive'
 import './BlogPostContent.css'
 
 /**

@@ -4,7 +4,6 @@
   & > a {
     padding: 16px 0;
     display: block;
-    @apply --monolike-font;
     border-top: solid 1px var(--border-color);
   }
 
@@ -14,7 +13,7 @@
     color: var(--heading-color);
   }
 
-  & > a > .title {
+  & > a > * > .title {
     font-weight: normal;
   }
 
