@@ -2,31 +2,36 @@
 
 .next-block {
   & {
-    @apply --monolike-font;
+    @apply --em-style;
+    line-height: 1;
     clear: both;
     margin: 0;
     color: var(--text-color);
     font-style: italic;
     padding-top: 1.5em;
-    font-size: 0.9em;
   }
 
   & > strong {
+    @apply --monolike-font;
+    @apply --font-size--1;
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.2em;
     background: var(--highlighter-color);
     color: var(--accent-text);
     font-style: normal;
+    margin-right: 0.5em;
   }
 
   &::after {
+    display: none;
     content: '';
     display: inline-block;
     vertical-align: middle;
-    width: 128px;
-    height: 2px;
+    width: 64px;
+    height: 3px;
+    border-radius: 2px;
     background: var(--accent);
-    margin: 0 16px;
+    margin: 0 24px;
   }
 }

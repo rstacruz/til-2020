@@ -67,6 +67,18 @@
     padding: 16px 0;
   }
 
+  & > .byline::before {
+    content: '';
+    display: inline-block;
+    width: 2em;
+    height: 4px;
+    border-radius: 4px;
+    vertical-align: baseline;
+    background: var(--accent);
+    margin-top: 0.5em;
+    float: right;
+  }
+
   /* & > .byline::before,
   & > .byline::after {
     content: '';
