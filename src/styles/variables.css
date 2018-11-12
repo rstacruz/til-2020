@@ -13,6 +13,7 @@
   --text-color: #303030;
   --heading-color: #080808;
   --border-color: #7080903c;
+  --pane-background: #f3f5f8;
   --code-background: #fcfcfc;
 
   --accent: color-mod(var(--poster));

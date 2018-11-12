@@ -12,6 +12,7 @@ import { MainHeading } from '../components/MainHeading'
 import { type PageNode, type HastNode } from '../types'
 import { BlogNav } from '../components/BlogNav'
 import { PostPagination } from '../components/PostPagination'
+import { ColophonSection } from '../components/ColophonSection'
 
 export type Props = {
   location: string,
@@ -56,6 +57,7 @@ class BlogPostTemplate extends React.Component<Props> {
         </div>
 
         <PostPagination {...{ previous, next }} />
+        <ColophonSection />
       </Layout>
     )
   }

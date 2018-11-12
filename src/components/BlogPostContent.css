@@ -2,7 +2,7 @@
 
 .blog-post-content {
   /* background: #f3faf8; */
-  background: #f3f5f8;
+  background: var(--pane-background);
   box-shadow: inset 128px 0 0 white, inset 0 64px 0 white, inset 0 -64px 0 white;
 }
 
