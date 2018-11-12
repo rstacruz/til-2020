@@ -7,18 +7,17 @@ import { PostTitleSnip } from './PostTitleSnip'
 export const MainHeading = ({ title, slug }) => {
   return (
     <div className="main-heading">
-      <span className="left">
+      <div className="left">
         <Link to="/" className="brandlink" />
-      </span>
-      <span className="right">
-        <span className="prefix">
-          <Link to="/" className="homelink">
-            TIL
-          </Link>
-          {' / '}
-        </span>
-        <PostTitleSnip {...{ slug, title }} variant="-small" />
-      </span>
+      </div>
+      <div className="right">
+        <span className="line" />
+        <br />
+        {'This is '}
+        <Link to="/">Today I learned</Link>, a collection of things I've learned
+        in my day-to-day web development work. You're reading{' '}
+        <PostTitleSnip {...{ slug, title }} variant="-small" />.
+      </div>
     </div>
   )
 }

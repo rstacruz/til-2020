@@ -7,6 +7,20 @@
     padding-bottom: 96px;
     position: relative;
     margin: 0 32px;
+    transform-origin: 32px 50%;
+    border: solid 1px transparent;
+  }
+
+  /* Vertical line */
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 64px;
+    top: 16px;
+    bottom: 16px;
+    width: 1px;
+    background: #7893;
   }
 
   & + .h2-section {
@@ -44,6 +58,10 @@
     z-index: 1;
   }
 
+  &::after {
+    background-color: #7892;
+  }
+
   & > h2 {
     color: var(--accent);
     text-shadow: none;
@@ -58,4 +76,5 @@
   @apply --shadow-paper;
   background-color: white;
   z-index: 5;
+  border-color: #7893;
 }

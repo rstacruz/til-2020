@@ -10,6 +10,7 @@ import sectionize from 'rehype-sectionize-headings'
 import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
 import { type PageNode, type HastNode } from '../types'
+import { BlogNav } from '../components/BlogNav'
 
 export type Props = {
   location: string,
@@ -46,9 +47,12 @@ class BlogPostTemplate extends React.Component<Props> {
           title={`${title} | ${siteTitle}`}
         />
         <MainHeading {...{ title, slug }} />
-        <BlogPostContent
-          {...{ title, date, titleBody, body: sections.slice(1) }}
-        />
+        <div>
+          <BlogNav {...{ title, slug }} />
+          <BlogPostContent
+            {...{ title, date, titleBody, body: sections.slice(1) }}
+          />
+        </div>
 
         {previous && (
           <Link to={previous.fields.slug} rel="prev">
