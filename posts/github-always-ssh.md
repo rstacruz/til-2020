@@ -6,29 +6,34 @@ date: '2018-06-09'
 # tags: [Development]
 ---
 
-It's pretty easy, have a look.
-
-## Always SSH (recommended)
-
 This forces GitHub to always use SSH, even for HTTPS URL's! This way, you can use `https://` GitHub URL's and they will still use your SSH key.
 
 ```bash
-git config --global url."git@github.com:".insteadOf "https://github.com/"
+git config \
+  --global url."git@github.com:".insteadOf \
+  "https://github.com/"
 ```
 
-### Example
+<next-block title="What does it do?"></next-block>
 
-<!-- {.figure-section} -->
+## How it works
+
+When you clone an HTTPS URL, it now gets rewritten as an SSH URL.
 
 ```bash
 git clone https://github.com/rstacruz/vimfiles.git
 ```
 
-> This gets rewritten as `git@github.com:rstacruz/vimfiles.git`.
+```bash
+# Gets rewritten as:
+git clone git@github.com:rstacruz/vimfiles.git
+```
 
-## Always HTTPS
+<next-block title="Here's another neat trick for macOS."></next-block>
 
-Alternatively, this forces GitHub to always use HTTPS. Great for OSX, where you can use [git-credential-osxkeychain](https://help.github.com/articles/updating-credentials-from-the-osx-keychain/) to store your GitHub token.
+## The inverse: <br> Use HTTPS instead of SSH
+
+Alternatively, this forces GitHub to always use HTTPS. Great for macOS, where you can use [git-credential-osxkeychain](https://help.github.com/articles/updating-credentials-from-the-osx-keychain/) to store your GitHub token.
 
 This will _not_ rewrite `git@github.com:user/repo.git` URL's, though, so I don't really recommend it! Besides, SSH keys are often easier to manage than API tokens.
 

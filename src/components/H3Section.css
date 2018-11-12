@@ -65,3 +65,16 @@
     float: left;
   }
 }
+
+[id] .h3-section.-hide-h3 {
+  & > h3 {
+    display: none;
+  }
+}
+
+[id] .h3-section.-wide {
+  @media (min-width: 768.1px) {
+    /* This is where it gets funny */
+    max-width: 100%;
+  }
+}

@@ -113,8 +113,8 @@
     }
 
     @media (min-width: 1200px) {
-      padding-left: calc((100vw - 960px) * 0.55);
-      padding-right: calc((100vw - 960px) * 0.45);
+      padding-left: calc((100vw - 960px) * 0.5 + 64px);
+      padding-right: calc((100vw - 960px) * 0.5 - 64px);
     }
   }
 
