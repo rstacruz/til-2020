@@ -1,7 +1,7 @@
 @import '../styles/variables.css';
 
-& {
-  .main-heading {
+.main-heading {
+  & {
     padding: 16px;
     padding-right: 64px;
     display: flex;

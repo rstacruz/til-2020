@@ -8,7 +8,7 @@ const PostLink = ({ node }) => {
   const { title, date } = node.frontmatter
   return (
     <article className="post-link">
-      <Link to={slug} class="link">
+      <Link to={slug} className="link">
         <PostTitleSnip {...{ slug, title }} />
         <small className="date">{date}</small>
       </Link>
