@@ -1,16 +1,13 @@
 @import '../styles/variables.css';
 
 .h2-section {
+  @apply --container-padding;
+  @apply --side-line-section;
+
   & {
-    @apply --container-padding;
-    @apply --side-line;
     padding-top: 64px;
     padding-bottom: 96px;
     position: relative;
-    margin: 0 32px;
-    transform-origin: 32px 50%;
-    border: solid 1px transparent;
-    margin-top: 32px;
   }
 
   & > h2 {
@@ -19,8 +16,13 @@
     color: var(--heading-color);
     margin-bottom: 32px;
     line-height: 1.4;
-    text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%));
-    max-width: var(--column-size);
+    /* text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%)); */
+  }
+
+  @media (--show-side-line) {
+    & > h2 {
+      max-width: var(--column-size);
+    }
   }
 }
 
@@ -38,14 +40,7 @@
 
 .h2-section.-inactive {
   & {
-    @apply --shadow-paper-inactive;
-    transform: scale(0.99);
-    background: white;
     z-index: 1;
-  }
-
-  &::after {
-    background-color: #7892;
   }
 
   & > h2 {
@@ -54,13 +49,12 @@
   }
 
   & > .body {
-    opacity: 0.2;
+    color: var(--mute-text-color);
+    opacity: 0.5;
   }
 }
 
 .h2-section.-active {
-  @apply --shadow-paper;
   background-color: white;
   z-index: 5;
-  border-color: #7893;
 }

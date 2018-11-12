@@ -3,7 +3,7 @@
 .blog-post-content {
   /* background: #f3faf8; */
   background: var(--pane-background);
-  box-shadow: inset 128px 0 0 white, inset 0 64px 0 white, inset 0 -64px 0 white;
+  box-shadow: inset 104px 0 0 white, inset 0 64px 0 white, inset 0 -64px 0 white;
 }
 
 .blog-post-content,

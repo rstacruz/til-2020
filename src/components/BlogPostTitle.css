@@ -2,24 +2,17 @@
 
 .blog-post-title {
   @apply --container-padding;
-  @apply --side-line;
+  @apply --side-line-section;
 
   & {
     background: white;
     margin: 32px;
     padding-bottom: 80px;
-    @apply --shadow-paper;
     position: relative;
-    margin-top: 256px;
-    border: solid 1px #eee;
     z-index: 5;
+    border-top: solid 1px transparent;
     transition: box-shadow 300ms linear, transform 300ms ease-in;
-    transform-origin: 32px 50%;
-  }
-
-  &.-inactive {
-    @apply --shadow-paper-inactive;
-    transform: scale(0.99);
+    margin-top: 256px;
   }
 
   & > * {

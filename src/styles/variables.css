@@ -121,12 +121,33 @@
   }
 
   --shadow-paper: {
-    border-radius: 2px;
-    box-shadow: 0 2px 3px #3452, 0 16px 24px #3452;
+    box-shadow: inset 0 0 0 transparent, 0 2px 3px #3455, 0 16px 24px #3452;
   }
 
-  --shadow-paper-inactive {
-    box-shadow: 0 1px 2px #1241;
+  --shadow-paper-inactive: {
+    box-shadow: inset 0 0 0 1px color-mod(var(--mute-text-color) alpha(20%));
+  }
+
+  --side-line-section: {
+    @apply --shadow-paper;
+    @apply --side-line;
+
+    & {
+      transform-origin: 32px 50%;
+      margin: 32px;
+      border-radius: 2px;
+    }
+
+    &.-inactive {
+      @apply --shadow-paper-inactive;
+      transform: scale(0.99);
+      background: white;
+      border-radius: 6px;
+    }
+
+    &.-inactive::after {
+      background-color: color-mod(var(--mute-text-color) alpha(5%));
+    }
   }
 
   --side-line: {
@@ -137,6 +158,7 @@
       width: 1px;
       background: #7893;
     }
+
     @media (--show-side-line) {
       &::after {
         display: block;
