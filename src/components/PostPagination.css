@@ -1,0 +1,19 @@
+@import '../styles/variables.css';
+.post-pagination {
+  padding: 32px;
+  display: flex;
+
+  & > a {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-align: center;
+    flex: 1 1 auto;
+    color: var(--mute-text-color);
+  }
+
+  & > a:hover,
+  & > a:focus {
+    color: var(--accent-text);
+  }
+}

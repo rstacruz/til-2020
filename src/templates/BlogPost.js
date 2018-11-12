@@ -1,6 +1,6 @@
 // @flow
 
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 import BlogPostContent from '../components/BlogPostContent'
@@ -11,6 +11,7 @@ import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
 import { type PageNode, type HastNode } from '../types'
 import { BlogNav } from '../components/BlogNav'
+import { PostPagination } from '../components/PostPagination'
 
 export type Props = {
   location: string,
@@ -54,16 +55,7 @@ class BlogPostTemplate extends React.Component<Props> {
           />
         </div>
 
-        {previous && (
-          <Link to={previous.fields.slug} rel="prev">
-            ← {previous.frontmatter.title}
-          </Link>
-        )}
-        {next && (
-          <Link to={next.fields.slug} rel="next">
-            {next.frontmatter.title} →
-          </Link>
-        )}
+        <PostPagination {...{ previous, next }} />
       </Layout>
     )
   }
