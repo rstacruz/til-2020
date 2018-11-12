@@ -2,6 +2,8 @@
 .post-pagination {
   padding: 32px;
   display: flex;
+  position: relative;
+  background: white;
 
   & > a {
     padding: 16px;
