@@ -124,6 +124,10 @@
     box-shadow: 0 2px 3px #3452, 0 16px 24px #3452;
   }
 
+  --shadow-paper-inactive {
+    box-shadow: 0 1px 2px #1241;
+  }
+
   --side-line: {
     &::after {
       content: '';

@@ -13,6 +13,21 @@
     margin-top: 256px;
     border: solid 1px #eee;
     z-index: 5;
+    transition: box-shadow 300ms linear, transform 300ms ease-in;
+    transform-origin: 32px 50%;
+  }
+
+  &.-inactive {
+    @apply --shadow-paper-inactive;
+    transform: scale(0.99);
+  }
+
+  & > * {
+    transition: opacity 300ms linear;
+  }
+
+  &.-inactive > * {
+    opacity: 0.25;
   }
 
   & > h1 {
