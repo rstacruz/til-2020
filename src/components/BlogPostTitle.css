@@ -50,22 +50,42 @@
     margin-top: 1em;
     color: var(--accent-text);
     font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
-  & > .byline::before {
+  & > .byline::before,
+  & > .byline::after {
     content: '';
-    display: inline-block;
-    background: var(--accent-text);
+    display: none;
+    background: var(--accent);
     width: 32px;
     vertical-align: middle;
     height: 2px;
-    margin-right: 16px;
-    margin-left: -16px;
+  }
+
+  & > .byline::before {
+    margin-right: 32px;
+    width: 32px;
+    background: var(--accent);
+  }
+
+  & > .byline::after {
+    margin-left: 32px;
+    width: 100vw;
+    height: 1px;
+    background: #eee;
   }
 
   @media (min-width: 768.1px) {
     & > .byline {
       margin: 2.5em 0;
+      margin-left: -48px;
+    }
+
+    & > .byline::before,
+    & > .byline::after {
+      display: inline-block;
     }
   }
 }
