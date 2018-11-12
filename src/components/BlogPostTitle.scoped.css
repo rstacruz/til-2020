@@ -7,7 +7,6 @@
     background: white;
     margin: 32px;
     padding-bottom: 128px;
-    padding-top: 128px;
     @apply --shadow-paper;
     position: relative;
     margin-top: 256px;
@@ -22,6 +21,7 @@
     margin: 0;
     padding: 0;
     line-height: 1.2;
+    margin-top: -0.6em;
   }
 
   @media (min-width: 768.1px) {
