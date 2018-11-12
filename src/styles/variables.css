@@ -108,9 +108,13 @@
       padding-right: 16px;
     }
 
-    @media (min-width: 1000px) {
-      padding-left: calc((100vw - 960px) / 2);
-      padding-right: calc((100vw - 960px) / 2);
+    @media (--show-side-line) {
+      padding-left: 80px;
+    }
+
+    @media (min-width: 1200px) {
+      padding-left: calc((100vw - 960px) * 0.55);
+      padding-right: calc((100vw - 960px) * 0.45);
     }
   }
 
@@ -118,4 +122,24 @@
     border-radius: 2px;
     box-shadow: 0 2px 3px #3452, 0 16px 24px #3452;
   }
+
+  --side-line: {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 1px;
+      background: #7893;
+    }
+    @media (--show-side-line) {
+      &::after {
+        display: block;
+        left: 64px;
+        top: 48px;
+        bottom: 16px;
+      }
+    }
+  }
 }
+
+@custom-media --show-side-line (min-width: 900px);

@@ -12,6 +12,11 @@
     bottom: 0;
     z-index: 8;
     pointer-events: none;
+    display: none;
+  }
+
+  @media (--show-side-line) {
+    display: block;
   }
 
   & > .area {
@@ -38,6 +43,7 @@
   & > .area > .bar > strong {
     color: #111;
   }
+
   & > .area > .bar > strong::after {
     content: '';
     display: inline-block;

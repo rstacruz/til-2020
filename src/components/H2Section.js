@@ -3,16 +3,22 @@ import Waypoint from 'react-waypoint'
 import './H2Section.css'
 
 class H2Section extends React.Component {
-  state = {
-    entered: false
+  constructor(props) {
+    super(props)
+    this.state = {
+      entered: false
+    }
+    console.log('ctor')
   }
 
   onEnter = () => {
     this.setState({ entered: true })
+    console.log('onEnter')
   }
 
   onLeave = () => {
     this.setState({ entered: false })
+    console.log('onLeave')
   }
 
   render() {
@@ -27,8 +33,11 @@ class H2Section extends React.Component {
       <Waypoint
         onEnter={this.onEnter}
         onLeave={this.onLeave}
-        topOffset="60%"
-        bottomOffset="40%"
+        onPositionChange={args => {
+          console.log('onPositionChange', args)
+        }}
+        topOffset="40%"
+        bottomOffset="50%"
       >
         <section className={className}>{children}</section>
       </Waypoint>

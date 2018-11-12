@@ -3,24 +3,13 @@
 .h2-section {
   & {
     @apply --container-padding;
+    @apply --side-line;
     padding-top: 64px;
     padding-bottom: 96px;
     position: relative;
     margin: 0 32px;
     transform-origin: 32px 50%;
     border: solid 1px transparent;
-  }
-
-  /* Vertical line */
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 64px;
-    top: 16px;
-    bottom: 16px;
-    width: 1px;
-    background: #7893;
   }
 
   & + .h2-section {

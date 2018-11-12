@@ -2,6 +2,7 @@
 
 .blog-post-title {
   @apply --container-padding;
+  @apply --side-line;
 
   & {
     background: white;
@@ -12,17 +13,6 @@
     margin-top: 256px;
     border: solid 1px #eee;
     z-index: 5;
-  }
-
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 64px;
-    top: 48px;
-    bottom: 16px;
-    width: 1px;
-    background: #7893;
   }
 
   & > h1 {
