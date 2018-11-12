@@ -4,7 +4,8 @@ import * as React from 'react'
 import Waypoint from 'react-waypoint'
 
 export type State = {
-  entered: boolean
+  entered: boolean,
+  dirty: boolean
 }
 
 export type Props = {
@@ -14,16 +15,24 @@ export type Props = {
 class CardWaypoint extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
-    this.state = {
-      entered: false
-    }
+    this.state = { entered: true, dirty: false }
   }
+
+  componentDidMount() {
+    this.setState(
+      (state: State): State => {
+        if (state.dirty) return state
+        return { entered: false, dirty: true }
+      }
+    )
+  }
+
   onEnter = () => {
-    this.setState({ entered: true })
+    this.setState({ entered: true, dirty: true })
   }
 
   onLeave = () => {
-    this.setState({ entered: false })
+    this.setState({ entered: false, dirty: true })
   }
 
   render() {
