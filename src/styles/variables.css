@@ -24,7 +24,7 @@
   --highlighter-color: color-mod(var(--accent) alpha(50%));
 
   --accent-text: color-mod(
-    var(--accent) shade(40%) saturation(+30%) hue(-10deg)
+    var(--accent) shade(30%) saturation(+30%) hue(-10deg)
   );
 
   --horizontal-rule: {
