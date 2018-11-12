@@ -8,8 +8,9 @@
   & > .brandlink {
     display: block;
     width: 48px;
-    height: 4px;
-    background: var(--accent);
+    height: 6px;
+    border: solid 2px var(--accent);
+    border-radius: 4px;
   }
 }
 
@@ -24,6 +25,7 @@
     color: var(--mute-text-color);
     font-size: 0.86em;
     text-align: right;
+    opacity: 0.5;
   }
 
   & > a {
@@ -36,7 +38,8 @@
     display: inline-block;
     vertical-align: middle;
     width: 48px;
-    height: 1px;
+    height: 2px;
     background: #7894;
+    margin-bottom: 8px;
   }
 }

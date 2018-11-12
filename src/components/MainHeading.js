@@ -13,10 +13,7 @@ export const MainHeading = ({ title, slug }) => {
       <div className="right">
         <span className="line" />
         <br />
-        {'This is '}
-        <Link to="/">Today I learned</Link>, a collection of things I've learned
-        in my day-to-day web development work. You're reading{' '}
-        <PostTitleSnip {...{ slug, title }} variant="-small" />.
+        <PostTitleSnip {...{ slug, title }} variant="-small" />
       </div>
     </div>
   )
