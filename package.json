@@ -27,6 +27,7 @@
     "rehype-decorate": "^1.0.0-rc.3",
     "rehype-react": "^3.0.3",
     "rehype-sectionize-headings": "^1.0.0-rc.3",
+    "responsive-modular-scale.css": "^0.1.0",
     "sanitize.css": "^8.0.0"
   },
   "keywords": [

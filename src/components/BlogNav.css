@@ -22,14 +22,22 @@
   & > .area {
     transform: rotate(-90deg);
     transform-origin: 0 100%;
-    height: var(--blog-nav-area-width);
     width: 100vh;
     position: absolute;
     bottom: 0;
-    left: var(--blog-nav-area-width);
 
     padding: 64px 48px;
     padding-bottom: 0;
+
+    & {
+      height: 32px;
+      left: 32px;
+    }
+
+    @media (--ms-viewport-xxl) {
+      height: 56px;
+      left: 56px;
+    }
   }
 
   & > .area > .bar {

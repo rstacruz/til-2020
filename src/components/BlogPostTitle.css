@@ -6,13 +6,16 @@
 
   & {
     background: white;
-    margin: 32px;
-    padding-bottom: 80px;
     position: relative;
     z-index: 5;
     border-top: solid 1px transparent;
     transition: box-shadow 300ms linear, transform 300ms ease-in;
+    padding-bottom: 32px;
     margin-top: 256px;
+  }
+
+  @media (--ms-viewport-md) {
+    padding-bottom: 80px;
   }
 
   &.-active {
@@ -30,14 +33,14 @@
 
   & > h1 {
     @apply --h1-font;
-    @apply --font-size-7;
+    @apply --font-size-8;
     margin: 0;
     padding: 0;
     line-height: 1.2;
     margin-top: -0.6em;
   }
 
-  @media (min-width: 768.1px) {
+  @media (--ms-viewport-lg) {
     & > h1 {
       max-width: 50%;
     }
@@ -69,7 +72,6 @@
 
   & > .byline::before {
     content: '';
-    display: inline-block;
     width: 2em;
     height: 4px;
     border-radius: 4px;
@@ -77,6 +79,14 @@
     background: var(--accent);
     margin-top: 0.5em;
     float: right;
+
+    & {
+      display: none;
+    }
+
+    @media (--ms-viewport-lg) {
+      display: inline-block;
+    }
   }
 
   /* & > .byline::before,
@@ -115,7 +125,6 @@
 }
 
 .blog-post-title > h1 > .blinker {
-  display: inline-block;
   vertical-align: middle;
   width: 0.6em;
   height: 1em;
@@ -130,6 +139,14 @@
   margin-left: -0.2em;
   margin-top: -0.1em;
   animation: cursor-blink 1200ms ease-in infinite;
+
+  & {
+    display: none;
+  }
+
+  @media (--ms-viewport-xl) {
+    display: inline-block;
+  }
 }
 
 @keyframes cursor-blink {

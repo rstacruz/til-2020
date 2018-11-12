@@ -1,3 +1,6 @@
+/* stylelint-disable no-duplicate-selectors */
+@import 'responsive-modular-scale.css';
+
 /* Color palette */
 :root {
   --yellow: #ffeaa7;
@@ -29,18 +32,6 @@
   --accent-text: color-mod(
     var(--accent) shade(30%) saturation(+30%) hue(-10deg)
   );
-
-  --horizontal-rule: {
-    content: '';
-    display: block;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      var(--co-accent),
-      var(--accent) 20%,
-      transparent 20%
-    );
-  }
 }
 
 :root {
@@ -92,28 +83,16 @@
 
 /* Misc */
 :root {
-  --font-size--1: {
-    font-size: calc(1em / 1.2);
-  }
-
-  --font-size-2: {
-    font-size: calc(1.2em * 1.2);
-  }
-
-  --font-size-4: {
-    font-size: calc(1.2em * 1.2 * 1.2 * 1.2);
-  }
-
-  --font-size-5: {
-    font-size: calc(1.2em * 1.2 * 1.2 * 1.2 * 1.2);
-  }
-
-  --font-size-6: {
-    font-size: calc(1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
-  }
-
-  --font-size-7: {
-    font-size: calc(1.2em * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
+  --horizontal-rule: {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--co-accent),
+      var(--accent) 20%,
+      transparent 20%
+    );
   }
 
   --container-padding: {
@@ -126,7 +105,7 @@
       padding-left: 80px;
     }
 
-    @media (min-width: 1200px) {
+    @media (--ms-viewport-xxl) {
       padding-left: calc((100vw - 960px) * 0.5 + 32px);
       padding-right: calc((100vw - 960px) * 0.5 - 32px);
     }
@@ -146,8 +125,24 @@
 
     & {
       transform-origin: 32px 50%;
-      margin: 32px;
+      margin: 0;
       border-radius: 2px;
+    }
+
+    @media (--ms-viewport-md) {
+      margin: 8px;
+    }
+
+    @media (--ms-viewport-lg) {
+      margin: 16px;
+    }
+
+    @media (--ms-viewport-xl) {
+      margin: 16px;
+    }
+
+    @media (--ms-viewport-xxl) {
+      margin: 32px;
     }
 
     &.-inactive {
@@ -169,17 +164,35 @@
       position: absolute;
       width: 1px;
       background: #7893;
-    }
 
-    @media (--show-side-line) {
-      &::after {
+      @media (--show-side-line) {
         display: block;
-        left: 64px;
+        left: 48px;
         top: 48px;
         bottom: 16px;
+      }
+
+      @media (--ms-viewport-xxl) {
+        left: 64px;
       }
     }
   }
 }
 
-@custom-media --show-side-line (min-width: 900px);
+/* Modular scale */
+:root {
+  --ms-ratio-sm: 1.15;
+  --ms-ratio-md: 1.17;
+  --ms-ratio-lg: 1.2;
+  --ms-base: 1rem;
+  --ms-base-sm: var(--ms-base);
+  --ms-base-md: var(--ms-base-sm);
+  --ms-base-lg: var(--ms-base-md);
+}
+
+/* Custom media queries */
+@custom-media --ms-viewport-md (width > 480px);
+@custom-media --ms-viewport-lg (width > 768px);
+@custom-media --ms-viewport-xl (width > 900px);
+@custom-media --ms-viewport-xxl (width > 1100px);
+@custom-media --show-side-line (width > 900px);

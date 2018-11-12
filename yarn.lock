@@ -8435,6 +8435,11 @@ resolve@^1.1.7, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.6.0, resolve@^1.8.1:
   dependencies:
     path-parse "^1.0.5"
 
+responsive-modular-scale.css@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/responsive-modular-scale.css/-/responsive-modular-scale.css-0.1.0.tgz#67ede53793d09b51fce642c0e03e557415393a07"
+  integrity sha1-Z+3lN5PQm1H85kLA4D5VdBU5Ogc=
+
 restore-cursor@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/restore-cursor/-/restore-cursor-2.0.0.tgz#9f7ee287f82fd326d4fd162923d62129eee0dfaf"
