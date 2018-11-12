@@ -36,7 +36,7 @@ class H2Section extends React.Component {
         onPositionChange={args => {
           console.log('onPositionChange', args)
         }}
-        topOffset="50%"
+        topOffset="60%"
         bottomOffset="30%"
       >
         <section className={className}>{children}</section>
