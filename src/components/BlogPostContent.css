@@ -70,6 +70,8 @@
     padding: 24px;
     border-radius: 4px;
     font-size: 0.86em;
+    overflow: hidden;
+    overflow-x: auto;
   }
 
   & code {

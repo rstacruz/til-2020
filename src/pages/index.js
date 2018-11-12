@@ -14,14 +14,14 @@ import { type PageNode } from '../types'
 export type Props = {
   data: {
     site: {
-      siteMetadata: { title: string },
+      siteMetadata: { title: string }
     },
     allMarkdownRemark: {
       edges: Array<{
-        node: PageNode,
-      }>,
-    },
-  },
+        node: PageNode
+      }>
+    }
+  }
 }
 
 const IndexPage = (props: Props) => {
@@ -30,7 +30,7 @@ const IndexPage = (props: Props) => {
 
   const pages = edges.map((edge: { node: PageNode }) => ({
     node: edge.node,
-    key: edge.node.fields.slug,
+    key: edge.node.fields.slug
   }))
 
   return (
@@ -57,8 +57,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY-MM-DD")
             title
+            tags
           }
         }
       }

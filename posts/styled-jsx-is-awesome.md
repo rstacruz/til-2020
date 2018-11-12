@@ -1,6 +1,7 @@
 ---
 title: Why I Prefer styled-jsx
 date: '2018-11-08'
+tags: [JavaScript]
 ---
 
 [styled-jsx] has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that's easier to understand.
