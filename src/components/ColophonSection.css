@@ -9,6 +9,7 @@
   color: #888;
   background: var(--pane-background);
   margin: 32px;
+  margin-top: 0;
 
   & > a {
     font-size: 4em;
