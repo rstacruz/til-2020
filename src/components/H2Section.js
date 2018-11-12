@@ -1,6 +1,6 @@
 import React from 'react'
 import Waypoint from 'react-waypoint'
-import style from './H2Section.scoped.css'
+import './H2Section.css'
 
 class H2Section extends React.Component {
   state = {
@@ -30,10 +30,7 @@ class H2Section extends React.Component {
         topOffset="60%"
         bottomOffset="40%"
       >
-        <section className={className}>
-          {children}
-          <style jsx>{style}</style>
-        </section>
+        <section className={className}>{children}</section>
       </Waypoint>
     )
   }

@@ -13,25 +13,24 @@ module.exports = {
         useBuiltIns: 'usage',
         shippedProposals: true,
         targets: {
-          browsers: ['>0.25%', 'not dead'],
-        },
-      },
+          browsers: ['>0.25%', 'not dead']
+        }
+      }
     ],
     [
       '@babel/preset-react',
       {
         useBuiltIns: true,
-        pragma: 'React.createElement',
-      },
-    ],
+        pragma: 'React.createElement'
+      }
+    ]
   ],
   plugins: [
-    ['styled-jsx/babel', { plugins: ['styled-jsx-plugin-postcss'] }],
     [
       '@babel/plugin-proposal-class-properties',
       {
-        loose: true,
-      },
+        loose: true
+      }
     ],
     '@babel/plugin-syntax-dynamic-import',
     'babel-plugin-macros',
@@ -39,8 +38,8 @@ module.exports = {
       '@babel/plugin-transform-runtime',
       {
         helpers: true,
-        regenerator: true,
-      },
-    ],
-  ],
+        regenerator: true
+      }
+    ]
+  ]
 }

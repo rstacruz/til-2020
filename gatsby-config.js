@@ -13,8 +13,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-postcss',
-    'gatsby-plugin-styled-jsx',
-    'gatsby-plugin-styled-jsx-webpack-loader',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,

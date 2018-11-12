@@ -6,13 +6,12 @@
  */
 
 import React from 'react'
-import style from './NextBlock.scoped.css'
+import './NextBlock.css'
 
 const NextBlock = ({ title }) => {
   return (
     <blockquote className="next-block">
       <strong>Next:</strong> {title}
-      <style jsx>{style}</style>
     </blockquote>
   )
 }

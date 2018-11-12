@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import style from './PostLink.scoped.css'
 import { PostTitleSnip } from './PostTitleSnip'
+import './PostLink.css'
 
 const PostLink = ({ node }) => {
   const { slug } = node.fields
@@ -12,7 +12,6 @@ const PostLink = ({ node }) => {
         <PostTitleSnip {...{ slug, title }} />
         <small className="date">{date}</small>
       </Link>
-      <style jsx>{style}</style>
     </article>
   )
 }

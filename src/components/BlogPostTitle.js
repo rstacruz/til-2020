@@ -1,8 +1,6 @@
 import React from 'react'
-import style from './BlogPostTitle.scoped.css'
 import PostContent from './PostContent'
-
-// For MarkdownBody
+import './BlogPostTitle.css'
 import './BlogPostContent.css'
 
 const BlogPostTitle = ({ title, date, body }) => {
@@ -17,8 +15,6 @@ const BlogPostTitle = ({ title, date, body }) => {
       <div className="MarkdownBody">
         <PostContent body={body} />
       </div>
-
-      <style jsx>{style}</style>
     </div>
   )
 }

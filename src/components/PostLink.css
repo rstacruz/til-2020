@@ -1,6 +1,6 @@
-@import 'src/styles/variables.css';
+@import '../styles/variables.css';
 
-.post-link > :global(a) {
+.post-link > a {
   & {
     padding: 16px 0;
     display: block;

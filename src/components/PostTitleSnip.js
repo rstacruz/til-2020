@@ -2,7 +2,7 @@
 
 import Overdrive from 'react-overdrive'
 import React from 'react'
-import style from './PostTitleSnip.scoped.css'
+import './PostTitleSnip.css'
 
 export type Props = {
   slug: string,
@@ -18,8 +18,6 @@ export const PostTitleSnip = ({ slug, title, variant }: Props) => {
       <Overdrive id={`post-${slug}`}>
         <strong className={`post-title-snip ${varClass}`}>{title}</strong>
       </Overdrive>
-
-      <style jsx>{style}</style>
     </span>
   )
 }

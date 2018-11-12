@@ -1,26 +1,24 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import Overdrive from 'react-overdrive'
-import style from './MainHeading.scoped.css'
+import './MainHeading.css'
 import { PostTitleSnip } from './PostTitleSnip'
 
 export const MainHeading = ({ title, slug }) => {
   return (
     <div className="main-heading">
       <span className="left">
-        <Link to="/" className="brand-link" />
+        <Link to="/" className="brandlink" />
       </span>
       <span className="right">
         <span className="prefix">
-          <Link to="/" className="home-link">
+          <Link to="/" className="homelink">
             TIL
           </Link>
           {' / '}
         </span>
         <PostTitleSnip {...{ slug, title }} variant="-small" />
       </span>
-
-      <style jsx>{style}</style>
     </div>
   )
 }

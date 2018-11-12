@@ -9,8 +9,6 @@
     "gatsby-plugin-postcss": "^2.0.1",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-remove-trailing-slashes": "^2.0.5",
-    "gatsby-plugin-styled-jsx": "^3.0.2",
-    "gatsby-plugin-styled-jsx-webpack-loader": "^1.0.0-rc.1",
     "gatsby-remark-component": "^1.1.3",
     "gatsby-source-filesystem": "^2.0.4",
     "gatsby-transformer-remark": "^2.1.11",
@@ -29,9 +27,7 @@
     "rehype-decorate": "^1.0.0-rc.3",
     "rehype-react": "^3.0.3",
     "rehype-sectionize-headings": "^1.0.0-rc.3",
-    "sanitize.css": "^8.0.0",
-    "styled-jsx": "^3.1.1",
-    "styled-jsx-plugin-postcss": "^2.0.0"
+    "sanitize.css": "^8.0.0"
   },
   "keywords": [
     "gatsby"

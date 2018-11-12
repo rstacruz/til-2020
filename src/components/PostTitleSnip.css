@@ -1,7 +1,7 @@
-@import 'src/styles/variables.css';
+@import '../styles/variables.css';
 
 .post-title-snip-c {
-  & > :global(div) {
+  & > div {
     display: inline-block;
   }
 }
