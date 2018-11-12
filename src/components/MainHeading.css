@@ -8,9 +8,9 @@
   & > .brandlink {
     display: block;
     width: 48px;
-    height: 6px;
+    height: 12px;
     border: solid 2px var(--accent);
-    border-radius: 4px;
+    border-radius: 8px;
   }
 }
 

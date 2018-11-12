@@ -35,7 +35,6 @@
     padding: 0;
     line-height: 1.2;
     margin-top: -0.6em;
-    margin-bottom: 1.4em;
   }
 
   @media (min-width: 768.1px) {
@@ -58,16 +57,17 @@
   }
 
   & > .byline {
-    font-family: 'Chivo', system-ui;
+    @apply --ui-font;
+    line-height: 1.4;
     font-weight: normal;
-    margin-top: 1em;
     color: var(--accent-text);
-    font-size: 0.9em;
     white-space: nowrap;
-    overflow: hidden;
+    border-top: solid 1px #7892;
+    border-bottom: solid 1px #7892;
+    padding: 16px 0;
   }
 
-  & > .byline::before,
+  /* & > .byline::before,
   & > .byline::after {
     content: '';
     display: none;
@@ -87,19 +87,18 @@
     margin-left: 32px;
     width: 100vw;
     height: 1px;
-    background: #eee;
-  }
+    background: var(--border-color);
+  } */
 
-  @media (min-width: 768.1px) {
+  @media (--show-side-line) {
     & > .byline {
-      margin: 2.5em 0;
-      margin-left: -48px;
+      margin: 2em 0;
+      margin-top: 3em;
     }
-
-    & > .byline::before,
+    /*
     & > .byline::after {
       display: inline-block;
-    }
+    } */
   }
 }
 

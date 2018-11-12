@@ -1,13 +1,16 @@
+/* Color palette */
 :root {
   --yellow: #ffeaa7;
   --mint: #55efc4;
   --poster: #81ecec;
 }
 
+/* Metrics */
 :root {
   --column-size: 60%;
 }
 
+/* Colors 2 */
 :root {
   --mute-text-color: #708090;
   --text-color: #303030;
@@ -38,15 +41,12 @@
       transparent 20%
     );
   }
+}
 
-  /* --h2-font: {
-    font-weight: 900;
-    font-family: 'Chivo', sans-serif;
-    letter-spacing: -0.02em;
-  } */
-
+:root {
   --body-font: {
-    font-family: 'IBM Plex Sans', system-ui;
+    /* font-family: 'IBM Plex Sans', system-ui; */
+    font-family: 'Roboto', system-ui;
   }
 
   --h1-font: {
@@ -54,9 +54,14 @@
     font-family: 'Iosevka Web', system-ui;
   }
 
+  --ui-font: {
+    font-weight: 400;
+    font-family: 'IBM Plex Sans', system-ui;
+  }
+
   --h2-font: {
     font-weight: 700;
-    font-family: 'Chivo', system-ui;
+    font-family: 'Barlow', system-ui;
   }
 
   --h3-font: {
@@ -83,9 +88,16 @@
     line-height: 0.2em;
     font-style: italic;
   }
+}
 
+/* Misc */
+:root {
   --font-size--1: {
     font-size: calc(1em / 1.2);
+  }
+
+  --font-size-2: {
+    font-size: calc(1.2em * 1.2);
   }
 
   --font-size-4: {
@@ -115,13 +127,13 @@
     }
 
     @media (min-width: 1200px) {
-      padding-left: calc((100vw - 960px) * 0.5 + 64px);
-      padding-right: calc((100vw - 960px) * 0.5 - 64px);
+      padding-left: calc((100vw - 960px) * 0.5 + 32px);
+      padding-right: calc((100vw - 960px) * 0.5 - 32px);
     }
   }
 
   --shadow-paper: {
-    box-shadow: inset 0 0 0 transparent, 0 2px 3px #3455, 0 16px 24px #3452;
+    box-shadow: inset 0 0 0 transparent, 0 2px 3px #3681, 0 16px 24px #3683;
   }
 
   --shadow-paper-inactive: {
