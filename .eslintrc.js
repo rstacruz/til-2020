@@ -4,10 +4,7 @@ module.exports = {
     browser: true
     // node: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended'
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
 
   parserOptions: {
     ecmaVersion: 2018,
@@ -17,7 +14,7 @@ module.exports = {
 
     // ALlows JSX syntax for React
     ecmaFeatures: { jsx: true }
-  }
+  },
 
   plugins: ['react'],
   settings: {
