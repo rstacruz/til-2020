@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import './BlogNav.css'
 
-export const BlogNav = ({ title, slug }) => {
+export const BlogNav = ({ title }) => {
   return (
     <div className="blog-nav">
       <div className="area">

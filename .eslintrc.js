@@ -1,9 +1,10 @@
 module.exports = {
   env: {
     es6: true,
-    browser: true
-    // node: true
+    browser: true,
+    node: true
   },
+
   extends: ['eslint:recommended', 'plugin:react/recommended'],
 
   parserOptions: {

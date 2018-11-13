@@ -12,7 +12,7 @@ const { createFilePath } = require('gatsby-source-filesystem')
 const buildExports = (ctx /*: Context */) => {
   return {
     onCreateNode: onCreateNode.bind(null, ctx),
-    createPages: createPages.bind(null, ctx),
+    createPages: createPages.bind(null, ctx)
   }
 }
 
@@ -24,7 +24,7 @@ const onCreateNode = (_ctx /*: any */, { node, actions, getNode }) => {
     createNodeField({
       name: 'slug',
       node,
-      value,
+      value
     })
   }
 }
@@ -49,7 +49,7 @@ const createPages = (
         node,
         actions,
         next: next && next.node,
-        previous: prev && prev.node,
+        previous: prev && prev.node
       })
     })
   })
@@ -75,13 +75,13 @@ function buildPage(
     slug: node.fields.slug,
     previous,
     next,
-    ...(extraContext || {}),
+    ...(extraContext || {})
   }
 
   createPage({
     path: node.fields.slug,
     component: ctx.templatePath,
-    context,
+    context
   })
 }
 
