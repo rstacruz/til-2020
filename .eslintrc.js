@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 2018,
 
     // Allows 'import' and 'export'
-    sourceType: 'module'
+    sourceType: 'module',
 
     // ALlows JSX syntax for React
     ecmaFeatures: { jsx: true }
