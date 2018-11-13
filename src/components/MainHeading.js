@@ -1,6 +1,5 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import Overdrive from 'react-overdrive'
 import './MainHeading.css'
 import { PostTitleSnip } from './PostTitleSnip'
 

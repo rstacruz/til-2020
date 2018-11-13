@@ -9,7 +9,6 @@
 
 import React from 'react'
 import PostContent from './PostContent'
-import Overdrive from 'react-overdrive'
 import './BlogPostContent.css'
 import { type HastNode } from '../types'
 import BlogPostTitle from './BlogPostTitle'
