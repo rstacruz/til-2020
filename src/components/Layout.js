@@ -25,10 +25,10 @@ const Layout = ({ children }) => (
             title={title}
             meta={[
               { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' },
+              { name: 'keywords', content: 'sample, something' }
             ]}
           >
-            <html lang="en" />
+            <html lang='en' />
           </Helmet>
           <div>{children}</div>
         </>

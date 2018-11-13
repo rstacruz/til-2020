@@ -11,7 +11,7 @@ export type Props = {
 
 const PageList = ({ pages }: Props) => {
   return (
-    <div className="page-list">
+    <div className='page-list'>
       {pages.map(({ node, key }) => (
         <PostLink node={node} key={key} />
       ))}

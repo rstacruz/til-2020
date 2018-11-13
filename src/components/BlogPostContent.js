@@ -29,7 +29,7 @@ export type Props = {
 
 const BlogPostContent = ({ body, titleBody, title, date }: Props) => {
   return (
-    <div className="blog-post-content">
+    <div className='blog-post-content'>
       <BlogPostTitle {...{ title, date, body: titleBody }} />
       <PostContent {...{ body }} />
     </div>

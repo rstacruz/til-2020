@@ -5,14 +5,14 @@ import { PostTitleSnip } from './PostTitleSnip'
 
 export const MainHeading = ({ title, slug }) => {
   return (
-    <div className="main-heading">
-      <div className="left">
-        <Link to="/" className="brandlink" />
+    <div className='main-heading'>
+      <div className='left'>
+        <Link to='/' className='brandlink' />
       </div>
-      <div className="right">
-        <span className="line" />
+      <div className='right'>
+        <span className='line' />
         <br />
-        <PostTitleSnip {...{ slug, title }} variant="-small" />
+        <PostTitleSnip {...{ slug, title }} variant='-small' />
       </div>
     </div>
   )

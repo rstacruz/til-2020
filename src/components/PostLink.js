@@ -14,11 +14,11 @@ const PostLink = ({ node }: Props) => {
   const { slug } = node.fields
   const { title, date, tags } = node.frontmatter
   return (
-    <article className="post-link">
-      <Link to={slug} className="link">
+    <article className='post-link'>
+      <Link to={slug} className='link'>
         <PostTitleSnip {...{ slug, title }} />
-        <small className="tags">{tags.join(' ')}</small>
-        <small className="date">{date}</small>
+        <small className='tags'>{tags.join(' ')}</small>
+        <small className='date'>{date}</small>
       </Link>
     </article>
   )

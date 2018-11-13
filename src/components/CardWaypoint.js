@@ -41,8 +41,8 @@ class CardWaypoint extends React.Component<Props, State> {
       <Waypoint
         onEnter={this.onEnter}
         onLeave={this.onLeave}
-        topOffset="60%"
-        bottomOffset="30%"
+        topOffset='60%'
+        bottomOffset='30%'
       >
         <span>{children(this.state || {})}</span>
       </Waypoint>

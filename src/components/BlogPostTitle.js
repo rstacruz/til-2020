@@ -13,12 +13,12 @@ const BlogPostTitle = ({ title, date, body }) => {
             className={`blog-post-title ${entered ? '-active' : '-inactive'}`}
           >
             <h1>
-              {title} <span className="blinker" />
+              {title} <span className='blinker' />
             </h1>
-            <p className="byline">Written by Rico Sta. Cruz / {date}</p>
+            <p className='byline'>Written by Rico Sta. Cruz / {date}</p>
 
             {/* <hr /> */}
-            <div className="MarkdownBody">
+            <div className='MarkdownBody'>
               <PostContent body={body} />
             </div>
           </div>

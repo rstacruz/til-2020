@@ -10,7 +10,7 @@ import './NextBlock.css'
 
 const NextBlock = ({ title }) => {
   return (
-    <blockquote className="next-block">
+    <blockquote className='next-block'>
       <strong>Next:</strong> {title}
     </blockquote>
   )
