@@ -112,11 +112,10 @@
   }
 
   --shadow-paper: {
-    box-shadow: inset 0 0 0 transparent, 0 2px 3px #3681, 0 16px 24px #3683;
+    box-shadow: 0 2px 3px #3681, 0 16px 24px #3683;
   }
 
   --shadow-paper-inactive: {
-    /* box-shadow: inset 0 0 0 1px color-mod(var(--mute-text-color) alpha(20%)); */
     box-shadow: 1px 1px 1px color-mod(var(--mute-text-color) alpha(20%));
   }
 
@@ -150,7 +149,6 @@
       @apply --shadow-paper-inactive;
       transform: scale(0.99);
       background: white;
-      border-radius: 6px;
     }
 
     &.-inactive::after {
