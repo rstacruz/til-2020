@@ -12,6 +12,12 @@ export type Props = {
   children: State => React.Node
 }
 
+// Where it transitions
+const TRIPWIRE = 0.65
+
+// Larger overlap = more chances of having 2 active at a time
+const OVERLAP = 0.04
+
 class CardWaypoint extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
@@ -37,12 +43,13 @@ class CardWaypoint extends React.Component<Props, State> {
 
   render() {
     const { children } = this.props
+
     return (
       <Waypoint
         onEnter={this.onEnter}
         onLeave={this.onLeave}
-        topOffset='60%'
-        bottomOffset='30%'
+        topOffset={`${(TRIPWIRE - OVERLAP) * 100}%`}
+        bottomOffset={`${(1 - TRIPWIRE) * 100}%`}
       >
         <span>{children(this.state || {})}</span>
       </Waypoint>
