@@ -7,8 +7,9 @@ export type PageNode = {
   },
   frontmatter: {
     title: string,
-    date: string,
-    tags: string[]
+    date: ?string,
+    tags: ?(string[]),
+    description: ?string
   }
 }
 

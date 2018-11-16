@@ -5,7 +5,7 @@ import './H2Section.css'
 
 export type Props = {
   title: string,
-  date: string
+  date: ?string
 }
 
 const PostFooter = (props: Props) => {

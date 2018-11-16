@@ -1,11 +1,18 @@
-import React from 'react'
-import CardWaypoint from './CardWaypoint'
+// @flow
+
+import * as React from 'react'
+import CardWaypoint, { type State } from './CardWaypoint'
 import './H2Section.css'
 
-const H2Section = ({ children, className }) => {
+export type Props = {
+  children: React.Node,
+  className: string | string[]
+}
+
+const H2Section = ({ children, className }: Props) => {
   return (
     <CardWaypoint>
-      {({ entered }) => {
+      {({ entered }: State) => {
         if (Array.isArray(className)) className = className.join(' ')
         const sectionClass = [
           className,

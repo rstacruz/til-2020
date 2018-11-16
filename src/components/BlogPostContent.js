@@ -17,7 +17,7 @@ import PostFooter from './PostFooter'
 export type Props = {
   body: HastNode[],
   title: string,
-  date: string,
+  date: ?string,
   titleBody: HastNode[]
 }
 
