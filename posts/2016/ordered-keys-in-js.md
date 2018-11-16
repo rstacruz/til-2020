@@ -5,6 +5,10 @@ tags: [JavaScript]
 description: So you think JavaScript has ordered keys? Think again.
 ---
 
+### Ordered keys?
+
+<!-- {.-literate-style} -->
+
 It seems like JavaScript has ordered keys. Notice that the order of keys are based on insertion order.
 
 ```js
@@ -16,6 +20,10 @@ It seems like JavaScript has ordered keys. Notice that the order of keys are bas
 { zulu: 1, yankee: 1, xray: 1 }
 ```
 
+### Adding keys
+
+<!-- {.-literate-style} -->
+
 You can add more keys to an object, and it'll always end up in the end.
 
 ```js
@@ -25,7 +33,13 @@ You can add more keys to an object, and it'll always end up in the end.
 { zulu: 1, yankee: 1, xray: 1, bravo: 1, alpha: 1 }
 ```
 
+<next-block title="Is that really what always happens?"></next-block>
+
 ## Not really
+
+### Numeric keys
+
+<!-- {.-literate-style} -->
 
 But there are special cases when the key is a string that is a number. Notice this puts the new key at the beginning:
 
@@ -35,6 +49,10 @@ But there are special cases when the key is a string that is a number. Notice th
 { '5': 1, zulu: 1, yankee: 1, xray: 1, bravo: 1, alpha: 1 }
 ```
 
+###
+
+<!-- {.-literate-style} -->
+
 This is only true for numbers-as-strings. Strings that begin with numbers aren't affected.
 
 ```js
@@ -43,9 +61,16 @@ This is only true for numbers-as-strings. Strings that begin with numbers aren't
 { '5': 1, zulu: 1, yankee: 1, xray: 1, bravo: 1, alpha: 1, '5X': 1 }
 ```
 
+<next-block title="Let's take a look at how it's sorted."></next-block>
+
 ## Sorting behavior
 
+### Numeric keys first
+
+<!-- {.-literate-style} -->
+
 The number-like keys are going to be sorted numerically (not lexically) before the other keys.
+(Hat tip to [@cheeaun](https://twitter.com/cheeaun/status/763578733496143872) for the observation on the behavior of numeric sorting!)
 
 ```js
 > obj = {};
@@ -57,5 +82,3 @@ The number-like keys are going to be sorted numerically (not lexically) before t
 > obj
 { '2': 1, '5': 1, '22': 1, y: 1, x: 1 }
 ```
-
-Hat tip to [@cheeaun](https://twitter.com/cheeaun/status/763578733496143872) for the observation on the behavior of numeric sorting!

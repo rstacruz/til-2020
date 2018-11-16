@@ -9,6 +9,10 @@ Most people reach for [lodash] for general-purpose JavaScript work. With the rec
 
 ## Accumulated bloat
 
+### Lodash is big
+
+<!-- {.-literate-style} -->
+
 I love both lodash and Ramda, but they're a bit too bloated to use for web apps. A simple [lodash.map](https://lodash.com/docs#map) weighs in at a whopping 24 kilobytes:
 
 ```bash
@@ -16,7 +20,9 @@ $ browserify -r lodash/map | uglifyjs -cm | wc -c
 24895
 ```
 
-{:.terminal}
+### Ramda is smaller
+
+<!-- {.-literate-style} -->
 
 Ramda's [R.map](http://ramdajs.com/0.21.0/docs/#map) is slimmer, but still hefty at 7kb:
 
@@ -25,11 +31,13 @@ $ browserify -r ramda/src/pluck | uglifyjs -cm | wc -c
 7750
 ```
 
-{:.terminal}
-
 This may not seem like much, but for a web application, every kilobyte matters.
 
 ## Loops
+
+### Using map
+
+<!-- {.-literate-style} -->
 
 While JavaScript comes with [Array.prototype.map](http://devdocs.io/javascript/global_objects/array/map), it's not very useful for objects. I don't appreciate that iterating through arrays are done differently from iterating through objects. Not only that, but iterating through `Object.keys().map` is one of the slower ways of looping through an object's keys.
 
@@ -46,6 +54,10 @@ Object.keys(object).map(key => {
 })
 ```
 
+### Optimization with object-loops
+
+<!-- {.-literate-style} -->
+
 For this, I prefer [object-loops](https://www.npmjs.com/package/object-loops). `object-loops/map` is only 1kb!
 
 ```js
@@ -58,7 +70,11 @@ map(object, (val, key) => {
 })
 ```
 
-## Immutable Set/get
+## Immutable set/get
+
+### Spread operator?
+
+<!-- {.-literate-style} -->
 
 Setting deep keys is something that's needed in every [Redux]-powered app. While most Redux guides advice you to use the [spread operator](http://devguides.io/redux/introduction#the-spread-operator), it quickly gets unwieldy for deep structures.
 
@@ -76,6 +92,10 @@ state = {
 }
 ```
 
+### Consider using 101
+
+<!-- {.-literate-style} -->
+
 For this, [101](https://www.npmjs.com/package/101) comes with `101/put` and `101/pluck`.
 
 ```js
@@ -85,6 +105,10 @@ import get from '101/pluck'
 state = set(state, `albums.${id}`, album)
 get(state, `albums.${id}`)
 ```
+
+### Deleting keys With 101
+
+<!-- {.-literate-style} -->
 
 It comes with `101/omit` as well as an immutable analogue for `delete`.
 
@@ -99,6 +123,10 @@ del(state, `albums.${id}`)
 
 ## Recap
 
+### object-loops for iteration
+
+<!-- {.-literate-style} -->
+
 [object-loops] is great for iteration.
 
 ```js
@@ -109,6 +137,10 @@ map(state.albums, (val, key) => {
   /*...*/
 })
 ```
+
+### 101 for many things
+
+<!-- {.-literate-style} -->
 
 [101] is great for setting/getting values from deep structures.
 

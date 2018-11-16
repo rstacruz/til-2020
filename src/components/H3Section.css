@@ -33,6 +33,10 @@
 .h3-section.-reverse-literate-style {
   max-width: 100vw;
 
+  & > h3 {
+    margin-top: 0;
+  }
+
   & > ::after,
   & > .body::after {
     content: '';

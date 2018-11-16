@@ -20,6 +20,8 @@ Don't want to switch away from the asset pipeline? That's fine, read on for an a
 
 ### Add `node_modules` to your gitignore
 
+<!-- {.-literate-style} -->
+
 Because you don't want to commit those, just like you don't commit your gems.
 
 ```bash
@@ -28,6 +30,8 @@ echo '/node_modules' >> .gitignore
 
 ### Create a `package.json` in your project
 
+<!-- {.-literate-style} -->
+
 This is the npm equivalent of a `Gemfile`—it's where your packages are stored.
 
 ```
@@ -35,6 +39,8 @@ npm init
 ```
 
 ### Add `node_modules` to your asset path
+
+<!-- {.-literate-style} -->
 
 This lets you use npm modules in your Sprockets assets. In `config/application.rb`:
 
@@ -46,6 +52,8 @@ module YourApp
 
 ### Run `npm install` on startup
 
+<!-- {.-literate-style} -->
+
 Rails (or Bundler) prevents you from starting itself when you have gems that aren't installed yet. To emulate that behavior for npm packages, do this in `config/initializers/npm.rb`:
 
 ```rb
@@ -53,6 +61,8 @@ system 'npm install' if Rails.env.development? || Rails.env.test?
 ```
 
 ### Heroku: add Node.js support
+
+<!-- {.-literate-style} -->
 
 If you're deploying to Heroku, the default Ruby buildpack doesn't include Node, which you need to use npm. Add both the Node.js and Ruby buildpacks:
 
@@ -67,13 +77,19 @@ You can only use node modules that come with a pre-built version in it. [moderni
 
 [browserify-rails]: https://github.com/browserify-rails/browserify-rails
 
-### Use `npm install`
+### Use npm
+
+<!-- {.-literate-style} -->
+
+Use `npm install` with `--save` to add packages.
 
 ```bash
 npm install --save --save-exact modernizr
 ```
 
 ### Add to `application.js`
+
+<!-- {.-literate-style} -->
 
 Then in your `application.js`, require it like so:
 

@@ -31,6 +31,12 @@ graphql(schema, '{ hello }', root).then(res => {
 // => { data: { hello: 'world' } }
 ```
 
+<!-- {.-wide} -->
+
+<next-block title="Why use buildSchema?"></next-block>
+
+## Why use buildSchema?
+
 Without _buildSchema()_, you'll have to write it using lower-level classes:
 
 ```js
@@ -60,5 +66,7 @@ graphql(schema, '{ hello }').then(res => {
 })
 // => { data: { hello: 'world' } }
 ```
+
+<!-- {.-wide} -->
 
 You can see an example in the graphql.js documentation's [home page](http://graphql.org/graphql-js/#writing-code).

@@ -143,7 +143,7 @@
     }
 
     @media (--ms-viewport-xxl) {
-      margin: 32px;
+      margin: 16px 32px;
     }
 
     &.-inactive {
