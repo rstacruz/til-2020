@@ -191,8 +191,8 @@
 }
 
 /* Custom media queries */
-@custom-media --ms-viewport-md (width > 480px);
-@custom-media --ms-viewport-lg (width > 768px);
-@custom-media --ms-viewport-xl (width > 900px);
-@custom-media --ms-viewport-xxl (width > 1100px);
+@custom-media --ms-viewport-md (width > 480px); /* portrait tablet+ */
+@custom-media --ms-viewport-lg (width > 768px); /* landscape mobile/tablet+ */
+@custom-media --ms-viewport-xl (width > 900px); /* laptop+ */
+@custom-media --ms-viewport-xxl (width > 1100px); /* desktop+ */
 @custom-media --show-side-line (width > 900px);

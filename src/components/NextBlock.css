@@ -23,15 +23,17 @@
     margin-right: 0.5em;
   }
 
-  &::after {
-    display: none;
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    width: 64px;
-    height: 3px;
-    border-radius: 2px;
-    background: var(--accent);
-    margin: 0 24px;
+  @media (--ms-viewport-lg) {
+    &::after {
+      display: none;
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 64px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--accent);
+      margin: 0 24px;
+    }
   }
 }

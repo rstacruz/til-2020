@@ -7,6 +7,8 @@ description: Fix the problem with GitHub Pages's relative URLs with this snippet
 
 [Jekyll] is a great static site tool. If you're using [GitHub Pages][gh-pages], it comes with it for free, making it a very useful tool for any public blog or website. It comes, though, with one common problem that I've yet to come across a good solution for: relative paths.
 
+<next-block title="Why are relative paths a problem?"></next-block>
+
 ## The problem
 
 ```html
@@ -15,6 +17,7 @@ description: Fix the problem with GitHub Pages's relative URLs with this snippet
 ```
 
 ### The mess of relative paths
+
 Let's say you have an innocent URL in your layout like the one above. This is a relative path, not an absolute one that begins with `/`. It resolves based on wherever it's included from.
 
 This works well in pages of your site placed in the root directory. Once you path one level deep though, you'll encounter problems.
@@ -24,6 +27,8 @@ This works well in pages of your site placed in the root directory. Once you pat
 | `/index.html`         | `/`      | `/assets/style.css`       | Good ✓  |
 | `/me.html`            | `/`      | `/assets/style.css`       | Good ✓  |
 | `/about/profile.html` | `/about` | `/about/assets/style.css` | Wrong ✗ |
+
+<next-block title="How do we usually work around them?"></next-block>
 
 ## A naive workaround
 
@@ -42,6 +47,8 @@ This works great for sites that live on its own domain. When your site will be h
 | ------------------------- | ------------------- | ------: |
 | `user.github.io/`         | `/assets/style.css` | Good ✓  |
 | `user.github.io/project/` | `/assets/style.css` | Wrong ✗ |
+
+<next-block title="Let's look at a better workaround."></next-block>
 
 ## A better workaround
 
