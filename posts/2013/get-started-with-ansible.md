@@ -88,6 +88,8 @@ ok: [127.0.0.1]
 ...
 ```
 
+<!-- {.-wide} -->
+
 ## Further reading
 
 Ansible's source is available via GitHub: [ansible/ansible](https://github.com/ansible/ansible).
