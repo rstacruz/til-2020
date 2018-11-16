@@ -12,6 +12,7 @@ import PostContent from './PostContent'
 import './BlogPostContent.css'
 import { type HastNode } from '../types'
 import BlogPostTitle from './BlogPostTitle'
+import PostFooter from './PostFooter'
 
 export type Props = {
   body: HastNode[],
@@ -32,6 +33,7 @@ const BlogPostContent = ({ body, titleBody, title, date }: Props) => {
     <div className='blog-post-content'>
       <BlogPostTitle {...{ title, date, body: titleBody }} />
       <PostContent {...{ body }} />
+      <PostFooter {...{ title, date }} />
     </div>
   )
 }
