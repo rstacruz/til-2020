@@ -30,6 +30,10 @@ module.exports = {
       options: { name: `posts`, path: `${__dirname}/posts/2015` }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: { name: `posts`, path: `${__dirname}/posts/2013` }
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: ['gatsby-remark-component']

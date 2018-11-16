@@ -6,22 +6,17 @@ description: Provisioning servers is easy using Ansible. Here's a guide to set i
 ---
 
 [Ansible](http://ansible.com) is a fantastic tool for provisioning servers. I personally prefer it over Chef, Puppet and Salt. Here's how to get an Ansible project started.
-{:.brief-intro.center}
 
----
+## Install Ansible
 
-### Install Ansible
-
-Officially available via `pip`.
+Ansible is officially available via `pip`.
 
 ```sh
 brew install ansible            # OSX
 [sudo] pip install ansible      # elsewhere
 ```
 
-{:.terminal}
-
-### Start your project
+## Start your project
 
 Make the directory. Put this under version control, preferrably.
 
@@ -30,7 +25,7 @@ Make the directory. Put this under version control, preferrably.
 ~$ cd setup
 ```
 
-### Create an inventory file
+## Create an inventory file
 
 This is a list of hosts you want to manage, grouped into groups. (Hint: try
 using 127.0.0.1 to deploy to your local machine)
@@ -45,7 +40,7 @@ using 127.0.0.1 to deploy to your local machine)
 192.168.0.3
 ```
 
-### Create your first Playbook
+## Create your first Playbook
 
 A playbook is just a YAML file.
 
@@ -68,7 +63,7 @@ A playbook is just a YAML file.
       gem: name=bundler state=latest
 ```
 
-### Run it
+## Run it
 
 Use the `ansible-playbook` command.
 
@@ -93,9 +88,7 @@ ok: [127.0.0.1]
 ...
 ```
 
----
-
-### Further reading
+## Further reading
 
 Ansible's source is available via GitHub: [ansible/ansible](https://github.com/ansible/ansible).
 
