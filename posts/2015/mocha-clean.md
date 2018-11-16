@@ -10,8 +10,7 @@ image: https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/compariso
 with useless frames from Mocha internals and 3rd-party modules. Let's try and
 clean it up.
 
-<img src='https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/comparison.png'>
-![Image]({{ page.image }})
+<p class='-wide'><img src='https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/comparison.png'></p>
 
 ## Introducing mocha-clean
 
@@ -19,11 +18,19 @@ clean it up.
 node_modules, absolute paths (based on cwd), and other unneccessary cruft
 from stack traces.
 
+### Usage
+
+<!-- {.-literate-style} -->
+
 Simply invoke Mocha with `-r mocha-clean`. The easiest way to do this is to add it to your \_test/mocha.opts\_ file.
 
 ```
 --require mocha-clean
 ```
+
+### Installation
+
+<!-- {.-literate-style} -->
 
 It's available via npm, and works with Mocha 1.x in Node.js and in the browser. The source is available in GitHub: [rstacruz/mocha-clean][src].
 

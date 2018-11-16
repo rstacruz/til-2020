@@ -26,7 +26,8 @@ const Layout = ({ children }) => (
           <Helmet
             title={fullTitle}
             meta={[
-              { name: 'description', content: shortDescription }
+              { name: 'description', content: shortDescription },
+              { name: 'robots', content: 'noindex' }
               // { name: 'keywords', content: 'sample, something' }
             ]}
           >
