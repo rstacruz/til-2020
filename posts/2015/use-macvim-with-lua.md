@@ -11,9 +11,9 @@ It's always a good idea to install [MacVim] with Lua support. [Homebrew] does no
 brew install macvim --with-cscope --with-lua --override-system-vim --with-luajit --with-python3
 ```
 
-{:.terminal.wide}
+<!-- {.-wide} -->
 
-The option `--override-system-vim` will allow you to use `vim` in the command line apart from the GUI... also a great idea.
+Also, the option `--override-system-vim` will allow you to use `vim` in the command line apart from the GUI... also a great idea!
 
 [macvim]: https://github.com/macvim-dev/macvim
 [homebrew]: http://brew.sh/

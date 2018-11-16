@@ -42,7 +42,7 @@
 
   @media (--ms-viewport-lg) {
     & > h1 {
-      max-width: 50%;
+      padding-right: 35%;
     }
   }
 

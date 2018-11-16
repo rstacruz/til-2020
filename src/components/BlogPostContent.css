@@ -87,4 +87,30 @@
     padding: 0;
     font-size: 1em;
   }
+
+  & pre + pre {
+    margin-top: -2.6em;
+  }
+
+  & table {
+    width: 100%;
+  }
+
+  & table tr {
+    border-bottom: solid 1px var(--border-color);
+  }
+
+  & table th,
+  & table td {
+    @apply --font-size--1;
+    padding: 8px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
 }

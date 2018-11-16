@@ -4,6 +4,10 @@
   @media (min-width: 768.1px) {
     /* This is where it gets funny */
     max-width: var(--column-size);
+
+    & > .body > .-wide {
+      width: var(--column-size-inverse);
+    }
   }
 
   & > h3 {

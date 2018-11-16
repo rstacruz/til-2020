@@ -6,7 +6,6 @@ description: Fix the problem with GitHub Pages's relative URLs with this snippet
 ---
 
 [Jekyll] is a great static site tool. If you're using [GitHub Pages][gh-pages], it comes with it for free, making it a very useful tool for any public blog or website. It comes, though, with one common problem that I've yet to come across a good solution for: relative paths.
-{:.brief-intro.center}
 
 ## The problem
 
@@ -43,9 +42,6 @@ This works great for sites that live on its own domain. When your site will be h
 | ------------------------- | ------------------- | ------: |
 | `user.github.io/`         | `/assets/style.css` | Good ✓  |
 | `user.github.io/project/` | `/assets/style.css` | Wrong ✗ |
-{:.lite-headings}
-
-<br>
 
 ## A better workaround
 
@@ -62,6 +58,7 @@ This snippet below automatically determines the relative base and stores it in t
 ```
 
 ### Use it as a prefix
+
 You can then use it as a prefix to URLs, like the examples below. You don't need to `include` it all the time—just include it once in your layouts and it will be available everywhere.
 
 ```html

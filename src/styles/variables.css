@@ -11,6 +11,7 @@
 /* Metrics */
 :root {
   --column-size: 60%;
+  --column-size-inverse: calc(100% / 0.6);
 }
 
 /* Colors 2 */
