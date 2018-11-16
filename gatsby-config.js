@@ -23,17 +23,11 @@ module.exports = {
     },
     {
       resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/posts/2018`
-      }
+      options: { name: `posts`, path: `${__dirname}/posts/2018` }
     },
     {
       resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/posts/2017`
-      }
+      options: { name: `posts`, path: `${__dirname}/posts/2015` }
     },
     {
       resolve: 'gatsby-transformer-remark',
