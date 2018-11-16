@@ -9,7 +9,10 @@ function supportsManifest() {
 module.exports = {
   pathPrefix: '/tilnext',
   siteMetadata: {
-    title: 'TIL'
+    title: 'TIL',
+    fullTitle: 'Today I Learned — web development musings semi-daily',
+    shortDescription:
+      'TIL - a collection of things I learned on my day-to-day web development work.'
   },
   plugins: [
     'gatsby-plugin-postcss',

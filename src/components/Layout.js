@@ -12,20 +12,22 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            fullTitle
+            shortDescription
           }
         }
       }
     `}
     render={data => {
-      const { title } = data.site.siteMetadata
+      const { fullTitle, shortDescription } = data.site.siteMetadata
 
       return (
         <>
           <Helmet
-            title={title}
+            title={fullTitle}
             meta={[
-              { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' }
+              { name: 'description', content: shortDescription }
+              // { name: 'keywords', content: 'sample, something' }
             ]}
           >
             <html lang='en' />

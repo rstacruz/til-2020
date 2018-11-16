@@ -30,10 +30,9 @@ export type Props = {
 class BlogPostTemplate extends React.Component<Props> {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
     const { previous, next } = this.props.pageContext
-    const { title, date } = post.frontmatter
+    const { title, date, description } = post.frontmatter
     const { slug } = post.fields
     const htmlAst = transformHtmlAst(post.htmlAst)
     const sections = htmlAst.children || []
@@ -44,8 +43,10 @@ class BlogPostTemplate extends React.Component<Props> {
     return (
       <Layout location={this.props.location}>
         <Helmet
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={`${title} | ${siteTitle}`}
+          meta={[
+            { name: 'description', content: description || siteDescription }
+          ]}
+          title={`${title}`}
         />
         <MainHeading {...{ title, slug }} />
         <div>
@@ -90,6 +91,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        description
       }
     }
   }
