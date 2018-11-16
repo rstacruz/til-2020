@@ -56,6 +56,11 @@
     margin-bottom: 1.5em;
   }
 
+  & table {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+  }
+
   & h3 + p {
     margin-top: -1.5em;
   }
@@ -94,23 +99,44 @@
 
   & table {
     width: 100%;
+    border-top: solid 1px var(--accent-border-color);
+    border-collapse: collapse;
+    border: solid 2px var(--accent);
+    border-radius: 3px;
   }
 
   & table tr {
-    border-bottom: solid 1px var(--border-color);
+    border-bottom: solid 1px var(--accent-border-color);
+  }
+
+  & table th {
+    color: var(--accent-text);
+  }
+
+  & table thead {
+    border-bottom: solid 2px var(--accent);
   }
 
   & table th,
   & table td {
     @apply --font-size--1;
-    padding: 8px;
+    padding: 12px;
+    text-align: left;
+
+    &[align='right'] {
+      text-align: right;
+    }
+
+    &[align='center'] {
+      text-align: center;
+    }
 
     &:first-child {
-      padding-left: 0;
+      padding-left: 16px;
     }
 
     &:last-child {
-      padding-right: 0;
+      padding-right: 16px;
     }
   }
 }

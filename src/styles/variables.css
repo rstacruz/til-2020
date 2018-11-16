@@ -29,6 +29,7 @@
   /* --accent: color-mod(var(--mint) tint(40%) saturation(-20%)); */
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
   --highlighter-color: color-mod(var(--accent) alpha(50%));
+  --accent-border-color: color-mod(var(--accent) alpha(30%));
 
   --accent-text: color-mod(
     var(--accent) shade(30%) saturation(+30%) hue(-10deg)
