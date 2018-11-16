@@ -15,7 +15,7 @@ class Circle extends Shape {
 
 ### Class inheritance caveats
 
-When using class inheritance with Babel.js, keep in mind that IE10 and below are [not supported](http://babeljs.io/docs/advanced/caveats) by default. Babel's class inheritance relies on _\_\_proto\_\__ which is not available on legacy IE versions.
+When using class inheritance with Babel.js, keep in mind that IE10 and below are [not supported](http://babeljs.io/docs/advanced/caveats) by default. Babel's class inheritance relies on \_\_\_proto\_\_\_ which is not available on legacy IE versions.
 
 Using _super_ is also not supported on IE8 and below, as it compiles down to using [Object.getPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf).
 

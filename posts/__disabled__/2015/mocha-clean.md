@@ -9,20 +9,17 @@ image: https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/compariso
 [Mocha] is a great way to test JavaScript, but its stack traces are riddled
 with useless frames from Mocha internals and 3rd-party modules. Let's try and
 clean it up.
-{:.brief-intro.center}
 
+<img src='https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/comparison.png'>
 ![Image]({{ page.image }})
-{:.full-image.cropped}
 
-<br>
-
-### Introducing mocha-clean
+## Introducing mocha-clean
 
 `mocha-clean` is a plugin for Mocha. It strips away mocha internals,
 node_modules, absolute paths (based on cwd), and other unneccessary cruft
 from stack traces.
-Simply invoke Mocha with `-r mocha-clean`. The easiest way to do this is to add
-it to your _test/mocha.opts_ file.
+
+Simply invoke Mocha with `-r mocha-clean`. The easiest way to do this is to add it to your \_test/mocha.opts\_ file.
 
 ```
 --require mocha-clean
@@ -34,11 +31,7 @@ It's available via npm, and works with Mocha 1.x in Node.js and in the browser. 
 npm install --save-dev mocha-clean
 ```
 
-{:.terminal}
-
----
-
-### Merging into Mocha?
+## Merging into Mocha?
 
 A pull request is currently open in Mocha to integrate this functionality into Mocha itself. Check out [#1564](https://github.com/mochajs/mocha/pull/1564) and offer your support and comments.
 

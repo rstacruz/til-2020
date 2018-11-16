@@ -1,6 +1,6 @@
 ---
 date: '2018-05-22'
-title: "CSS-in-JS showdown: styled-jsx vs. Emotion"
+title: 'CSS-in-JS showdown: styled-jsx vs. Emotion'
 tags: [JavaScript]
 secret: true
 description: |
@@ -14,8 +14,8 @@ There's a lot of solutions for CSS-in-JS. Today we're going to look at `styled-j
 
 It's a library. Check it out: [emotion]. It's available in various flavors:
 
-* [react-emotion]
-* [styled-components]
+- [react-emotion]
+- [styled-components]
 
 ### What's styled-jsx?
 
@@ -128,11 +128,11 @@ styled-jsx is (...):
 
 ```js
 const Profile = () => (
-  <section className="Profile">
-    <div className="image" />
-    <div className="info">
-      <span className="name" />
-      <span className="timestamp" />
+  <section className='Profile'>
+    <div className='image' />
+    <div className='info'>
+      <span className='name' />
+      <span className='timestamp' />
     </div>
 
     <style jsx>{`
@@ -171,7 +171,7 @@ styled-jsx supports PostCSS:
 
 ```js
 const Profile = children => (
-  <div className="Profile">
+  <div className='Profile'>
     {children}
 
     <style jsx>{`

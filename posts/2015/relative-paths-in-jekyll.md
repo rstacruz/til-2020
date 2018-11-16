@@ -13,7 +13,7 @@ description: Fix the problem with GitHub Pages's relative URLs with this snippet
 
 ```html
 <!-- _layouts/default.html -->
-<link href='assets/style.css' rel='stylesheet'>
+<link href="assets/style.css" rel="stylesheet" />
 ```
 
 ### The mess of relative paths
@@ -24,8 +24,8 @@ This works well in pages of your site placed in the root directory. Once you pat
 
 | From this page...     | Base     | Final URL                 |         |
 | --------------------- | -------- | ------------------------- | ------: |
-| `/index.html`         | `/`      | `/assets/style.css`       | Good ✓  |
-| `/me.html`            | `/`      | `/assets/style.css`       | Good ✓  |
+| `/index.html`         | `/`      | `/assets/style.css`       |  Good ✓ |
+| `/me.html`            | `/`      | `/assets/style.css`       |  Good ✓ |
 | `/about/profile.html` | `/about` | `/about/assets/style.css` | Wrong ✗ |
 
 <next-block title="How do we usually work around them?"></next-block>
@@ -35,17 +35,16 @@ This works well in pages of your site placed in the root directory. Once you pat
 One workaround is to use absolute paths by adding a `/` in the beginning.
 
 ```html
-<link href='/assets/style.css' rel='stylesheet'>
-            ^
+<link href="/assets/style.css" rel="stylesheet" /> ^
 ```
 
 ### Why absolute URLs suck
-This works great for sites that live on its own domain. When your site will be hosted in a sub-directory (such as the case with [GitHub Project Pages][gh-pages]), this absolute path will not resolve to `/project/assets/style.css` as you probably would have intended.
 
+This works great for sites that live on its own domain. When your site will be hosted in a sub-directory (such as the case with [GitHub Project Pages][gh-pages]), this absolute path will not resolve to `/project/assets/style.css` as you probably would have intended.
 
 | If your site is in...     | It resolves to...   |         |
 | ------------------------- | ------------------- | ------: |
-| `user.github.io/`         | `/assets/style.css` | Good ✓  |
+| `user.github.io/`         | `/assets/style.css` |  Good ✓ |
 | `user.github.io/project/` | `/assets/style.css` | Wrong ✗ |
 
 <next-block title="Let's look at a better workaround."></next-block>
@@ -56,12 +55,10 @@ This snippet below automatically determines the relative base and stores it in t
 
 ```html
 <!-- _includes/base.html -->
-{% assign base = '' %}
-{% assign depth = page.url | split: '/' | size | minus: 1 %}
-{% if    depth <= 1 %}{% assign base = '.' %}
-{% elsif depth == 2 %}{% assign base = '..' %}
-{% elsif depth == 3 %}{% assign base = '../..' %}
-{% elsif depth == 4 %}{% assign base = '../../..' %}{% endif %}
+{% assign base = '' %} {% assign depth = page.url | split: '/' | size | minus: 1
+%} {% if depth <= 1 %}{% assign base = '.' %} {% elsif depth == 2 %}{% assign
+base = '..' %} {% elsif depth == 3 %}{% assign base = '../..' %} {% elsif depth
+== 4 %}{% assign base = '../../..' %}{% endif %}
 ```
 
 ### Use it as a prefix
@@ -70,20 +67,20 @@ You can then use it as a prefix to URLs, like the examples below. You don't need
 
 ```html
 {% include base.html %}
-<link href='{{base}}/assets/style.css' rel='stylesheet'>
+<link href="{{base}}/assets/style.css" rel="stylesheet" />
 ```
 
 ```html
-<a href='{{ base }}'>Back to home</a>
+<a href="{{ base }}">Back to home</a>
 ```
 
 ```html
-<a href='{{ base }}/about.html'>About me</a>
+<a href="{{ base }}/about.html">About me</a>
 ```
 
 ```html
-<a href='{{ base }}{{ post.url }}'>Read "{{ post.title }}"</a>
+<a href="{{ base }}{{ post.url }}">Read "{{ post.title }}"</a>
 ```
 
-[Jekyll]: http://jekyllrb.com/
+[jekyll]: http://jekyllrb.com/
 [gh-pages]: http://pages.github.com/
