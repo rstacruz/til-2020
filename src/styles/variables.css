@@ -6,6 +6,7 @@
   --yellow: #ffeaa7;
   --mint: #55efc4;
   --poster: #81ecec;
+  --ube: color-mod(#6c5ce7 lightness(+20%));
 }
 
 /* Metrics */
@@ -24,7 +25,8 @@
   --code-background: #fcfcfc;
 
   /* --accent: color-mod(var(--poster)); */
-  --accent: color-mod(var(--yellow));
+  /* --accent: color-mod(var(--yellow)); */
+  --accent: color-mod(var(--ube));
   /* --accent: color-mod(tomato tint(30%)); */
   /* --accent: color-mod(var(--mint) tint(40%) saturation(-20%)); */
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
