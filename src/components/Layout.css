@@ -29,3 +29,8 @@
     url('https://typeof.net/Iosevka/iosevka/ttf/iosevka-regular.ttf')
       format('truetype');
 }
+
+html,
+body {
+  overflow-x: hidden;
+}
