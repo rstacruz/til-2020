@@ -187,7 +187,7 @@
   --ms-ratio-sm: 1.15;
   --ms-ratio-md: 1.17;
   --ms-ratio-lg: 1.2;
-  --ms-base: 1rem;
+  --ms-base: 1em;
   --ms-base-sm: var(--ms-base);
   --ms-base-md: var(--ms-base-sm);
   --ms-base-lg: var(--ms-base-md);
