@@ -3,10 +3,18 @@
 .post-footer {
   & {
     background: white;
-    box-shadow: none;
     margin-top: 0;
     padding-top: 64px;
     padding-bottom: 64px;
+    @apply --shadow-paper-inactive;
+  }
+
+  @media (--ms-viewport-xl) {
+    margin: 32px 32px;
+  }
+
+  & {
+    margin-bottom: 8px;
   }
 
   & > .body {

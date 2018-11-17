@@ -30,7 +30,7 @@
 }
 
 .h3-section.-literate-style,
-.h3-section.-reverse-literate-style {
+.h3-section.-captioned-style {
   @media (--ms-viewport-lg) {
     max-width: 100vw;
 
@@ -45,7 +45,11 @@
       clear: both;
       zoom: 1;
     }
+  }
+}
 
+.h3-section.-literate-style {
+  @media (--ms-viewport-lg) {
     & > .body > p {
       width: 50%;
       float: left;
@@ -62,17 +66,45 @@
   }
 }
 
-.h3-section.-reverse-literate-style {
-  & > .body > p {
-    width: 50%;
-    float: right;
-    padding-left: 32px;
+.h3-section.-captioned-style {
+  & > .body > blockquote {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  & > .body > pre,
   & > .body > blockquote {
-    width: 50%;
-    float: left;
+    color: var(--mute-text-color);
+    @apply --em-style;
+    font-size: 0.9em;
+    line-height: 1.6;
+  }
+
+  & > .body > blockquote > p {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (--ms-viewport-lg) {
+    & > .body > pre {
+      width: 60%;
+      float: left;
+      margin-top: 0;
+    }
+
+    & > .body > blockquote {
+      width: calc(40% - 32px);
+      float: right;
+      margin: 0;
+      margin-top: 0;
+      border-top: solid 1px var(--accent);
+      padding-top: 16px;
+      padding-right: 32px;
+    }
+
+    & > .body > blockquote > p > strong {
+      color: var(--heading-color);
+    }
   }
 }
 

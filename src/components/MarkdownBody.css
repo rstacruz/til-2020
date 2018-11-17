@@ -83,6 +83,7 @@
     font-size: 0.9em;
     background: var(--code-background);
     background: var(--highlighter-color);
+    font-style: normal;
   }
 
   & pre code {

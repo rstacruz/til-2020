@@ -9,10 +9,10 @@ tags: [Development, Git]
 This forces GitHub to always use SSH, even for HTTPS URL's! This way, you can use `https://` GitHub URL's and they will still use your SSH key.
 
 ```bash
-git config \
-  --global url."git@github.com:".insteadOf \
-  "https://github.com/"
+git config --global url."git@github.com:".insteadOf "https://github.com/"
 ```
+
+<!-- {.-wide} -->
 
 <next-block title="What does it do?"></next-block>
 
@@ -20,14 +20,16 @@ git config \
 
 When you clone an HTTPS URL, it now gets rewritten as an SSH URL.
 
+###
+
+<!-- {.-captioned-style} -->
+
 ```bash
 git clone https://github.com/rstacruz/vimfiles.git
 ```
 
-```bash
-# Gets rewritten as:
-git clone git@github.com:rstacruz/vimfiles.git
-```
+> **This URL will get rewritten** to access via SSH instead of HTTPS.
+> It will instead be: `git@github.com:rstacruz/vimfiles.git`
 
 <next-block title="Here's another neat trick for macOS."></next-block>
 
@@ -40,6 +42,8 @@ This will _not_ rewrite `git@github.com:user/repo.git` URL's, though, so I don't
 ```bash
 git config --global url."https://github".insteadOf git://github
 ```
+
+<!-- {.-wide} -->
 
 ## References
 

@@ -149,7 +149,7 @@
 
     &.-inactive {
       @apply --shadow-paper-inactive;
-      transform: scale(0.99);
+      transform: scale(0.995);
       background: white;
     }
 
