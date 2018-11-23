@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import './ColophonSection.css'
+import CSS from './ColophonSection.module.css'
 
 export const ColophonSection = () => {
   return (
-    <div className='colophon-section'>
-      <Link to='/'>←</Link>
+    <div className={CSS.root}>
+      <Link to='/' className={CSS.link}>
+        ←
+      </Link>
     </div>
   )
 }

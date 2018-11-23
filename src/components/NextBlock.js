@@ -6,12 +6,12 @@
  */
 
 import React from 'react'
-import './NextBlock.css'
+import CSS from './NextBlock.module.css'
 
 const NextBlock = ({ title }) => {
   return (
-    <blockquote className='next-block'>
-      <strong>Next:</strong> {title}
+    <blockquote className={CSS.root}>
+      <strong className={CSS.prefix}>Next:</strong> {title}
     </blockquote>
   )
 }
