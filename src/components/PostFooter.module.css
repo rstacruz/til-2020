@@ -1,6 +1,6 @@
 @import '../styles/variables.css';
 
-.post-footer {
+.root {
   & {
     background: white;
     margin-top: 0;
@@ -16,18 +16,20 @@
   & {
     margin-bottom: 8px;
   }
+}
 
-  & > .body {
+.body {
+  & {
     text-align: center;
   }
 
-  & > .body > h3,
-  & > .body > p {
+  & > h3,
+  & > p {
     margin: 0;
     padding: 0;
   }
 
-  & > .body > h3 {
+  & > h3 {
     color: var(--heading-color);
   }
 }

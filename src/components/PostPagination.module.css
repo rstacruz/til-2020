@@ -1,0 +1,22 @@
+@import '../styles/variables.css';
+
+.root {
+  padding: 32px;
+  display: flex;
+  position: relative;
+  background: white;
+}
+
+.link {
+  padding: 16px;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-align: center;
+  flex: 1 1 auto;
+  color: var(--mute-text-color);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-text);
+  }
+}

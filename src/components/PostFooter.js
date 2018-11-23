@@ -1,8 +1,7 @@
 // @flow
 
 import React from 'react'
-import './H2Section.css'
-import './PostFooter.css'
+import CSS from './PostFooter.module.css'
 
 export type Props = {
   title: string,
@@ -12,8 +11,8 @@ export type Props = {
 const PostFooter = (props: Props) => {
   const { title, date } = props
   return (
-    <div className='post-footer'>
-      <div className='body'>
+    <div className={CSS.root}>
+      <div className={CSS.body}>
         <h3>Thank you for reading</h3>
         <p>
           You have just read <em>{title}</em>, written on <em>{date}</em>.
