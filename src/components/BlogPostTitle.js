@@ -1,8 +1,9 @@
 import React from 'react'
 import PostContent from './PostContent'
 import CardWaypoint from './CardWaypoint'
-import './BlogPostTitle.css'
+import CSS from './BlogPostTitle.module.css'
 import './BlogPostContent.css'
+import cn from 'classnames'
 
 const BlogPostTitle = ({ title, date, body }) => {
   return (
@@ -10,14 +11,14 @@ const BlogPostTitle = ({ title, date, body }) => {
       {({ entered }) => {
         return (
           <div
-            className={`blog-post-title ${entered ? '-active' : '-inactive'}`}
+            className={cn(CSS.root, entered ? CSS.isActive : CSS.isInactive)}
           >
-            <h1>
-              {title} <span className='blinker' />
+            <h1 className={CSS.title}>
+              {title} <span className={CSS.blinker} />
             </h1>
-            <p className='byline'>Written by Rico Sta. Cruz / {date}</p>
 
-            {/* <hr /> */}
+            <p className={CSS.byline}>Written by Rico Sta. Cruz / {date}</p>
+
             <div className='MarkdownBody'>
               <PostContent body={body} />
             </div>

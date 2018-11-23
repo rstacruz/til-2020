@@ -1,0 +1,29 @@
+@import '../styles/variables.css';
+
+.link {
+  & {
+    padding: 16px 0;
+    display: block;
+    border-top: solid 1px var(--border-color);
+  }
+
+  &,
+  &:visited {
+    text-decoration: none;
+    color: var(--heading-color);
+  }
+}
+
+.tags {
+  @apply --font-size--1;
+  color: var(--mute-text-color);
+  margin-left: 16px;
+  @apply --em-style;
+}
+
+.date {
+  float: right;
+  @apply --font-size--1;
+  @apply --monolike-font;
+  color: var(--mute-text-color);
+}

@@ -1,13 +1,13 @@
 import React from 'react'
-import './BlogNav.css'
+import CSS from './BlogNav.module.css'
 
 export const BlogNav = ({ title }) => {
   return (
-    <div className='blog-nav'>
-      <div className='area'>
-        <div className='bar'>
-          <strong>TIL</strong>
-          <span>{title}</span>
+    <div className={CSS.root}>
+      <div className={CSS.area}>
+        <div className={CSS.bar}>
+          <strong className={CSS.prefix}>TIL</strong>
+          <span className={CSS.title}>{title}</span>
         </div>
       </div>
     </div>
