@@ -12,7 +12,8 @@ import PostContent from './PostContent'
 import { type HastNode } from '../types'
 import BlogPostTitle from './BlogPostTitle'
 import PostFooter from './PostFooter'
-import './BlogPostContent.css'
+import CSS from './BlogPostContent.module.css'
+import cn from 'classnames'
 import './MarkdownBody.css'
 
 export type Props = {
@@ -31,7 +32,7 @@ export type Props = {
 
 const BlogPostContent = ({ body, titleBody, title, date }: Props) => {
   return (
-    <div className='blog-post-content MarkdownBody'>
+    <div className={cn(CSS.root, 'MarkdownBody')}>
       <BlogPostTitle {...{ title, date, body: titleBody }} />
       <PostContent {...{ body }} />
       <PostFooter {...{ title, date }} />

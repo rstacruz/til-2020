@@ -2,7 +2,7 @@ import React from 'react'
 import PostContent from './PostContent'
 import CardWaypoint from './CardWaypoint'
 import CSS from './BlogPostTitle.module.css'
-import './BlogPostContent.css'
+import './MarkdownBody.css'
 import cn from 'classnames'
 
 const BlogPostTitle = ({ title, date, body }) => {
