@@ -7,5 +7,7 @@
 [lints]
 
 [options]
+# https://gist.github.com/lambdahands/d19e0da96285b749f0ef
+module.name_mapper='.*\(.css\)' -> 'empty/object'
 
 [strict]

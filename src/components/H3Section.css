@@ -58,6 +58,7 @@
     }
 
     & > .body > pre,
+    & > .body > figure,
     & > .body > blockquote {
       width: 50%;
       float: right;

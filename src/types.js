@@ -9,7 +9,8 @@ export type PageNode = {
     title: string,
     date: ?string,
     tags: ?(string[]),
-    description: ?string
+    description: ?string,
+    attachments: ?Array<{ publicURL: ?string }>
   }
 }
 

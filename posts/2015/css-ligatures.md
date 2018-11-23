@@ -3,9 +3,15 @@ date: '2015-03-05'
 title: Ligatures in CSS
 tags: [CSS]
 description: Implement fancy typographic ligatures with just CSS.
+attachments:
+  - './css-ligatures/ligatures.png'
 ---
 
-Headings can benefit from nice ligatures. Use the [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) CSS property to enable these OpenType features.
+### Enabling ligatures
+
+<!-- {.-literate-style} -->
+
+Headings can benefit from nice ligatures. Use the [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) CSS property to enable these OpenType features. Here's a snippet to start you with:
 
 ```css
 .headings {
@@ -24,15 +30,25 @@ Headings can benefit from nice ligatures. Use the [font-feature-settings](https:
 }
 ```
 
+### Example
+
+<!-- {.-literate-style} -->
+
 Here is what they would look like with EB Garamond. Be sure to also check [List of OpenType features](http://en.wikipedia.org/wiki/List_of_typographic_features) for more features you can use.
 
-![](images/ligatures.png)
+<figure>
+<img src='./ligatures.png'>
+</figure>
 
-### Use brick.im
+## Use brick.im
 
 Fonts from Typekit and Google Web Fonts may be stripped of all these extra OpenType information. Use fonts from [brick.im](http://brick.im/) instead.
 
-### Swashes
+## Swashes
+
+### Using font-feature-settings
+
+<!-- {.-literate-style} -->
 
 First letters can look good with swashes (eg, an `R` with an extra long stem). Just be sure to turn this on on a as-needed basis since it may overlap with the rest of the text.
 
@@ -42,9 +58,13 @@ First letters can look good with swashes (eg, an `R` with an extra long stem). J
 }
 ```
 
-## Disabling
+## Disabling ligatures
 
-You can turn off ligatures using:
+### Using font-feature-settings
+
+<!-- {.-literate-style} -->
+
+You can turn off ligatures using `font-feature-settings`.
 
 ```css
 font-feature-settings: 'liga' 0;
