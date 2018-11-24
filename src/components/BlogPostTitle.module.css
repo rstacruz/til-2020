@@ -127,6 +127,12 @@
   }
 }
 
+.hiddenBlinker {
+  composes: blinker;
+  opacity: 0;
+  animation: none;
+}
+
 .body {
   composes: context from './MarkdownBody.module.css';
 }

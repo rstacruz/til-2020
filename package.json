@@ -25,6 +25,7 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-overdrive": "^0.0.10",
+    "react-typist": "^2.0.4",
     "react-waypoint": "^8.0.3",
     "rehype-decorate": "^1.0.0-rc.3",
     "rehype-sectionize-headings": "^1.0.0-rc.3",

@@ -14,7 +14,10 @@ const BlogPostTitle = ({ title, date, body }) => {
             className={cn(CSS.root, entered ? CSS.isActive : CSS.isInactive)}
           >
             <div className={CSS.titleContainer}>
-              <span className={CSS.titlePlaceholder}>{title}</span>
+              <span className={CSS.titlePlaceholder}>
+                {title}
+                <span className={CSS.hiddenBlinker} />
+              </span>
 
               <h1 className={CSS.title}>
                 <Typist cursor={{ show: false }}>{title}</Typist>
