@@ -26,15 +26,19 @@ const toReactOpts = {
   },
   rules: [
     {
-      match: (_tag, props, _) => props.className === 'body',
-      component: 'div'
+      match: (_tag, props) => props.className === 'body',
+      component: function Body({ children, ...props }) {
+        return <div {...props}>{children}</div>
+      }
     }
   ]
-})
+}
 
 const PostContent = ({ body }: Props): React.Node => {
   return body.map((ast, index) => {
-    return <React.Fragment key={index}>{toReact(toReactOpts, ast)}</React.Fragment>
+    return (
+      <React.Fragment key={index}>{toReact(toReactOpts, ast)}</React.Fragment>
+    )
   })
 }
 
