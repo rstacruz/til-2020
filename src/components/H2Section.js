@@ -2,7 +2,8 @@
 
 import * as React from 'react'
 import CardWaypoint, { type State } from './CardWaypoint'
-import './H2Section.css'
+import CSS from './H2Section.module.css'
+import cn from 'classnames'
 
 export type Props = {
   children: React.Node,
@@ -19,7 +20,9 @@ const H2Section = ({ children, className }: Props) => {
           entered ? '-active' : '-inactive'
         ].join(' ')
 
-        return <section className={sectionClass}>{children}</section>
+        return (
+          <section className={cn(CSS.root, sectionClass)}>{children}</section>
+        )
       }}
     </CardWaypoint>
   )

@@ -149,13 +149,13 @@
       margin: 16px 32px;
     }
 
-    &.-inactive {
+    &:global(.-inactive) {
       @apply --shadow-paper-inactive;
       transform: scale(0.995);
       background: white;
     }
 
-    &.-inactive::after {
+    &:global(.-inactive)::after {
       background-color: color-mod(var(--mute-text-color) alpha(5%));
     }
   }

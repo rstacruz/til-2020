@@ -1,6 +1,6 @@
 @import '../styles/variables.css';
 
-.h2-section {
+.root {
   @apply --container-padding;
   @apply --side-line-section;
 
@@ -40,7 +40,7 @@
   }
 }
 
-.h2-section {
+.root {
   & {
     transition: background-color 250ms linear, box-shadow 250ms linear,
       transform 250ms ease-in, filter 250ms linear;
@@ -52,7 +52,7 @@
   }
 }
 
-.h2-section.-inactive {
+.root:global(.-inactive) {
   & {
     z-index: 1;
   }
@@ -68,7 +68,7 @@
   }
 }
 
-.h2-section.-active {
+.root:global(.-active) {
   background-color: white;
   z-index: 5;
 }

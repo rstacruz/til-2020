@@ -26,7 +26,12 @@ const toReact = ({ components }: Options = {}) => {
 
     return React.createElement(component || tag, props, children)
   }
-  return (ast: any): React.Node => toH(createElement, ast)
+
+  const compile = (node: any): React.Node => {
+    return toH(createElement, node)
+  }
+
+  return compile
 }
 
 export default toReact
