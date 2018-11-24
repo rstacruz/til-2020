@@ -34,6 +34,13 @@
   }
 }
 
+.titleContainer {
+  position: relative;
+  margin-top: -0.6em;
+  transform: translate3d(0, 0, 0);
+}
+
+.titlePlaceholder,
 .title {
   & {
     @apply --h1-font;
@@ -41,12 +48,27 @@
     margin: 0;
     padding: 0;
     line-height: 1.2;
-    margin-top: -0.6em;
+  }
+
+  /* Typist */
+  & > div {
+    display: inline;
   }
 
   @media (--ms-viewport-lg) {
     padding-right: 35%;
   }
+}
+
+.titlePlaceholder {
+  color: var(--accent);
+  opacity: 0.2;
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .byline {
@@ -95,7 +117,7 @@
       transparent 6px
     ),
     linear-gradient(30deg, var(--accent), var(--co-accent));
-  margin-left: -0.2em;
+  margin-left: 0.2em;
   margin-top: -0.1em;
   animation: cursor-blink 1200ms ease-in infinite;
   display: none;
