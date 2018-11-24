@@ -1,8 +1,9 @@
 import React from 'react'
-import './H3Section.css'
+import CSS from './H3Section.module.css'
+import cn from 'classnames'
 
 const H3Section = ({ children, className }) => {
-  return <section className={className}>{children}</section>
+  return <section className={cn(CSS.root, className)}>{children}</section>
 }
 
 export default H3Section

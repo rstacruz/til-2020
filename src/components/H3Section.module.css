@@ -1,6 +1,6 @@
 @import '../styles/variables.css';
 
-[id] .h3-section {
+.root.root {
   @media (min-width: 768.1px) {
     /* This is where it gets funny */
     max-width: var(--column-size);
@@ -23,14 +23,14 @@
     display: none;
   }
 
-  & > .body,
-  & > .body > :first-child {
+  & > :global(.body),
+  & > :global(.body) > :first-child {
     margin-top: 0;
   }
 }
 
-.h3-section.-literate-style,
-.h3-section.-captioned-style {
+.root:global(.-literate-style),
+.root:global(.-captioned-style) {
   @media (--ms-viewport-lg) {
     max-width: 100vw;
 
@@ -39,7 +39,7 @@
     }
 
     & > ::after,
-    & > .body::after {
+    & > :global(.body)::after {
       content: '';
       display: table;
       clear: both;
@@ -48,18 +48,18 @@
   }
 }
 
-.h3-section.-literate-style {
+.root:global(.-literate-style) {
   @media (--ms-viewport-lg) {
-    & > .body > p {
+    & > :global(.body) > p {
       width: 50%;
       float: left;
       padding-right: 32px;
       margin-top: 0;
     }
 
-    & > .body > pre,
-    & > .body > figure,
-    & > .body > blockquote {
+    & > :global(.body) > pre,
+    & > :global(.body) > figure,
+    & > :global(.body) > blockquote {
       width: 50%;
       float: right;
       margin-top: 0;
@@ -67,33 +67,33 @@
   }
 }
 
-.h3-section.-captioned-style {
-  & > .body > blockquote {
+.root:global(.-captioned-style) {
+  & > :global(.body) > blockquote {
     padding: 0;
     margin-left: 0;
     margin-right: 0;
   }
 
-  & > .body > blockquote {
+  & > :global(.body) > blockquote {
     color: var(--mute-text-color);
     @apply --em-style;
     font-size: 0.9em;
     line-height: 1.6;
   }
 
-  & > .body > blockquote > p {
+  & > :global(.body) > blockquote > p {
     margin: 0;
     padding: 0;
   }
 
   @media (--ms-viewport-lg) {
-    & > .body > pre {
+    & > :global(.body) > pre {
       width: 60%;
       float: left;
       margin-top: 0;
     }
 
-    & > .body > blockquote {
+    & > :global(.body) > blockquote {
       width: calc(40% - 32px);
       float: right;
       margin: 0;
@@ -103,19 +103,19 @@
       padding-right: 32px;
     }
 
-    & > .body > blockquote > p > strong {
+    & > :global(.body) > blockquote > p > strong {
       color: var(--heading-color);
     }
   }
 }
 
-[id] .h3-section.-hide-h3 {
+.root:global(.-hide-h3) {
   & > h3 {
     display: none;
   }
 }
 
-[id] .h3-section.-wide {
+.root:global(.-wide) {
   @media (min-width: 768.1px) {
     /* This is where it gets funny */
     max-width: 100%;
