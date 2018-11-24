@@ -5,7 +5,7 @@
 
 @import '../styles/variables.css';
 
-.MarkdownBody {
+.context {
   & {
     @apply --body-font;
     font-size: 15px;

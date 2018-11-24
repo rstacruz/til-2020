@@ -1,16 +1,16 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import './MainHeading.css'
+import CSS from './MainHeading.module.css'
 import { PostTitleSnip } from './PostTitleSnip'
 
 export const MainHeading = ({ title, slug }) => {
   return (
-    <div className='main-heading'>
-      <div className='left'>
-        <Link to='/' className='brandlink' />
+    <div className={CSS.root}>
+      <div className={CSS.left}>
+        <Link to='/' className={CSS.brandlink} />
       </div>
-      <div className='right'>
-        <span className='line' />
+      <div className={CSS.right}>
+        <span className={CSS.line} />
         <br />
         <PostTitleSnip {...{ slug, title }} variant='-small' />
       </div>

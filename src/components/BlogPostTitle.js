@@ -2,7 +2,6 @@ import React from 'react'
 import PostContent from './PostContent'
 import CardWaypoint from './CardWaypoint'
 import CSS from './BlogPostTitle.module.css'
-import './MarkdownBody.css'
 import cn from 'classnames'
 
 const BlogPostTitle = ({ title, date, body }) => {
@@ -19,7 +18,7 @@ const BlogPostTitle = ({ title, date, body }) => {
 
             <p className={CSS.byline}>Written by Rico Sta. Cruz / {date}</p>
 
-            <div className='MarkdownBody'>
+            <div className={CSS.body}>
               <PostContent body={body} />
             </div>
           </div>

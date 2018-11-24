@@ -105,6 +105,10 @@
   }
 }
 
+.body {
+  composes: context from './MarkdownBody.module.css';
+}
+
 @keyframes cursor-blink {
   0% {
     opacity: 1;

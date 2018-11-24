@@ -8,10 +8,11 @@ import cn from 'classnames'
 export type Props = {
   slug: string,
   title: string,
+  className?: string,
   variant?: '-small' | null
 }
 
-export const PostTitleSnip = ({ slug, title, variant }: Props) => {
+export const PostTitleSnip = ({ slug, title, variant, className }: Props) => {
   const varClass = variant === '-small' ? CSS.isSmall : ''
 
   return (
