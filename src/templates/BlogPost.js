@@ -66,8 +66,8 @@ class BlogPostTemplate extends React.Component<Props> {
 function transformHtmlAst(ast: HastNode): HastNode {
   ast = decorate(ast)
   ast = sectionize(ast, {
-    h2: { sectionTag: 'h2-section' },
-    h3: { sectionTag: 'h3-section' }
+    h2: { sectionTag: 'h2-section', bodyTag: 'h2-body' },
+    h3: { sectionTag: 'h3-section', bodyTag: 'h3-body' }
   })
   return ast
 }

@@ -1,13 +1,9 @@
 @import '../styles/variables.css';
 
-.root.root {
+[id] .root {
   @media (min-width: 768.1px) {
     /* This is where it gets funny */
     max-width: var(--column-size);
-
-    & > .body > .-wide {
-      width: var(--column-size-inverse);
-    }
   }
 
   & > h3 {
@@ -22,10 +18,20 @@
   & > h3:empty {
     display: none;
   }
+}
 
-  & > :global(.body),
-  & > :global(.body) > :first-child {
+.body {
+  composes: body from global;
+
+  &,
+  & > :first-child {
     margin-top: 0;
+  }
+
+  @media (min-width: 768.1px) {
+    & > :global(.-wide) {
+      width: var(--column-size-inverse);
+    }
   }
 }
 
@@ -39,7 +45,7 @@
     }
 
     & > ::after,
-    & > :global(.body)::after {
+    & > .body::after {
       content: '';
       display: table;
       clear: both;
@@ -48,18 +54,18 @@
   }
 }
 
-.root:global(.-literate-style) {
+.body:global(.-literate-style) {
   @media (--ms-viewport-lg) {
-    & > :global(.body) > p {
+    & > p {
       width: 50%;
       float: left;
       padding-right: 32px;
       margin-top: 0;
     }
 
-    & > :global(.body) > pre,
-    & > :global(.body) > figure,
-    & > :global(.body) > blockquote {
+    & > pre,
+    & > figure,
+    & > blockquote {
       width: 50%;
       float: right;
       margin-top: 0;
@@ -67,33 +73,30 @@
   }
 }
 
-.root:global(.-captioned-style) {
-  & > :global(.body) > blockquote {
+.body:global(.-captioned-style) {
+  & > blockquote {
     padding: 0;
     margin-left: 0;
     margin-right: 0;
-  }
-
-  & > :global(.body) > blockquote {
     color: var(--mute-text-color);
     @apply --em-style;
     font-size: 0.9em;
     line-height: 1.6;
   }
 
-  & > :global(.body) > blockquote > p {
+  & > blockquote > p {
     margin: 0;
     padding: 0;
   }
 
   @media (--ms-viewport-lg) {
-    & > :global(.body) > pre {
+    & > pre {
       width: 60%;
       float: left;
       margin-top: 0;
     }
 
-    & > :global(.body) > blockquote {
+    & > blockquote {
       width: calc(40% - 32px);
       float: right;
       margin: 0;
@@ -103,7 +106,7 @@
       padding-right: 32px;
     }
 
-    & > :global(.body) > blockquote > p > strong {
+    & > blockquote > p > strong {
       color: var(--heading-color);
     }
   }
