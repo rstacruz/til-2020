@@ -26,7 +26,7 @@
     white-space: nowrap;
   }
 
-  & a::after {
+  & a:not(:global(.gatsby-resp-image-link))::after {
     content: '#';
     display: inline-block;
     font-size: 0.8em;

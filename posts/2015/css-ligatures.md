@@ -1,6 +1,6 @@
 ---
 date: '2015-03-05'
-title: Ligatures in CSS
+title: Using ligatures in CSS
 tags: [CSS]
 description: Implement fancy typographic ligatures with just CSS.
 attachments:
@@ -37,7 +37,7 @@ Headings can benefit from nice ligatures. Use the [font-feature-settings](https:
 Here is what they would look like with EB Garamond. Be sure to also check [List of OpenType features](http://en.wikipedia.org/wiki/List_of_typographic_features) for more features you can use.
 
 <figure>
-<img src='./ligatures.png'>
+<img src='./css-ligatures/ligatures.png'>
 </figure>
 
 ## Use brick.im

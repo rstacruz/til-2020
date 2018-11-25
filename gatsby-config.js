@@ -15,6 +15,7 @@ module.exports = {
       'TIL - a collection of things I learned on my day-to-day web development work.'
   },
   plugins: [
+    'gatsby-plugin-sharp',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
@@ -43,7 +44,13 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-component']
+        plugins: [
+          'gatsby-remark-component',
+          {
+            resolve: 'gatsby-remark-images',
+            options: { maxWidth: 800 }
+          }
+        ]
       }
     },
     ...(supportsManifest()
@@ -51,13 +58,13 @@ module.exports = {
           {
             resolve: `gatsby-plugin-manifest`,
             options: {
-              name: 'gatsby-starter-default',
-              short_name: 'starter',
+              name: 'TIL',
+              short_name: 'til',
               start_url: '/',
-              background_color: '#663399',
-              theme_color: '#663399',
+              background_color: '#fafafa',
+              theme_color: '#fafafa',
               display: 'minimal-ui',
-              icon: 'src/images/gatsby-icon.png' // This path is relative to the root of the site.
+              icon: 'src/images/gatsby-icon.png'
             }
           }
         ]
