@@ -13,6 +13,12 @@ class Shape {
 }
 ```
 
+<!-- {.-wide} -->
+
+### Decorated functions
+
+<!-- {.-literate-style} -->
+
 ES6 makes it easy to define classes, but you can't have decorated functions. For that, you'll still need to drop to using `prototype`.
 
 ```js
@@ -20,6 +26,10 @@ Shape.prototype.iterate = memoize(function () {
   ...
 })
 ```
+
+### Non-method attributes
+
+<!-- {.-literate-style} -->
 
 Same with non-method attributes.
 

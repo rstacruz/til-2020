@@ -5,7 +5,11 @@ tags: [CSS]
 description: Let me tell you why you should never use @extend again.
 ---
 
-Using `@extend` in CSS preprocessors really suck... so use mixins instead. Consider this example:
+### What's with @extend?
+
+<!-- {.-literate-style} -->
+
+Using `@extend` in CSS preprocessors really suck... so use mixins instead. Consider this example.
 
 ```scss
 %antialias {
@@ -15,6 +19,10 @@ Using `@extend` in CSS preprocessors really suck... so use mixins instead. Consi
 }
 ```
 
+### Using @extend
+
+<!-- {.-literate-style} -->
+
 Seems innocent enough:
 
 ```scss
@@ -23,7 +31,11 @@ h3 {
 }
 ```
 
-Until you try it with media queries:
+### With media queries
+
+<!-- {.-literate-style} -->
+
+Until you try it with media queries, then it won't work. Consider using mixins instead.
 
 ```scss
 @media (max-width: 300px) {
@@ -32,5 +44,3 @@ Until you try it with media queries:
   }
 }
 ```
-
-...then it won't work. Use mixins instead.

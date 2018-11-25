@@ -24,5 +24,3 @@ To get around these caveats, use the [protoToAssign](http://babeljs.io/docs/adva
 ```bash
 babel --optional spec.protoToAssign --loose es6.classes script.js
 ```
-
-{:.terminal}
