@@ -14,14 +14,12 @@ const H2Section = ({ children, className }: Props) => {
   return (
     <CardWaypoint>
       {({ entered }: State) => {
-        if (Array.isArray(className)) className = className.join(' ')
-        const sectionClass = [
-          className,
-          entered ? '-active' : '-inactive'
-        ].join(' ')
+        const activeClass = entered ? '-active' : '-inactive'
 
         return (
-          <section className={cn(CSS.root, sectionClass)}>{children}</section>
+          <section className={cn(CSS.root, className, activeClass)}>
+            {children}
+          </section>
         )
       }}
     </CardWaypoint>

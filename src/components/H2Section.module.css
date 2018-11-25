@@ -41,11 +41,6 @@
 }
 
 .root {
-  & {
-    transition: background-color 250ms linear, box-shadow 250ms linear,
-      transform 250ms ease-in, filter 250ms linear;
-  }
-
   & > h2,
   & > .body {
     transition: opacity 250ms linear, color 250ms linear;

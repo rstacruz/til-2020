@@ -1,7 +1,21 @@
 @import '../styles/variables.css';
 
+/**
+ * Overrides:
+ *
+ *  - `-hide-h3`
+ *  - `-literate-style`
+ *  - `-captioned-style`
+ *  - `-wide`
+ *
+ * Element overrides (for paragraphs for example):
+ *
+ *  - `-wide`
+ *  - `-wider`
+ */
+
 [id] .root {
-  @media (min-width: 768.1px) {
+  @media (--ms-viewport-lg) {
     /* This is where it gets funny */
     max-width: var(--column-size);
   }
@@ -28,9 +42,18 @@
     margin-top: 0;
   }
 
-  @media (min-width: 768.1px) {
-    & > :global(.-wide) {
+  @media (--ms-viewport-lg) {
+    & > :global(.-wide),
+    & > :global(.-wider) {
       width: var(--column-size-inverse);
+    }
+  }
+
+  @media (--ms-viewport-xxl) {
+    & > :global(.-wider) {
+      max-width: calc(var(--column-size-inverse) + 128px);
+      margin-left: -64px;
+      margin-right: -64px;
     }
   }
 }
@@ -121,7 +144,7 @@
 }
 
 .root:global(.-wide) {
-  @media (min-width: 768.1px) {
+  @media (--ms-viewport-lg) {
     /* This is where it gets funny */
     max-width: 100%;
   }

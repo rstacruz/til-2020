@@ -2,6 +2,8 @@
 
 import React from 'react'
 import CSS from './PostFooter.module.css'
+import CardWaypoint, { type State } from './CardWaypoint'
+import cn from 'classnames'
 
 export type Props = {
   title: string,
@@ -11,14 +13,21 @@ export type Props = {
 const PostFooter = (props: Props) => {
   const { title, date } = props
   return (
-    <div className={CSS.root}>
-      <div className={CSS.body}>
-        <h3>Thank you for reading</h3>
-        <p>
-          You have just read <em>{title}</em>, written on <em>{date}</em>.
-        </p>
-      </div>
-    </div>
+    <CardWaypoint bottomOffset='50%' topOffset='0%'>
+      {({ entered }: State) => {
+        const activeClass = entered ? '-active' : '-inactive'
+        return (
+          <div className={cn(CSS.root, activeClass)}>
+            <div className={CSS.body}>
+              <h3>Thank you for reading</h3>
+              <p>
+                You have just read <em>{title}</em>, written on <em>{date}</em>.
+              </p>
+            </div>
+          </div>
+        )
+      }}
+    </CardWaypoint>
   )
 }
 

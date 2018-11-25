@@ -1,37 +1,101 @@
 @import '../styles/variables.css';
 
-.left {
-  position: fixed;
-  top: 32px;
-  left: 32px;
+.root {
 }
 
-.brandlink {
-  display: block;
-  width: 48px;
-  height: 12px;
-  border: solid 2px var(--accent);
-  border-radius: 8px;
+.fixed {
+  padding: 16px;
+  @media (--viewport-7) {
+    padding: 0;
+    position: fixed;
+    top: 24px;
+    left: 48px;
+    z-index: 20;
+  }
+}
+
+.strapline {
+  & {
+    display: none;
+    transition: opacity 250ms ease-in;
+    color: #7898;
+    animation: textappear 750ms linear;
+  }
+
+  &.isActive {
+    transition: opacity 250ms ease-in 250ms;
+  }
+
+  @media (--viewport-7) {
+    display: flex;
+    position: fixed;
+    top: 24px;
+    left: 32px;
+    right: 32px;
+    padding: 0 32px;
+    padding-left: 80px;
+    opacity: 1;
+  }
+}
+
+.left {
+  flex: 1 1 auto;
+  @apply --em-style;
+  line-height: 1.6;
 }
 
 .right {
-  max-width: 300px;
-  line-height: 1.7;
-  display: block;
-  position: fixed;
-  top: 32px;
-  right: 64px;
-  color: var(--mute-text-color);
-  font-size: 0.86em;
+  flex: 0 1 auto;
   text-align: right;
-  opacity: 0.5;
+  color: var(--text-bold);
+  font-weight: bold;
+  line-height: 1.6;
 }
 
-.line {
-  display: inline-block;
-  vertical-align: middle;
-  width: 48px;
-  height: 2px;
-  background: #7894;
-  margin-bottom: 8px;
+.homelink {
+  &,
+  &:visited {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+}
+
+.isInactive .strapline {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.brandlink svg {
+  width: 32px;
+  height: 32px;
+  transform: rotate(-90deg);
+  animation: appear 250ms ease-in;
+
+  & path {
+    fill: var(--accent-text);
+  }
+}
+
+.brandlink:hover svg {
+  & path {
+    fill: var(--accent);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.9) translate3d(0, 8px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes textappear {
+  0% {
+    opacity: 0;
+  }
 }

@@ -9,7 +9,9 @@ export type State = {
 }
 
 export type Props = {
-  children: State => React.Node
+  children: State => React.Node,
+  topOffset?: string,
+  bottomOffset?: string
 }
 
 // Where it transitions
@@ -42,14 +44,14 @@ class CardWaypoint extends React.Component<Props, State> {
   }
 
   render() {
-    const { children } = this.props
+    const { children, topOffset, bottomOffset } = this.props
 
     return (
       <Waypoint
         onEnter={this.onEnter}
         onLeave={this.onLeave}
-        topOffset={`${(TRIPWIRE - OVERLAP) * 100}%`}
-        bottomOffset={`${(1 - TRIPWIRE) * 100}%`}
+        topOffset={topOffset || `${(TRIPWIRE - OVERLAP) * 100}%`}
+        bottomOffset={bottomOffset || `${(1 - TRIPWIRE) * 100}%`}
       >
         <span>{children(this.state || {})}</span>
       </Waypoint>

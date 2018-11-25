@@ -6,11 +6,15 @@
     margin-top: 0;
     padding-top: 64px;
     padding-bottom: 64px;
-    @apply --shadow-paper-inactive;
+    z-index: 5;
+    position: relative;
+    @apply --side-line-section;
   }
 
   @media (--ms-viewport-xl) {
-    margin: 32px 32px;
+    margin: 0 32px;
+    padding-top: 128px;
+    padding-bottom: 128px;
   }
 
   & {
@@ -18,7 +22,7 @@
   }
 }
 
-.body {
+[id] .body {
   & {
     text-align: center;
   }

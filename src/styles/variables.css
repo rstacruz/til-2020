@@ -20,7 +20,7 @@
   --mute-text-color: #708090;
   --text-color: #303030;
   --heading-color: #080808;
-  --border-color: #7080903c;
+  --border-color: #7080901f;
   --pane-background: #f3f5f8;
   --code-background: #fcfcfc;
 
@@ -123,8 +123,14 @@
     box-shadow: 1px 1px 1px color-mod(var(--mute-text-color) alpha(20%));
   }
 
+  --shadow-paper-transition: {
+    transition: background-color 250ms linear, box-shadow 250ms linear,
+      transform 250ms ease-in, filter 250ms linear;
+  }
+
   --side-line-section: {
     @apply --shadow-paper;
+    @apply --shadow-paper-transition;
     @apply --side-line;
 
     & {
@@ -166,12 +172,12 @@
       display: block;
       position: absolute;
       width: 1px;
-      background: #7893;
+      background: var(--border-color);
 
       @media (--show-side-line) {
         display: block;
         left: 48px;
-        top: 48px;
+        top: 16px;
         bottom: 16px;
       }
 
@@ -193,9 +199,14 @@
   --ms-base-lg: var(--ms-base-md);
 }
 
+@custom-media --viewport-4 (width > 480px);
+@custom-media --viewport-7 (width > 768px);
+@custom-media --viewport-9 (width > 900px);
+@custom-media --viewport-11 (width > 1100px);
+
 /* Custom media queries */
-@custom-media --ms-viewport-md (width > 480px); /* portrait tablet+ */
-@custom-media --ms-viewport-lg (width > 768px); /* landscape mobile/tablet+ */
-@custom-media --ms-viewport-xl (width > 900px); /* laptop+ */
-@custom-media --ms-viewport-xxl (width > 1100px); /* desktop+ */
+@custom-media --ms-viewport-md (--viewport-4); /* portrait tablet+ */
+@custom-media --ms-viewport-lg (--viewport-7); /* landscape mobile/tablet+ */
+@custom-media --ms-viewport-xl (--viewport-9); /* laptop+ */
+@custom-media --ms-viewport-xxl (--viewport-11); /* desktop+ */
 @custom-media --show-side-line (width > 900px);

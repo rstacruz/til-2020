@@ -10,7 +10,9 @@ image: https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/compariso
 with useless frames from Mocha internals and 3rd-party modules. Let's try and
 clean it up.
 
-<p class='-wide'><img src='https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/comparison.png'></p>
+![Comparison screenshot](./mocha-clean/comparison.png)
+
+<!-- {.-wider} -->
 
 ## Introducing mocha-clean
 
@@ -22,7 +24,7 @@ from stack traces.
 
 <!-- {.-literate-style} -->
 
-Simply invoke Mocha with `-r mocha-clean`. The easiest way to do this is to add it to your \_test/mocha.opts\_ file.
+Simply invoke Mocha with `-r mocha-clean`. The easiest way to do this is to add it to your _test/mocha.opts_ file.
 
 ```
 --require mocha-clean

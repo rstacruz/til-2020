@@ -734,6 +734,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@clr/icons@^0.13.10":
+  version "0.13.10"
+  resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-0.13.10.tgz#5fd223332b146ae82aed7b34d260172374e3ce2b"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"

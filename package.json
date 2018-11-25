@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@clr/icons": "^0.13.10",
     "classnames": "^2.2.6",
     "debug": "^4.1.0",
     "gatsby": "^2.0.19",
