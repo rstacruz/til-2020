@@ -1,7 +1,7 @@
 ---
 date: '2017-03-14'
 title: Managing side effects in Redux
-tags: [JavaScript]
+tags: [JavaScript, Redux]
 description: Learn to manage impure side effects in a Redux store with middleware.
 ---
 

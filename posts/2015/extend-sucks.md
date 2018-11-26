@@ -1,7 +1,7 @@
 ---
 date: '2015-02-16'
 title: '@extend sucks'
-tags: [CSS]
+tags: [CSS, Sass]
 description: Let me tell you why you should never use @extend again.
 ---
 

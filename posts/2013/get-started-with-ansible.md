@@ -1,7 +1,7 @@
 ---
 date: '2013-11-27'
 title: Get started with Ansible in 2 minutes
-tags: [Development]
+tags: [Development, Ansible]
 description: Provisioning servers is easy using Ansible. Here's a guide to set it up from scratch.
 ---
 

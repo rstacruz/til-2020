@@ -8,8 +8,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PageList from '../components/PageList'
 import { type PageNode } from '../types'
+import GroupedPageList from '../components/GroupedPageList'
 
 export type Props = {
   data: {
@@ -35,7 +35,7 @@ const IndexPage = (props: Props) => {
 
   return (
     <Layout>
-      <PageList pages={pages} />
+      <GroupedPageList pages={pages} />
     </Layout>
   )
 }

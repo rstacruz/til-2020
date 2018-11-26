@@ -11,6 +11,11 @@
     @apply --side-line-section;
   }
 
+  &:global(.-active) {
+    /* Don't draw too much attention */
+    @apply --shadow-paper-inactive;
+  }
+
   @media (--ms-viewport-xl) {
     margin: 0 32px;
     padding-top: 128px;

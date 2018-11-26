@@ -1,7 +1,7 @@
 ---
 date: '2015-03-03'
 title: Easy color computations
-tags: [CSS]
+tags: [CSS, Sass]
 description: Need to lighten/darken colors easily? Here's how.
 ---
 
