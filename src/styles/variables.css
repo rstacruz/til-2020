@@ -115,6 +115,23 @@
     }
   }
 
+  --container-padding-antimargin: {
+    & {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+
+    @media (--show-side-line) {
+      margin-left: -80px;
+    }
+
+    @media (--ms-viewport-xxl) {
+      margin-left: calc(-1 * ((100vw - 960px) * 0.5 + 32px));
+      margin-right: calc(-1 * ((100vw - 960px) * 0.5 - 32px));
+      width: calc(100vw - 64px - 8px);
+    }
+  }
+
   --shadow-paper: {
     box-shadow: 0 2px 3px #3681, 0 16px 24px #3683;
   }

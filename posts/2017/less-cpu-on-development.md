@@ -7,10 +7,12 @@ description: Is Rails eating your CPU in development? Try this nifty trick.
 
 Is Rails eating your CPU in development? Try lowering its priority using [renice(1)](http://manpages.ubuntu.com/manpages/zesty/en/man1/renice.1.html), a standard BSD utility that should be available in OS X and most Linux distributions. Here's a shell script that will automatically reset the priority to `+15` to common development processes:
 
-```
+```sh
 #!/usr/bin/env sh
 sudo renice +15 -p $(ps ax | grep -E 'ruby|node|watchman|postgres' | grep -v grep | awk '{print $1}' | tr '\n' ' ')
 ```
+
+<!-- {.-wide} -->
 
 Save this as `renice-dev` into one of your `bin` paths, and give it a `chmod +x renice-dev`. You can type `renice-dev` after you start your development processes to "renice" them.
 

@@ -6,8 +6,9 @@ image: images/side-quest-example.jpg
 description: Video games organize tasks in quests. There's no reason this can't work in real life, too.
 ---
 
-![Image]({{ page.image }}){:style='margin-bottom:-10px'}
-{:.full-image.cropped.bottom-space-4.top-space-4}
+![Example image](./life-in-side-quests/side-quest-example.jpg)
+
+<!-- {.-panorama} -->
 
 Video games tell you what to do using _quests_ or _missions_. There's no reason this can't work in real life, too. Books tell us to lead purpose-driven lives with long-term and short-term goals. Seems like a perfect way to make your life an RPG.
 
@@ -15,7 +16,8 @@ Video games tell you what to do using _quests_ or _missions_. There's no reason 
 
 A _mission_ is an achievable goal within 3 months or less. A mission should be broken down into sub-tasks. In other words, it's an actionable short-term goal.
 
-<div class='mission-list top-space-4 bottom-space-4'>
+<figure class='-panorama'>
+<div class='mission-list'>
 <div class='mission-item'>
 <h3>1703 Start a blog <em>#project</em></h3>
 <ul>
@@ -53,10 +55,12 @@ A _mission_ is an achievable goal within 3 months or less. A mission should be b
 </ul>
 </div>
 </div>
+</figure>
 
 I prefix each mission with a projected date of completion (`1702` is 2017, February), but this is totally up to you. I do this to get a good retrospective at the end of the year of all the missions I've completed.
 
-<div class='mission-list top-space-4 bottom-space-4 -single'>
+<figure>
+<div class='mission-list'>
 <div class='mission-item -goals'>
 <ul>
 <li>1703 Start a blog</li>
@@ -68,13 +72,13 @@ I prefix each mission with a projected date of completion (`1702` is 2017, Febru
 </ul>
 </div>
 </div>
+</figure>
 
 ## Keeping track
 
 This system is so simple, you can use anything to keep track of it. As an Android user, I prefer using [Google Keep](https://keep.google.com). It lets me view all my missions at a glance, both ongoing and completed.
 
-![Image](images/keep-missions.png){:style='max-width:400px;margin-bottom:-130px'}
-{:.full-image.cropped.bottom-space-4.top-space-4}
+![Image](./life-in-side-quests/keep-missions.png)
 
 There are a variety of other ways to keep track of your missions, including using plain notebooks and pens. What's important is you break your goals into manageable pieces, and give yourself a way to look back on your progress.
 
@@ -90,16 +94,18 @@ There are a variety of other ways to keep track of your missions, including usin
   border: solid 1px rgba(30, 144, 255, 0.2);
   box-shadow: 0 4px 8px rgba(30, 144, 255, 0.07);
   border-radius: 3px;
+  max-width: 320px;
+  background: white;
 }
 @media (min-width: 481px) {
   .mission-list {
     display: flex;
-    margin-left: -200px;
-    margin-right: -200px;
-    justify-items: center;
+    margin-left: 128px;
+    margin-right: 64px;
+    justify-content: center;
   }
   .mission-item {
-    flex: 0 0 25%;
+    flex: 0 1 320px;
     margin: 4px;
   }
 }

@@ -31,6 +31,10 @@ module.exports = {
     },
     {
       resolve: `gatsby-source-filesystem`,
+      options: { name: `posts`, path: `${__dirname}/posts/2017` }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: { name: `posts`, path: `${__dirname}/posts/2016` }
     },
     {
@@ -48,7 +52,7 @@ module.exports = {
           'gatsby-remark-component',
           {
             resolve: 'gatsby-remark-images',
-            options: { maxWidth: 1024 }
+            options: { maxWidth: 1400 }
           }
         ]
       }

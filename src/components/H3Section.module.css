@@ -12,6 +12,7 @@
  *
  *  - `-wide`
  *  - `-wider`
+ *  - `-panorama`
  */
 
 [id] .root {
@@ -46,6 +47,15 @@
     & > :global(.-wide),
     & > :global(.-wider) {
       width: var(--column-size-inverse);
+    }
+
+    & > :global(.-panorama) {
+      margin-top: 2.5em;
+      margin-bottom: 2.5em;
+      @apply --container-padding-antimargin;
+      padding: 0;
+      position: relative;
+      z-index: 10;
     }
   }
 
