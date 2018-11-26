@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Nov 2018 05:32:20 GMT</lastBuildDate><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Nov 2018 07:33:04 GMT</lastBuildDate><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
   &quot;name&quot;: &quot;my-js-package&quot;,
   &quot;description&quot;: &quot;A sample package&quot;,
   &quot;author&quot;: &quot;Rico Sta. Cruz&quot;
@@ -181,7 +181,7 @@ end
   }
 ).deliver_later
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The mailer will now not need to hit the database to fetch any data, eliminating any race conditions. Even if the post is modified or deleted later on, the email will still send just fine.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Managing side effects in Redux]]></title><description><![CDATA[Redux  is the preferred state management pattern for React apps today. Being a very "functional" library, it doesn't like side effects much…]]></description><link>https://ricostacruz.com/tilnext//redux-side-effects/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//redux-side-effects/</guid><pubDate>Tue, 14 Mar 2017 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux&lt;/a&gt; is the preferred state management pattern for React apps today. Being a very &quot;functional&quot; library, it doesn&apos;t like side effects much. This means doing asynchronous actions in a Redux reducer is not just a bad idea, it simply won&apos;t work.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/* ✗ Warning: This won&apos;t work! */
+&lt;p&gt;The mailer will now not need to hit the database to fetch any data, eliminating any race conditions. Even if the post is modified or deleted later on, the email will still send just fine.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Managing side effects in Redux]]></title><description><![CDATA[Redux  is the preferred state management pattern for React apps today. Being a very "functional" library, it doesn't like side effects much…]]></description><link>https://ricostacruz.com/tilnext//redux-side-effects/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//redux-side-effects/</guid><pubDate>Tue, 14 Mar 2017 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-wider-literate-style} --&gt;&lt;p&gt;&lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux&lt;/a&gt; is the preferred state management pattern for React apps today. Being a very &quot;functional&quot; library, it doesn&apos;t like side effects much. This means doing asynchronous actions in a Redux reducer is not just a bad idea, it simply won&apos;t work.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/* ✗ Warning: This won&apos;t work! */
 
 function reducer (state, action) {
   switch (action.type) {
@@ -189,15 +189,19 @@ function reducer (state, action) {
       fetch(&apos;/my_profile&apos;)
         .then(res =&gt; res.json())
         .then(res =&gt; {
-          dispatch({ type: &apos;profile:set&apos;, payload: res.body })
+          dispatch({
+            type: &apos;profile:set&apos;,
+            payload: res.body
+          })
           // ✗ Error: dispatch is not defined
         })
 
         ...
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can&apos;t modify state here in an async callback. In fact, you can&apos;t even &lt;code&gt;dispatch()&lt;/code&gt; in a reducer! This won&apos;t work and is a bad idea; you break the purity of the store reducer.&lt;/p&gt;&lt;h2&gt;Using Middleware&lt;/h2&gt;&lt;h3&gt;Middleware for side effects&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Fortunately, Redux has built-in provisions for managing side effects: &lt;a href=&quot;http://redux.js.org/docs/advanced/Middleware.html&quot;&gt;Middleware&lt;/a&gt;! You can write your own middleware with business logic. You don&apos;t need to use 3rd-party packages other than Redux itself.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Redux middleware
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can&apos;t modify state here in an async callback. In fact, you can&apos;t even &lt;code&gt;dispatch()&lt;/code&gt; in a reducer! This won&apos;t work and is a bad idea; you break the purity of the store reducer.&lt;/p&gt;&lt;h2&gt;Using Middleware&lt;/h2&gt;&lt;h3&gt;Middleware for side effects&lt;/h3&gt;&lt;!-- {.-wider-literate-style} --&gt;&lt;p&gt;Fortunately, Redux has built-in provisions for managing side effects: &lt;a href=&quot;http://redux.js.org/docs/advanced/Middleware.html&quot;&gt;Middleware&lt;/a&gt;! You can write your own middleware with business logic. You don&apos;t need to use 3rd-party packages other than Redux itself.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Redux middleware
 function ProfileLoader () {
   return store =&gt; dispatch =&gt; action {
-    dispatch(action) // First pass them through to the reducers.
+    // First pass them through to the reducers.
+    dispatch(action)
 
     switch (action.type) {
       case &apos;profile:load!&apos;:
@@ -224,7 +228,7 @@ store.dispatch(dispatch =&gt; {
 &lt;li&gt;It moves logic to your action creators, which were supposed to be very simple pieces of code.&lt;/li&gt;
 &lt;li&gt;It makes actions complicated, when they can just be simple JSON instructions (eg, &lt;code&gt;{ type: &apos;profile:load&apos; }&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;It can&apos;t interact with other side effects. For instance, you can&apos;t make a side effect to send &lt;code&gt;profile:error&lt;/code&gt;s to an error tracking service. Middleware can do this.&lt;/li&gt;
-&lt;/ul&gt;&lt;h2&gt;Naming convention&lt;/h2&gt;&lt;p&gt;You may have noticed I named my action &lt;code&gt;profile:load!&lt;/code&gt;. This is my preferred convention of choice, where action names are simply strings, and &quot;side effect&quot; actions are suffixed with an exclamation mark, just as it would in Ruby or Elixir.&lt;/p&gt;&lt;h2&gt;Other examples&lt;/h2&gt;&lt;h3&gt;Error tracker&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;How about a middleware that tracks errors as they come in?&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function ErrorTracker () {
+&lt;/ul&gt;&lt;h2&gt;Naming convention&lt;/h2&gt;&lt;p&gt;You may have noticed I named my action &lt;code&gt;profile:load!&lt;/code&gt;. This is my preferred convention of choice, where action names are simply strings, and &quot;side effect&quot; actions are suffixed with an exclamation mark, just as it would in Ruby or Elixir.&lt;/p&gt;&lt;h2&gt;Other examples&lt;/h2&gt;&lt;h3&gt;Error tracker&lt;/h3&gt;&lt;!-- {.-wider-literate-style} --&gt;&lt;p&gt;How about a middleware that tracks errors as they come in?&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function ErrorTracker () {
   return store =&gt; dispatch =&gt; action {
     dispatch(action)
 
@@ -236,7 +240,7 @@ store.dispatch(dispatch =&gt; {
     }
   }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Ticker&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Or a middleware that sends &lt;code&gt;tick&lt;/code&gt; events every second? Great for timers or for RPG&apos;s.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Ticker (options) {
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Ticker&lt;/h3&gt;&lt;!-- {.-wider-literate-style} --&gt;&lt;p&gt;Or a middleware that sends &lt;code&gt;tick&lt;/code&gt; events every second? Great for timers or for RPG&apos;s.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Ticker (options) {
   let timer
 
   return store =&gt; dispatch =&gt; action {
@@ -256,7 +260,7 @@ store.dispatch(dispatch =&gt; {
     }
   }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Combining them&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;And to put them all together:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;store = createStore(reducers, {}, applyMiddleware(
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Combining them&lt;/h3&gt;&lt;!-- {.-wider-literate-style} --&gt;&lt;p&gt;And to put them all together:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;store = createStore(reducers, {}, applyMiddleware(
   ProfileLoader(),
   ErrorTracker(),
   Ticker({ interval: 1000 })
@@ -341,34 +345,16 @@ store.dispatch(dispatch =&gt; {
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/figure&gt;&lt;h2&gt;Keeping track&lt;/h2&gt;&lt;p&gt;This system is so simple, you can use anything to keep track of it. As an Android user, I prefer using &lt;a href=&quot;https://keep.google.com&quot;&gt;Google Keep&lt;/a&gt;. It lets me view all my missions at a glance, both ongoing and completed.&lt;/p&gt;&lt;p&gt;&lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-wrapper&quot;
-    style=&quot;position: relative; display: block;  max-width: 1080px; margin-left: auto; margin-right: auto;&quot;
-  &gt;
-    &lt;span
-      class=&quot;gatsby-resp-image-background-image&quot;
-      style=&quot;padding-bottom: 103.61111111111111%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAACmElEQVQ4y42T208aURDG969smzYtvT30D0DbRaxJa4tUqdpb8FJjbNL0oS+Q8IANDRCMMRCrPigX5VJ2QVhELKLc6W/3iPHF0i+7J2fPzDfzzcxZ6Z5lwjRiZ71vfWOy2k2sI3b9seqHV58Ho5N3ZdvD0cnHYw42+Egm66T1w/LNoVdmx7xt8dvQ9MIL55fxha/PP608GnPcGn59+5mN5448YXbM4Sa/W5pa+X7DPP7k5aw07HBa3y/JMwuW2c9jH5fZyNPzFmPFNDTllGcWLbOLV9enb+c4xyqVNE1V1ZyqKtmsoqjlcrlarf4xUKlUSqVSLpdTFOV3H+l0+vj4+PT0FKtULBR8Pt+P1VWPx+Nyufb29nq9bqvVbHfarVarqGl+v9/tdv/06QgGg16vV1GyvV7v/PxcItjGxkYkEtnc3FxbW9ve3u52u51Op91u1+v1w8PDcDgcCoVIBQETa9tArVaTyI4HytEjVCUSiVgshmDIWDGlUqlMJoOVPRscCoUCVokiIe/v7x8cHHCK+cgAgREGmYI5v+QDQkO5INMAjorFImnp06Wws7MzYYIMEz6h8/l8MpnUNE2vGQ5hSMWRiE1IWgVZZMZ7d3cXUzQaJScCuwb0mlEPmVXIhkzCqoGTkxPIxC0ZEIUQutFoNJtNnYyAlAFoeLCShN6KaROU/u/s7GxtbVEgihoGIOMjEfiXAWYYj8fX19cDgYCoWYxK60NovATlSLzIIwkyyEY88SlqxqpeD51MVAQf9SH2aBPk3PXQGyY4lCSiiOHVDQwg44cArjSjYhKUzbRpjLi9A8jkxIMbxoe4DOICsv5XZvqEYJokxHPChgkPJnPDuEBiktBQyy8l7tBgsvilFAM0T7sC4ub+ib82ny0/oK0IOAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-    &gt;&lt;/span&gt;
-    &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
-        alt=&quot;Image&quot;
-        title=&quot;&quot;
-        src=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png&quot;
-        srcset=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/93432/keep-missions.png 350w,
+&lt;/figure&gt;&lt;h2&gt;Keeping track&lt;/h2&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This system is so simple, you can use anything to keep track of it. As an Android user, I prefer using &lt;a href=&quot;https://keep.google.com&quot;&gt;Google Keep&lt;/a&gt;. It lets me view all my missions at a glance, both ongoing and completed.&lt;/p&gt;&lt;figure&gt;
+&lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 1080px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 103.61111111111111%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAACmElEQVQ4y42T208aURDG969smzYtvT30D0DbRaxJa4tUqdpb8FJjbNL0oS+Q8IANDRCMMRCrPigX5VJ2QVhELKLc6W/3iPHF0i+7J2fPzDfzzcxZ6Z5lwjRiZ71vfWOy2k2sI3b9seqHV58Ho5N3ZdvD0cnHYw42+Egm66T1w/LNoVdmx7xt8dvQ9MIL55fxha/PP608GnPcGn59+5mN5448YXbM4Sa/W5pa+X7DPP7k5aw07HBa3y/JMwuW2c9jH5fZyNPzFmPFNDTllGcWLbOLV9enb+c4xyqVNE1V1ZyqKtmsoqjlcrlarf4xUKlUSqVSLpdTFOV3H+l0+vj4+PT0FKtULBR8Pt+P1VWPx+Nyufb29nq9bqvVbHfarVarqGl+v9/tdv/06QgGg16vV1GyvV7v/PxcItjGxkYkEtnc3FxbW9ve3u52u51Op91u1+v1w8PDcDgcCoVIBQETa9tArVaTyI4HytEjVCUSiVgshmDIWDGlUqlMJoOVPRscCoUCVokiIe/v7x8cHHCK+cgAgREGmYI5v+QDQkO5INMAjorFImnp06Wws7MzYYIMEz6h8/l8MpnUNE2vGQ5hSMWRiE1IWgVZZMZ7d3cXUzQaJScCuwb0mlEPmVXIhkzCqoGTkxPIxC0ZEIUQutFoNJtNnYyAlAFoeLCShN6KaROU/u/s7GxtbVEgihoGIOMjEfiXAWYYj8fX19cDgYCoWYxK60NovATlSLzIIwkyyEY88SlqxqpeD51MVAQf9SH2aBPk3PXQGyY4lCSiiOHVDQwg44cArjSjYhKUzbRpjLi9A8jkxIMbxoe4DOICsv5XZvqEYJokxHPChgkPJnPDuEBiktBQyy8l7tBgsvilFAM0T7sC4ub+ib82ny0/oK0IOAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+    &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot; alt=&quot;keep missions&quot; title=&quot;&quot; src=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png&quot; srcset=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/93432/keep-missions.png 350w,
 /tilnext/static/0c1b9032d70af0bac953abc0a65d0718/7e143/keep-missions.png 700w,
-/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png 1080w&quot;
-        sizes=&quot;(max-width: 1080px) 100vw, 1080px&quot;
-      /&gt;
+/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png 1080w&quot; sizes=&quot;(max-width: 1080px) 100vw, 1080px&quot;&gt;
   &lt;/span&gt;
-  &lt;/a&gt;&lt;/p&gt;&lt;p&gt;There are a variety of other ways to keep track of your missions, including using plain notebooks and pens. What&apos;s important is you break your goals into manageable pieces, and give yourself a way to look back on your progress.&lt;/p&gt;&lt;style&gt;
+  &lt;/a&gt;
+&lt;/figure&gt;&lt;p&gt;There are a variety of other ways to keep track of your missions, including using plain notebooks and pens. What&apos;s important is you break your goals into manageable pieces, and give yourself a way to look back on your progress.&lt;/p&gt;&lt;style&gt;
 .mission-list {
   box-sizing: border-box;
   font-size: .86em;
@@ -602,7 +588,47 @@ this.JSON||a(&apos;https://cdn.jsdelivr.net/json2/0.2/json2.min.js&apos;);
 (Object.keys&amp;#x26;&amp;#x26;[].map&amp;#x26;&amp;#x26;alert.bind)||a(&apos;https://cdn.jsdelivr.net/es5.shim/4.4.1/es5-shim.min.js&apos;);
 this.Promise||a(&apos;https://www.promisejs.org/polyfills/promise-6.1.0.js&apos;);
 }())&amp;#x3C;/script&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Also try Polyfill.io&lt;/h3&gt;&lt;p&gt;Alternatively, you can use the &lt;a href=&quot;https://polyfill.io/&quot;&gt;polyfill.io&lt;/a&gt; service which takes care of this for you and more.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Babel class inheritance in Internet Explorer]]></title><description><![CDATA[Class inheritance caveats When using class inheritance with Babel.js, keep in mind that IE10 and below are  not supported  by default. Babel…]]></description><link>https://ricostacruz.com/tilnext//babel-ie-class-inheritance/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//babel-ie-class-inheritance/</guid><pubDate>Tue, 26 May 2015 00:00:00 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;class Circle extends Shape {
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Also try Polyfill.io&lt;/h3&gt;&lt;p&gt;Alternatively, you can use the &lt;a href=&quot;https://polyfill.io/&quot;&gt;polyfill.io&lt;/a&gt; service which takes care of this for you and more.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Use git merge-base for big merges]]></title><description><![CDATA[When trying to merge two Git branches that have diverged a lot, it's a little difficult to make sense of what happened on both sides. Enter…]]></description><link>https://ricostacruz.com/tilnext//using-git-merge-base/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//using-git-merge-base/</guid><pubDate>Thu, 10 Dec 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;When trying to merge two Git branches that have diverged a lot, it&apos;s a little difficult to make sense of what happened on both sides.&lt;/p&gt;&lt;p&gt;Enter &lt;a href=&quot;http://git-scm.com/docs/git-merge-base&quot;&gt;git merge-base&lt;/a&gt;--a simple built-in utility to tell you where two branches diverged. It will tell you the commit where the two branches split off:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git merge-base develop master
+b8ac838cad3266f6a7e414181875831fd9b86ed5
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;h3&gt;Set up git tags&lt;/h3&gt;&lt;p&gt;This command will create a tag &lt;code&gt;_base&lt;/code&gt; that will point to where they both diverged.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git tag _base `git merge-base develop master`
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;h3&gt;Inspecting changes&lt;/h3&gt;&lt;p&gt;You can then use &lt;code&gt;git diff&lt;/code&gt;, &lt;code&gt;git log&lt;/code&gt;, or &lt;a href=&quot;https://jonas.nitro.dk/tig&quot;&gt;tig&lt;/a&gt; to inspect changes on either side:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Inspect changes in Gemfile on each side
+tig _base...develop -- Gemfile
+tig _base...master -- Gemfile
+
+git diff _base...develop -- Gemfile
+git diff _base...master -- Gemfile
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;h3&gt;Check if both branches diverged&lt;/h3&gt;&lt;p&gt;You can also use the &lt;code&gt;--independent&lt;/code&gt; flag which will show commits that can&apos;t be reached by any other. If it prints 2 commits, it means that there are changes on both sides.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git merge-base develop master --independent
+46978182cc8d90439b862e772e99a3f71889901a
+8501118e0d958115caff692abda0f29ad530db4f
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;p&gt;If it only prints 1, it means only one side has changes.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git merge-base develop master --independent
+8501118e0d958115caff692abda0f29ad530db4f
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Bundle your gems inside your project]]></title><description><![CDATA[When working on a Ruby project, I always put the files in  vendor/bundle/ . This has the benefit of having a greppable index of all the gems…]]></description><link>https://ricostacruz.com/tilnext//use-vendor-bundle/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//use-vendor-bundle/</guid><pubDate>Mon, 22 Jun 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;When working on a Ruby project, I always put the files in &lt;code&gt;vendor/bundle/&lt;/code&gt;. This has the benefit of having a greppable index of all the gems of your project, while keeping your global gemset tidy.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;bundle install -j3 --path=vendor/bundle
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;p&gt;You only need to do this once in your project. The &lt;code&gt;--path&lt;/code&gt; setting will be persisted in your project&apos;s Bundler configuration (&lt;code&gt;.bundle/config&lt;/code&gt;).&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Why would we want to do this?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Inspecting your gems&lt;/h2&gt;&lt;p&gt;Doing this will make inspecting your gem code easier. This can be conveniently done with something like ack or &lt;a href=&quot;https://github.com/ggreer/the_silver_searcher&quot;&gt;the silver searcher&lt;/a&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ cd vendor/bundle/ruby/*/gems
+$ ag all_application_helpers
+
+  actionpack-4.2.1/lib/action_controller/metal/helpers.rb
+  106:   def all_application_helpers
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;How do we ignore this from all repos?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Globally ignoring&lt;/h2&gt;&lt;p&gt;I recommend placing &lt;code&gt;vendor/bundle/&lt;/code&gt; on a global gitignore. If you haven&apos;t set up a global gitignore list yet, it&apos;s pretty easy.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git config --global core.excludesfile ~/.gitignore
+echo vendor/bundle &gt;&gt; ~/.gitignore
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Goodbye, rvm!&lt;/h2&gt;&lt;p&gt;This removes the need for managing gemsets via &lt;a href=&quot;http://rvm.io/&quot;&gt;rvm&lt;/a&gt;. In fact, if your project always uses the latest Ruby (which you also should, in my opinion!), you won&apos;t even need rvm at all.&lt;/p&gt;&lt;p&gt;Even if you don&apos;t use this tip, you actually don&apos;t need rvm gemsets at all. Bundler solves the same problem.&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Bonus: let&apos;s speed up our installations!&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Parallel installs&lt;/h2&gt;&lt;p&gt;Bonus: the &lt;code&gt;-j3&lt;/code&gt; flag makes your installations faster by allowing 3 installs in parallel.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Testing generated static sites]]></title><description><![CDATA[You can make a test script use  grep  and  test  to check for generated output. Since grep will die with an error code if it doesn't match…]]></description><link>https://ricostacruz.com/tilnext//testing-static-sites/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//testing-static-sites/</guid><pubDate>Fri, 29 May 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;You can make a test script use &lt;code&gt;grep&lt;/code&gt; and &lt;code&gt;test&lt;/code&gt; to check for generated output. Since grep will die with an error code if it doesn&apos;t match anything, the test will be considered a failure.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;#!/usr/bin/env sh
+set -o errexit # die on errors
+
+grep &quot;&amp;#x3C;title&gt;&quot; _site/index.html &gt;/dev/null
+grep display _site/style.css &gt;/dev/null
+grep function _site/script.js &gt;/dev/null
+test -f _site/image.jpg #check for file existence
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Travis support&lt;/h3&gt;&lt;p&gt;You can even integrate these with your &lt;a href=&quot;http://travis-ci.org&quot;&gt;Travis-CI&lt;/a&gt; tests. (Learn more about build configuration from their &lt;a href=&quot;http://docs.travis-ci.com/user/build-configuration/&quot;&gt;documentation&lt;/a&gt;.)&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot;&gt;# .travis.yml
+before_script: bundle exec jekyll build
+script: ./test/test.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Makefiles&lt;/h3&gt;&lt;p&gt;Another good way is to use a &lt;code&gt;Makefile&lt;/code&gt; so you can simply use &lt;code&gt;make test&lt;/code&gt; to invoke tests.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;test: _site
+    grep display _site/style.css &gt;/dev/null
+    grep function _site/script.js &gt;/dev/null
+    test -f _site/image.jpg #check for file existence
+
+_site:
+    bundle
+    bundle exec jekyll build --safe
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Babel class inheritance in Internet Explorer]]></title><description><![CDATA[Class inheritance caveats When using class inheritance with Babel.js, keep in mind that IE10 and below are  not supported  by default. Babel…]]></description><link>https://ricostacruz.com/tilnext//babel-ie-class-inheritance/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//babel-ie-class-inheritance/</guid><pubDate>Tue, 26 May 2015 00:00:00 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;class Circle extends Shape {
   getArea() {
     return this.radius * Math.PI * 2
   }
@@ -676,7 +702,15 @@ base = &apos;..&apos; %} {% elsif depth == 3 %}{% assign base = &apos;../..&apos
 &lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;a href=&quot;{{ base }}&quot;&gt;Back to home&amp;#x3C;/a&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;a href=&quot;{{ base }}/about.html&quot;&gt;About me&amp;#x3C;/a&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;a href=&quot;{{ base }}{{ post.url }}&quot;&gt;Read &quot;{{ post.title }}&quot;&amp;#x3C;/a&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Cleaner Mocha stack traces]]></title><description><![CDATA[Mocha  is a great way to test JavaScript, but its stack traces are riddled
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Hosting static sites in Heroku]]></title><description><![CDATA[Just add an  index.php  to your repository.
+It tells  Heroku  that the site is a PHP site and that it will be hosted using
+Apache. And yes…]]></description><link>https://ricostacruz.com/tilnext//static-sites-in-heroku/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//static-sites-in-heroku/</guid><pubDate>Tue, 10 Mar 2015 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Just add an &lt;code&gt;index.php&lt;/code&gt; to your repository.
+It tells &lt;a href=&quot;http://heroku.com&quot;&gt;Heroku&lt;/a&gt; that the site is a PHP site and that it will be hosted using
+Apache.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;touch index.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And yes, you can still have an &lt;code&gt;index.html&lt;/code&gt; file. The &lt;code&gt;.html&lt;/code&gt; file takes
+precedence over the &lt;code&gt;.php&lt;/code&gt; one. Have fun!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Cleaner Mocha stack traces]]></title><description><![CDATA[Mocha  is a great way to test JavaScript, but its stack traces are riddled
 with useless frames from Mocha internals and 3rd-party modules…]]></description><link>https://ricostacruz.com/tilnext//mocha-clean/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//mocha-clean/</guid><pubDate>Fri, 06 Mar 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;http://visionmedia.github.io/mocha&quot;&gt;Mocha&lt;/a&gt; is a great way to test JavaScript, but its stack traces are riddled
 with useless frames from Mocha internals and 3rd-party modules. Let&apos;s try and
 clean it up.&lt;/p&gt;&lt;p&gt;&lt;a
@@ -737,18 +771,18 @@ from stack traces.&lt;/p&gt;&lt;h3&gt;Usage&lt;/h3&gt;&lt;!-- {.-literate-style}
 &lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Disabling ligatures&lt;/h2&gt;&lt;h3&gt;Using font-feature-settings&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You can turn off ligatures using &lt;code&gt;font-feature-settings&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;font-feature-settings: &apos;liga&apos; 0;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Easy color computations]]></title><description><![CDATA[Stylus CLI Use  stylus 's CLI for easy color computations.  Stylus CLI is faster than Sass and has shorter syntax for color computations…]]></description><link>https://ricostacruz.com/tilnext//easy-color-computations/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//easy-color-computations/</guid><pubDate>Tue, 03 Mar 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;Stylus CLI&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;strong&gt;Use &lt;a href=&quot;http://learnboost.github.io/stylus&quot;&gt;stylus&lt;/a&gt;&apos;s CLI for easy color computations.&lt;/strong&gt; Stylus CLI is faster than Sass and has shorter syntax for color computations.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ npm i -g stylus
 $ stylus -i
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Example&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Here&apos;s &lt;em&gt;lighten&lt;/em&gt; and &lt;em&gt;hue shift&lt;/em&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;&gt; #aaa + 10%
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;h3&gt;Example&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Here&apos;s &lt;em&gt;lighten&lt;/em&gt; and &lt;em&gt;hue shift&lt;/em&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;&gt; #aaa + 10%
 =&gt; #b2b2b2
 
 &gt; #ff0 - 10deg
 =&gt; #ffd500
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;One-liner version&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Not quite as elegant, but it can be useful.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;echo &quot;*{a: #ff0 - 10deg}&quot; | stylus -p
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;h3&gt;One-liner version&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Not quite as elegant, but it can be useful.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;echo &quot;*{a: #ff0 - 10deg}&quot; | stylus -p
 * { a: #ffd500; }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Using Sass&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you need Sass for some reason, it also takes &lt;code&gt;-i&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;$ gem install sass
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;h3&gt;Using Sass&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you need Sass for some reason, it also takes &lt;code&gt;-i&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;$ gem install sass
 $ sass -i
 &gt;&gt; darken(red, 10%)
 #cc0000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[ES6 class pitfalls]]></title><description><![CDATA[Decorated functions ES6 makes it easy to define classes, but you can't have decorated functions. For that, you'll still need to drop to…]]></description><link>https://ricostacruz.com/tilnext//es6-class-pitfalls/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//es6-class-pitfalls/</guid><pubDate>Wed, 25 Feb 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;class Shape {
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[ES6 class pitfalls]]></title><description><![CDATA[Decorated functions ES6 makes it easy to define classes, but you can't have decorated functions. For that, you'll still need to drop to…]]></description><link>https://ricostacruz.com/tilnext//es6-class-pitfalls/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//es6-class-pitfalls/</guid><pubDate>Wed, 25 Feb 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;class Shape {
   get area() {
     return this.width * this.height
   }
@@ -760,7 +794,31 @@ $ sass -i
   &apos;./template.html&apos;,
   &apos;utf-8&apos;
 )
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[@extend sucks]]></title><description><![CDATA[What's with @extend? Using  @extend  in CSS preprocessors really suck... so use mixins instead. Consider this example. Using @extend Seems…]]></description><link>https://ricostacruz.com/tilnext//extend-sucks/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//extend-sucks/</guid><pubDate>Mon, 16 Feb 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;What&apos;s with @extend?&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Using &lt;code&gt;@extend&lt;/code&gt; in CSS preprocessors really suck... so use mixins instead. Consider this example.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-scss&quot;&gt;%antialias {
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Use Bower packages like npm packages]]></title><description><![CDATA[Napa  is a package that lets you install arbitrary projects (without package.json) into  node_modules . Bower packages are repos without…]]></description><link>https://ricostacruz.com/tilnext//use-bower-in-npm/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//use-bower-in-npm/</guid><pubDate>Mon, 23 Feb 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/napa&quot;&gt;Napa&lt;/a&gt; is a package that lets you install arbitrary projects (without package.json) into &lt;code&gt;node_modules&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Bower packages are repos without package.json manifests. Hence, you can use Napa to use Bower packages as if they were npm packages... sort of.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+  &quot;scripts&quot;: {
+    &quot;install&quot;: &quot;napa&quot;
+  },
+  &quot;napa&quot;: {
+    &quot;hint&quot;: &quot;chinchang/hint.css#v1.3.1&quot;,
+    &quot;colorbox&quot;: &quot;jackmoore/colorbox#1.5.9&quot;
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;p&gt;Promising idea, but I&apos;d like to see it developed more. Some caveats as of 1.2.0:&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;not compatible with &lt;code&gt;npm shrinkwrap&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;upgrading packages are not automatic&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Use Markdown for documentation]]></title><description><![CDATA[The most universal documentation "format" is a bunch of Markdown files inside a project's  doc/  directory. Here are some projects that…]]></description><link>https://ricostacruz.com/tilnext//use-markdown-documentation/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//use-markdown-documentation/</guid><pubDate>Thu, 19 Feb 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;The most universal documentation &quot;format&quot; is a bunch of Markdown files inside a project&apos;s &lt;code&gt;doc/&lt;/code&gt; directory. Here are some projects that follow that convention:&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/iojs/io.js/tree/v1.x/doc/api&quot;&gt;io.js&lt;/a&gt; (and Node.js)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/LearnBoost/stylus/tree/master/docs&quot;&gt;stylus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/puppetlabs/puppet/tree/master/docs&quot;&gt;puppet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/saltstack/salt/tree/develop/doc&quot;&gt;salt&lt;/a&gt; (uses .rst)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pypa/pip/tree/develop/docs&quot;&gt;pip&lt;/a&gt; (uses .rst)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/npm/npm/tree/master/doc&quot;&gt;npm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/composer/composer/tree/master/doc&quot;&gt;composer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;!-- {.-bordered} --&gt;&lt;p&gt;In my opinion, &quot;a bunch of Markdown files&quot; is good because:&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;It&apos;s easily viewable in GitHub&lt;/li&gt;
+&lt;li&gt;It can be made into a Jekyll (GitHub pages) site easily&lt;/li&gt;
+&lt;li&gt;It can be made into a Sphinx site easily&lt;/li&gt;
+&lt;li&gt;It&apos;s a common documentation format that you can get some tools to generate to&lt;/li&gt;
+&lt;/ul&gt;&lt;!-- {.-bordered} --&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[@extend sucks]]></title><description><![CDATA[What's with @extend? Using  @extend  in CSS preprocessors really suck... so use mixins instead. Consider this example. Using @extend Seems…]]></description><link>https://ricostacruz.com/tilnext//extend-sucks/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//extend-sucks/</guid><pubDate>Mon, 16 Feb 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;What&apos;s with @extend?&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Using &lt;code&gt;@extend&lt;/code&gt; in CSS preprocessors really suck... so use mixins instead. Consider this example.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-scss&quot;&gt;%antialias {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale;
@@ -775,9 +833,9 @@ $ sass -i
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Get started with Ansible in 2 minutes]]></title><description><![CDATA[Ansible  is a fantastic tool for provisioning servers. I personally prefer it over Chef, Puppet and Salt. Here's how to get an Ansible…]]></description><link>https://ricostacruz.com/tilnext//get-started-with-ansible/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//get-started-with-ansible/</guid><pubDate>Wed, 27 Nov 2013 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;http://ansible.com&quot;&gt;Ansible&lt;/a&gt; is a fantastic tool for provisioning servers. I personally prefer it over Chef, Puppet and Salt. Here&apos;s how to get an Ansible project started.&lt;/p&gt;&lt;h2&gt;Install Ansible&lt;/h2&gt;&lt;p&gt;Ansible is officially available via &lt;code&gt;pip&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;brew install ansible            # OSX
 [sudo] pip install ansible      # elsewhere
-&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Start your project&lt;/h2&gt;&lt;p&gt;Make the directory. Put this under version control, preferrably.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;~$ mkdir setup
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;h2&gt;Start your project&lt;/h2&gt;&lt;p&gt;Make the directory. Put this under version control, preferrably.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;~$ mkdir setup
 ~$ cd setup
-&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Create an inventory file&lt;/h2&gt;&lt;p&gt;This is a list of hosts you want to manage, grouped into groups. (Hint: try
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;h2&gt;Create an inventory file&lt;/h2&gt;&lt;p&gt;This is a list of hosts you want to manage, grouped into groups. (Hint: try
 using 127.0.0.1 to deploy to your local machine)&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-dosini&quot;&gt;# ~/setup/hosts
 
 [sites]
@@ -804,7 +862,7 @@ using 127.0.0.1 to deploy to your local machine)&lt;/p&gt;&lt;pre&gt;&lt;code cl
 &lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Run it&lt;/h2&gt;&lt;p&gt;Use the &lt;code&gt;ansible-playbook&lt;/code&gt; command.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;~/setup$ ls
 hosts
 playbook.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;~/setup$ ansible-playbook -i hosts playbook.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal} --&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;~/setup$ ansible-playbook -i hosts playbook.yml
 PLAY [all] ********************************************************************
 
 GATHERING FACTS ***************************************************************
