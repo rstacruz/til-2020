@@ -16,6 +16,8 @@ $ npm i -g stylus
 $ stylus -i
 ```
 
+<!-- {.-terminal} -->
+
 ### Example
 
 <!-- {.-literate-style} -->
@@ -30,6 +32,8 @@ Here's _lighten_ and _hue shift_:
 => #ffd500
 ```
 
+<!-- {.-terminal} -->
+
 ### One-liner version
 
 <!-- {.-literate-style} -->
@@ -40,6 +44,8 @@ Not quite as elegant, but it can be useful.
 echo "*{a: #ff0 - 10deg}" | stylus -p
 * { a: #ffd500; }
 ```
+
+<!-- {.-terminal} -->
 
 ### Using Sass
 
@@ -53,5 +59,7 @@ $ sass -i
 >> darken(red, 10%)
 #cc0000
 ```
+
+<!-- {.-terminal} -->
 
 [stylus]: http://learnboost.github.io/stylus
