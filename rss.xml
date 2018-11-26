@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Nov 2018 05:32:20 GMT</lastBuildDate><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+  &quot;name&quot;: &quot;my-js-package&quot;,
+  &quot;description&quot;: &quot;A sample package&quot;,
+  &quot;author&quot;: &quot;Rico Sta. Cruz&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Approach 2&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are cases when this style may not be flexible enough, so some systems take an &lt;strong&gt;imperative&lt;/strong&gt; approach. In contrast to the declarative style, it&apos;s a piece of code with instructions that runs procedurally. Here&apos;s an example of a Ruby &lt;a href=&quot;https://guides.rubygems.org/specification-reference/&quot;&gt;gem specification&lt;/a&gt;, which defines a Ruby package&apos;s metadata.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-rb&quot;&gt;Gem::Specification.new do |spec|
+  spec.name = &apos;my-ruby-gem&apos;
+  spec.summary = &apos;A sample package&apos;
+  spec.authors = [&apos;Rico Sta. Cruz&apos;]
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What&apos;s the difference?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;But they look the same!&lt;/h2&gt;&lt;p&gt;Ruby&apos;s gem specification style is &lt;em&gt;imperative&lt;/em&gt; because we&apos;re issuing instructions that are to be ran sequentially. It can keep variables, call functions, and do all the things you can do in a Ruby program. Think of the Ruby gemspec as a program talking to the system:&lt;/p&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Okay, computer. Build a new Gem specification.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Set the name to &apos;my-ruby-gem&apos;.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Set the summary to &apos;A sample package&apos;.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Finish building.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;&lt;p&gt;On the other hand, JavaScript&apos;s &lt;em&gt;declarative&lt;/em&gt; style isn&apos;t concerned with any instructions or control flow. It&apos;s not a piece of code that talks to your system, it&apos;s really just a table of keys and values.&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;What makes imperative-style different?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Imperative is powerful&lt;/h2&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Imperative style gives you the power to write expressions that you can&apos;t easily do with a declarative-style conventions. For instance, here&apos;s an example gem specification where the list of files are gathered via a system command (&lt;code&gt;git ls-files&lt;/code&gt;).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-rb&quot;&gt;Gem::Specification.new do |spec|
+  spec.name = &apos;my-gem&apos;
+  spec.summary = &apos;This is my gem&apos;
+  spec.files = `git ls-files -z`.split(&quot;\x0&quot;)
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What makes declarative-style different?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Declarative is easier to understand&lt;/h2&gt;&lt;h3&gt;Imperative in Ruby&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Imperative conventions give developers a great amount of flexibility. However, this power comes at the cost of &lt;em&gt;complexity&lt;/em&gt;. Here&apos;s an example where development dependencies are &lt;em&gt;imperatively&lt;/em&gt; defined in a Ruby gem, taking advantage of Ruby&apos;s &lt;code&gt;Array#each&lt;/code&gt; to reduce redundancy.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-rb&quot;&gt;Gem::Specification.new do |spec|
+  [&apos;bundler&apos;, &apos;rake&apos;, &apos;minitest&apos;, &apos;rails&apos;].each do |gemname|
+    spec.add_development_dependency(gemname)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Declarative in JavaScript&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;In contrast, here&apos;s how it may be &lt;em&gt;declaratively&lt;/em&gt; defined in a JavaScript package&apos;s &lt;code&gt;package.json&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+  &quot;dependencies&quot;: {
+    &quot;react&quot;: &quot;^16.0.0&quot;,
+    &quot;react-dom&quot;: &quot;^16.0.0&quot;,
+    &quot;redux&quot;: &quot;^4.0.1&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;JavaScript&apos;s &lt;em&gt;declarative aproach&lt;/em&gt; may be less flexible than the &lt;em&gt;imperative&lt;/em&gt; one, but the constraints of a JSON format makes things more predictable and easier to glance.&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;What does this have to do with CSS?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;CSS is declarative&lt;/h2&gt;&lt;p&gt;CSS is beautifully declarative. To write CSS is to write a list of rules, not a set of instructions. For instance, we would say &lt;em&gt;buttons are supposed to be blue&lt;/em&gt;, rather than &lt;em&gt;turn all buttons to blue&lt;/em&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;/* &quot;Buttons are supposed to be blue&quot; in CSS. */
+button {
+  background: blue;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// &quot;Turn all buttons to blue&quot; in JavaScript.
+// (Please don&apos;t do this.)
+Array.from(document.querySelectorAll(&apos;button&apos;)).forEach(button =&gt; {
+  button.style.background = &apos;blue&apos;
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What about CSS-in-JS?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;A lot of CSS-in-JS is imperative&lt;/h2&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.literate-section} --&gt;&lt;p&gt;At first glance, we can say that most CSS-in-JS solutions require you to write in a declarative style, since it&apos;s mostly just taking CSS and putting it in JavaScript. Here&apos;s how you would define a blue button using &lt;a href=&quot;https://www.styled-components.com/&quot;&gt;styled-components&lt;/a&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const Button = styled.a`
+  background: blue;
+`
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Where it breaks down&lt;/h3&gt;&lt;p&gt;However, how would you start making red &lt;code&gt;danger&lt;/code&gt; buttons? With &lt;em&gt;styled-components&lt;/em&gt;, you&apos;ll have to provide a function which returns a CSS fragment depending on how you would interpret &lt;code&gt;props&lt;/code&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// using styled-components
+const Button = styled.a`
+  background: blue;
+
+  ${props =&gt;
+    props.danger &amp;#x26;&amp;#x26;
+    css`
+      background: red;
+    `};
+`
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This is where it starts to break down. We&apos;re now mixing the declarative nature of CSS with some rules that are written in an imperative style. We&apos;re also now interweaving 2 languages together—CSS and JavaScript—where your brain may have to switch contexts mid-way.&lt;/p&gt;&lt;h3&gt;Interpolation&lt;/h3&gt;&lt;p&gt;This brain-context-switching is even more apparent in some other CSS-in-JS libraries:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;// using emotion
+const Button = styled.a`
+  background: ${props =&gt; props.danger ? &apos;red&apos; : &apos;blue&apos;};
+  opacity: ${props =&gt; props.isHidden ? 0 : 1};
+`
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s look at how styled-jsx solves this.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Declarative CSS with styled-jsx&lt;/h2&gt;&lt;h3&gt;No props logic required&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const Button = ({ children, danger }) =&gt; {
+  return (
+    &amp;#x3C;a className={`button ${danger ? &apos;danger&apos; : &apos;&apos;}`}&gt;
+      {children}
+      &amp;#x3C;style jsx&gt;{style}&amp;#x3C;/style&gt;
+    &amp;#x3C;/a&gt;
+  )
+}
+
+const style = css`
+  .button {
+    background: blue;
+  }
+
+  .button.danger {
+    background: red;
+  }
+`
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; lets me write CSS in a declarative fashion. It also minimizes the interweaving of CSS and JavaScript code. This, in my opinion, makes styled-jsx code easier-to-understand, even at the modest cost of a little extra verbosity.&lt;/p&gt;&lt;p&gt;How would you style a danger button differently in &lt;em&gt;styled-jsx&lt;/em&gt;? Just use CSS classes as you normally would. Simple!&lt;/p&gt;&lt;p&gt;In this example, we simply declare a class rule with &lt;code&gt;.button.danger&lt;/code&gt;, just as we would with regular CSS. There&apos;s no need for the props to be parsed from the CSS block.&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s recap what we&apos;ve learned.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Force git to use SSH on GitHub]]></title><description><![CDATA[This forces GitHub to always use SSH, even for HTTPS URL's! This way, you can use  https://  GitHub URL's and they will still use your SSH…]]></description><link>https://ricostacruz.com/tilnext//github-always-ssh/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//github-always-ssh/</guid><pubDate>Sat, 09 Jun 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;This forces GitHub to always use SSH, even for HTTPS URL&apos;s! This way, you can use &lt;code&gt;https://&lt;/code&gt; GitHub URL&apos;s and they will still use your SSH key.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;div&gt;&lt;next-block title=&quot;What does it do?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;How it works&lt;/h2&gt;&lt;p&gt;When you clone an HTTPS URL, it now gets rewritten as an SSH URL.&lt;/p&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git clone https://github.com/rstacruz/vimfiles.git
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;This URL will get rewritten&lt;/strong&gt; to access via SSH instead of HTTPS.
+It will instead be: &lt;code&gt;git@github.com:rstacruz/vimfiles.git&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;div&gt;&lt;next-block title=&quot;Here&apos;s another neat trick for macOS.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;The inverse: &lt;br&gt; Use HTTPS instead of SSH&lt;/h2&gt;&lt;p&gt;Alternatively, this forces GitHub to always use HTTPS. Great for macOS, where you can use &lt;a href=&quot;https://help.github.com/articles/updating-credentials-from-the-osx-keychain/&quot;&gt;git-credential-osxkeychain&lt;/a&gt; to store your GitHub token.&lt;/p&gt;&lt;p&gt;This will &lt;em&gt;not&lt;/em&gt; rewrite &lt;code&gt;git@github.com:user/repo.git&lt;/code&gt; URL&apos;s, though, so I don&apos;t really recommend it! Besides, SSH keys are often easier to manage than API tokens.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git config --global url.&quot;https://github&quot;.insteadOf git://github
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h2&gt;References&lt;/h2&gt;&lt;p&gt;Hat tip to these people!&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://gist.github.com/Kovrinic/ea5e7123ab5c97d451804ea222ecd78a&quot;&gt;https://gist.github.com/Kovrinic/ea5e7123ab5c97d451804ea222ecd78a&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://gist.github.com/grawity/4392747&quot;&gt;https://gist.github.com/grawity/4392747&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[A Better Hello World Program]]></title><description><![CDATA[The "Hello world" program is usually the first introduction to any programming language. It demonstrates the minimum amount you need to…]]></description><link>https://ricostacruz.com/tilnext//a-better-hello-world/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//a-better-hello-world/</guid><pubDate>Tue, 19 Sep 2017 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;The &quot;Hello world&quot; program is usually the first introduction to any programming language. It demonstrates the minimum amount you need to write a C program. It looks like this in the C programming language:&lt;/p&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;/* hello.c */
+#import &amp;#x3C;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+  printf(&quot;Hello, world!&quot;);
+  return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;A Hello World program in C.&lt;/strong&gt; It demonstrates the minimum amount you need to write a C program.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;div&gt;&lt;next-block title=&quot;What&apos;s wrong with that?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;A modern &quot;Hello world&quot;&lt;/h2&gt;&lt;p&gt;In more modern languages however, this example isn&apos;t as useful anymore. Here&apos;s the same example in Python. Notice how it doesn&apos;t teach anything other than &lt;code&gt;print&lt;/code&gt;.&lt;/p&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot;&gt;print &quot;Hello, world!&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;A Hello World program in Python.&lt;/strong&gt; There&apos;s barely anything in it!&lt;/p&gt;
+&lt;/blockquote&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s improve on this.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Improving &quot;Hello world&quot;&lt;/h2&gt;&lt;h3&gt;&quot;Hello world&quot; in JavaScript&lt;/h3&gt;&lt;p&gt;In today&apos;s world of more succint programming languages, we need a different &quot;hello world&quot; to demonstrate language features better. Here&apos;s what I propose:&lt;/p&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function getGreeting(name) {
+  return `Hello, ${name}!`
+}
+
+const message = getGreeting(&apos;world&apos;)
+console.log(message)
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;A &quot;better&quot; Hello World program in JavaScript,&lt;/strong&gt; showing more basic functionality than just printing lines.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;h3&gt;How is this better?&lt;/h3&gt;&lt;p&gt;This simple example demonstrates a few more things than printing strings, such as:&lt;/p&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function getGreeting(name) {
+  return /*...*/
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Functions:&lt;/strong&gt; How to write a function with an argument, and returning values from functions. Also shows the naming convention for functions (&lt;code&gt;camelCase&lt;/code&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const message = /*...*/
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Variables:&lt;/strong&gt; How to assign variables.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;;`Hello, ${name}!`
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Strings:&lt;/strong&gt; Dealing with basic string functions.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s look at some more examples.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Example: Go version&lt;/h2&gt;&lt;p&gt;I&apos;ve started writing these kinds of programs for languages that I&apos;m learning. Here&apos;s how it&apos;d look like in Go, which I&apos;ve added to my &lt;a href=&quot;https://ricostacruz.com/cheatsheets/go&quot;&gt;Go cheatsheet&lt;/a&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot;&gt;// hello.go
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+  message := getGreeting(&quot;world&quot;)
+  fmt.Println(message)
+}
+
+func getGreeting(name string) (string) {
+  return &quot;Hello, &quot; + name + &quot;!&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Example: Elixir version&lt;/h2&gt;&lt;p&gt;Here&apos;s an Elixir version, also at the &lt;a href=&quot;https://ricostacruz.com/cheatsheets/elixir&quot;&gt;Elixir cheatsheet&lt;/a&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# hello.exs
+defmodule Greeter do
+  def get_greeting(name) do
+    &quot;Hello, &quot; &amp;#x3C;&gt; name &amp;#x3C;&gt; &quot;!&quot;
+  end
+end
+
+message = Greeter.get_greeting(&quot;world&quot;)
+IO.puts message
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Use less CPU for Rails]]></title><description><![CDATA[Is Rails eating your CPU in development? Try lowering its priority using  renice(1) , a standard BSD utility that should be available in OS…]]></description><link>https://ricostacruz.com/tilnext//less-cpu-on-development/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//less-cpu-on-development/</guid><pubDate>Wed, 12 Jul 2017 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Is Rails eating your CPU in development? Try lowering its priority using &lt;a href=&quot;http://manpages.ubuntu.com/manpages/zesty/en/man1/renice.1.html&quot;&gt;renice(1)&lt;/a&gt;, a standard BSD utility that should be available in OS X and most Linux distributions. Here&apos;s a shell script that will automatically reset the priority to &lt;code&gt;+15&lt;/code&gt; to common development processes:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;#!/usr/bin/env sh
+sudo renice +15 -p $(ps ax | grep -E &apos;ruby|node|watchman|postgres&apos; | grep -v grep | awk &apos;{print $1}&apos; | tr &apos;\n&apos; &apos; &apos;)
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;p&gt;Save this as &lt;code&gt;renice-dev&lt;/code&gt; into one of your &lt;code&gt;bin&lt;/code&gt; paths, and give it a &lt;code&gt;chmod +x renice-dev&lt;/code&gt;. You can type &lt;code&gt;renice-dev&lt;/code&gt; after you start your development processes to &quot;renice&quot; them.&lt;/p&gt;&lt;p&gt;The lowest priority is &lt;code&gt;+19&lt;/code&gt; (only run when nothing else is running), the default is &lt;code&gt;0&lt;/code&gt;, and the highest is &lt;code&gt;-20&lt;/code&gt; (makes things go very fast).&lt;/p&gt;&lt;h2&gt;References&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://tinyapps.org/blog/mac/201107230700_throttle_process_os_x.html&quot;&gt;Throttling processes in OS X&lt;/a&gt; &lt;em&gt;(tinyapps.org)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Rails mailer conventions are silly]]></title><description><![CDATA[Typical Rails convention will tell you to send email like using the ActiveMailer API using  #deliver_later . This is not a very good idea…]]></description><link>https://ricostacruz.com/tilnext//rails-mailer-race-conditions/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//rails-mailer-race-conditions/</guid><pubDate>Tue, 06 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Typical Rails convention will tell you to send email like using the ActiveMailer API using &lt;code&gt;#deliver_later&lt;/code&gt;. This is not a very good idea, and let me tell you why.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;NotificationMailer.notification(@user, @post).deliver_later
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Sample implementation&lt;/h3&gt;
+&lt;p&gt;This kind of mailer would typically be implemented like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;class NotificationMailer &amp;#x3C; ApplicationMailer
+  def notification(user, post)
+    @user = user
+    @post = post
+
+    mail to: @user.email,
+         subject: &quot;You&apos;ve got a notification&quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div&gt;&lt;next-block title=&quot;Let&apos;s look at how this can cause problems.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;
+&lt;h2&gt;Race condition!&lt;/h2&gt;
+&lt;p&gt;If you follow Rails best practices, you&apos;d be using &lt;code&gt;#deliver_later&lt;/code&gt; to send email in the background. This is great for performance, but that means you have to start thinking asynchronously. The code above is written in a very synchronous style and will fail in certain conditions. Consider this scenario:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A notification is triggered for user Joe, who is &lt;code&gt;joe@example.com&lt;/code&gt;, by creating a new &lt;code&gt;Post&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A background job is created.&lt;/li&gt;
+&lt;li&gt;Before an email could be sent, the &lt;code&gt;Post&lt;/code&gt; is deleted.&lt;/li&gt;
+&lt;li&gt;The mailer now fails because &lt;code&gt;@post&lt;/code&gt; is nil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;next-block title=&quot;So how can we fix this?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;
+&lt;h2&gt;Think asynchronously&lt;/h2&gt;
+&lt;p&gt;Instead of passing Rails models or record ID&apos;s, pass a fully-loaded &lt;em&gt;plain hash&lt;/em&gt; of everything the mailer needs to send the email. Consider something like this instead:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;NotificationMailer.notification(
+  user: {
+    email: @user.email
+  },
+  post: {
+    id: @post.id,
+    title: @post.title,
+    url: post_url(@post)
+  }
+).deliver_later
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The mailer will now not need to hit the database to fetch any data, eliminating any race conditions. Even if the post is modified or deleted later on, the email will still send just fine.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Managing side effects in Redux]]></title><description><![CDATA[Redux  is the preferred state management pattern for React apps today. Being a very "functional" library, it doesn't like side effects much…]]></description><link>https://ricostacruz.com/tilnext//redux-side-effects/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//redux-side-effects/</guid><pubDate>Tue, 14 Mar 2017 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux&lt;/a&gt; is the preferred state management pattern for React apps today. Being a very &quot;functional&quot; library, it doesn&apos;t like side effects much. This means doing asynchronous actions in a Redux reducer is not just a bad idea, it simply won&apos;t work.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/* ✗ Warning: This won&apos;t work! */
+
+function reducer (state, action) {
+  switch (action.type) {
+    case &apos;profile:load&apos;:
+      fetch(&apos;/my_profile&apos;)
+        .then(res =&gt; res.json())
+        .then(res =&gt; {
+          dispatch({ type: &apos;profile:set&apos;, payload: res.body })
+          // ✗ Error: dispatch is not defined
+        })
+
+        ...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can&apos;t modify state here in an async callback. In fact, you can&apos;t even &lt;code&gt;dispatch()&lt;/code&gt; in a reducer! This won&apos;t work and is a bad idea; you break the purity of the store reducer.&lt;/p&gt;&lt;h2&gt;Using Middleware&lt;/h2&gt;&lt;h3&gt;Middleware for side effects&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Fortunately, Redux has built-in provisions for managing side effects: &lt;a href=&quot;http://redux.js.org/docs/advanced/Middleware.html&quot;&gt;Middleware&lt;/a&gt;! You can write your own middleware with business logic. You don&apos;t need to use 3rd-party packages other than Redux itself.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Redux middleware
+function ProfileLoader () {
+  return store =&gt; dispatch =&gt; action {
+    dispatch(action) // First pass them through to the reducers.
+
+    switch (action.type) {
+      case &apos;profile:load!&apos;:
+        fetch(&apos;/my_profile&apos;)
+          .then(res =&gt; res.json())
+          .then(res =&gt; dispatch({ type: &apos;profile:set&apos;, payload: res.body }))
+          .catch(err =&gt; dispatch({ type: &apos;profile:error&apos;, payload: err }))
+    }
+  }
+}
+
+// Use the middleware in your store
+store = createStore(reducers, {}, applyMiddleware(
+  ProfileLoader()
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Redux middleware is simply a decorator for &lt;code&gt;dispatch()&lt;/code&gt;. Here&apos;s an example where we extend &lt;code&gt;dispatch()&lt;/code&gt; to perform certain side effects (an AJAX call, in this case) when certain actions come in.&lt;/p&gt;&lt;h2&gt;Other solutions&lt;/h2&gt;&lt;h3&gt;Using redux-thunk&lt;/h3&gt;&lt;p&gt;Perhaps the most well-known solution to this is &lt;a href=&quot;https://www.npmjs.com/package/redux-thunk&quot;&gt;redux-thunk&lt;/a&gt;, which allows you to dispatch functions (&quot;thunks&quot;).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Using a function as an action via redux-thunk
+store.dispatch(dispatch =&gt; {
+  fetch(&apos;/my_profile&apos;)
+    .then(res =&gt; res.json())
+    .then(res =&gt; dispatch({ type: &apos;profile:set&apos;, payload: res.body }))
+    .catch(err =&gt; dispatch({ type: &apos;profile:error&apos;, payload: err }))
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Why not use redux-thunk?&lt;/h3&gt;&lt;p&gt;I personally advise against this approach for a number of reasons:&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;It moves logic to your action creators, which were supposed to be very simple pieces of code.&lt;/li&gt;
+&lt;li&gt;It makes actions complicated, when they can just be simple JSON instructions (eg, &lt;code&gt;{ type: &apos;profile:load&apos; }&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;It can&apos;t interact with other side effects. For instance, you can&apos;t make a side effect to send &lt;code&gt;profile:error&lt;/code&gt;s to an error tracking service. Middleware can do this.&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;Naming convention&lt;/h2&gt;&lt;p&gt;You may have noticed I named my action &lt;code&gt;profile:load!&lt;/code&gt;. This is my preferred convention of choice, where action names are simply strings, and &quot;side effect&quot; actions are suffixed with an exclamation mark, just as it would in Ruby or Elixir.&lt;/p&gt;&lt;h2&gt;Other examples&lt;/h2&gt;&lt;h3&gt;Error tracker&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;How about a middleware that tracks errors as they come in?&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function ErrorTracker () {
+  return store =&gt; dispatch =&gt; action {
+    dispatch(action)
+
+    switch (action.type) {
+      case &apos;profile:error&apos;:
+      case &apos;account:error&apos;:
+      case &apos;other:error&apos;:
+        Rollbar.track(action.payload)
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Ticker&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Or a middleware that sends &lt;code&gt;tick&lt;/code&gt; events every second? Great for timers or for RPG&apos;s.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function Ticker (options) {
+  let timer
+
+  return store =&gt; dispatch =&gt; action {
+    dispatch(action)
+
+    switch (action.type) {
+      case &apos;ticker:start!&apos;:
+        timer = setInterval(() =&gt; {
+          store.dispatch({ type: &apos;ticker:tick&apos;, now: new Date() })
+        }, options.interval)
+        break
+
+      case &apos;ticker:stop!&apos;:
+        if (timer) clearInterval(timer)
+        timer = null
+        break
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Combining them&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;And to put them all together:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;store = createStore(reducers, {}, applyMiddleware(
+  ProfileLoader(),
+  ErrorTracker(),
+  Ticker({ interval: 1000 })
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;See also&lt;/h2&gt;&lt;p&gt;Check out &lt;a href=&quot;http://devguides.io/redux&quot;&gt;Redux on devguides.io&lt;/a&gt;! Devguides.io is my new pet project where I make pocket-sized explainers for web development concepts.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Your life is a series of side quests]]></title><description><![CDATA[Video games tell you what to do using  quests  or  missions . There's no reason this can't work in real life, too. Books tell us to lead…]]></description><link>https://ricostacruz.com/tilnext//life-in-side-quests/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//life-in-side-quests/</guid><pubDate>Sun, 19 Feb 2017 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/tilnext/static/c05fe1d2c3577ffadec4a1b3baa9b774/43ac2/side-quest-example.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 1400px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 34.44444444444444%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAME/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAAY5iZA//xAAYEAADAQEAAAAAAAAAAAAAAAABAgMABP/aAAgBAQABBQKnQWVaOuNTv//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/Aaf/xAAZEAABBQAAAAAAAAAAAAAAAAABABARIjL/2gAIAQEABj8CqYK03//EABkQAQEAAwEAAAAAAAAAAAAAAAERADFBIf/aAAgBAQABPyE0J2ncmR7qXeIfW5//2gAMAwEAAgADAAAAEA//AP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EKr/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxClf//EABkQAAMBAQEAAAAAAAAAAAAAAAABEVEhYf/aAAgBAQABPxBFnRYLpfQroo3pTNbWf//Z&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Example image&quot;
+        title=&quot;&quot;
+        src=&quot;/tilnext/static/c05fe1d2c3577ffadec4a1b3baa9b774/fb2a0/side-quest-example.jpg&quot;
+        srcset=&quot;/tilnext/static/c05fe1d2c3577ffadec4a1b3baa9b774/a58bd/side-quest-example.jpg 350w,
+/tilnext/static/c05fe1d2c3577ffadec4a1b3baa9b774/9bddb/side-quest-example.jpg 700w,
+/tilnext/static/c05fe1d2c3577ffadec4a1b3baa9b774/fb2a0/side-quest-example.jpg 1400w,
+/tilnext/static/c05fe1d2c3577ffadec4a1b3baa9b774/43ac2/side-quest-example.jpg 1440w&quot;
+        sizes=&quot;(max-width: 1400px) 100vw, 1400px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;&lt;!-- {.-panorama} --&gt;&lt;p&gt;Video games tell you what to do using &lt;em&gt;quests&lt;/em&gt; or &lt;em&gt;missions&lt;/em&gt;. There&apos;s no reason this can&apos;t work in real life, too. Books tell us to lead purpose-driven lives with long-term and short-term goals. Seems like a perfect way to make your life an RPG.&lt;/p&gt;&lt;h2&gt;Missions&lt;/h2&gt;&lt;p&gt;A &lt;em&gt;mission&lt;/em&gt; is an achievable goal within 3 months or less. A mission should be broken down into sub-tasks. In other words, it&apos;s an actionable short-term goal.&lt;/p&gt;&lt;figure class=&apos;-panorama&apos;&gt;
+&lt;div class=&apos;mission-list&apos;&gt;
+&lt;div class=&apos;mission-item&apos;&gt;
+&lt;h3&gt;1703 Start a blog &lt;em&gt;#project&lt;/em&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Figure out the design&lt;/li&gt;
+&lt;li&gt;Write a few articles&lt;/li&gt;
+&lt;li&gt;Publishing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&apos;mission-item&apos;&gt;
+&lt;h3&gt;1704 Couch to 5K &lt;em&gt;#fitness&lt;/em&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Study the running program&lt;/li&gt;
+&lt;li&gt;Week 1 - 0.5km&lt;/li&gt;
+&lt;li&gt;Week 2 - 1km&lt;/li&gt;
+&lt;li&gt;Week 3 - 2.5km&lt;/li&gt;
+&lt;li&gt;Week 4 - 5km&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&apos;mission-item&apos;&gt;
+&lt;h3&gt;1704 Get a job &lt;em&gt;#career&lt;/em&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Send 4 resumes&lt;/li&gt;
+&lt;li&gt;Get an interview&lt;/li&gt;
+&lt;li&gt;Go through negotiation&lt;/li&gt;
+&lt;li&gt;Get hired&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&apos;mission-item&apos;&gt;
+&lt;h3&gt;1706 Plan vacation &lt;em&gt;#life&lt;/em&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Decide on destination&lt;/li&gt;
+&lt;li&gt;Book tickets&lt;/li&gt;
+&lt;li&gt;Book accomodations&lt;/li&gt;
+&lt;li&gt;Bon voyage!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/figure&gt;&lt;p&gt;I prefix each mission with a projected date of completion (&lt;code&gt;1702&lt;/code&gt; is 2017, February), but this is totally up to you. I do this to get a good retrospective at the end of the year of all the missions I&apos;ve completed.&lt;/p&gt;&lt;figure&gt;
+&lt;div class=&apos;mission-list&apos;&gt;
+&lt;div class=&apos;mission-item -goals&apos;&gt;
+&lt;ul&gt;
+&lt;li&gt;1703 Start a blog&lt;/li&gt;
+&lt;li&gt;1704 Couch to 5K&lt;/li&gt;
+&lt;li&gt;1704 Job at Hyperfisk&lt;/li&gt;
+&lt;li&gt;1706 Vacation to Paris&lt;/li&gt;
+&lt;li&gt;1707 Remodel kitchen&lt;/li&gt;
+&lt;li&gt;1707 Learn guitar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/figure&gt;&lt;h2&gt;Keeping track&lt;/h2&gt;&lt;p&gt;This system is so simple, you can use anything to keep track of it. As an Android user, I prefer using &lt;a href=&quot;https://keep.google.com&quot;&gt;Google Keep&lt;/a&gt;. It lets me view all my missions at a glance, both ongoing and completed.&lt;/p&gt;&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 1080px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 103.61111111111111%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAACmElEQVQ4y42T208aURDG969smzYtvT30D0DbRaxJa4tUqdpb8FJjbNL0oS+Q8IANDRCMMRCrPigX5VJ2QVhELKLc6W/3iPHF0i+7J2fPzDfzzcxZ6Z5lwjRiZ71vfWOy2k2sI3b9seqHV58Ho5N3ZdvD0cnHYw42+Egm66T1w/LNoVdmx7xt8dvQ9MIL55fxha/PP608GnPcGn59+5mN5448YXbM4Sa/W5pa+X7DPP7k5aw07HBa3y/JMwuW2c9jH5fZyNPzFmPFNDTllGcWLbOLV9enb+c4xyqVNE1V1ZyqKtmsoqjlcrlarf4xUKlUSqVSLpdTFOV3H+l0+vj4+PT0FKtULBR8Pt+P1VWPx+Nyufb29nq9bqvVbHfarVarqGl+v9/tdv/06QgGg16vV1GyvV7v/PxcItjGxkYkEtnc3FxbW9ve3u52u51Op91u1+v1w8PDcDgcCoVIBQETa9tArVaTyI4HytEjVCUSiVgshmDIWDGlUqlMJoOVPRscCoUCVokiIe/v7x8cHHCK+cgAgREGmYI5v+QDQkO5INMAjorFImnp06Wws7MzYYIMEz6h8/l8MpnUNE2vGQ5hSMWRiE1IWgVZZMZ7d3cXUzQaJScCuwb0mlEPmVXIhkzCqoGTkxPIxC0ZEIUQutFoNJtNnYyAlAFoeLCShN6KaROU/u/s7GxtbVEgihoGIOMjEfiXAWYYj8fX19cDgYCoWYxK60NovATlSLzIIwkyyEY88SlqxqpeD51MVAQf9SH2aBPk3PXQGyY4lCSiiOHVDQwg44cArjSjYhKUzbRpjLi9A8jkxIMbxoe4DOICsv5XZvqEYJokxHPChgkPJnPDuEBiktBQyy8l7tBgsvilFAM0T7sC4ub+ib82ny0/oK0IOAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Image&quot;
+        title=&quot;&quot;
+        src=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png&quot;
+        srcset=&quot;/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/93432/keep-missions.png 350w,
+/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/7e143/keep-missions.png 700w,
+/tilnext/static/0c1b9032d70af0bac953abc0a65d0718/f6b0f/keep-missions.png 1080w&quot;
+        sizes=&quot;(max-width: 1080px) 100vw, 1080px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;&lt;p&gt;There are a variety of other ways to keep track of your missions, including using plain notebooks and pens. What&apos;s important is you break your goals into manageable pieces, and give yourself a way to look back on your progress.&lt;/p&gt;&lt;style&gt;
+.mission-list {
+  box-sizing: border-box;
+  font-size: .86em;
+}
+.mission-item {
+  box-sizing: border-box;
+  margin: 8px;
+  padding: 16px;
+  border: solid 1px rgba(30, 144, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(30, 144, 255, 0.07);
+  border-radius: 3px;
+  max-width: 320px;
+  background: white;
+}
+@media (min-width: 481px) {
+  .mission-list {
+    display: flex;
+    margin-left: 128px;
+    margin-right: 64px;
+    justify-content: center;
+  }
+  .mission-item {
+    flex: 0 1 320px;
+    margin: 4px;
+  }
+}
+.mission-item &gt; h3,
+.mission-item &gt; ul,
+.mission-item &gt; ul &gt; li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style-type: none;
+  background: transparent;
+}
+.mission-item &gt; h3 {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: solid 1px rgba(30, 144, 255, 0.2);
+}
+.mission-item.mission-item &gt; h3 &gt; em {
+  font-style: normal;
+  font-weight: 400;
+  font-size: .86em;
+  font-family: sans-serif;
+  color: rgba(30, 144, 255, 0.5);
+  margin-left: 4px;
+}
+.mission-item &gt; ul &gt; li {
+  margin-top: 2px;
+}
+.mission-item &gt; ul &gt; li::before {
+  content: &apos;&apos;;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  top: 1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: solid 2px rgba(30, 144, 255, 0.2);
+  border-radius: 2px;
+  margin: 0 8px 0 0;
+}
+@media (min-width: 481px) {
+  .mission-list.-single {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .mission-list.-single &gt; .mission-item {
+    flex: 1 0 auto;
+  }
+}
+.mission-item.-goals &gt; ul &gt; li + li {
+  border-top: solid 1px rgba(30, 144, 255, 0.2);
+  padding-top: 4px;
+  margin: 4px 0;
+}
+.mission-item.-goals &gt; ul &gt; li::before {
+  background: rgba(30, 144, 255, 0.2);
+  border-color: transparent;
+}
+&lt;/style&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[GraphQL on JavaScript]]></title><description><![CDATA[The de-facto GraphQL package in JavaScript,  graphql.js , is a bit verbose. Use  buildSchema()  to make your life easier. You can use…]]></description><link>https://ricostacruz.com/tilnext//graphql-on-javascript/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//graphql-on-javascript/</guid><pubDate>Wed, 28 Dec 2016 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;The de-facto GraphQL package in JavaScript, &lt;a href=&quot;https://www.npmjs.com/package/graphql&quot;&gt;graphql.js&lt;/a&gt;, is a bit verbose. Use &lt;a href=&quot;http://graphql.org/graphql-js/utilities/#buildschema&quot;&gt;buildSchema()&lt;/a&gt; to make your life easier. You can use GraphQL&apos;s schema definition language to write your schemas.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;import { graphql, buildSchema } from &apos;graphql&apos;
+
+const schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`)
+
+const root = {
+  hello() {
+    return &apos;world&apos;
+  }
+}
+
+graphql(schema, &apos;{ hello }&apos;, root).then(res =&gt; {
+  console.log(res)
+})
+// =&gt; { data: { hello: &apos;world&apos; } }
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;div&gt;&lt;next-block title=&quot;Why use buildSchema?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Why use buildSchema?&lt;/h2&gt;&lt;p&gt;Without &lt;em&gt;buildSchema()&lt;/em&gt;, you&apos;ll have to write it using lower-level classes:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;import {
+  graphql,
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString
+} from &apos;graphql&apos;
+
+var schema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: &apos;RootQueryType&apos;,
+    fields: {
+      hello: {
+        type: GraphQLString,
+        resolve() {
+          return &apos;world&apos;
+        }
+      }
+    }
+  })
+})
+
+graphql(schema, &apos;{ hello }&apos;).then(res =&gt; {
+  console.log(res)
+})
+// =&gt; { data: { hello: &apos;world&apos; } }
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;p&gt;You can see an example in the graphql.js documentation&apos;s &lt;a href=&quot;http://graphql.org/graphql-js/#writing-code&quot;&gt;home page&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Neovim with Python on OSX]]></title><description><![CDATA[Installing neovim Want to use plugins like  Deoplete ,  Hyperstyle  and other Python plugins on OSX, you need a working installation of both…]]></description><link>https://ricostacruz.com/tilnext//neovim-with-python-on-osx/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//neovim-with-python-on-osx/</guid><pubDate>Thu, 29 Sep 2016 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;Installing neovim&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Want to use plugins like &lt;a href=&quot;https://github.com/Shougo/deoplete.nvim&quot;&gt;Deoplete&lt;/a&gt;, &lt;a href=&quot;http://ricostacruz.com/vim-hyperstyle&quot;&gt;Hyperstyle&lt;/a&gt; and other Python plugins on OSX, you need a working installation of both Python2 and Python3 managed by Homebrew (ie, system default Python isn&apos;t enough).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;brew install python
+brew install python3
+pip2 install neovim --upgrade
+pip3 install neovim --upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Configuring &lt;code&gt;pythonX_host_prog&lt;/code&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;To complete this, add this to your &lt;code&gt;~/.config/nvim/init.vim&lt;/code&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot;&gt;let g:python2_host_prog = &apos;/usr/local/bin/python&apos;
+let g:python3_host_prog = &apos;/usr/local/bin/python3&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Install neovim&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;And of course, you have to have Neovim installed for this. The repo &lt;a href=&quot;https://github.com/neovim/homebrew-neovim&quot;&gt;homebrew-neovim&lt;/a&gt; has all the info on how to do this.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;brew install neovim/neovim/neovim
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Troubleshooting&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You can use the &lt;code&gt;:HealthCheck&lt;/code&gt; command to see issues with your Python providers.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot;&gt;:HealthCheck
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Filtering falsy values]]></title><description><![CDATA[Quickly discard falsy values from an Array using  filter(Boolean) . This is like  lodash.compact  or Ruby's  Array#compact . This works…]]></description><link>https://ricostacruz.com/tilnext//filtering-falsy-values/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//filtering-falsy-values/</guid><pubDate>Sun, 28 Aug 2016 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Quickly discard falsy values from an Array using &lt;code&gt;filter(Boolean)&lt;/code&gt;. This is like &lt;a href=&quot;http://devdocs.io/lodash~4/index#compact&quot;&gt;lodash.compact&lt;/a&gt; or Ruby&apos;s &lt;a href=&quot;http://devdocs.io/ruby~2.3/array#method-i-compact&quot;&gt;Array#compact&lt;/a&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&gt; [&apos;this&apos;, &apos;has&apos;, undefined, false, 0, null, NaN, &apos;values&apos;].filter(Boolean)
+[ &apos;this&apos;, &apos;has&apos;, &apos;values&apos; ]
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;p&gt;This works because &lt;code&gt;Boolean(val)&lt;/code&gt; is roughly equivalent to &lt;code&gt;val =&gt; !!val&lt;/code&gt;. That is, it&apos;s a function that coerces a value into a Boolean.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Tools for immutable work]]></title><description><![CDATA[Most people reach for  lodash  for general-purpose JavaScript work. With the recent tides shifting towards functional programming,  Ramda…]]></description><link>https://ricostacruz.com/tilnext//my-immutable-toolkit/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//my-immutable-toolkit/</guid><pubDate>Thu, 25 Aug 2016 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Most people reach for &lt;a href=&quot;http://lodash.com/&quot;&gt;lodash&lt;/a&gt; for general-purpose JavaScript work. With the recent tides shifting towards functional programming, &lt;a href=&quot;http://ramdajs.com/&quot;&gt;Ramda&lt;/a&gt; has become a popular option as well. I don&apos;t prefer to use them, let me show you why.&lt;/p&gt;&lt;h2&gt;Accumulated bloat&lt;/h2&gt;&lt;h3&gt;Lodash is big&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;I love both lodash and Ramda, but they&apos;re a bit too bloated to use for web apps. A simple &lt;a href=&quot;https://lodash.com/docs#map&quot;&gt;lodash.map&lt;/a&gt; weighs in at a whopping 24 kilobytes:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ browserify -r lodash/map | uglifyjs -cm | wc -c
+24895
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Ramda is smaller&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Ramda&apos;s &lt;a href=&quot;http://ramdajs.com/0.21.0/docs/#map&quot;&gt;R.map&lt;/a&gt; is slimmer, but still hefty at 7kb:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ browserify -r ramda/src/pluck | uglifyjs -cm | wc -c
+7750
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This may not seem like much, but for a web application, every kilobyte matters.&lt;/p&gt;&lt;h2&gt;Loops&lt;/h2&gt;&lt;h3&gt;Using map&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;While JavaScript comes with &lt;a href=&quot;http://devdocs.io/javascript/global_objects/array/map&quot;&gt;Array.prototype.map&lt;/a&gt;, it&apos;s not very useful for objects. I don&apos;t appreciate that iterating through arrays are done differently from iterating through objects. Not only that, but iterating through &lt;code&gt;Object.keys().map&lt;/code&gt; is one of the slower ways of looping through an object&apos;s keys.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Iterating through arrays
+array.map((val, key) =&gt; {
+  /*...*/
+})
+
+// Iterating through objects
+Object.keys(object).map(key =&gt; {
+  let val = object[key]
+  /*...*/
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Optimization with object-loops&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;For this, I prefer &lt;a href=&quot;https://www.npmjs.com/package/object-loops&quot;&gt;object-loops&lt;/a&gt;. &lt;code&gt;object-loops/map&lt;/code&gt; is only 1kb!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;import map from &apos;object-loops/map&apos;
+map(array, (val, key) =&gt; {
+  /*...*/
+})
+map(object, (val, key) =&gt; {
+  /*...*/
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Immutable set/get&lt;/h2&gt;&lt;h3&gt;Spread operator?&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Setting deep keys is something that&apos;s needed in every &lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux&lt;/a&gt;-powered app. While most Redux guides advice you to use the &lt;a href=&quot;http://devguides.io/redux/introduction#the-spread-operator&quot;&gt;spread operator&lt;/a&gt;, it quickly gets unwieldy for deep structures.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Plain mutable JS
+state.albums[id] = album
+
+// ESnext syntax
+state = {
+  ...state,
+  albums: {
+    ...state.albums,
+    [id]: album
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Consider using 101&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;For this, &lt;a href=&quot;https://www.npmjs.com/package/101&quot;&gt;101&lt;/a&gt; comes with &lt;code&gt;101/put&lt;/code&gt; and &lt;code&gt;101/pluck&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;import set from &apos;101/put&apos;
+import get from &apos;101/pluck&apos;
+
+state = set(state, `albums.${id}`, album)
+get(state, `albums.${id}`)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Deleting keys With 101&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;It comes with &lt;code&gt;101/omit&lt;/code&gt; as well as an immutable analogue for &lt;code&gt;delete&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Plain mutable JS
+delete state.albums[id]
+
+// Using 101
+import del from &apos;101/omit&apos;
+del(state, `albums.${id}`)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Recap&lt;/h2&gt;&lt;h3&gt;object-loops for iteration&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/object-loops&quot;&gt;object-loops&lt;/a&gt; is great for iteration.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Iterating
+import map from &apos;object-loops/map&apos;
+
+map(state.albums, (val, key) =&gt; {
+  /*...*/
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;101 for many things&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/101&quot;&gt;101&lt;/a&gt; is great for setting/getting values from deep structures.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Setting and getting
+import set from &apos;101/put&apos;
+import get from &apos;101/pluck&apos;
+import del from &apos;101/omit&apos;
+
+state = set(state, `albums.${id}`, album)
+state = del(state, `albums.${id}`)
+get(state, `albums.${id}`)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Ordered keys in JS objects]]></title><description><![CDATA[Ordered keys? It seems like JavaScript has ordered keys. Notice that the order of keys are based on insertion order. Adding keys You can add…]]></description><link>https://ricostacruz.com/tilnext//ordered-keys-in-js/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//ordered-keys-in-js/</guid><pubDate>Thu, 11 Aug 2016 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;Ordered keys?&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;It seems like JavaScript has ordered keys. Notice that the order of keys are based on insertion order.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&gt; obj = {};
+&gt; obj.zulu = 1;
+&gt; obj.yankee = 1;
+&gt; obj.xray = 1;
+&gt; obj
+{ zulu: 1, yankee: 1, xray: 1 }
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Adding keys&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You can add more keys to an object, and it&apos;ll always end up in the end.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&gt; obj.bravo = 1;
+&gt; obj.alpha = 1;
+&gt; obj
+{ zulu: 1, yankee: 1, xray: 1, bravo: 1, alpha: 1 }
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Is that really what always happens?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Not really&lt;/h2&gt;&lt;h3&gt;Numeric keys&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;But there are special cases when the key is a string that is a number. Notice this puts the new key at the beginning:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&gt; obj[&apos;5&apos;] = 1;
+&gt; obj
+{ &apos;5&apos;: 1, zulu: 1, yankee: 1, xray: 1, bravo: 1, alpha: 1 }
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This is only true for numbers-as-strings. Strings that begin with numbers aren&apos;t affected.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&gt; obj[&apos;5X&apos;] = 1;
+&gt; obj
+{ &apos;5&apos;: 1, zulu: 1, yankee: 1, xray: 1, bravo: 1, alpha: 1, &apos;5X&apos;: 1 }
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s take a look at how it&apos;s sorted.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Sorting behavior&lt;/h2&gt;&lt;h3&gt;Numeric keys first&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;The number-like keys are going to be sorted numerically (not lexically) before the other keys.
+(Hat tip to &lt;a href=&quot;https://twitter.com/cheeaun/status/763578733496143872&quot;&gt;@cheeaun&lt;/a&gt; for the observation on the behavior of numeric sorting!)&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&gt; obj = {};
+&gt; obj.y = 1;
+&gt; obj.x = 1;
+&gt; obj[&apos;22&apos;] = 1;
+&gt; obj[&apos;5&apos;] = 1;
+&gt; obj[&apos;2&apos;] = 1;
+&gt; obj
+{ &apos;2&apos;: 1, &apos;5&apos;: 1, &apos;22&apos;: 1, y: 1, x: 1 }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Using npm packages in Rails]]></title><description><![CDATA[We load our gems from  Rubygems , but a lot of you may still be placing your JavaScripts into  vendor/assets/javascripts . Why not use  npm…]]></description><link>https://ricostacruz.com/tilnext//npm-in-rails/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//npm-in-rails/</guid><pubDate>Thu, 21 Jan 2016 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;We load our gems from &lt;a href=&quot;https://rubygems.org/&quot;&gt;Rubygems&lt;/a&gt;, but a lot of you may still be placing your JavaScripts into &lt;code&gt;vendor/assets/javascripts&lt;/code&gt;. Why not use &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt;? It&apos;s actually pretty easy to set up Rails to use npm.&lt;/p&gt;&lt;h2&gt;Use npm itself&lt;/h2&gt;&lt;p&gt;The best way to load npm packages in Rails is to use npm as your pipeline itself. &lt;a href=&quot;https://github.com/rstacruz/npm-pipeline-rails&quot;&gt;npm-pipeline-rails&lt;/a&gt; helps you do just that.&lt;/p&gt;&lt;p&gt;Don&apos;t want to switch away from the asset pipeline? That&apos;s fine, read on for an alternative approach.&lt;/p&gt;&lt;h2&gt;Alternative&lt;/h2&gt;&lt;h3&gt;Add &lt;code&gt;node_modules&lt;/code&gt; to your gitignore&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Because you don&apos;t want to commit those, just like you don&apos;t commit your gems.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;echo &apos;/node_modules&apos; &gt;&gt; .gitignore
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Create a &lt;code&gt;package.json&lt;/code&gt; in your project&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This is the npm equivalent of a &lt;code&gt;Gemfile&lt;/code&gt;—it&apos;s where your packages are stored.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;npm init
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Add &lt;code&gt;node_modules&lt;/code&gt; to your asset path&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This lets you use npm modules in your Sprockets assets. In &lt;code&gt;config/application.rb&lt;/code&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-rb&quot;&gt;module YourApp
+  class Application &amp;#x3C; Rails::Application
+    config.assets.paths &amp;#x3C;&amp;#x3C; Rails.root.join(&apos;node_modules&apos;)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Run &lt;code&gt;npm install&lt;/code&gt; on startup&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Rails (or Bundler) prevents you from starting itself when you have gems that aren&apos;t installed yet. To emulate that behavior for npm packages, do this in &lt;code&gt;config/initializers/npm.rb&lt;/code&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-rb&quot;&gt;system &apos;npm install&apos; if Rails.env.development? || Rails.env.test?
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Heroku: add Node.js support&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you&apos;re deploying to Heroku, the default Ruby buildpack doesn&apos;t include Node, which you need to use npm. Add both the Node.js and Ruby buildpacks:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;heroku bulidpacks:add &apos;https://github.com/heroku/heroku-buildpack-nodejs.git&apos;
+heroku bulidpacks:add &apos;https://github.com/heroku/heroku-buildpack-ruby.git&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Adding JavaScript packages&lt;/h2&gt;&lt;p&gt;You can only use node modules that come with a pre-built version in it. &lt;a href=&quot;https://modernizr.com/&quot;&gt;modernizr&lt;/a&gt; won&apos;t work. You can try &lt;a href=&quot;https://github.com/browserify-rails/browserify-rails&quot;&gt;browserify-rails&lt;/a&gt;.&lt;/p&gt;&lt;h3&gt;Use npm&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Use &lt;code&gt;npm install&lt;/code&gt; with &lt;code&gt;--save&lt;/code&gt; to add packages.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;npm install --save --save-exact modernizr
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Add to &lt;code&gt;application.js&lt;/code&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Then in your &lt;code&gt;application.js&lt;/code&gt;, require it like so:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;//= require onmount/onmount
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Selective polyfilling]]></title><description><![CDATA[Need to support legacy browsers, but don't want the full weight of  es5-shim  loaded for everyone? Sure, just load it for browsers that need…]]></description><link>https://ricostacruz.com/tilnext//selective-polyfilling/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//selective-polyfilling/</guid><pubDate>Sat, 02 Jan 2016 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Need to support legacy browsers, but don&apos;t want the full weight of &lt;a href=&quot;https://github.com/es-shims/es5-shim&quot;&gt;es5-shim&lt;/a&gt; loaded for everyone? Sure, just load it for browsers that need it!
+It should be easy enough to add more polyfills as you need them. You can also include some &lt;a href=&quot;ie-polyfills.html&quot;&gt;legacy IE polyfills&lt;/a&gt; to complete the experience.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&amp;#x3C;script&gt;(function(){function a(src){var s=document.createElement(&apos;script&apos;),r=document.getElementsByTagName(&apos;script&apos;)[0];s.src=src;s.type=&apos;text/javascript&apos;;r.parentNode.insertBefore(s,r)}
+this.JSON||a(&apos;https://cdn.jsdelivr.net/json2/0.2/json2.min.js&apos;);
+(Object.keys&amp;#x26;&amp;#x26;[].map&amp;#x26;&amp;#x26;alert.bind)||a(&apos;https://cdn.jsdelivr.net/es5.shim/4.4.1/es5-shim.min.js&apos;);
+this.Promise||a(&apos;https://www.promisejs.org/polyfills/promise-6.1.0.js&apos;);
+}())&amp;#x3C;/script&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Also try Polyfill.io&lt;/h3&gt;&lt;p&gt;Alternatively, you can use the &lt;a href=&quot;https://polyfill.io/&quot;&gt;polyfill.io&lt;/a&gt; service which takes care of this for you and more.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Babel class inheritance in Internet Explorer]]></title><description><![CDATA[Class inheritance caveats When using class inheritance with Babel.js, keep in mind that IE10 and below are  not supported  by default. Babel…]]></description><link>https://ricostacruz.com/tilnext//babel-ie-class-inheritance/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//babel-ie-class-inheritance/</guid><pubDate>Tue, 26 May 2015 00:00:00 GMT</pubDate><content:encoded>&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;class Circle extends Shape {
+  getArea() {
+    return this.radius * Math.PI * 2
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Class inheritance caveats&lt;/h3&gt;
+&lt;p&gt;When using class inheritance with Babel.js, keep in mind that IE10 and below are &lt;a href=&quot;http://babeljs.io/docs/advanced/caveats&quot;&gt;not supported&lt;/a&gt; by default. Babel&apos;s class inheritance relies on ___proto___ which is not available on legacy IE versions.&lt;/p&gt;
+&lt;p&gt;Using &lt;em&gt;super&lt;/em&gt; is also not supported on IE8 and below, as it compiles down to using &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf&quot;&gt;Object.getPrototypeOf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To get around these caveats, use the &lt;a href=&quot;http://babeljs.io/docs/advanced/transformers/spec/proto-to-assign/&quot;&gt;protoToAssign&lt;/a&gt; transformer to make inheritance work, along with loose mode on classes to enable support for &lt;code&gt;super&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;babel --optional spec.protoToAssign --loose es6.classes script.js
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title><![CDATA[Speed up MacVim with Lua]]></title><description><![CDATA[It's always a good idea to install  MacVim  with Lua support.  Homebrew  does not compile with Lua support by default. This gets you the…]]></description><link>https://ricostacruz.com/tilnext//use-macvim-with-lua/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//use-macvim-with-lua/</guid><pubDate>Tue, 14 Apr 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;It&apos;s always a good idea to install &lt;a href=&quot;https://github.com/macvim-dev/macvim&quot;&gt;MacVim&lt;/a&gt; with Lua support. &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt; does not compile with Lua support by default. This gets you the benefit of a noticeably-faster &lt;a href=&quot;https://github.com/Shougo/unite.vim&quot;&gt;Unite.vim&lt;/a&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;brew install macvim --with-cscope --with-lua --override-system-vim --with-luajit --with-python3
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;p&gt;Also, the option &lt;code&gt;--override-system-vim&lt;/code&gt; will allow you to use &lt;code&gt;vim&lt;/code&gt; in the command line apart from the GUI... also a great idea!&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Relative paths in Jekyll]]></title><description><![CDATA[Jekyll  is a great static site tool. If you're using  GitHub Pages , it comes with it for free, making it a very useful tool for any public…]]></description><link>https://ricostacruz.com/tilnext//relative-paths-in-jekyll/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//relative-paths-in-jekyll/</guid><pubDate>Fri, 13 Mar 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; is a great static site tool. If you&apos;re using &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;, it comes with it for free, making it a very useful tool for any public blog or website. It comes, though, with one common problem that I&apos;ve yet to come across a good solution for: relative paths.&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Why are relative paths a problem?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;The problem&lt;/h2&gt;&lt;h3&gt;The mess of relative paths&lt;/h3&gt;&lt;p&gt;Let&apos;s say you have an innocent URL in your layout like the one below. This is a relative path, not an absolute one that begins with &lt;code&gt;/&lt;/code&gt;. It resolves based on wherever it&apos;s included from.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;!-- _layouts/default.html --&gt;
+&amp;#x3C;link href=&quot;assets/style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;p&gt;This works well in pages of your site placed in the root directory. Once you path one level deep though, you&apos;ll encounter problems.&lt;/p&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;From this page...&lt;/th&gt;
+&lt;th&gt;Base&lt;/th&gt;
+&lt;th&gt;Final URL&lt;/th&gt;
+&lt;th align=&quot;right&quot;&gt;Result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/index.html&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/assets/style.css&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;Good ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/me.html&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/assets/style.css&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;Good ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/about/profile.html&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/about&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/about/assets/style.css&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;Wrong ✗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;!-- {.-wide} --&gt;&lt;div&gt;&lt;next-block title=&quot;How do we usually work around them?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;A naive workaround&lt;/h2&gt;&lt;p&gt;One workaround is to use absolute paths by adding a &lt;code&gt;/&lt;/code&gt; in the beginning.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;link href=&quot;/assets/style.css&quot; rel=&quot;stylesheet&quot; /&gt; ^
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Why absolute URLs suck&lt;/h3&gt;&lt;p&gt;This works great for sites that live on its own domain. When your site will be hosted in a sub-directory (such as the case with &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Project Pages&lt;/a&gt;), this absolute path will not resolve to &lt;code&gt;/project/assets/style.css&lt;/code&gt; as you probably would have intended.&lt;/p&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;If your site is in...&lt;/th&gt;
+&lt;th&gt;It resolves to...&lt;/th&gt;
+&lt;th align=&quot;right&quot;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;user.github.io/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/assets/style.css&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;Good ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;user.github.io/project/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/assets/style.css&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;Wrong ✗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;!-- {.-wide} --&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s look at a better workaround.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;A better workaround&lt;/h2&gt;&lt;p&gt;This snippet below automatically determines the relative base and stores it in the variable &lt;code&gt;base&lt;/code&gt;. Place it in your partials path, and include the partial in your layouts.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;!-- _includes/base.html --&gt;
+{% assign base = &apos;&apos; %} {% assign depth = page.url | split: &apos;/&apos; | size | minus: 1
+%} {% if depth &amp;#x3C;= 1 %}{% assign base = &apos;.&apos; %} {% elsif depth == 2 %}{% assign
+base = &apos;..&apos; %} {% elsif depth == 3 %}{% assign base = &apos;../..&apos; %} {% elsif depth
+== 4 %}{% assign base = &apos;../../..&apos; %}{% endif %}
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Use it as a prefix&lt;/h3&gt;&lt;p&gt;You can then use it as a prefix to URLs, like the examples below. You don&apos;t need to &lt;code&gt;include&lt;/code&gt; it all the time—just include it once in your layouts and it will be available everywhere.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;{% include base.html %}
+&amp;#x3C;link href=&quot;{{base}}/assets/style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;a href=&quot;{{ base }}&quot;&gt;Back to home&amp;#x3C;/a&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;a href=&quot;{{ base }}/about.html&quot;&gt;About me&amp;#x3C;/a&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;a href=&quot;{{ base }}{{ post.url }}&quot;&gt;Read &quot;{{ post.title }}&quot;&amp;#x3C;/a&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Cleaner Mocha stack traces]]></title><description><![CDATA[Mocha  is a great way to test JavaScript, but its stack traces are riddled
+with useless frames from Mocha internals and 3rd-party modules…]]></description><link>https://ricostacruz.com/tilnext//mocha-clean/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//mocha-clean/</guid><pubDate>Fri, 06 Mar 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;http://visionmedia.github.io/mocha&quot;&gt;Mocha&lt;/a&gt; is a great way to test JavaScript, but its stack traces are riddled
+with useless frames from Mocha internals and 3rd-party modules. Let&apos;s try and
+clean it up.&lt;/p&gt;&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/tilnext/static/69a382b6d99d1e1b6f1c174378d7a313/3b462/comparison.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 970px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 45.25773195876289%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAABJ0lEQVQoz2VRi27DIAzs/3/jtG7LuoZgiHkFCNDsQh+LtJOFcOy72Mep1hpTyv+wbduyLNa50OG9d8/7PY0xntDnmUsp6wEppdYayCHE10d0HnsgsZMtUe7drdU9akUNSU6x5JhLqY8CKg+guv8Zgn7WJaV6QOmEiOloNMxrXqFXcz7QK+Y6YdyReJA8kEF8khHsYzcB2kYbJaS3LiCM9QmTlz8ykmm2gp3op3aLXXYDdyNj1KTEdcIJPmu2synel+BrdwTkVU2kpJ7Z2rBAemsN9mEr2MaS9CiY1DxJB2sgWnY8xy7loux54rM07xN/keWwD3dffZz921V/K4uNtAttu73Qn2pdpWaheKT5HpNi5zze2Vo7/Iwfl3G4CgQukkh1EBGe/RebSgUx0uOqOAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Comparison screenshot&quot;
+        title=&quot;&quot;
+        src=&quot;/tilnext/static/69a382b6d99d1e1b6f1c174378d7a313/3b462/comparison.png&quot;
+        srcset=&quot;/tilnext/static/69a382b6d99d1e1b6f1c174378d7a313/87a8a/comparison.png 350w,
+/tilnext/static/69a382b6d99d1e1b6f1c174378d7a313/faac4/comparison.png 700w,
+/tilnext/static/69a382b6d99d1e1b6f1c174378d7a313/3b462/comparison.png 970w&quot;
+        sizes=&quot;(max-width: 970px) 100vw, 970px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;&lt;!-- {.-wider} --&gt;&lt;h2&gt;Introducing mocha-clean&lt;/h2&gt;&lt;p&gt;&lt;code&gt;mocha-clean&lt;/code&gt; is a plugin for Mocha. It strips away mocha internals,
+node_modules, absolute paths (based on cwd), and other unneccessary cruft
+from stack traces.&lt;/p&gt;&lt;h3&gt;Usage&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Simply invoke Mocha with &lt;code&gt;-r mocha-clean&lt;/code&gt;. The easiest way to do this is to add it to your &lt;em&gt;test/mocha.opts&lt;/em&gt; file.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;--require mocha-clean
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Installation&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;It&apos;s available via npm, and works with Mocha 1.x in Node.js and in the browser. The source is available in GitHub: &lt;a href=&quot;https://github.com/rstacruz/mocha-clean&quot;&gt;rstacruz/mocha-clean&lt;/a&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;npm install --save-dev mocha-clean
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Merging into Mocha?&lt;/h2&gt;&lt;p&gt;A pull request is currently open in Mocha to integrate this functionality into Mocha itself. Check out &lt;a href=&quot;https://github.com/mochajs/mocha/pull/1564&quot;&gt;#1564&lt;/a&gt; and offer your support and comments.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Using ligatures in CSS]]></title><description><![CDATA[Enabling ligatures Headings can benefit from nice ligatures. Use the  font-feature-settings  CSS property to enable these OpenType features…]]></description><link>https://ricostacruz.com/tilnext//css-ligatures/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//css-ligatures/</guid><pubDate>Thu, 05 Mar 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;Enabling ligatures&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Headings can benefit from nice ligatures. Use the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings&quot;&gt;font-feature-settings&lt;/a&gt; CSS property to enable these OpenType features. Here&apos;s a snippet to start you with:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;.headings {
+  /* don&apos;t display digraphs in languages that don&apos;t support it */
+  font-language-override: normal;
+
+  /* use font-defined kerning info */
+  font-kerning: auto;
+
+  /* opentype options: kerning, ligatures, horiz ligatures,
+   * discretionary ligatures, contextual swash */
+  font-feature-settings: &apos;kern&apos;, &apos;liga&apos;, &apos;dlig&apos;, &apos;hlig&apos;, &apos;cswh&apos;;
+
+  /* allow browser to auto-infer missing glyphs */
+  font-synthesis: weight style;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Example&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Here is what they would look like with EB Garamond. Be sure to also check &lt;a href=&quot;http://en.wikipedia.org/wiki/List_of_typographic_features&quot;&gt;List of OpenType features&lt;/a&gt; for more features you can use.&lt;/p&gt;&lt;figure&gt;
+&lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/tilnext/static/a0bf23522bdc9caf19b5cae0683870fc/d5229/ligatures.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 182px; margin-left: auto; margin-right: auto;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 41.208791208791204%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqUlEQVQY06WQyQ6DMAxE+f9PRZEgG2RvnxjUFim3+uB4mRnbWV5/2KJnjFFKqbUSkPbeSVtrauWcqSimSCrYTQYaQti2TYgY477vx3GQxsvQJaYChlRaN5kqZGstcUpJIIYgaoyRynme67qK/FjbOUeVfYiZCQcvIe+9ROEQu8u+ZKBo09DNrAAHTwtPS6PE1BWPyVND4oNjZ3bBT357atysX8VYSp/0a2+PBdZWh/CHXAAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+    &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot; alt=&quot;ligatures&quot; title=&quot;&quot; src=&quot;/tilnext/static/a0bf23522bdc9caf19b5cae0683870fc/d5229/ligatures.png&quot; srcset=&quot;/tilnext/static/a0bf23522bdc9caf19b5cae0683870fc/d5229/ligatures.png 182w&quot; sizes=&quot;(max-width: 182px) 100vw, 182px&quot;&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;
+&lt;/figure&gt;&lt;h2&gt;Use brick.im&lt;/h2&gt;&lt;p&gt;Fonts from Typekit and Google Web Fonts may be stripped of all these extra OpenType information. Use fonts from &lt;a href=&quot;http://brick.im/&quot;&gt;brick.im&lt;/a&gt; instead.&lt;/p&gt;&lt;h2&gt;Swashes&lt;/h2&gt;&lt;h3&gt;Using font-feature-settings&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;First letters can look good with swashes (eg, an &lt;code&gt;R&lt;/code&gt; with an extra long stem). Just be sure to turn this on on a as-needed basis since it may overlap with the rest of the text.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;.headings:first-letter {
+  font-feature-settings: &apos;kern&apos;, &apos;swsh&apos;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Disabling ligatures&lt;/h2&gt;&lt;h3&gt;Using font-feature-settings&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You can turn off ligatures using &lt;code&gt;font-feature-settings&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;font-feature-settings: &apos;liga&apos; 0;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Easy color computations]]></title><description><![CDATA[Stylus CLI Use  stylus 's CLI for easy color computations.  Stylus CLI is faster than Sass and has shorter syntax for color computations…]]></description><link>https://ricostacruz.com/tilnext//easy-color-computations/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//easy-color-computations/</guid><pubDate>Tue, 03 Mar 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;Stylus CLI&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;strong&gt;Use &lt;a href=&quot;http://learnboost.github.io/stylus&quot;&gt;stylus&lt;/a&gt;&apos;s CLI for easy color computations.&lt;/strong&gt; Stylus CLI is faster than Sass and has shorter syntax for color computations.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ npm i -g stylus
+$ stylus -i
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Example&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Here&apos;s &lt;em&gt;lighten&lt;/em&gt; and &lt;em&gt;hue shift&lt;/em&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;&gt; #aaa + 10%
+=&gt; #b2b2b2
+
+&gt; #ff0 - 10deg
+=&gt; #ffd500
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;One-liner version&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Not quite as elegant, but it can be useful.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;echo &quot;*{a: #ff0 - 10deg}&quot; | stylus -p
+* { a: #ffd500; }
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Using Sass&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you need Sass for some reason, it also takes &lt;code&gt;-i&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;$ gem install sass
+$ sass -i
+&gt;&gt; darken(red, 10%)
+#cc0000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[ES6 class pitfalls]]></title><description><![CDATA[Decorated functions ES6 makes it easy to define classes, but you can't have decorated functions. For that, you'll still need to drop to…]]></description><link>https://ricostacruz.com/tilnext//es6-class-pitfalls/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//es6-class-pitfalls/</guid><pubDate>Wed, 25 Feb 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;class Shape {
+  get area() {
+    return this.width * this.height
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h3&gt;Decorated functions&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;ES6 makes it easy to define classes, but you can&apos;t have decorated functions. For that, you&apos;ll still need to drop to using &lt;code&gt;prototype&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;Shape.prototype.iterate = memoize(function () {
+  ...
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Non-method attributes&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Same with non-method attributes.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;Shape.prototype.template = require(&apos;fs&apos;).readFileSync(
+  &apos;./template.html&apos;,
+  &apos;utf-8&apos;
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[@extend sucks]]></title><description><![CDATA[What's with @extend? Using  @extend  in CSS preprocessors really suck... so use mixins instead. Consider this example. Using @extend Seems…]]></description><link>https://ricostacruz.com/tilnext//extend-sucks/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//extend-sucks/</guid><pubDate>Mon, 16 Feb 2015 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;What&apos;s with @extend?&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Using &lt;code&gt;@extend&lt;/code&gt; in CSS preprocessors really suck... so use mixins instead. Consider this example.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-scss&quot;&gt;%antialias {
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Using @extend&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Seems innocent enough:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-scss&quot;&gt;h3 {
+  @extend %antialias;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;With media queries&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Until you try it with media queries, then it won&apos;t work. Consider using mixins instead.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-scss&quot;&gt;@media (max-width: 300px) {
+  h3 {
+    @extend %antialias;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Get started with Ansible in 2 minutes]]></title><description><![CDATA[Ansible  is a fantastic tool for provisioning servers. I personally prefer it over Chef, Puppet and Salt. Here's how to get an Ansible…]]></description><link>https://ricostacruz.com/tilnext//get-started-with-ansible/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//get-started-with-ansible/</guid><pubDate>Wed, 27 Nov 2013 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;http://ansible.com&quot;&gt;Ansible&lt;/a&gt; is a fantastic tool for provisioning servers. I personally prefer it over Chef, Puppet and Salt. Here&apos;s how to get an Ansible project started.&lt;/p&gt;&lt;h2&gt;Install Ansible&lt;/h2&gt;&lt;p&gt;Ansible is officially available via &lt;code&gt;pip&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;brew install ansible            # OSX
+[sudo] pip install ansible      # elsewhere
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Start your project&lt;/h2&gt;&lt;p&gt;Make the directory. Put this under version control, preferrably.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;~$ mkdir setup
+~$ cd setup
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Create an inventory file&lt;/h2&gt;&lt;p&gt;This is a list of hosts you want to manage, grouped into groups. (Hint: try
+using 127.0.0.1 to deploy to your local machine)&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-dosini&quot;&gt;# ~/setup/hosts
+
+[sites]
+127.0.0.1
+192.168.0.1
+192.168.0.2
+192.168.0.3
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Create your first Playbook&lt;/h2&gt;&lt;p&gt;A playbook is just a YAML file.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot;&gt;# ~/setup/playbook.yml
+
+- hosts: 127.0.0.1
+  user: root
+  tasks:
+    - name: install nginx
+      apt: pkg=nginx state=present
+
+    - name: start nginx every bootup
+      service: name=nginx state=started enabled=yes
+
+    - name: do something in the shell
+      shell: echo hello &gt; /tmp/abc.txt
+
+    - name: install bundler
+      gem: name=bundler state=latest
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Run it&lt;/h2&gt;&lt;p&gt;Use the &lt;code&gt;ansible-playbook&lt;/code&gt; command.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;~/setup$ ls
+hosts
+playbook.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;~/setup$ ansible-playbook -i hosts playbook.yml
+PLAY [all] ********************************************************************
+
+GATHERING FACTS ***************************************************************
+ok: [127.0.0.1]
+
+TASK: [install nginx] *********************************************************
+ok: [127.0.0.1]
+
+TASK: [start nginx every bootup] **********************************************
+ok: [127.0.0.1]
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;h2&gt;Further reading&lt;/h2&gt;&lt;p&gt;Ansible&apos;s source is available via GitHub: &lt;a href=&quot;https://github.com/ansible/ansible&quot;&gt;ansible/ansible&lt;/a&gt;.&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://lowendbox.com/blog/getting-started-with-ansible/&quot;&gt;Getting Started With Ansible&lt;/a&gt; (lowendbox.com)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.ansible.com/modules.html&quot;&gt;Ansible Documentation&lt;/a&gt; (ansible.com)&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Easily make favicon.ico]]></title><description><![CDATA[To create  favicon.ico , you don't need anything other than ImageMagick. Creating icon files Use it to convert  .png 's into  .ico  (use…]]></description><link>https://ricostacruz.com/tilnext//easy-favicons/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//easy-favicons/</guid><pubDate>Mon, 07 Jan 2013 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;To create &lt;code&gt;favicon.ico&lt;/code&gt;, you don&apos;t need anything other than ImageMagick.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;brew install imagemagick
+sudo apt-get install imagemagick
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Creating icon files&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Use it to convert &lt;code&gt;.png&lt;/code&gt;&apos;s into &lt;code&gt;.ico&lt;/code&gt; (use 32px and 16px sizes for retina compatibility).&lt;/p&gt;&lt;pre&gt;&lt;code&gt;convert favicon-32.png favicon-16.png favicon.ico
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Resizing icons&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You can even use it to generate a 16px version from a 32px:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;convert favicon-32.png -resize 16x16 favicon16.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
