@@ -5,6 +5,7 @@
  *
  *  - `-hide-h3`
  *  - `-literate-style`
+ *  - `-wider-literate-style`
  *  - `-captioned-style`
  *  - `-wide`
  *
@@ -69,6 +70,7 @@
 }
 
 .root:global(.-literate-style),
+.root:global(.-wider-literate-style),
 .root:global(.-captioned-style) {
   @media (--ms-viewport-lg) {
     max-width: 100vw;
@@ -87,6 +89,7 @@
   }
 }
 
+.body:global(.-wider-literate-style),
 .body:global(.-literate-style) {
   @media (--ms-viewport-lg) {
     & > p {
@@ -104,6 +107,20 @@
       margin-top: 0;
       margin-left: 0;
       margin-right: 0;
+    }
+  }
+}
+
+.body:global(.-wider-literate-style) {
+  @media (--ms-viewport-xl) {
+    & > p {
+      width: 40%;
+    }
+
+    & > pre,
+    & > figure,
+    & > blockquote {
+      width: 60%;
     }
   }
 }

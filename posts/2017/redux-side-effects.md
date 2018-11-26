@@ -7,7 +7,7 @@ description: Learn to manage impure side effects in a Redux store with middlewar
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 [Redux] is the preferred state management pattern for React apps today. Being a very "functional" library, it doesn't like side effects much. This means doing asynchronous actions in a Redux reducer is not just a bad idea, it simply won't work.
 
@@ -20,7 +20,10 @@ function reducer (state, action) {
       fetch('/my_profile')
         .then(res => res.json())
         .then(res => {
-          dispatch({ type: 'profile:set', payload: res.body })
+          dispatch({
+            type: 'profile:set',
+            payload: res.body
+          })
           // ✗ Error: dispatch is not defined
         })
 
@@ -33,7 +36,7 @@ You can't modify state here in an async callback. In fact, you can't even `dispa
 
 ### Middleware for side effects
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Fortunately, Redux has built-in provisions for managing side effects: [Middleware](http://redux.js.org/docs/advanced/Middleware.html)! You can write your own middleware with business logic. You don't need to use 3rd-party packages other than Redux itself.
 
@@ -41,7 +44,8 @@ Fortunately, Redux has built-in provisions for managing side effects: [Middlewar
 // Redux middleware
 function ProfileLoader () {
   return store => dispatch => action {
-    dispatch(action) // First pass them through to the reducers.
+    // First pass them through to the reducers.
+    dispatch(action)
 
     switch (action.type) {
       case 'profile:load!':
@@ -95,7 +99,7 @@ You may have noticed I named my action `profile:load!`. This is my preferred con
 
 ### Error tracker
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 How about a middleware that tracks errors as they come in?
 
@@ -116,7 +120,7 @@ function ErrorTracker () {
 
 ### Ticker
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Or a middleware that sends `tick` events every second? Great for timers or for RPG's.
 
@@ -145,7 +149,7 @@ function Ticker (options) {
 
 ### Combining them
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 And to put them all together:
 

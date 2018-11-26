@@ -12,9 +12,18 @@ module.exports = {
     title: 'TIL',
     fullTitle: 'Today I Learned — web development musings semi-daily',
     shortDescription:
-      'TIL - a collection of things I learned on my day-to-day web development work.'
+      'TIL - a collection of things I learned on my day-to-day web development work.',
+
+    // For gatsby-feed
+    description:
+      'TIL - a collection of things I learned on my day-to-day web development work.',
+    siteUrl: 'https://ricostacruz.com/tilnext/'
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-feed'
+      // For options, see https://www.npmjs.com/package/gatsby-plugin-feed
+    },
     'gatsby-plugin-sharp',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',

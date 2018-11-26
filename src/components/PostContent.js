@@ -15,6 +15,7 @@ import { type HastNode } from '../types'
 import makeToReact from '../helpers/to_react'
 import H2Body from './H2Body'
 import H3Body from './H3Body'
+import PreCode from './PreCode'
 
 export type Props = {
   body: HastNode[]
@@ -26,7 +27,8 @@ const toReact = makeToReact({
     'h2-section': H2Section,
     'h3-section': H3Section,
     'h2-body': H2Body,
-    'h3-body': H3Body
+    'h3-body': H3Body,
+    pre: PreCode
   }
 })
 

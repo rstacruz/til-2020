@@ -30,6 +30,18 @@
       format('truetype');
 }
 
+@font-face {
+  font-family: 'Iosevka Web';
+  font-weight: 400;
+  font-style: italic;
+  src: url('https://typeof.net/Iosevka/iosevka/woff2/iosevka-italic.woff2')
+      format('woff2'),
+    url('https://typeof.net/Iosevka/iosevka/woff/iosevka-italic.woff')
+      format('woff'),
+    url('https://typeof.net/Iosevka/iosevka/ttf/iosevka-italic.ttf')
+      format('truetype');
+}
+
 html,
 body {
   overflow-x: hidden;
