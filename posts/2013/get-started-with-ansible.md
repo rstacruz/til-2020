@@ -16,6 +16,8 @@ brew install ansible            # OSX
 [sudo] pip install ansible      # elsewhere
 ```
 
+<!-- {.-terminal} -->
+
 ## Start your project
 
 Make the directory. Put this under version control, preferrably.
@@ -24,6 +26,8 @@ Make the directory. Put this under version control, preferrably.
 ~$ mkdir setup
 ~$ cd setup
 ```
+
+<!-- {.-terminal} -->
 
 ## Create an inventory file
 
@@ -72,6 +76,8 @@ Use the `ansible-playbook` command.
 hosts
 playbook.yml
 ```
+
+<!-- {.-terminal} -->
 
 ```sh
 ~/setup$ ansible-playbook -i hosts playbook.yml
