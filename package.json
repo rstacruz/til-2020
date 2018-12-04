@@ -69,5 +69,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "resolutions": {
+    "event-stream": ">=4.0.0"
   }
 }
