@@ -65,7 +65,7 @@ systemctl enable NetworkManager
 Install a browser. Choose from any of these options (or all!). Chromium is the open-source version of Google Chrome.
 
 ```sh
-pacman -S
+pacman -S \
   chromium \
   firefox
 ```
@@ -74,7 +74,7 @@ pacman -S
 
 <!-- {.-literate-style} -->
 
-Install some basic fonts. [ttf-croscore] are Chrome OS fonts.
+Install some basic fonts. [ttf-croscore] are Chrome OS fonts. You can install more fonts later from the AUR, but we'll get to that later.
 
 [ttf-croscore]: https://www.archlinux.org/packages/extra/any/ttf-croscore/
 
