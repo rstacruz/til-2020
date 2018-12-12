@@ -42,22 +42,11 @@ ls /sys/firmware/efi/efivars
 
 You will be installing packages from the Arch package repository over the Internet. For that, you'll need to be online.
 
-### See if you're online
-
-<!-- {.-literate-style} -->
-
-You may already be online if you're using wired ethernet. Once you're online, skip this section!
-
-```sh
-# Are we online? Most likely not.
-ping 8.8.8.8
-```
-
 ### Connect to the Internet via Android tethering
 
 <!-- {.-literate-style} -->
 
-If you have an Android phone, this is the easiest way to go online. Connect your phone to your computer, then **Settings** → **Tethering & Mobile Hotspot** → **USB Tethering** (it's disabled unless your phone is connected). Then connect to it using `dhcpd`.
+If you have an Android phone, this is the easiest way to go online. Connect your phone to your computer, then **Settings** → **Tethering & Mobile Hotspot** → **USB Tethering** (it's disabled unless your phone is connected). Then connect to it using `dhcpcd`.
 
 ```sh
 # Find interface names:
@@ -67,7 +56,7 @@ ls /sys/class/net
 dhcpcd enp0s26f7u3u3
 #      ^^^^^^^^^^^^^
 #      replace this with the
-#      actual interface name.
+#      actual interface name
 ```
 
 See [Android tethering](https://wiki.archlinux.org/index.php/Android_tethering) for info. For other ways to go online, see [Network configuration](https://wiki.archlinux.org/index.php/Network_configuration).
@@ -79,7 +68,7 @@ See [Android tethering](https://wiki.archlinux.org/index.php/Android_tethering) 
 After all that, ensure that you're finally online.
 
 ```sh
-# Are we online? Hopefully yes this time!
+# Are we online? Hopefully yes!
 ping 8.8.8.8
 ```
 

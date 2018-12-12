@@ -117,7 +117,7 @@
 
   & code {
     @apply --code-font;
-    padding: 0.2em 0.2em;
+    padding: 0.2em 0;
     font-size: 0.9em;
     background: color-mod(var(--highlighter-color) alpha(12%));
     font-style: normal;
