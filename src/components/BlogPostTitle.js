@@ -3,7 +3,6 @@ import PostContent from './PostContent'
 import CardWaypoint from './CardWaypoint'
 import CSS from './BlogPostTitle.module.css'
 import cn from 'classnames'
-import Typist from 'react-typist'
 
 const BlogPostTitle = ({ title, date, body }) => {
   return (
@@ -14,13 +13,8 @@ const BlogPostTitle = ({ title, date, body }) => {
             className={cn(CSS.root, entered ? CSS.isActive : CSS.isInactive)}
           >
             <div className={CSS.titleContainer}>
-              <span className={CSS.titlePlaceholder}>
-                {title}
-                <span className={CSS.hiddenBlinker} />
-              </span>
-
               <h1 className={CSS.title}>
-                <Typist cursor={{ show: false }}>{title}</Typist>
+                <span>{title}</span>
                 <span className={CSS.blinker} />
               </h1>
             </div>

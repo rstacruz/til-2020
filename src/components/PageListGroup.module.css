@@ -1,0 +1,11 @@
+@import '../styles/variables.css';
+
+.root {
+  display: block;
+}
+
+.heading {
+  text-align: center;
+  @apply --monolike-font;
+  color: var(--accent-text);
+}

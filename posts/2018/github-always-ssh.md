@@ -12,7 +12,7 @@ This forces GitHub to always use SSH, even for HTTPS URL's! This way, you can us
 git config --global url."git@github.com:".insteadOf "https://github.com/"
 ```
 
-<!-- {.-wide} -->
+<!-- {.-terminal.-wide} -->
 
 <next-block title="What does it do?"></next-block>
 

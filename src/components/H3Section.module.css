@@ -90,6 +90,13 @@
   }
 }
 
+.root:global(.-literate-style) + .root:global(.-literate-style)::before {
+  @media (--viewport-9) {
+    @apply --fading-horizontal-rule;
+    margin-bottom: 24px;
+  }
+}
+
 .body:global(.-wider-literate-style),
 .body:global(.-literate-style) {
   @media (--ms-viewport-lg) {
