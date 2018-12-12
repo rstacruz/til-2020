@@ -1,37 +1,37 @@
 @import '../styles/variables.css';
 
 .root {
-  @apply --em-style;
-  line-height: 1;
-  clear: both;
-  margin: 0;
-  color: var(--text-color);
-  font-style: italic;
-  padding-top: 1.5em;
+  & {
+    @apply --em-style;
+    line-height: 1;
+    clear: both;
+    margin: 0;
+    color: var(--text-color);
+    font-style: italic;
+    padding-top: 1.5em;
+  }
+
+  &::before {
+    @apply --fading-horizontal-rule;
+    margin-bottom: 16px;
+
+    @media (--viewport-9) {
+      margin-bottom: 24px;
+      margin-top: 32px;
+    }
+  }
 }
 
 .prefix {
-  @apply --monolike-font;
-  @apply --font-size--1;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 0.2em;
-  background: var(--highlighter-color);
-  color: var(--accent-text);
-  font-style: normal;
-  margin-right: 0.5em;
-}
+  & {
+    @apply --monolike-font;
+    @apply --font-size--1;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
 
-@media (--ms-viewport-lg) {
-  .root::after {
-    display: none;
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    width: 64px;
-    height: 3px;
-    border-radius: 2px;
-    background: var(--accent);
-    margin: 0 24px;
+  &::before {
+    content: '> ';
   }
 }

@@ -24,14 +24,12 @@ $ browserify -r lodash/map | uglifyjs -cm | wc -c
 
 <!-- {.-literate-style} -->
 
-Ramda's [R.map](http://ramdajs.com/0.21.0/docs/#map) is slimmer, but still hefty at 7kb:
+Ramda's [R.map](http://ramdajs.com/0.21.0/docs/#map) is slimmer, but still hefty at 7kb. This may not seem like much, but for a web application, every kilobyte matters.
 
 ```bash
 $ browserify -r ramda/src/pluck | uglifyjs -cm | wc -c
 7750
 ```
-
-This may not seem like much, but for a web application, every kilobyte matters.
 
 ## Loops
 

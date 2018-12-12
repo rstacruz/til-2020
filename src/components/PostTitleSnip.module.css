@@ -6,7 +6,7 @@
 }
 
 .title {
-  @apply --monolike-font;
+  /* @apply --monolike-font; */
   font-weight: normal;
 }
 

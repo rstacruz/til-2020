@@ -20,7 +20,7 @@
   --mute-text-color: #708090;
   --text-color: #303030;
   --heading-color: #080808;
-  --border-color: #7080901f;
+  --border-color: #7080903f;
   --pane-background: #f3f5f8;
   --code-background: #fcfcfc;
 
@@ -85,7 +85,7 @@
   }
 }
 
-/* Misc */
+/* Mixins */
 :root {
   --horizontal-rule: {
     content: '';
@@ -202,6 +202,14 @@
         left: 64px;
       }
     }
+  }
+
+  --fading-horizontal-rule: {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, var(--border-color) 50%, transparent);
   }
 }
 
