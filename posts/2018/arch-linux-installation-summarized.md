@@ -330,13 +330,10 @@ Let's install grub into `/boot`. Be sure to read the Arch wiki, instructions may
 
 ```bash
 # Install grub
-sudo pacman -S grub
+pacman -S grub efibootmgr
 
 # Install GRUB
-grub-install \
-  --target=x86_64-efi \
-  --efi-directory=/boot \
-  --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 
 # Update Grub config
 grub-mkconfig -o /boot/grub/grub.cfg
