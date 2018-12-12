@@ -36,7 +36,6 @@ Install NetworkManager. Most desktop env's will need it to manage your wifi and 
 pacman -S networkmanager
 
 # Run it on startup
-systemctl start NetworkManager
 systemctl enable NetworkManager
 ```
 

@@ -288,9 +288,9 @@ Update `/etc/hosts` with your new hostname. (Be sure to change `myhostname` to y
 vi /etc/hosts
 # Then update it to:
 
-127.0.0.1	localhost
-::1		localhost
-127.0.1.1	myhostname.localdomain	myhostname
+127.0.0.1 localhost
+::1 localhost
+127.0.1.1 myhostname.localdomain myhostname
 ```
 
 ### Change root password
