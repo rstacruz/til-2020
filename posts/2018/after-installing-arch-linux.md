@@ -26,20 +26,6 @@ pacman -S \
 [base-devel]: https://www.archlinux.org/groups/x86_64/base-devel/
 [git]: https://www.archlinux.org/packages/extra/x86_64/git/
 
-### Desktop environment 🖥
-
-<!-- {.-literate-style} -->
-
-Install a basic xfce4 desktop. Even if you'll be using GNOME or some other DE (desktop environment), it's nice to have a fallback that you're sure will work.
-
-```sh
-pacman -S \
-  lightdm \
-  lightdm-gtk-greeter \
-  light-locker \
-  xfce4
-```
-
 ### Network connectivity 🌎
 
 <!-- {.-literate-style} -->
@@ -86,7 +72,7 @@ pacman -S \
   ttf-roboto
 ```
 
-<next-block title="Let's install some more stuff."></next-block>
+<next-block title="Let's install some drivers."></next-block>
 
 ## Install drivers
 
@@ -118,55 +104,28 @@ pacman -S xf86-video-intel
 #   for your setup!
 ```
 
-<next-block title="What is the Arch User Repository?"></next-block>
+<next-block title="Let's install a desktop environment."></next-block>
 
-## AUR (Arch User Repository)
+## Desktop environment
 
-The [AUR], or Arch User Repository, contains a lot of community-maintained packages that you won't find in the official repositories. This ranges from proprietary non-free packages (like NVidia drivers). For most Arch users, the AUR is their reason to use Arch Linux, so I highly recommend installing an AUR helper.
+You'll need to install a desktop environment and a display manager. You can choose between `gnome` (default for Ubuntu), `cinnamon` (default for Mint), `deepin`, `xfce4`, `plasma` and many others. I recommend GNOME.
 
-[aur]: https://aur.archlinux.org/packages/
-
-### AUR helper
+### Install GNOME and GDM
 
 <!-- {.-literate-style} -->
 
-You'll need an AUR helper to install packages from the AUR. I recommend [yay](https://github.com/Jguer/yay).
+Install a desktop environment and a display manager. **GNOME** is a good first choice; it's the default of the Ubuntu desktop, and is a great desktop environment overall. **GDM** is the GNOME Display Manager.
 
 ```sh
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+pacman -S \
+  gdm \
+  gnome
+
+# Enable GDM on startup
+sudo systemctl enable gdm
 ```
 
-### How to use yay
-
-<!-- {.-literate-style} -->
-
-After it's installed, you can use it just like how you would use `pacman`.
-
-```sh
-yay packagename      # search for a package to install
-yay -S packagename   # install a package
-yay                  # check system for updates
-```
-
-<next-block title="What can I install from the AUR?"></next-block>
-
-## Some AUR packages
-
-Some AUR packages I can recommend to almost any Arch Linux user:
-
-| Package                                                                                    | Description                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------ |
-| [pamac-aur](https://aur.archlinux.org/packages/pamac-aur/)                                 | Get notified of package updates            |
-| [ttf-google-fonts-typewolf](https://aur.archlinux.org/packages/ttf-google-fonts-typewolf/) | 40+ Google fonts                           |
-| [ttf-ms-fonts](https://aur.archlinux.org/packages/ttf-ms-fonts/)                           | Fonts from microsoft (arial, courier, etc) |
-| [ttf-mac-fonts](https://aur.archlinux.org/packages/ttf-mac-fonts/)                         | Fonts from macOS (lucida grande, etc)      |
-| [otf-san-francisco](https://aur.archlinux.org/packages/otf-san-francisco)                  | Fonts from iOS                             |
-
-<!-- {.-wide} -->
-
-<next-block title="Let's create your default user."></next-block>
+<next-block title="Let's create the user you'll be logging in with."></next-block>
 
 ## Create your user
 
@@ -226,7 +185,7 @@ Tip: You'll want to add them eventually to other groups too.
 
 ```sh
 usermod -a -G \
-  audio,input,video,network \
+  audio,input,video,network,rfkill \
   yourname
 # ^^^^^^^^
 ```
@@ -264,13 +223,15 @@ EDITOR=vi visudo
 yourname ALL=(ALL) ALL
 ```
 
+<next-block title="Let's set up your swap file."></next-block>
+
 ## Creating swap
 
 ### Set up your swap file
 
 <!-- {.-literate-style} -->
 
-If you skipped creating a swap partition, you can create a [Swap file](https://wiki.archlinux.org/index.php/Swap#Swap_file).
+If you skipped creating a swap partition, you can create a [Swap file](https://wiki.archlinux.org/index.php/Swap#Swap_file) instead.
 
 ```sh
 # Create an 8gig swap
@@ -297,4 +258,70 @@ vim /etc/fstab
 ```sh
 # add this to the end:
 /swapfile none swap defaults 0 0
+```
+
+<next-block title="What is the Arch User Repository?"></next-block>
+
+## AUR (Arch User Repository)
+
+The [AUR], or Arch User Repository, contains a lot of community-maintained packages that you won't find in the official repositories. This ranges from proprietary non-free packages (like NVidia drivers). For most Arch users, the AUR is their reason to use Arch Linux, so I highly recommend installing an AUR helper.
+
+[aur]: https://aur.archlinux.org/packages/
+
+### AUR helper
+
+<!-- {.-literate-style} -->
+
+You'll need an AUR helper to install packages from the AUR. I recommend [yay](https://github.com/Jguer/yay).
+
+```sh
+cd
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+
+### How to use yay
+
+<!-- {.-literate-style} -->
+
+After it's installed, you can use it just like how you would use `pacman`.
+
+```sh
+yay packagename      # search for a package to install
+yay -S packagename   # install a package
+yay                  # check system for updates
+```
+
+<next-block title="What can I install from the AUR?"></next-block>
+
+## Some AUR packages
+
+Some AUR packages I can recommend to almost any Arch Linux user:
+
+| Package                                                                                    | Description                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| [pamac-aur](https://aur.archlinux.org/packages/pamac-aur/)                                 | Get notified of package updates            |
+| [ttf-google-fonts-typewolf](https://aur.archlinux.org/packages/ttf-google-fonts-typewolf/) | 40+ Google fonts                           |
+| [ttf-ms-fonts](https://aur.archlinux.org/packages/ttf-ms-fonts/)                           | Fonts from microsoft (arial, courier, etc) |
+| [ttf-mac-fonts](https://aur.archlinux.org/packages/ttf-mac-fonts/)                         | Fonts from macOS (lucida grande, etc)      |
+| [otf-san-francisco](https://aur.archlinux.org/packages/otf-san-francisco)                  | Fonts from iOS                             |
+
+<!-- {.-wide} -->
+
+<next-block title="Let's create your default user."></next-block>
+
+
+## You're quite done!
+
+###
+
+<!-- {.-literate-style} -->
+
+If you're reading this guide while installing Arch Linux, then you should be done at this point! Remove your USB drive, `exit`, and then `reboot`. You may need to go to your BIOS's boot order config to boot to your new installation.
+
+```sh
+exit
+
+reboot
 ```
