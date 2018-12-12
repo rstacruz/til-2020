@@ -170,7 +170,7 @@ mount /dev/sda2 /mnt/boot
 
 <!-- {.-literate-style} -->
 
-Edit your mirror list, and move the geographically-closest location to you up the list. Don't skip this step­it'll be the difference between a 30-minute install and a 5-minute install!
+Edit your mirror list, and move the geographically-closest location to you up the list. Don't skip this step! It'll likely be the difference between a 45-minute install and a 5-minute install.
 
 ```bash
 # Find your closest country, and bring it up
