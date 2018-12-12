@@ -1,4 +1,191 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Nov 2018 07:33:04 GMT</lastBuildDate><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 12 Dec 2018 08:02:33 GMT</lastBuildDate><item><title><![CDATA[After installing Arch Linux]]></title><description><![CDATA[These are things I suggest to do after an Arch Linux installation. These are items not covered in the official  Arch Linux Installation…]]></description><link>https://ricostacruz.com/tilnext//after-installing-arch-linux/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//after-installing-arch-linux/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;These are things I suggest to do after an Arch Linux installation. These are items not covered in the official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration&quot;&gt;Arch Linux Installation Guide&lt;/a&gt;, but I strongly suggest you do!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install some more packages&lt;/h2&gt;&lt;h3&gt;Developer tools&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some dev tools. &lt;a href=&quot;https://www.archlinux.org/groups/x86_64/base-devel/&quot;&gt;base-devel&lt;/a&gt; installs a lot of tools you&apos;ll need to compile things, and &lt;a href=&quot;https://www.archlinux.org/packages/extra/x86_64/git/&quot;&gt;git&lt;/a&gt; is required to build a lot of things from the AUR.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
+  base-devel \
+  git \
+  vim
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Desktop environment 🖥&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install a basic xfce4 desktop. Even if you&apos;ll be using GNOME or some other DE (desktop environment), it&apos;s nice to have a fallback that you&apos;re sure will work.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
+  lightdm \
+  lightdm-gtk-greeter \
+  light-locker \
+  xfce4
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Network connectivity 🌎&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install NetworkManager. Most desktop env&apos;s will need it to manage your wifi and such. You can even use &lt;code&gt;nmtui&lt;/code&gt; to connect to a wifi from the CLI.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S networkmanager
+
+# Run it on startup
+systemctl start NetworkManager
+systemctl enable NetworkManager
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install some desktop apps.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install even more packages&lt;/h2&gt;&lt;h3&gt;Web browser 🌎&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install a browser. Choose from any of these options (or all!). Chromium is the open-source version of Google Chrome.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S
+  chromium \
+  firefox
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Fonts 💅&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some basic fonts. &lt;a href=&quot;https://www.archlinux.org/packages/extra/any/ttf-croscore/&quot;&gt;ttf-croscore&lt;/a&gt; are Chrome OS fonts.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
+  noto-fonts \
+  noto-fonts-emoji \
+  ttf-croscore \
+  ttf-roboto
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install some more stuff.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install drivers&lt;/h2&gt;&lt;h3&gt;(Optional) Linux LTS&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; You can install an older version of the Linux kernel if you feel the latest kernel may be too bleeding-edge for you.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S linux-lts
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Video driver&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Depending on your setup, you may also need to install an xf86 driver. See &lt;a href=&quot;https://www.archlinux.org/packages/?sort=&amp;#x26;q=xf86-video&amp;#x26;maintainer=&amp;#x26;flagged=&quot;&gt;this search&lt;/a&gt; for available drivers.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# If you&apos;re using ATI:
+pacman -S xf86-video-ati
+
+# If you&apos;re using Intel:
+pacman -S xf86-video-intel
+
+# ...see the list of packages to
+#   find one that might be appropriate
+#   for your setup!
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What is the Arch User Repository?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;AUR (Arch User Repository)&lt;/h2&gt;&lt;p&gt;The &lt;a href=&quot;https://aur.archlinux.org/packages/&quot;&gt;AUR&lt;/a&gt;, or Arch User Repository, contains a lot of community-maintained packages that you won&apos;t find in the official repositories. This ranges from proprietary non-free packages (like NVidia drivers). For most Arch users, the AUR is their reason to use Arch Linux, so I highly recommend installing an AUR helper.&lt;/p&gt;&lt;h3&gt;AUR helper&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You&apos;ll need an AUR helper to install packages from the AUR. I recommend &lt;a href=&quot;https://github.com/Jguer/yay&quot;&gt;yay&lt;/a&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;How to use yay&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;After it&apos;s installed, you can use it just like how you would use &lt;code&gt;pacman&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;yay packagename      # search for a package to install
+yay -S packagename   # install a package
+yay                  # check system for updates
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What can I install from the AUR?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Some AUR packages&lt;/h2&gt;&lt;p&gt;Some AUR packages I can recommend to almost any Arch Linux user:&lt;/p&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Package&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/pamac-aur/&quot;&gt;pamac-aur&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Get notified of package updates&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-google-fonts-typewolf/&quot;&gt;ttf-google-fonts-typewolf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;40+ Google fonts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-ms-fonts/&quot;&gt;ttf-ms-fonts&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Fonts from microsoft (arial, courier, etc)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-mac-fonts/&quot;&gt;ttf-mac-fonts&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Fonts from macOS (lucida grande, etc)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/otf-san-francisco&quot;&gt;otf-san-francisco&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Fonts from iOS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;!-- {.-wide} --&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s create your default user.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Create your user&lt;/h2&gt;&lt;h3&gt;Create your user&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You&apos;ll need a user that you&apos;ll be logging in with for your day-to-day. (Be sure to change &lt;code&gt;yourname&lt;/code&gt; to whatever you feel like using.)&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Create the user
+useradd yourname
+#       ^^^^^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Create the home dir&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;code&gt;useradd&lt;/code&gt; doesn&apos;t create a home directory, so do that now.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Create their home dir
+mkdir /home/yourname
+#           ^^^^^^^^
+chown yourname:yourname /home/yourname
+#     ^^^^^^^^ ^^^^^^^^       ^^^^^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Set a password&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Set a password.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;passwd yourname
+#      ^^^^^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Add to the admin group&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;The admin group is named &lt;code&gt;wheel&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;usermod -a -G wheel yourname
+#                   ^^^^^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Add to other groups&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Tip: You&apos;ll want to add them eventually to other groups too.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;usermod -a -G \
+  audio,input,video,network \
+  yourname
+# ^^^^^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install sudo.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Set up sudo&lt;/h2&gt;&lt;p&gt;&lt;code&gt;sudo&lt;/code&gt; is not part of the Arch Linux &lt;code&gt;base&lt;/code&gt; package, so we&apos;ll need to install that separately.&lt;/p&gt;&lt;h3&gt;Install sudo&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Add and configure the &lt;code&gt;sudo&lt;/code&gt; package to grant your user some superuser rights.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Install sudo
+pacman -S sudo
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Add sudo rights to your username&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Use &lt;code&gt;visudo&lt;/code&gt; to edit the sudo config to add your user name in it.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Update config
+EDITOR=vi visudo
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Then add this line to the end of the file:
+yourname ALL=(ALL) ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Creating swap&lt;/h2&gt;&lt;h3&gt;Set up your swap file&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you skipped creating a swap partition, you can create a &lt;a href=&quot;https://wiki.archlinux.org/index.php/Swap#Swap_file&quot;&gt;Swap file&lt;/a&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Create an 8gig swap
+fallocate -l 8G /swapfile
+#            ^^
+
+# Format it, and turn it on
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Mount it on startup&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Add your swapfile to &lt;code&gt;/etc/fstab&lt;/code&gt; so it&apos;ll be used on every boot.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Edit your fstab partitions
+vim /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# add this to the end:
+/swapfile none swap defaults 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Arch Linux installation, summarized]]></title><description><![CDATA[Arch Linux has a great  Installation Guide , but I personally found it very daunting and hard-to-read. This article is a summary of all the…]]></description><link>https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Arch Linux has a great &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;, but I personally found it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This is not a &quot;How to Install Arch Linux&quot; instruction guide.&lt;/strong&gt; It&apos;s not a replacement for official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;­consider this more like a refresher course!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;First steps&lt;/h2&gt;&lt;h3&gt;Change keyboard layout&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you&apos;re using different keyboard layout, change it now using &lt;code&gt;loadkeys&lt;/code&gt;. See &lt;a href=&quot;https://www.archlinux.org/packages/core/x86_64/kbd/files/&quot;&gt;kbd&lt;/a&gt; for a list of available layouts.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Changes keyboard layout
+# (Skip this step if you&apos;re using the qwerty layout!)
+
+loadkeys dvorak
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Check if you&apos;re in UEFI mode&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Check if the &lt;code&gt;/sys/firmware/efi/efivars&lt;/code&gt; path exists. If it is, you&apos;re using &lt;code&gt;UEFI&lt;/code&gt; mode. If not, you&apos;re using &lt;code&gt;Legacy&lt;/code&gt; mode. Most modern devices are using UEFI mode, and this guide assumes you&apos;re in UEFI mode.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# See if this path exists
+ls /sys/firmware/efi/efivars
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s connect to the Internet.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Go online&lt;/h2&gt;&lt;p&gt;You will be installing packages from the Arch package repository over the Internet. For that, you&apos;ll need to be online.&lt;/p&gt;&lt;h3&gt;See if you&apos;re online&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You may already be online if you&apos;re using wired ethernet. Once you&apos;re online, skip this section!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Are we online? Most likely not.
+ping 8.8.8.8
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Connect to the Internet via Android tethering&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you have an Android phone, this is the easiest way to go online. Connect your phone to your computer, then &lt;strong&gt;Settings&lt;/strong&gt; → &lt;strong&gt;Tethering &amp;#x26; Mobile Hotspot&lt;/strong&gt; → &lt;strong&gt;USB Tethering&lt;/strong&gt; (it&apos;s disabled unless your phone is connected). Then connect to it using &lt;code&gt;dhcpd&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Find interface names:
+ls /sys/class/net
+
+# Then enable it:
+dhcpcd enp0s26f7u3u3
+#      ^^^^^^^^^^^^^
+#      replace this with the
+#      actual interface name.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;See &lt;a href=&quot;https://wiki.archlinux.org/index.php/Android_tethering&quot;&gt;Android tethering&lt;/a&gt; for info. For other ways to go online, see &lt;a href=&quot;https://wiki.archlinux.org/index.php/Network_configuration&quot;&gt;Network configuration&lt;/a&gt;.&lt;/p&gt;&lt;h3&gt;See if you&apos;re online&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;After all that, ensure that you&apos;re finally online.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Are we online? Hopefully yes this time!
+ping 8.8.8.8
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Update your system clock.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;System clock&lt;/h2&gt;&lt;h3&gt;Update system time&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This will update your system clock through the Internet via NTP (Network Time Protocol).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Enable ntp time updates
+timedatectl set-ntp true
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Partition your disk.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Disks&lt;/h2&gt;&lt;p&gt;You&apos;ll need 2 partitions on your computer. You&apos;ll need an &lt;code&gt;EFI partition&lt;/code&gt;, which you already have (and can be reused) if you already have another OS installed. You&apos;ll also need an &lt;code&gt;ext4 partition&lt;/code&gt; for Arch Linux to be installed to.&lt;/p&gt;&lt;h3&gt;Partition the disks&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;I recommend using &lt;code&gt;parted&lt;/code&gt; for this. See &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks&quot;&gt;Partition the disks&lt;/a&gt; &lt;em&gt;(wiki.archlinux.org)&lt;/em&gt; for more info. You&apos;ll need to create an &lt;code&gt;ext4&lt;/code&gt; partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;parted
+# Important: read the guide above on
+# how to use `parted`!
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Format disks&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Format any &lt;em&gt;ext4&lt;/em&gt; partitions you made using &lt;code&gt;mkfs.ext4&lt;/code&gt;. Be sure to replace &lt;code&gt;sda1&lt;/code&gt; with the actual partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Format a partition as ext4
+mkfs.ext4 /dev/sda1
+#              ^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Format swaps&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; If you made a swap partition, use &lt;em&gt;mkswap&lt;/em&gt; to format them. Be sure to replace &lt;code&gt;sda3&lt;/code&gt; with the actual partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Format a partition as swap space
+mkswap /dev/sda3
+#           ^^^^
+
+# Enable it
+swapon /dev/sda3
+#           ^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s mount the partitions you just made.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Mount the partitions&lt;/h2&gt;&lt;p&gt;After creating your partitions, you&apos;ll now need to mount it so we can write to it.&lt;/p&gt;&lt;h3&gt;Mount the root partition&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Mount the root partition to &lt;code&gt;/mnt&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;mount /dev/sda1 /mnt
+#          ^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Mount the EFI partition&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Mount the EFI partition to &lt;code&gt;/mnt/boot&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;mkdir /mnt/boot
+mount /dev/sda2 /mnt/boot
+#          ^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Time to actually install Arch Linux.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Installing Arch Linux&lt;/h2&gt;&lt;h3&gt;Use your closest mirror&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Edit your mirror list, and move the geographically-closest location to you up the list. Don&apos;t skip this step­it&apos;ll be the difference between a 30-minute install and a 5-minute install!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Find your closest country, and bring it up
+vi /etc/pacman.d/mirrorlist
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Install packages&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install packages using &lt;code&gt;pacstrap&lt;/code&gt;. This will take a while!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Make some coffee while this is happening
+pacstrap /mnt base
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Configure list of partitions&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Generate the list of partitions (&lt;code&gt;/etc/fstab&lt;/code&gt;) to be mounted at boot time. This will be based on what partitions are already mounted right now.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Generate fstab
+genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s enter the system.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Chrooting in&lt;/h2&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;We&apos;re going to &quot;enter&quot; the new system you just mounted using &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Chroot&quot;&gt;chroot&lt;/a&gt;! Use &lt;code&gt;arch-chroot&lt;/code&gt; to &quot;enter&quot; the new file system. This will make root path (&lt;code&gt;/&lt;/code&gt;) be what&apos;s in the new partition (until you &lt;code&gt;exit&lt;/code&gt;).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# ~Enter the system~
+arch-chroot /mnt
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s configure the rest of the stuff.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Once in chroot&lt;/h2&gt;&lt;h3&gt;Set your timezone&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;See &lt;a href=&quot;https://www.archlinux.org/packages/core/x86_64/tzdata/&quot;&gt;tzdata&lt;/a&gt; for a list of available timezones.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Set your timezone (eg, Asia/Manila)
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+#                          ^^^^^^^^^^^
+
+# Update time config (/etc/adjclock)
+hwclock --systohc
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Set up locales&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Set your default locale. For most of us, that would be &lt;code&gt;en_US.UTF-8&lt;/code&gt;, but feel free to change that.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Uncomment `en_US.UTF-8 UTF-8` in this file
+vi /etc/locale.gen
+
+# Generate locale config (/etc/locale.gen)
+locale-gen
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Set keyboard layout&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; If you use a different keyboard layout, make it persist on boot.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Skip this step if you&apos;re not using
+# an alternate keyboard layout.
+echo &quot;KEYMAP=dvorak&quot; &gt; /etc/vconsole.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Set your system&apos;s hostname&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Hostname&lt;/h2&gt;&lt;p&gt;It&apos;s time to pick a name for your machine.&lt;/p&gt;&lt;h3&gt;Set hostname&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Pick a hostname and update &lt;code&gt;/etc/hostname&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;echo &quot;myhostname&quot; &gt; /etc/hostname
+#     ^^^^^^^^^^
+#     change this to whatever
+#     you feel like using
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Update etc/hosts&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Update &lt;code&gt;/etc/hosts&lt;/code&gt; with your new hostname. (Be sure to change &lt;code&gt;myhostname&lt;/code&gt; to your chosen hostname.)&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;vi /etc/hosts
+# Then update it to:
+
+127.0.0.1   localhost
+::1     localhost
+127.0.1.1   myhostname.localdomain  myhostname
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Change root password&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Change your password using &lt;code&gt;passwd&lt;/code&gt;. This is &lt;em&gt;not&lt;/em&gt; your main user&apos;s password.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install a boot loader.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install a bootloader&lt;/h2&gt;&lt;p&gt;You&apos;ll need a boot loader in your EFI partition. Think of this as a small program whose sole purpose is to kickstart your Linux session. There are many different boot loaders, but &lt;a href=&quot;https://wiki.archlinux.org/index.php/GRUB&quot;&gt;GRUB&lt;/a&gt; would be a good one to start with.&lt;/p&gt;&lt;h3&gt;Mount your other OS&apos;s&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you have other OS&apos;s installed (eg, Windows), mount them now! This is not strictly necessary, but if you&apos;re going to install GRUB, this will let GRUB know that you have another OS in your system.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# (Skip this step if you&apos;re not dual-booting.)
+# For example, if you have Windows in /dev/sda4:
+mkdir /windows
+mount /dev/sda4 /windows
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Install GRUB&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Let&apos;s install grub into &lt;code&gt;/boot&lt;/code&gt;. Be sure to read the Arch wiki, instructions may be different for your system!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Install grub
+sudo pacman -S grub
+
+# Install GRUB
+grub-install \
+  --target=x86_64-efi \
+  --efi-directory=/boot \
+  --bootloader-id=GRUB
+
+# Update Grub config
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Your mostly done! Lets do a few more things.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;You&apos;re mostly done!&lt;/h2&gt;&lt;p&gt;Congratulations, you now have a working Arch Linux installation.&lt;/p&gt;&lt;p&gt;I recommend proceeding to the &lt;a href=&quot;/tilnext/after-installing-arch-linux/&quot;&gt;&lt;strong&gt;After Installing Arch Linux&lt;/strong&gt;&lt;/a&gt; guide. A basic Arch Linux installation doesn&apos;t have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.&lt;/p&gt;&lt;p&gt;After following those, remove your USB drive and reboot.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
   &quot;name&quot;: &quot;my-js-package&quot;,
   &quot;description&quot;: &quot;A sample package&quot;,
   &quot;author&quot;: &quot;Rico Sta. Cruz&quot;
@@ -78,7 +265,7 @@ const style = css`
   }
 `
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; lets me write CSS in a declarative fashion. It also minimizes the interweaving of CSS and JavaScript code. This, in my opinion, makes styled-jsx code easier-to-understand, even at the modest cost of a little extra verbosity.&lt;/p&gt;&lt;p&gt;How would you style a danger button differently in &lt;em&gt;styled-jsx&lt;/em&gt;? Just use CSS classes as you normally would. Simple!&lt;/p&gt;&lt;p&gt;In this example, we simply declare a class rule with &lt;code&gt;.button.danger&lt;/code&gt;, just as we would with regular CSS. There&apos;s no need for the props to be parsed from the CSS block.&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s recap what we&apos;ve learned.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Force git to use SSH on GitHub]]></title><description><![CDATA[This forces GitHub to always use SSH, even for HTTPS URL's! This way, you can use  https://  GitHub URL's and they will still use your SSH…]]></description><link>https://ricostacruz.com/tilnext//github-always-ssh/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//github-always-ssh/</guid><pubDate>Sat, 09 Jun 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;This forces GitHub to always use SSH, even for HTTPS URL&apos;s! This way, you can use &lt;code&gt;https://&lt;/code&gt; GitHub URL&apos;s and they will still use your SSH key.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git config --global url.&quot;git@github.com:&quot;.insteadOf &quot;https://github.com/&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;div&gt;&lt;next-block title=&quot;What does it do?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;How it works&lt;/h2&gt;&lt;p&gt;When you clone an HTTPS URL, it now gets rewritten as an SSH URL.&lt;/p&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git clone https://github.com/rstacruz/vimfiles.git
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-terminal.-wide} --&gt;&lt;div&gt;&lt;next-block title=&quot;What does it do?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;How it works&lt;/h2&gt;&lt;p&gt;When you clone an HTTPS URL, it now gets rewritten as an SSH URL.&lt;/p&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-captioned-style} --&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git clone https://github.com/rstacruz/vimfiles.git
 &lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;This URL will get rewritten&lt;/strong&gt; to access via SSH instead of HTTPS.
 It will instead be: &lt;code&gt;git@github.com:rstacruz/vimfiles.git&lt;/code&gt;&lt;/p&gt;
@@ -492,9 +679,9 @@ let g:python3_host_prog = &apos;/usr/local/bin/python3&apos;
 [ &apos;this&apos;, &apos;has&apos;, &apos;values&apos; ]
 &lt;/code&gt;&lt;/pre&gt;&lt;!-- {.-wide} --&gt;&lt;p&gt;This works because &lt;code&gt;Boolean(val)&lt;/code&gt; is roughly equivalent to &lt;code&gt;val =&gt; !!val&lt;/code&gt;. That is, it&apos;s a function that coerces a value into a Boolean.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Tools for immutable work]]></title><description><![CDATA[Most people reach for  lodash  for general-purpose JavaScript work. With the recent tides shifting towards functional programming,  Ramda…]]></description><link>https://ricostacruz.com/tilnext//my-immutable-toolkit/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//my-immutable-toolkit/</guid><pubDate>Thu, 25 Aug 2016 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Most people reach for &lt;a href=&quot;http://lodash.com/&quot;&gt;lodash&lt;/a&gt; for general-purpose JavaScript work. With the recent tides shifting towards functional programming, &lt;a href=&quot;http://ramdajs.com/&quot;&gt;Ramda&lt;/a&gt; has become a popular option as well. I don&apos;t prefer to use them, let me show you why.&lt;/p&gt;&lt;h2&gt;Accumulated bloat&lt;/h2&gt;&lt;h3&gt;Lodash is big&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;I love both lodash and Ramda, but they&apos;re a bit too bloated to use for web apps. A simple &lt;a href=&quot;https://lodash.com/docs#map&quot;&gt;lodash.map&lt;/a&gt; weighs in at a whopping 24 kilobytes:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ browserify -r lodash/map | uglifyjs -cm | wc -c
 24895
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Ramda is smaller&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Ramda&apos;s &lt;a href=&quot;http://ramdajs.com/0.21.0/docs/#map&quot;&gt;R.map&lt;/a&gt; is slimmer, but still hefty at 7kb:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ browserify -r ramda/src/pluck | uglifyjs -cm | wc -c
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Ramda is smaller&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Ramda&apos;s &lt;a href=&quot;http://ramdajs.com/0.21.0/docs/#map&quot;&gt;R.map&lt;/a&gt; is slimmer, but still hefty at 7kb. This may not seem like much, but for a web application, every kilobyte matters.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ browserify -r ramda/src/pluck | uglifyjs -cm | wc -c
 7750
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This may not seem like much, but for a web application, every kilobyte matters.&lt;/p&gt;&lt;h2&gt;Loops&lt;/h2&gt;&lt;h3&gt;Using map&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;While JavaScript comes with &lt;a href=&quot;http://devdocs.io/javascript/global_objects/array/map&quot;&gt;Array.prototype.map&lt;/a&gt;, it&apos;s not very useful for objects. I don&apos;t appreciate that iterating through arrays are done differently from iterating through objects. Not only that, but iterating through &lt;code&gt;Object.keys().map&lt;/code&gt; is one of the slower ways of looping through an object&apos;s keys.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Iterating through arrays
+&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;Loops&lt;/h2&gt;&lt;h3&gt;Using map&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;While JavaScript comes with &lt;a href=&quot;http://devdocs.io/javascript/global_objects/array/map&quot;&gt;Array.prototype.map&lt;/a&gt;, it&apos;s not very useful for objects. I don&apos;t appreciate that iterating through arrays are done differently from iterating through objects. Not only that, but iterating through &lt;code&gt;Object.keys().map&lt;/code&gt; is one of the slower ways of looping through an object&apos;s keys.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Iterating through arrays
 array.map((val, key) =&gt; {
   /*...*/
 })
