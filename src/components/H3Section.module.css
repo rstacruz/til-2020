@@ -90,10 +90,13 @@
   }
 }
 
-.root:global(.-literate-style) + .root:global(.-literate-style)::before {
+/* Horizontal rule before literate-style sections */
+.root:global(.-literate-style) {
   @media (--viewport-9) {
-    @apply --fading-horizontal-rule;
-    margin-bottom: 24px;
+    &:not(:first-child)::before {
+      @apply --fading-horizontal-rule;
+      margin-bottom: 24px;
+    }
   }
 }
 
