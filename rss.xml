@@ -1,92 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 12 Dec 2018 13:07:38 GMT</lastBuildDate><item><title><![CDATA[Arch Linux installation, summarized]]></title><description><![CDATA[Arch Linux has a great  Installation Guide , but I personally found it very daunting and hard-to-read. This article is a summary of all the…]]></description><link>https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Arch Linux has a great &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;, but I personally found it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This is not a &quot;How to Install Arch Linux&quot; instruction guide.&lt;/strong&gt; It&apos;s not a replacement for official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;­consider this more like a refresher course!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;First steps&lt;/h2&gt;&lt;h3&gt;Change keyboard layout&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you&apos;re using different keyboard layout, change it now using &lt;code&gt;loadkeys&lt;/code&gt;. See &lt;a href=&quot;https://www.archlinux.org/packages/core/x86_64/kbd/files/&quot;&gt;kbd&lt;/a&gt; for a list of available layouts.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Changes keyboard layout
-# (Skip this step if you&apos;re using the qwerty layout!)
-
-loadkeys dvorak
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Check if you&apos;re in UEFI mode&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Check if the &lt;code&gt;/sys/firmware/efi/efivars&lt;/code&gt; path exists. If it is, you&apos;re using &lt;code&gt;UEFI&lt;/code&gt; mode. If not, you&apos;re using &lt;code&gt;Legacy&lt;/code&gt; mode. Most modern devices are using UEFI mode, and this guide assumes you&apos;re in UEFI mode.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# See if this path exists
-ls /sys/firmware/efi/efivars
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s connect to the Internet.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Go online&lt;/h2&gt;&lt;p&gt;You will be installing packages from the Arch package repository over the Internet. For that, you&apos;ll need to be online.&lt;/p&gt;&lt;h3&gt;Connect to the Internet via Android tethering&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you have an Android phone, this is the easiest way to go online. Connect your phone to your computer, then &lt;strong&gt;Settings&lt;/strong&gt; → &lt;strong&gt;Tethering &amp;#x26; Mobile Hotspot&lt;/strong&gt; → &lt;strong&gt;USB Tethering&lt;/strong&gt; (it&apos;s disabled unless your phone is connected). Then connect to it using &lt;code&gt;dhcpcd&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Find interface names:
-ls /sys/class/net
-
-# Then enable it:
-dhcpcd enp0s26f7u3u3
-#      ^^^^^^^^^^^^^
-#      replace this with the
-#      actual interface name
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;See &lt;a href=&quot;https://wiki.archlinux.org/index.php/Android_tethering&quot;&gt;Android tethering&lt;/a&gt; for info. For other ways to go online, see &lt;a href=&quot;https://wiki.archlinux.org/index.php/Network_configuration&quot;&gt;Network configuration&lt;/a&gt;.&lt;/p&gt;&lt;h3&gt;See if you&apos;re online&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;After all that, ensure that you&apos;re finally online.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Are we online? Hopefully yes!
-ping 8.8.8.8
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Update your system clock.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;System clock&lt;/h2&gt;&lt;h3&gt;Update system time&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This will update your system clock through the Internet via NTP (Network Time Protocol).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Enable ntp time updates
-timedatectl set-ntp true
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Partition your disk.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Disks&lt;/h2&gt;&lt;p&gt;You&apos;ll need 2 partitions on your computer. You&apos;ll need an &lt;code&gt;EFI partition&lt;/code&gt;, which you already have (and can be reused) if you already have another OS installed. You&apos;ll also need an &lt;code&gt;ext4 partition&lt;/code&gt; for Arch Linux to be installed to.&lt;/p&gt;&lt;h3&gt;Partition the disks&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;I recommend using &lt;code&gt;parted&lt;/code&gt; for this. See &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks&quot;&gt;Partition the disks&lt;/a&gt; &lt;em&gt;(wiki.archlinux.org)&lt;/em&gt; for more info. You&apos;ll need to create an &lt;code&gt;ext4&lt;/code&gt; partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;parted
-# Important: read the guide above on
-# how to use `parted`!
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Format disks&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Format any &lt;em&gt;ext4&lt;/em&gt; partitions you made using &lt;code&gt;mkfs.ext4&lt;/code&gt;. Be sure to replace &lt;code&gt;sda1&lt;/code&gt; with the actual partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Format a partition as ext4
-mkfs.ext4 /dev/sda1
-#              ^^^^
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Format swaps&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; If you made a swap partition, use &lt;em&gt;mkswap&lt;/em&gt; to format them. Be sure to replace &lt;code&gt;sda3&lt;/code&gt; with the actual partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Format a partition as swap space
-mkswap /dev/sda3
-#           ^^^^
-
-# Enable it
-swapon /dev/sda3
-#           ^^^^
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s mount the partitions you just made.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Mount the partitions&lt;/h2&gt;&lt;p&gt;After creating your partitions, you&apos;ll now need to mount it so we can write to it.&lt;/p&gt;&lt;h3&gt;Mount the root partition&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Mount the root partition to &lt;code&gt;/mnt&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;mount /dev/sda1 /mnt
-#          ^^^^
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Mount the EFI partition&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Mount the EFI partition to &lt;code&gt;/mnt/boot&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;mkdir /mnt/boot
-mount /dev/sda2 /mnt/boot
-#          ^^^^
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Time to actually install Arch Linux.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Installing Arch Linux&lt;/h2&gt;&lt;h3&gt;Use your closest mirror&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Edit your mirror list, and move the geographically-closest location to you up the list. Don&apos;t skip this step! It&apos;ll likely be the difference between a 45-minute install and a 5-minute install.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Find your closest country, and bring it up
-vi /etc/pacman.d/mirrorlist
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Install packages&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install packages using &lt;code&gt;pacstrap&lt;/code&gt;. This will take a while!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Make some coffee while this is happening
-pacstrap /mnt base
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Configure list of partitions&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Generate the list of partitions (&lt;code&gt;/etc/fstab&lt;/code&gt;) to be mounted at boot time. This will be based on what partitions are already mounted right now.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Generate fstab
-genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s enter the system.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Chrooting in&lt;/h2&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;We&apos;re going to &quot;enter&quot; the new system you just mounted using &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Chroot&quot;&gt;chroot&lt;/a&gt;! Use &lt;code&gt;arch-chroot&lt;/code&gt; to &quot;enter&quot; the new file system. This will make root path (&lt;code&gt;/&lt;/code&gt;) be what&apos;s in the new partition (until you &lt;code&gt;exit&lt;/code&gt;).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# ~Enter the system~
-arch-chroot /mnt
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s configure the rest of the stuff.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Once in chroot&lt;/h2&gt;&lt;h3&gt;Set your timezone&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;See &lt;a href=&quot;https://www.archlinux.org/packages/core/x86_64/tzdata/&quot;&gt;tzdata&lt;/a&gt; for a list of available timezones.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Set your timezone (eg, Asia/Manila)
-ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-#                          ^^^^^^^^^^^
-
-# Update time config (/etc/adjclock)
-hwclock --systohc
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Set up locales&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Set your default locale. For most of us, that would be &lt;code&gt;en_US.UTF-8&lt;/code&gt;, but feel free to change that.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Uncomment `en_US.UTF-8 UTF-8` in this file
-vi /etc/locale.gen
-
-# Generate locale config (/etc/locale.gen)
-locale-gen
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Set keyboard layout&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; If you use a different keyboard layout, make it persist on boot.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Skip this step if you&apos;re not using
-# an alternate keyboard layout.
-echo &quot;KEYMAP=dvorak&quot; &gt; /etc/vconsole.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Set your system&apos;s hostname&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Hostname&lt;/h2&gt;&lt;p&gt;It&apos;s time to pick a name for your machine.&lt;/p&gt;&lt;h3&gt;Set hostname&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Pick a hostname and update &lt;code&gt;/etc/hostname&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;echo &quot;myhostname&quot; &gt; /etc/hostname
-#     ^^^^^^^^^^
-#     change this to whatever
-#     you feel like using
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Update etc/hosts&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Update &lt;code&gt;/etc/hosts&lt;/code&gt; with your new hostname. (Be sure to change &lt;code&gt;myhostname&lt;/code&gt; to your chosen hostname.)&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;vi /etc/hosts
-# Then update it to:
-
-127.0.0.1   localhost
-::1     localhost
-127.0.1.1   myhostname.localdomain  myhostname
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Change root password&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Change your password using &lt;code&gt;passwd&lt;/code&gt;. This is &lt;em&gt;not&lt;/em&gt; your main user&apos;s password.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;passwd
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install a boot loader.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install a bootloader&lt;/h2&gt;&lt;p&gt;You&apos;ll need a boot loader in your EFI partition. Think of this as a small program whose sole purpose is to kickstart your Linux session. There are many different boot loaders, but &lt;a href=&quot;https://wiki.archlinux.org/index.php/GRUB&quot;&gt;GRUB&lt;/a&gt; would be a good one to start with.&lt;/p&gt;&lt;h3&gt;Mount your other OS&apos;s&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you have other OS&apos;s installed (eg, Windows), mount them now! This is not strictly necessary, but if you&apos;re going to install GRUB, this will let GRUB know that you have another OS in your system.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# (Skip this step if you&apos;re not dual-booting.)
-# For example, if you have Windows in /dev/sda4:
-mkdir /windows
-mount /dev/sda4 /windows
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Install GRUB&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Let&apos;s install grub into &lt;code&gt;/boot&lt;/code&gt;. Be sure to read the Arch wiki, instructions may be different for your system!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Install grub
-pacman -S grub efibootmgr
-
-# Install GRUB
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-
-# Update Grub config
-grub-mkconfig -o /boot/grub/grub.cfg
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Your mostly done! Lets do a few more things.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;You&apos;re mostly done!&lt;/h2&gt;&lt;p&gt;Congratulations, you now have a working Arch Linux installation.&lt;/p&gt;&lt;p&gt;I recommend proceeding to the &lt;a href=&quot;/tilnext/after-installing-arch-linux/&quot;&gt;&lt;strong&gt;After Installing Arch Linux&lt;/strong&gt;&lt;/a&gt; guide. A basic Arch Linux installation doesn&apos;t have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.&lt;/p&gt;&lt;p&gt;After following those, remove your USB drive and reboot.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[After installing Arch Linux]]></title><description><![CDATA[These are things I suggest to do after an Arch Linux installation. These are items not covered in the official  Arch Linux Installation…]]></description><link>https://ricostacruz.com/tilnext//after-installing-arch-linux/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//after-installing-arch-linux/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;These are things I suggest to do after an Arch Linux installation. These are items not covered in the official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration&quot;&gt;Arch Linux Installation Guide&lt;/a&gt;, but I strongly suggest you do!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install some more packages&lt;/h2&gt;&lt;h3&gt;Developer tools&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some dev tools. &lt;a href=&quot;https://www.archlinux.org/groups/x86_64/base-devel/&quot;&gt;base-devel&lt;/a&gt; installs a lot of tools you&apos;ll need to compile things, and &lt;a href=&quot;https://www.archlinux.org/packages/extra/x86_64/git/&quot;&gt;git&lt;/a&gt; is required to build a lot of things from the AUR.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 12 Dec 2018 13:12:39 GMT</lastBuildDate><item><title><![CDATA[After installing Arch Linux]]></title><description><![CDATA[These are things I suggest to do after an Arch Linux installation. These are items not covered in the official  Arch Linux Installation…]]></description><link>https://ricostacruz.com/tilnext//after-installing-arch-linux/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//after-installing-arch-linux/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;These are things I suggest to do after an Arch Linux installation. These are items not covered in the official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration&quot;&gt;Arch Linux Installation Guide&lt;/a&gt;, but I strongly suggest you do!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install some more packages&lt;/h2&gt;&lt;h3&gt;Developer tools&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some dev tools. &lt;a href=&quot;https://www.archlinux.org/groups/x86_64/base-devel/&quot;&gt;base-devel&lt;/a&gt; installs a lot of tools you&apos;ll need to compile things, and &lt;a href=&quot;https://www.archlinux.org/packages/extra/x86_64/git/&quot;&gt;git&lt;/a&gt; is required to build a lot of things from the AUR.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
   base-devel \
   git \
   vim
 &lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Network connectivity 🌎&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install NetworkManager. Most desktop env&apos;s will need it to manage your wifi and such. You can even use &lt;code&gt;nmtui&lt;/code&gt; to connect to a wifi from the CLI.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S networkmanager
 
 # Run it on startup
-systemctl start NetworkManager
 systemctl enable NetworkManager
 &lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install some desktop apps.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install even more packages&lt;/h2&gt;&lt;h3&gt;Web browser 🌎&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install a browser. Choose from any of these options (or all!). Chromium is the open-source version of Google Chrome.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
   chromium \
@@ -185,7 +103,88 @@ yay                  # check system for updates
 &lt;/table&gt;&lt;!-- {.-wide} --&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s create your default user.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;You&apos;re quite done!&lt;/h2&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you&apos;re reading this guide while installing Arch Linux, then you should be done at this point! Remove your USB drive, &lt;code&gt;exit&lt;/code&gt;, and then &lt;code&gt;reboot&lt;/code&gt;. You may need to go to your BIOS&apos;s boot order config to boot to your new installation.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;exit
 
 reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Arch Linux installation, summarized]]></title><description><![CDATA[Arch Linux has a great  Installation Guide , but I personally found it very daunting and hard-to-read. This article is a summary of all the…]]></description><link>https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Arch Linux has a great &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;, but I personally found it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This is not a &quot;How to Install Arch Linux&quot; instruction guide.&lt;/strong&gt; It&apos;s not a replacement for official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;­consider this more like a refresher course!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;First steps&lt;/h2&gt;&lt;h3&gt;Change keyboard layout&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you&apos;re using different keyboard layout, change it now using &lt;code&gt;loadkeys&lt;/code&gt;. See &lt;a href=&quot;https://www.archlinux.org/packages/core/x86_64/kbd/files/&quot;&gt;kbd&lt;/a&gt; for a list of available layouts.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Changes keyboard layout
+# (Skip this step if you&apos;re using the qwerty layout!)
+
+loadkeys dvorak
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Check if you&apos;re in UEFI mode&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Check if the &lt;code&gt;/sys/firmware/efi/efivars&lt;/code&gt; path exists. If it is, you&apos;re using &lt;code&gt;UEFI&lt;/code&gt; mode. If not, you&apos;re using &lt;code&gt;Legacy&lt;/code&gt; mode. Most modern devices are using UEFI mode, and this guide assumes you&apos;re in UEFI mode.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# See if this path exists
+ls /sys/firmware/efi/efivars
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s connect to the Internet.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Go online&lt;/h2&gt;&lt;p&gt;You will be installing packages from the Arch package repository over the Internet. For that, you&apos;ll need to be online.&lt;/p&gt;&lt;h3&gt;Connect to the Internet via Android tethering&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you have an Android phone, this is the easiest way to go online. Connect your phone to your computer, then &lt;strong&gt;Settings&lt;/strong&gt; → &lt;strong&gt;Tethering &amp;#x26; Mobile Hotspot&lt;/strong&gt; → &lt;strong&gt;USB Tethering&lt;/strong&gt; (it&apos;s disabled unless your phone is connected). Then connect to it using &lt;code&gt;dhcpcd&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Find interface names:
+ls /sys/class/net
+
+# Then enable it:
+dhcpcd enp0s26f7u3u3
+#      ^^^^^^^^^^^^^
+#      replace this with the
+#      actual interface name
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;See &lt;a href=&quot;https://wiki.archlinux.org/index.php/Android_tethering&quot;&gt;Android tethering&lt;/a&gt; for info. For other ways to go online, see &lt;a href=&quot;https://wiki.archlinux.org/index.php/Network_configuration&quot;&gt;Network configuration&lt;/a&gt;.&lt;/p&gt;&lt;h3&gt;See if you&apos;re online&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;After all that, ensure that you&apos;re finally online.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Are we online? Hopefully yes!
+ping 8.8.8.8
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Update your system clock.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;System clock&lt;/h2&gt;&lt;h3&gt;Update system time&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This will update your system clock through the Internet via NTP (Network Time Protocol).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Enable ntp time updates
+timedatectl set-ntp true
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Partition your disk.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Disks&lt;/h2&gt;&lt;p&gt;You&apos;ll need 2 partitions on your computer. You&apos;ll need an &lt;code&gt;EFI partition&lt;/code&gt;, which you already have (and can be reused) if you already have another OS installed. You&apos;ll also need an &lt;code&gt;ext4 partition&lt;/code&gt; for Arch Linux to be installed to.&lt;/p&gt;&lt;h3&gt;Partition the disks&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;I recommend using &lt;code&gt;parted&lt;/code&gt; for this. See &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks&quot;&gt;Partition the disks&lt;/a&gt; &lt;em&gt;(wiki.archlinux.org)&lt;/em&gt; for more info. You&apos;ll need to create an &lt;code&gt;ext4&lt;/code&gt; partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;parted
+# Important: read the guide above on
+# how to use `parted`!
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Format disks&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Format any &lt;em&gt;ext4&lt;/em&gt; partitions you made using &lt;code&gt;mkfs.ext4&lt;/code&gt;. Be sure to replace &lt;code&gt;sda1&lt;/code&gt; with the actual partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Format a partition as ext4
+mkfs.ext4 /dev/sda1
+#              ^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Format swaps&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; If you made a swap partition, use &lt;em&gt;mkswap&lt;/em&gt; to format them. Be sure to replace &lt;code&gt;sda3&lt;/code&gt; with the actual partition.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Format a partition as swap space
+mkswap /dev/sda3
+#           ^^^^
+
+# Enable it
+swapon /dev/sda3
+#           ^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s mount the partitions you just made.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Mount the partitions&lt;/h2&gt;&lt;p&gt;After creating your partitions, you&apos;ll now need to mount it so we can write to it.&lt;/p&gt;&lt;h3&gt;Mount the root partition&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Mount the root partition to &lt;code&gt;/mnt&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;mount /dev/sda1 /mnt
+#          ^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Mount the EFI partition&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Mount the EFI partition to &lt;code&gt;/mnt/boot&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;mkdir /mnt/boot
+mount /dev/sda2 /mnt/boot
+#          ^^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Time to actually install Arch Linux.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Installing Arch Linux&lt;/h2&gt;&lt;h3&gt;Use your closest mirror&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Edit your mirror list, and move the geographically-closest location to you up the list. Don&apos;t skip this step! It&apos;ll likely be the difference between a 45-minute install and a 5-minute install.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Find your closest country, and bring it up
+vi /etc/pacman.d/mirrorlist
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Install packages&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install packages using &lt;code&gt;pacstrap&lt;/code&gt;. This will take a while!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Make some coffee while this is happening
+pacstrap /mnt base
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Configure list of partitions&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Generate the list of partitions (&lt;code&gt;/etc/fstab&lt;/code&gt;) to be mounted at boot time. This will be based on what partitions are already mounted right now.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Generate fstab
+genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s enter the system.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Chrooting in&lt;/h2&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;We&apos;re going to &quot;enter&quot; the new system you just mounted using &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Chroot&quot;&gt;chroot&lt;/a&gt;! Use &lt;code&gt;arch-chroot&lt;/code&gt; to &quot;enter&quot; the new file system. This will make root path (&lt;code&gt;/&lt;/code&gt;) be what&apos;s in the new partition (until you &lt;code&gt;exit&lt;/code&gt;).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# ~Enter the system~
+arch-chroot /mnt
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s configure the rest of the stuff.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Once in chroot&lt;/h2&gt;&lt;h3&gt;Set your timezone&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;See &lt;a href=&quot;https://www.archlinux.org/packages/core/x86_64/tzdata/&quot;&gt;tzdata&lt;/a&gt; for a list of available timezones.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Set your timezone (eg, Asia/Manila)
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+#                          ^^^^^^^^^^^
+
+# Update time config (/etc/adjclock)
+hwclock --systohc
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Set up locales&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Set your default locale. For most of us, that would be &lt;code&gt;en_US.UTF-8&lt;/code&gt;, but feel free to change that.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Uncomment `en_US.UTF-8 UTF-8` in this file
+vi /etc/locale.gen
+
+# Generate locale config (/etc/locale.gen)
+locale-gen
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Set keyboard layout&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; If you use a different keyboard layout, make it persist on boot.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Skip this step if you&apos;re not using
+# an alternate keyboard layout.
+echo &quot;KEYMAP=dvorak&quot; &gt; /etc/vconsole.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Set your system&apos;s hostname&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Hostname&lt;/h2&gt;&lt;p&gt;It&apos;s time to pick a name for your machine.&lt;/p&gt;&lt;h3&gt;Set hostname&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Pick a hostname and update &lt;code&gt;/etc/hostname&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;echo &quot;myhostname&quot; &gt; /etc/hostname
+#     ^^^^^^^^^^
+#     change this to whatever
+#     you feel like using
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Update etc/hosts&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Update &lt;code&gt;/etc/hosts&lt;/code&gt; with your new hostname. (Be sure to change &lt;code&gt;myhostname&lt;/code&gt; to your chosen hostname.)&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;vi /etc/hosts
+# Then update it to:
+
+127.0.0.1 localhost
+::1 localhost
+127.0.1.1 myhostname.localdomain myhostname
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Change root password&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Change your password using &lt;code&gt;passwd&lt;/code&gt;. This is &lt;em&gt;not&lt;/em&gt; your main user&apos;s password.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install a boot loader.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install a bootloader&lt;/h2&gt;&lt;p&gt;You&apos;ll need a boot loader in your EFI partition. Think of this as a small program whose sole purpose is to kickstart your Linux session. There are many different boot loaders, but &lt;a href=&quot;https://wiki.archlinux.org/index.php/GRUB&quot;&gt;GRUB&lt;/a&gt; would be a good one to start with.&lt;/p&gt;&lt;h3&gt;Mount your other OS&apos;s&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you have other OS&apos;s installed (eg, Windows), mount them now! This is not strictly necessary, but if you&apos;re going to install GRUB, this will let GRUB know that you have another OS in your system.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# (Skip this step if you&apos;re not dual-booting.)
+# For example, if you have Windows in /dev/sda4:
+mkdir /windows
+mount /dev/sda4 /windows
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Install GRUB&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Let&apos;s install grub into &lt;code&gt;/boot&lt;/code&gt;. Be sure to read the Arch wiki, instructions may be different for your system!&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Install grub
+pacman -S grub efibootmgr
+
+# Install GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+
+# Update Grub config
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Your mostly done! Lets do a few more things.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;You&apos;re mostly done!&lt;/h2&gt;&lt;p&gt;Congratulations, you now have a working Arch Linux installation.&lt;/p&gt;&lt;p&gt;I recommend proceeding to the &lt;a href=&quot;/tilnext/after-installing-arch-linux/&quot;&gt;&lt;strong&gt;After Installing Arch Linux&lt;/strong&gt;&lt;/a&gt; guide. A basic Arch Linux installation doesn&apos;t have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.&lt;/p&gt;&lt;p&gt;After following those, remove your USB drive and reboot.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
   &quot;name&quot;: &quot;my-js-package&quot;,
   &quot;description&quot;: &quot;A sample package&quot;,
   &quot;author&quot;: &quot;Rico Sta. Cruz&quot;
