@@ -259,6 +259,22 @@ vim /etc/fstab
 /swapfile none swap defaults 0 0
 ```
 
+<next-block title="Let's see if it all works."></next-block>
+
+## You're quite done!
+
+### Reboot (if you're installing)
+
+<!-- {.-literate-style} -->
+
+If you're reading this guide while installing Arch Linux, then you should be done at this point! Remove your USB drive, `exit`, and then `reboot`. You may need to go to your BIOS's boot order config to boot to your new installation.
+
+```sh
+exit
+
+reboot
+```
+
 <next-block title="What is the Arch User Repository?"></next-block>
 
 ## AUR (Arch User Repository)
@@ -274,7 +290,10 @@ The [AUR], or Arch User Repository, contains a lot of community-maintained packa
 You'll need an AUR helper to install packages from the AUR. I recommend [yay](https://github.com/Jguer/yay).
 
 ```sh
+# Go to your home folder
 cd
+
+# Make and install `yay`
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
@@ -309,18 +328,3 @@ Some AUR packages I can recommend to almost any Arch Linux user:
 <!-- {.-wide} -->
 
 <next-block title="Let's create your default user."></next-block>
-
-
-## You're quite done!
-
-###
-
-<!-- {.-literate-style} -->
-
-If you're reading this guide while installing Arch Linux, then you should be done at this point! Remove your USB drive, `exit`, and then `reboot`. You may need to go to your BIOS's boot order config to boot to your new installation.
-
-```sh
-exit
-
-reboot
-```
