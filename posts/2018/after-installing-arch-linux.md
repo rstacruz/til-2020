@@ -148,7 +148,7 @@ pacman -S \
 
 Start the GDM service right now. This should get you to a graphical login screen! You can log in with your user here and get to a desktop environment.
 
-```
+```sh
 # Start the GDM display manager
 sudo systemctl start gdm
 ```
@@ -159,7 +159,7 @@ sudo systemctl start gdm
 
 If you were able to log into a desktop environment in the previous step, congratulations! Open a terminal and enable the `gdm` service to start it up on every boot up.
 
-```
+```sh
 # Enable GDM on startup
 sudo systemctl enable gdm
 ```
