@@ -1,92 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 13 Dec 2018 02:50:27 GMT</lastBuildDate><item><title><![CDATA[After installing Arch Linux]]></title><description><![CDATA[These are things I suggest to do after an Arch Linux installation. These are items not covered in the official  Arch Linux Installation…]]></description><link>https://ricostacruz.com/tilnext//after-installing-arch-linux/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//after-installing-arch-linux/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;These are things I suggest to do after an Arch Linux installation. These are items not covered in the official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration&quot;&gt;Arch Linux Installation Guide&lt;/a&gt;, but I strongly suggest you do!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Go online&lt;/h2&gt;&lt;p&gt;For these next steps, we&apos;re going to assume that you&apos;re logged in as your main user, who has &lt;code&gt;sudo&lt;/code&gt; permissions enabled.&lt;/p&gt;&lt;h3&gt;Network connectivity 🌎&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some networking tools, so we may be able to go online later. &lt;a href=&quot;https://wiki.archlinux.org/index.php/NetworkManager&quot;&gt;NetworkManager&lt;/a&gt; is used by most desktop environments to manage network connections, and can be used in the console as well via &lt;code&gt;nmtui&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;sudo pacman -S networkmanager
-sudo systemctl enable NetworkManager
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Try to go online&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Use &lt;code&gt;nmtui&lt;/code&gt; to go online right now using your wifi.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Try it out
-sudo systemctl start NetworkManager
-
-# Connect to a wifi
-nmtui
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Did it work?&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This should be enough to get most laptops online. For some others, you may need to install wireless drivers. For instance, MacBooks require &lt;a href=&quot;https://wiki.archlinux.org/index.php/Broadcom_wireless&quot;&gt;Broadcom wireless&lt;/a&gt; drivers.&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install some apps.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install packages&lt;/h2&gt;&lt;h3&gt;Developer tools&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some dev tools. &lt;a href=&quot;https://www.archlinux.org/groups/x86_64/base-devel/&quot;&gt;base-devel&lt;/a&gt; installs a lot of tools you&apos;ll need to compile things, and &lt;a href=&quot;https://www.archlinux.org/packages/extra/x86_64/git/&quot;&gt;git&lt;/a&gt; is required to build a lot of things from the AUR.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;sudo pacman -S \
-  base-devel \
-  git \
-  vim
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Web browser 🌎&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install a browser. Choose from any of these options (or all!). Chromium is the open-source version of Google Chrome.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
-  chromium \
-  firefox
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Fonts 💅&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some basic fonts. &lt;a href=&quot;https://www.archlinux.org/packages/extra/any/ttf-croscore/&quot;&gt;ttf-croscore&lt;/a&gt; are Chrome OS fonts. You can install more fonts later from the AUR, but we&apos;ll get to that later.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
-  noto-fonts \
-  noto-fonts-emoji \
-  ttf-croscore \
-  ttf-roboto
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install some drivers.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install drivers&lt;/h2&gt;&lt;h3&gt;(Optional) Linux LTS&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; You can install an older version of the Linux kernel if you feel the latest kernel may be too bleeding-edge for you.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S linux-lts
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Video driver&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Depending on your setup, you may also need to install an xf86 driver. See &lt;a href=&quot;https://www.archlinux.org/packages/?sort=&amp;#x26;q=xf86-video&amp;#x26;maintainer=&amp;#x26;flagged=&quot;&gt;this search&lt;/a&gt; for available drivers.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# If you&apos;re using ATI:
-pacman -S xf86-video-ati
-
-# If you&apos;re using Intel:
-pacman -S xf86-video-intel
-
-# ...see the list of packages to
-#   find one that might be appropriate
-#   for your setup!
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install a desktop environment.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Desktop environment&lt;/h2&gt;&lt;p&gt;You&apos;ll need to install a desktop environment and a display manager. You can choose between &lt;code&gt;gnome&lt;/code&gt; (default for Ubuntu), &lt;code&gt;cinnamon&lt;/code&gt; (default for Mint), &lt;code&gt;deepin&lt;/code&gt;, &lt;code&gt;xfce4&lt;/code&gt;, &lt;code&gt;plasma&lt;/code&gt; and many others. I recommend GNOME.&lt;/p&gt;&lt;h3&gt;Install GNOME and GDM&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install a desktop environment and a display manager. &lt;strong&gt;GNOME&lt;/strong&gt; is a good first choice; it&apos;s the default of the Ubuntu desktop, and is a great desktop environment overall. &lt;strong&gt;GDM&lt;/strong&gt; is the GNOME Display Manager.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Install gdm and gnome
-pacman -S \
-  gdm \
-  gnome
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Try it out&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Start the GDM service right now. This should get you to a graphical login screen! You can log in with your user here and get to a desktop environment.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;# Start the GDM display manager
-sudo systemctl start gdm
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Enable it on startup&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you were able to log into a desktop environment in the previous step, congratulations! Open a terminal and enable the &lt;code&gt;gdm&lt;/code&gt; service to start it up on every boot up.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;# Enable GDM on startup
-sudo systemctl enable gdm
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s set up your swap file.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Creating swap&lt;/h2&gt;&lt;h3&gt;Set up your swap file&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you skipped creating a swap partition, you can create a &lt;a href=&quot;https://wiki.archlinux.org/index.php/Swap#Swap_file&quot;&gt;Swap file&lt;/a&gt; instead.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Create an 8gig swap
-sudo fallocate -l 8G /swapfile
-#            ^^
-
-# Format it, and turn it on
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Mount it on startup&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Add your swapfile to &lt;code&gt;/etc/fstab&lt;/code&gt; so it&apos;ll be used on every boot.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Edit your fstab partitions
-sudo vim /etc/fstab
-&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# add this to the end:
-/swapfile none swap defaults 0 0
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What is the Arch User Repository?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;AUR (Arch User Repository)&lt;/h2&gt;&lt;p&gt;The &lt;a href=&quot;https://aur.archlinux.org/packages/&quot;&gt;AUR&lt;/a&gt;, or Arch User Repository, contains a lot of community-maintained packages that you won&apos;t find in the official repositories. This ranges from proprietary non-free packages (like NVidia drivers). For most Arch users, the AUR is their reason to use Arch Linux, so I highly recommend installing an AUR helper.&lt;/p&gt;&lt;h3&gt;AUR helper&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You&apos;ll need an AUR helper to install packages from the AUR. I recommend &lt;a href=&quot;https://github.com/Jguer/yay&quot;&gt;yay&lt;/a&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Go to your home folder
-cd
-
-# Make and install `yay`
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;How to use yay&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;After it&apos;s installed, you can use it just like how you would use &lt;code&gt;pacman&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;yay packagename      # search for a package to install
-yay -S packagename   # install a package
-yay                  # check system for updates
-&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What can I install from the AUR?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Some AUR packages&lt;/h2&gt;&lt;p&gt;Some AUR packages I can recommend to almost any Arch Linux user:&lt;/p&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Package&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/pamac-aur/&quot;&gt;pamac-aur&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Get notified of package updates&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-google-fonts-typewolf/&quot;&gt;ttf-google-fonts-typewolf&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;40+ Google fonts&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-ms-fonts/&quot;&gt;ttf-ms-fonts&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Fonts from microsoft (arial, courier, etc)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-mac-fonts/&quot;&gt;ttf-mac-fonts&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Fonts from macOS (lucida grande, etc)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/otf-san-francisco&quot;&gt;otf-san-francisco&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Fonts from iOS&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;!-- {.-wide} --&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Arch Linux installation, summarized]]></title><description><![CDATA[Arch Linux has a great  Installation Guide , but I personally found it very daunting and hard-to-read. This article is a summary of all the…]]></description><link>https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Arch Linux has a great &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;, but I personally found it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This is not a &quot;How to Install Arch Linux&quot; instruction guide.&lt;/strong&gt; It&apos;s not a replacement for official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;­consider this more like a refresher course!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;First steps&lt;/h2&gt;&lt;h3&gt;Change keyboard layout&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you&apos;re using different keyboard layout, change it now using &lt;code&gt;loadkeys&lt;/code&gt;. See &lt;a href=&quot;https://www.archlinux.org/packages/core/x86_64/kbd/files/&quot;&gt;kbd&lt;/a&gt; for a list of available layouts.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Changes keyboard layout
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TIL]]></title><description><![CDATA[TIL - a collection of things I learned on my day-to-day web development work.]]></description><link>https://ricostacruz.com/tilnext/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 13 Dec 2018 02:51:58 GMT</lastBuildDate><item><title><![CDATA[Arch Linux installation, summarized]]></title><description><![CDATA[Arch Linux has a great  Installation Guide , but I personally found it very daunting and hard-to-read. This article is a summary of all the…]]></description><link>https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//arch-linux-installation-summarized/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;Arch Linux has a great &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;, but I personally found it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This is not a &quot;How to Install Arch Linux&quot; instruction guide.&lt;/strong&gt; It&apos;s not a replacement for official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide&quot;&gt;Installation Guide&lt;/a&gt;­consider this more like a refresher course!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;First steps&lt;/h2&gt;&lt;h3&gt;Change keyboard layout&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you&apos;re using different keyboard layout, change it now using &lt;code&gt;loadkeys&lt;/code&gt;. See &lt;a href=&quot;https://www.archlinux.org/packages/core/x86_64/kbd/files/&quot;&gt;kbd&lt;/a&gt; for a list of available layouts.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Changes keyboard layout
 # (Skip this step if you&apos;re using the qwerty layout!)
 
 loadkeys dvorak
@@ -195,7 +107,95 @@ systemctl enable networkmanager
 &lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Your mostly done! Lets do a few more things.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;You&apos;re mostly done!&lt;/h2&gt;&lt;h3&gt;&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Congratulations, you now have a working Arch Linux installation. At this point, &lt;code&gt;exit&lt;/code&gt; out of the chroot, and &lt;code&gt;reboot&lt;/code&gt;. Be sure to remove the USB drive as you&apos;re rebooting, and you may need to go to your BIOS&apos;s boot order menu.&lt;/p&gt;&lt;pre&gt;&lt;code&gt;exit
 
 reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;&lt;/h3&gt;&lt;p&gt;From here, I recommend proceeding to the &lt;a href=&quot;/tilnext/after-installing-arch-linux/&quot;&gt;&lt;strong&gt;After Installing Arch Linux&lt;/strong&gt;&lt;/a&gt; guide. A basic Arch Linux installation doesn&apos;t have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;&lt;/h3&gt;&lt;p&gt;From here, I recommend proceeding to the &lt;a href=&quot;/tilnext/after-installing-arch-linux/&quot;&gt;&lt;strong&gt;After Installing Arch Linux&lt;/strong&gt;&lt;/a&gt; guide. A basic Arch Linux installation doesn&apos;t have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.&lt;/p&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[After installing Arch Linux]]></title><description><![CDATA[These are things I suggest to do after an Arch Linux installation. These are items not covered in the official  Arch Linux Installation…]]></description><link>https://ricostacruz.com/tilnext//after-installing-arch-linux/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//after-installing-arch-linux/</guid><pubDate>Wed, 12 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;These are things I suggest to do after an Arch Linux installation. These are items not covered in the official &lt;a href=&quot;https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration&quot;&gt;Arch Linux Installation Guide&lt;/a&gt;, but I strongly suggest you do!&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s get started.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Go online&lt;/h2&gt;&lt;p&gt;For these next steps, we&apos;re going to assume that you&apos;re logged in as your main user, who has &lt;code&gt;sudo&lt;/code&gt; permissions enabled.&lt;/p&gt;&lt;h3&gt;Network connectivity 🌎&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some networking tools, so we may be able to go online later. &lt;a href=&quot;https://wiki.archlinux.org/index.php/NetworkManager&quot;&gt;NetworkManager&lt;/a&gt; is used by most desktop environments to manage network connections, and can be used in the console as well via &lt;code&gt;nmtui&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;sudo pacman -S networkmanager
+sudo systemctl enable NetworkManager
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Try to go online&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Use &lt;code&gt;nmtui&lt;/code&gt; to go online right now using your wifi.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Try it out
+sudo systemctl start NetworkManager
+
+# Connect to a wifi
+nmtui
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Did it work?&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;This should be enough to get most laptops online. For some others, you may need to install wireless drivers. For instance, MacBooks require &lt;a href=&quot;https://wiki.archlinux.org/index.php/Broadcom_wireless&quot;&gt;Broadcom wireless&lt;/a&gt; drivers.&lt;/p&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install some apps.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install packages&lt;/h2&gt;&lt;h3&gt;Developer tools&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some dev tools. &lt;a href=&quot;https://www.archlinux.org/groups/x86_64/base-devel/&quot;&gt;base-devel&lt;/a&gt; installs a lot of tools you&apos;ll need to compile things, and &lt;a href=&quot;https://www.archlinux.org/packages/extra/x86_64/git/&quot;&gt;git&lt;/a&gt; is required to build a lot of things from the AUR.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;sudo pacman -S \
+  base-devel \
+  git \
+  vim
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Web browser 🌎&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install a browser. Choose from any of these options (or all!). Chromium is the open-source version of Google Chrome.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
+  chromium \
+  firefox
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Fonts 💅&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install some basic fonts. &lt;a href=&quot;https://www.archlinux.org/packages/extra/any/ttf-croscore/&quot;&gt;ttf-croscore&lt;/a&gt; are Chrome OS fonts. You can install more fonts later from the AUR, but we&apos;ll get to that later.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S \
+  noto-fonts \
+  noto-fonts-emoji \
+  ttf-croscore \
+  ttf-roboto
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install some drivers.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Install drivers&lt;/h2&gt;&lt;h3&gt;(Optional) Linux LTS&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; You can install an older version of the Linux kernel if you feel the latest kernel may be too bleeding-edge for you.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;pacman -S linux-lts
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Video driver&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Depending on your setup, you may also need to install an xf86 driver. See &lt;a href=&quot;https://www.archlinux.org/packages/?sort=&amp;#x26;q=xf86-video&amp;#x26;maintainer=&amp;#x26;flagged=&quot;&gt;this search&lt;/a&gt; for available drivers.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# If you&apos;re using ATI:
+pacman -S xf86-video-ati
+
+# If you&apos;re using Intel:
+pacman -S xf86-video-intel
+
+# ...see the list of packages to
+#   find one that might be appropriate
+#   for your setup!
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s install a desktop environment.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Desktop environment&lt;/h2&gt;&lt;p&gt;You&apos;ll need to install a desktop environment and a display manager. You can choose between &lt;code&gt;gnome&lt;/code&gt; (default for Ubuntu), &lt;code&gt;cinnamon&lt;/code&gt; (default for Mint), &lt;code&gt;deepin&lt;/code&gt;, &lt;code&gt;xfce4&lt;/code&gt;, &lt;code&gt;plasma&lt;/code&gt; and many others. I recommend GNOME.&lt;/p&gt;&lt;h3&gt;Install GNOME and GDM&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Install a desktop environment and a display manager. &lt;strong&gt;GNOME&lt;/strong&gt; is a good first choice; it&apos;s the default of the Ubuntu desktop, and is a great desktop environment overall. &lt;strong&gt;GDM&lt;/strong&gt; is the GNOME Display Manager.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Install gdm and gnome
+pacman -S \
+  gdm \
+  gnome
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Try it out&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Start the GDM service right now. This should get you to a graphical login screen! You can log in with your user here and get to a desktop environment.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Start the GDM display manager
+sudo systemctl start gdm
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Enable it on startup&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you were able to log into a desktop environment in the previous step, congratulations! Open a terminal and enable the &lt;code&gt;gdm&lt;/code&gt; service to start it up on every boot up.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Enable GDM on startup
+sudo systemctl enable gdm
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;Let&apos;s set up your swap file.&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Creating swap&lt;/h2&gt;&lt;h3&gt;Set up your swap file&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;If you skipped creating a swap partition, you can create a &lt;a href=&quot;https://wiki.archlinux.org/index.php/Swap#Swap_file&quot;&gt;Swap file&lt;/a&gt; instead.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Create an 8gig swap
+sudo fallocate -l 8G /swapfile
+#            ^^
+
+# Format it, and turn it on
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;Mount it on startup&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;Add your swapfile to &lt;code&gt;/etc/fstab&lt;/code&gt; so it&apos;ll be used on every boot.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Edit your fstab partitions
+sudo vim /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# add this to the end:
+/swapfile none swap defaults 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What is the Arch User Repository?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;AUR (Arch User Repository)&lt;/h2&gt;&lt;p&gt;The &lt;a href=&quot;https://aur.archlinux.org/packages/&quot;&gt;AUR&lt;/a&gt;, or Arch User Repository, contains a lot of community-maintained packages that you won&apos;t find in the official repositories. This ranges from proprietary non-free packages (like NVidia drivers). For most Arch users, the AUR is their reason to use Arch Linux, so I highly recommend installing an AUR helper.&lt;/p&gt;&lt;h3&gt;AUR helper&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;You&apos;ll need an AUR helper to install packages from the AUR. I recommend &lt;a href=&quot;https://github.com/Jguer/yay&quot;&gt;yay&lt;/a&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# Go to your home folder
+cd
+
+# Make and install `yay`
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;How to use yay&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;After it&apos;s installed, you can use it just like how you would use &lt;code&gt;pacman&lt;/code&gt;.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;yay packagename      # search for a package to install
+yay -S packagename   # install a package
+yay                  # check system for updates
+&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;next-block title=&quot;What can I install from the AUR?&quot;&gt;&lt;/next-block&gt;&lt;/div&gt;&lt;h2&gt;Some AUR packages&lt;/h2&gt;&lt;p&gt;Some AUR packages I can recommend to almost any Arch Linux user:&lt;/p&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Package&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/pamac-aur/&quot;&gt;pamac-aur&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Get notified of package updates&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-google-fonts-typewolf/&quot;&gt;ttf-google-fonts-typewolf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;40+ Google fonts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-ms-fonts/&quot;&gt;ttf-ms-fonts&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Fonts from microsoft (arial, courier, etc)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/ttf-mac-fonts/&quot;&gt;ttf-mac-fonts&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Fonts from macOS (lucida grande, etc)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://aur.archlinux.org/packages/otf-san-francisco&quot;&gt;otf-san-francisco&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Fonts from iOS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;!-- {.-wide} --&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Why I Prefer styled-jsx]]></title><description><![CDATA[styled-jsx  has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code…]]></description><link>https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</link><guid isPermaLink="false">https://ricostacruz.com/tilnext//styled-jsx-is-awesome/</guid><pubDate>Thu, 08 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt; has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that&apos;s easier to understand.&lt;/p&gt;&lt;p&gt;Before I tell you why I prefer &lt;em&gt;styled-jsx&lt;/em&gt;, let&apos;s learn about some programming concepts—It&apos;ll all make sense later, trust me!&lt;/p&gt;&lt;h2&gt;Imperative vs. declarative code&lt;/h2&gt;&lt;h3&gt;Approach 1&lt;/h3&gt;&lt;!-- {.-literate-style} --&gt;&lt;p&gt;There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a &lt;strong&gt;declarative&lt;/strong&gt; style of writing, where we try to express logic without providing any instructions.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
   &quot;name&quot;: &quot;my-js-package&quot;,
   &quot;description&quot;: &quot;A sample package&quot;,
   &quot;author&quot;: &quot;Rico Sta. Cruz&quot;
