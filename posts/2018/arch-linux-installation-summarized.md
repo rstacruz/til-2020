@@ -339,12 +339,140 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+<next-block title="Let's create the user you'll be logging in with."></next-block>
+
+## Create your user
+
+_(This section is not listed in the Arch official installation guide, but I highly recommended this for most users.)_
+
+### Create your user
+
+<!-- {.-literate-style} -->
+
+You'll need a user that you'll be logging in with for your day-to-day. (Be sure to change `yourname` to whatever you feel like using.)
+
+```sh
+# Create the user
+useradd yourname
+#       ^^^^^^^^
+```
+
+### Create the home dir
+
+<!-- {.-literate-style} -->
+
+`useradd` doesn't create a home directory, so do that now.
+
+```sh
+# Create their home dir
+mkdir /home/yourname
+#           ^^^^^^^^
+chown yourname:yourname /home/yourname
+#     ^^^^^^^^ ^^^^^^^^       ^^^^^^^^
+```
+
+### Set a password
+
+<!-- {.-literate-style} -->
+
+Set a password.
+
+```sh
+passwd yourname
+#      ^^^^^^^^
+```
+
+### Add to the admin group
+
+<!-- {.-literate-style} -->
+
+The admin group is named `wheel`.
+
+```sh
+usermod -a -G wheel yourname
+#                   ^^^^^^^^
+```
+
+### Add to other groups
+
+<!-- {.-literate-style} -->
+
+You'll want to add them to some other groups too.
+
+```sh
+usermod -a -G \
+  audio,input,video,network,rfkill \
+  yourname
+# ^^^^^^^^
+```
+
+<next-block title="Let's install sudo."></next-block>
+
+## Set up sudo
+
+`sudo` is not part of the Arch Linux `base` package, so we'll need to install that separately.
+_(This section is not listed in the Arch official installation guide, but I highly recommended this for most users.)_
+
+### Install sudo
+
+<!-- {.-literate-style} -->
+
+Add and configure the `sudo` package to grant your user some superuser rights.
+
+```sh
+# Install sudo
+pacman -S sudo
+```
+
+### Add sudo rights to your username
+
+<!-- {.-literate-style} -->
+
+Use `visudo` to edit the sudo config to add your user name in it.
+
+```sh
+# Update config
+EDITOR=vi visudo
+```
+
+```sh
+# Then add this line to the end of the file:
+yourname ALL=(ALL) ALL
+```
+
+<next-block title="Install some packages."></next-block>
+
+## Install some extra packages
+
+_(This section is not listed in the Arch official installation guide, but I highly recommended this for most users.)_
+
+### Networking tools
+
+<!-- {.-literate-style} -->
+
+Install some networking tools, so we may be able to go online later. [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager) is used by most desktop environments to manage network connections, and can be used in the console as well via `nmtui`.
+
+```bash
+pacman -S networkmanager
+systemctl enable networkmanager
+```
+
 <next-block title="Your mostly done! Lets do a few more things."></next-block>
 
 ## You're mostly done!
 
-Congratulations, you now have a working Arch Linux installation.
+###
 
-I recommend proceeding to the [**After Installing Arch Linux**](/after-installing-arch-linux/) guide. A basic Arch Linux installation doesn't have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.
+<!-- {.-literate-style} -->
 
-After following those, remove your USB drive and reboot.
+Congratulations, you now have a working Arch Linux installation. At this point, `exit` out of the chroot, and `reboot`. Be sure to remove the USB drive as you're rebooting, and you may need to go to your BIOS's boot order menu.
+
+```
+exit
+
+reboot
+```
+
+###
+
+From here, I recommend proceeding to the [**After Installing Arch Linux**](/after-installing-arch-linux/) guide. A basic Arch Linux installation doesn't have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.

@@ -8,7 +8,44 @@ These are things I suggest to do after an Arch Linux installation. These are ite
 
 <next-block title="Let's get started."></next-block>
 
-## Install some more packages
+## Go online
+
+For these next steps, we're going to assume that you're logged in as your main user, who has `sudo` permissions enabled.
+
+### Network connectivity 🌎
+
+<!-- {.-literate-style} -->
+
+Install some networking tools, so we may be able to go online later. [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager) is used by most desktop environments to manage network connections, and can be used in the console as well via `nmtui`.
+
+```sh
+sudo pacman -S networkmanager
+sudo systemctl enable NetworkManager
+```
+
+### Try to go online
+
+<!-- {.-literate-style} -->
+
+Use `nmtui` to go online right now using your wifi.
+
+```sh
+# Try it out
+sudo systemctl start NetworkManager
+
+# Connect to a wifi
+nmtui
+```
+
+### Did it work?
+
+<!-- {.-literate-style} -->
+
+This should be enough to get most laptops online. For some others, you may need to install wireless drivers. For instance, MacBooks require [Broadcom wireless](https://wiki.archlinux.org/index.php/Broadcom_wireless) drivers.
+
+<next-block title="Let's install some apps."></next-block>
+
+## Install packages
 
 ### Developer tools
 
@@ -17,7 +54,7 @@ These are things I suggest to do after an Arch Linux installation. These are ite
 Install some dev tools. [base-devel] installs a lot of tools you'll need to compile things, and [git] is required to build a lot of things from the AUR.
 
 ```sh
-pacman -S \
+sudo pacman -S \
   base-devel \
   git \
   vim
@@ -25,23 +62,6 @@ pacman -S \
 
 [base-devel]: https://www.archlinux.org/groups/x86_64/base-devel/
 [git]: https://www.archlinux.org/packages/extra/x86_64/git/
-
-### Network connectivity 🌎
-
-<!-- {.-literate-style} -->
-
-Install NetworkManager. Most desktop env's will need it to manage your wifi and such. You can even use `nmtui` to connect to a wifi from the CLI.
-
-```sh
-pacman -S networkmanager
-
-# Run it on startup
-systemctl enable NetworkManager
-```
-
-<next-block title="Let's install some desktop apps."></next-block>
-
-## Install even more packages
 
 ### Web browser 🌎
 
@@ -116,110 +136,32 @@ You'll need to install a desktop environment and a display manager. You can choo
 Install a desktop environment and a display manager. **GNOME** is a good first choice; it's the default of the Ubuntu desktop, and is a great desktop environment overall. **GDM** is the GNOME Display Manager.
 
 ```sh
+# Install gdm and gnome
 pacman -S \
   gdm \
   gnome
+```
 
+### Try it out
+
+<!-- {.-literate-style} -->
+
+Start the GDM service right now. This should get you to a graphical login screen! You can log in with your user here and get to a desktop environment.
+
+```
+# Start the GDM display manager
+sudo systemctl start gdm
+```
+
+### Enable it on startup
+
+<!-- {.-literate-style} -->
+
+If you were able to log into a desktop environment in the previous step, congratulations! Open a terminal and enable the `gdm` service to start it up on every boot up.
+
+```
 # Enable GDM on startup
 sudo systemctl enable gdm
-```
-
-<next-block title="Let's create the user you'll be logging in with."></next-block>
-
-## Create your user
-
-### Create your user
-
-<!-- {.-literate-style} -->
-
-You'll need a user that you'll be logging in with for your day-to-day. (Be sure to change `yourname` to whatever you feel like using.)
-
-```sh
-# Create the user
-useradd yourname
-#       ^^^^^^^^
-```
-
-### Create the home dir
-
-<!-- {.-literate-style} -->
-
-`useradd` doesn't create a home directory, so do that now.
-
-```sh
-# Create their home dir
-mkdir /home/yourname
-#           ^^^^^^^^
-chown yourname:yourname /home/yourname
-#     ^^^^^^^^ ^^^^^^^^       ^^^^^^^^
-```
-
-### Set a password
-
-<!-- {.-literate-style} -->
-
-Set a password.
-
-```sh
-passwd yourname
-#      ^^^^^^^^
-```
-
-### Add to the admin group
-
-<!-- {.-literate-style} -->
-
-The admin group is named `wheel`.
-
-```sh
-usermod -a -G wheel yourname
-#                   ^^^^^^^^
-```
-
-### Add to other groups
-
-<!-- {.-literate-style} -->
-
-Tip: You'll want to add them eventually to other groups too.
-
-```sh
-usermod -a -G \
-  audio,input,video,network,rfkill \
-  yourname
-# ^^^^^^^^
-```
-
-<next-block title="Let's install sudo."></next-block>
-
-## Set up sudo
-
-`sudo` is not part of the Arch Linux `base` package, so we'll need to install that separately.
-
-### Install sudo
-
-<!-- {.-literate-style} -->
-
-Add and configure the `sudo` package to grant your user some superuser rights.
-
-```sh
-# Install sudo
-pacman -S sudo
-```
-
-### Add sudo rights to your username
-
-<!-- {.-literate-style} -->
-
-Use `visudo` to edit the sudo config to add your user name in it.
-
-```sh
-# Update config
-EDITOR=vi visudo
-```
-
-```sh
-# Then add this line to the end of the file:
-yourname ALL=(ALL) ALL
 ```
 
 <next-block title="Let's set up your swap file."></next-block>
@@ -234,13 +176,13 @@ If you skipped creating a swap partition, you can create a [Swap file](https://w
 
 ```sh
 # Create an 8gig swap
-fallocate -l 8G /swapfile
+sudo fallocate -l 8G /swapfile
 #            ^^
 
 # Format it, and turn it on
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
 ```
 
 ### Mount it on startup
@@ -251,28 +193,12 @@ Add your swapfile to `/etc/fstab` so it'll be used on every boot.
 
 ```sh
 # Edit your fstab partitions
-vim /etc/fstab
+sudo vim /etc/fstab
 ```
 
 ```sh
 # add this to the end:
 /swapfile none swap defaults 0 0
-```
-
-<next-block title="Let's see if it all works."></next-block>
-
-## You're quite done!
-
-### Reboot (if you're installing)
-
-<!-- {.-literate-style} -->
-
-If you're reading this guide while installing Arch Linux, then you should be done at this point! Remove your USB drive, `exit`, and then `reboot`. You may need to go to your BIOS's boot order config to boot to your new installation.
-
-```sh
-exit
-
-reboot
 ```
 
 <next-block title="What is the Arch User Repository?"></next-block>
@@ -326,5 +252,3 @@ Some AUR packages I can recommend to almost any Arch Linux user:
 | [otf-san-francisco](https://aur.archlinux.org/packages/otf-san-francisco)                  | Fonts from iOS                             |
 
 <!-- {.-wide} -->
-
-<next-block title="Let's create your default user."></next-block>
