@@ -97,13 +97,15 @@ You'll need 2 partitions on your computer. You'll need an `EFI partition`, which
 
 <!-- {.-literate-style} -->
 
-I recommend using `parted` for this. See [Partition the disks](https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks) _(wiki.archlinux.org)_ for more info. You'll need to create an `ext4` partition.
+I recommend using `fdisk` for this. You can also use `parted` to resize volumes. See [Partition the disks](https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks) _(wiki.archlinux.org)_ for more info.
 
 ```sh
-parted
+fdisk /dev/sda
 # Important: read the guide above on
 # how to use `parted`!
 ```
+
+You'll need to create an `ext4` partition. You'll also need an `efi` partition, but you probably have that already if you have an OS installed before all this.
 
 ### Format disks
 
@@ -474,5 +476,7 @@ reboot
 ```
 
 ###
+
+<!-- {.-literate-style} -->
 
 From here, I recommend proceeding to the [**After Installing Arch Linux**](/after-installing-arch-linux/) guide. A basic Arch Linux installation doesn't have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.
