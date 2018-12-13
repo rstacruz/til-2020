@@ -412,8 +412,10 @@ usermod -a -G \
 
 ## Set up sudo
 
-`sudo` is not part of the Arch Linux `base` package, so we'll need to install that separately.
+The [sudo] utility lets your everyday user run system admin tasks. Sudo is not part of the Arch Linux `base` package, so we'll need to install that separately.
 _(This section is not listed in the Arch official installation guide, but I highly recommended this for most users.)_
+
+[sudo]: https://wiki.archlinux.org/index.php/Sudo
 
 ### Install sudo
 
@@ -430,7 +432,7 @@ pacman -S sudo
 
 <!-- {.-literate-style} -->
 
-Use `visudo` to edit the sudo config to add your user name in it.
+Use `visudo` to edit the sudo config to add the `wheel` group to it. This allows all users in that group to use sudo. (You did add your user to `wheel`, right?)
 
 ```sh
 # Update config
@@ -439,7 +441,7 @@ EDITOR=vi visudo
 
 ```sh
 # Then add this line to the end of the file:
-yourname ALL=(ALL) ALL
+%wheel ALL=(ALL) ALL
 ```
 
 <next-block title="Install some packages."></next-block>
