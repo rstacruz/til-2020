@@ -175,9 +175,9 @@ sudo systemctl enable gdm
 If you skipped creating a swap partition, you can create a [Swap file](https://wiki.archlinux.org/index.php/Swap#Swap_file) instead.
 
 ```sh
-# Create an 8gig swap
+# Create an 8G (8 gigabytes) swap
 sudo fallocate -l 8G /swapfile
-#            ^^
+#                 ^^
 
 # Format it, and turn it on
 sudo chmod 600 /swapfile
