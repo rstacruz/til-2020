@@ -16,7 +16,7 @@ export const PostTitleSnip = ({ slug, title, variant, className }: Props) => {
   const varClass = variant === '-small' ? CSS.isSmall : ''
 
   return (
-    <span className={cn(CSS.root, varClass)}>
+    <span className={cn(CSS.root, varClass, className)}>
       <Overdrive id={`post-${slug}`}>
         <strong className={cn(CSS.title, varClass)}>{title}</strong>
       </Overdrive>

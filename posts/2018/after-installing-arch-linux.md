@@ -172,17 +172,21 @@ sudo systemctl enable gdm
 
 <!-- {.-literate-style} -->
 
-If you skipped creating a swap partition, you can create a [Swap file](https://wiki.archlinux.org/index.php/Swap#Swap_file) instead.
+If you skipped creating a swap partition like I recommended, you can use [systemd-swap](https://wiki.archlinux.org/index.php/Swap#systemd-swap) to manage your swap.
 
 ```sh
-# Create an 8G (8 gigabytes) swap
-sudo fallocate -l 8G /swapfile
-#                 ^^
+sudo pacman -S systemd-swap
 
-# Format it, and turn it on
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
+# Edit the config. I recommend setting `zram_enabled`
+# to `1` (compressed RAM) and `swapfc_enabled` to `1`
+# (auto-managed swap files).
+sudo vi /etc/systemd/swap.conf
+
+# Start it now
+sudo systemctl start systemd-swap
+
+# Enable it on every reboot
+sudo systemctl enable systemd-swap
 ```
 
 ### Mount it on startup

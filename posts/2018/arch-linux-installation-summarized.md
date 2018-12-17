@@ -21,7 +21,6 @@ If you're using different keyboard layout, change it now using `loadkeys`. See [
 ```sh
 # Changes keyboard layout
 # (Skip this step if you're using the qwerty layout!)
-
 loadkeys dvorak
 ```
 
@@ -50,7 +49,7 @@ If you have an Android phone, this is the easiest way to go online. Connect your
 
 ```sh
 # Find interface names:
-ls /sys/class/net
+ip addr
 
 # Then enable it:
 dhcpcd enp0s26f7u3u3
