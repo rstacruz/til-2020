@@ -14,12 +14,16 @@ Arch Linux has a great [Installation Guide](https://wiki.archlinux.org/index.php
 
 ### Resize your volumes
 
+<!-- {.-literate-style} -->
+
 _(Skip this step if you're not dual-booting Windows or MacOS.)_ Before you create your `ext4` (Linux) partition, you'll need make space for it. Resize your current OS's partition down at least 60GB less to give you some space to create your Linux partition.
 
-- **Windows:** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in `Disk Management`.
-- **MacOS:** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using `Disk Utility.app` to resize your partition.
+> - **Windows:** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in _Disk Management_.
+> - **MacOS:** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using _Disk Utility.app_ to resize your partition.
 
 ### Create a boot disk
+
+<!-- {.-literate-style} -->
 
 You can download the latest ArchLinux ISO from the [Arch Linux Downloads](https://www.archlinux.org/download/) page. To create these USB disks, you can use [dd](https://wiki.archlinux.org/index.php/USB_flash_installation_media#Using_dd) in Linux, [RUFUS](https://wiki.archlinux.org/index.php/USB_flash_installation_media#Using_Rufus) in Windows, or [dd](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_macOS) in MacOS.
 
@@ -127,11 +131,19 @@ I recommend using `fdisk` for this. See [Partition the disks](https://wiki.archl
 
 ```sh
 fdisk /dev/sda
+
+Welcome to fdisk (util-linux 2.33).
+Command (m for help):
+
+# `p` to print
+# `n` to create a new partition
 ```
 
 You'll need to create an `ext4` partition. You'll also need an `efi` partition, but you probably have that already if you have an OS installed before all this.
 
 Unlike other guides, I recommend _not_ setting up a swap partition, and using [systemd-swap] instead (we'll set that up later on).
+
+[systemd-swap]: https://wiki.archlinux.org/index.php/Swap#systemd-swap
 
 ### Format disks
 
