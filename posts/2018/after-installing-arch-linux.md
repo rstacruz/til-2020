@@ -168,7 +168,7 @@ sudo systemctl enable gdm
 
 ## Creating swap
 
-### Set up your swap file
+### Set up your swap
 
 <!-- {.-literate-style} -->
 
@@ -180,6 +180,8 @@ sudo pacman -S systemd-swap
 
 ### Edit the config
 
+<!-- {.-literate-style} -->
+
 Edit the config. I recommend setting `zram_enabled`
 to `1` (compressed RAM) and `swapfc_enabled` to `1`
 (auto-managed swap files).
@@ -190,6 +192,8 @@ sudo vi /etc/systemd/swap.conf
 ```
 
 ### Enable it
+
+<!-- {.-literate-style} -->
 
 Start and enable `systemd-swap.service`.
 
