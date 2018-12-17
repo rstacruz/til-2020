@@ -10,6 +10,33 @@ Arch Linux has a great [Installation Guide](https://wiki.archlinux.org/index.php
 
 <next-block title="Let's get started."></next-block>
 
+## Before everything
+
+### Resize your volumes
+
+_(Skip this step if you're not dual-booting Windows or MacOS.)_ Before you create your `ext4` (Linux) partition, you'll need make space for it. Resize your current OS's partition down at least 60GB less to give you some space to create your Linux partition.
+
+- **Windows:** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in `Disk Management`.
+- **MacOS:** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using `Disk Utility.app` to resize your partition.
+
+### Create a boot disk
+
+You can download the latest ArchLinux ISO from the [Arch Linux Downloads](https://www.archlinux.org/download/) page. To create these USB disks, you can use [dd](https://wiki.archlinux.org/index.php/USB_flash_installation_media#Using_dd) in Linux, [RUFUS](https://wiki.archlinux.org/index.php/USB_flash_installation_media#Using_Rufus) in Windows, or [dd](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_macOS) in MacOS.
+
+### You're all set!
+
+<!-- {.-literate-style} -->
+
+Boot into your USB disk. It should land you onto a bash prompt. When you see this, it's time to get started!
+
+```
+[root@archiso /]#
+```
+
+<!-- {.-terminal} -->
+
+<next-block title="Let's type in a few commands."></next-block>
+
 ## First steps
 
 ### Change keyboard layout
@@ -92,19 +119,19 @@ timedatectl set-ntp true
 
 You'll need 2 partitions on your computer. You'll need an `EFI partition`, which you already have (and can be reused) if you already have another OS installed. You'll also need an `ext4 partition` for Arch Linux to be installed to.
 
-### Partition the disks
+### Create your ext4 partition
 
 <!-- {.-literate-style} -->
 
-I recommend using `fdisk` for this. You can also use `parted` to resize volumes. See [Partition the disks](https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks) _(wiki.archlinux.org)_ for more info.
+I recommend using `fdisk` for this. See [Partition the disks](https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks) _(wiki.archlinux.org)_ for more info.
 
 ```sh
 fdisk /dev/sda
-# Important: read the guide above on
-# how to use `parted`!
 ```
 
 You'll need to create an `ext4` partition. You'll also need an `efi` partition, but you probably have that already if you have an OS installed before all this.
+
+Unlike other guides, I recommend _not_ setting up a swap partition, and using [systemd-swap] instead (we'll set that up later on).
 
 ### Format disks
 
@@ -116,22 +143,6 @@ Format any _ext4_ partitions you made using `mkfs.ext4`. Be sure to replace `sda
 # Format a partition as ext4
 mkfs.ext4 /dev/sda1
 #              ^^^^
-```
-
-### Format swaps
-
-<!-- {.-literate-style} -->
-
-_(Optional)_ If you made a swap partition, use _mkswap_ to format them. Be sure to replace `sda3` with the actual partition.
-
-```sh
-# Format a partition as swap space
-mkswap /dev/sda3
-#           ^^^^
-
-# Enable it
-swapon /dev/sda3
-#           ^^^^
 ```
 
 <next-block title="Let's mount the partitions you just made."></next-block>

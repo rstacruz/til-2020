@@ -60,7 +60,7 @@
     font-family: 'Alegreya', system-ui;
     font-weight: 400;
     font-style: normal;
-    @apply --font-size-8;
+    @apply --font-size-7;
     margin: 0;
     padding: 0;
     line-height: 1.2;

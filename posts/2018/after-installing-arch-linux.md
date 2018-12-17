@@ -176,12 +176,24 @@ If you skipped creating a swap partition like I recommended, you can use [system
 
 ```sh
 sudo pacman -S systemd-swap
+```
 
-# Edit the config. I recommend setting `zram_enabled`
-# to `1` (compressed RAM) and `swapfc_enabled` to `1`
-# (auto-managed swap files).
+### Edit the config
+
+Edit the config. I recommend setting `zram_enabled`
+to `1` (compressed RAM) and `swapfc_enabled` to `1`
+(auto-managed swap files).
+
+```sh
+# Enable `zram_enabled=1` and `swapfc_enabled=1`
 sudo vi /etc/systemd/swap.conf
+```
 
+### Enable it
+
+Start and enable `systemd-swap.service`.
+
+```sh
 # Start it now
 sudo systemctl start systemd-swap
 
