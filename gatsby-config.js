@@ -24,7 +24,7 @@ module.exports = {
       resolve: 'gatsby-plugin-feed'
       // For options, see https://www.npmjs.com/package/gatsby-plugin-feed
     },
-    'gatsby-plugin-sharp',
+    // 'gatsby-plugin-sharp',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
