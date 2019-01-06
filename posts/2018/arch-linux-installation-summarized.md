@@ -72,24 +72,15 @@ ls /sys/firmware/efi/efivars
 
 You will be installing packages from the Arch package repository over the Internet. For that, you'll need to be online.
 
-### Connect to the Internet via Android tethering
+### Connect to the Internet via wifi
 
 <!-- {.-literate-style} -->
 
-If you have an Android phone, this is the easiest way to go online. Connect your phone to your computer, then **Settings** → **Tethering & Mobile Hotspot** → **USB Tethering** (it's disabled unless your phone is connected). Then connect to it using `dhcpcd`.
+Try going online by typing `wifi-menu`. (If this didn't work, have a look at [other ways](https://github.com/rstacruz/arch-installer/blob/master/docs/getting_online.md) of getting online.)
 
 ```sh
-# Find interface names:
-ip addr
-
-# Then enable it:
-dhcpcd enp0s26f7u3u3
-#      ^^^^^^^^^^^^^
-#      replace this with the
-#      actual interface name
+wifi-menu
 ```
-
-See [Android tethering](https://wiki.archlinux.org/index.php/Android_tethering) for info. For other ways to go online, see [Network configuration](https://wiki.archlinux.org/index.php/Network_configuration).
 
 ### See if you're online
 
@@ -333,19 +324,6 @@ passwd
 
 You'll need a boot loader in your EFI partition. Think of this as a small program whose sole purpose is to kickstart your Linux session. There are many different boot loaders, but [GRUB](https://wiki.archlinux.org/index.php/GRUB) would be a good one to start with.
 
-### Mount your other OS's
-
-<!-- {.-literate-style} -->
-
-If you have other OS's installed (eg, Windows), mount them now! This is not strictly necessary, but if you're going to install GRUB, this will let GRUB know that you have another OS in your system.
-
-```bash
-# (Skip this step if you're not dual-booting.)
-# For example, if you have Windows in /dev/sda4:
-mkdir /windows
-mount /dev/sda4 /windows
-```
-
 ### Install GRUB
 
 <!-- {.-literate-style} -->
@@ -480,7 +458,7 @@ Install some networking tools, so we may be able to go online later. [NetworkMan
 
 ```bash
 pacman -S networkmanager
-systemctl enable networkmanager
+systemctl enable NetworkManager
 ```
 
 <next-block title="Your mostly done! Lets do a few more things."></next-block>
