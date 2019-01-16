@@ -6,11 +6,12 @@ description: In 60 seconds, let's learn how to write tests for any Node.js packa
 ---
 
 Testing Node.js packages is easy. Here's the condensed 1-minute guide to setting up tests on a Node.js project.
-{:.brief-intro.center}
 
----
+## Quickstart guide
 
 ### Start with a package
+
+<!-- {.-literate-style} -->
 
 Make a `package.json` file if you don't have one yet, then install your weapons of choice.
 
@@ -25,6 +26,8 @@ npm install --save-dev mocha chai
 ```
 
 ### Write tests
+
+<!-- {.-literate-style} -->
 
 Make your first test file `test/my_test.js`:
 
@@ -41,6 +44,8 @@ describe('my test suite', function() {
 
 ### Update scripts
 
+<!-- {.-literate-style} -->
+
 Update your `package.json` to use mocha.
 
 ```diff
@@ -50,7 +55,11 @@ Update your `package.json` to use mocha.
   },
 ```
 
-### Run tests
+## Run tests
+
+###
+
+<!-- {.-literate-style} -->
 
 Type `npm test` to run your tests. It should fail. Now go write tests that will pass!
 
@@ -73,9 +82,7 @@ Type `npm test` to run your tests. It should fail. Now go write tests that will 
       test/test.js:5:18: Context.<anonymous>
 ```
 
----
-
-### Learn a bit more
+## Learn a bit more
 
 Here's a quick Mocha cheatsheet. Also see [mochajs.org](http://mochajs.org).
 
@@ -117,7 +124,7 @@ describe('test suite', function() {
 })
 ```
 
-### Expectations with Chai
+## Expectations with Chai
 
 Here's a quick Chai cheatsheet. See [chaijs.com](http://chaijs.com/api/bdd/) for other `expect()`ations.
 
@@ -135,7 +142,7 @@ expect(list).to.have.length(3)
 expect(list).to.have.length.gt(0)
 ```
 
-### Further reading
+## Further reading
 
 Use Sinon ([sinonjs.org][sinon]) for mocks.
 

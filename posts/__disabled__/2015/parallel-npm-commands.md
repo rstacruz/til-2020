@@ -5,13 +5,19 @@ tags: [Development]
 description: You can run multiple NPM script tasks in parallel. This is great for tasks like running build watchers.
 ---
 
+###
+
 You can run multiple NPM script tasks in parallel. This is great for tasks like running build watchers. Just use the bash construct `&` to put each command in the background, then finally add `wait` so they can be terminated with `^C`. The final syntax would be:
 
 ```bash
 command1 & command2 & wait
 ```
 
-In pratice, this looks like so:
+###
+
+<!-- {.literate-style} -->
+
+In practice, this looks like so:
 
 ```js
 {
