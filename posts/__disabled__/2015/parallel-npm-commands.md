@@ -15,7 +15,7 @@ command1 & command2 & wait
 
 ###
 
-<!-- {.literate-style} -->
+<!-- {.-literate-style} -->
 
 In practice, this looks like so:
 

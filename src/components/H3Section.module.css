@@ -49,6 +49,8 @@
     & > :global(.-wide),
     & > :global(.-wider) {
       width: var(--column-size-inverse);
+      margin-left: 0;
+      margin-right: 0;
     }
 
     & > :global(.-panorama) {
