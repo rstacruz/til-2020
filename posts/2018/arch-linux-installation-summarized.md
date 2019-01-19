@@ -21,13 +21,13 @@ _(Skip this step if you're not dual-booting Windows or MacOS.)_ Before you creat
 > - **Windows:** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in _Disk Management_.
 > - **MacOS:** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using _Disk Utility.app_ to resize your partition.
 
-### Create a boot disk
+## Create a boot disk
 
 <!-- {.-literate-style} -->
 
 You can download the latest ArchLinux ISO from the [Arch Linux Downloads](https://www.archlinux.org/download/) page. To create these USB disks, you can use [dd](https://wiki.archlinux.org/index.php/USB_flash_installation_media#Using_dd) in Linux, [RUFUS](https://wiki.archlinux.org/index.php/USB_flash_installation_media#Using_Rufus) in Windows, or [dd](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_macOS) in MacOS.
 
-### You're all set!
+###
 
 <!-- {.-literate-style} -->
 
@@ -50,7 +50,6 @@ Boot into your USB disk. It should land you onto a bash prompt. When you see thi
 If you're using different keyboard layout, change it now using `loadkeys`. See [kbd](https://www.archlinux.org/packages/core/x86_64/kbd/files/) for a list of available layouts.
 
 ```sh
-# Changes keyboard layout
 # (Skip this step if you're using the qwerty layout!)
 loadkeys dvorak
 ```
@@ -72,24 +71,25 @@ ls /sys/firmware/efi/efivars
 
 You will be installing packages from the Arch package repository over the Internet. For that, you'll need to be online.
 
-### Connect to the Internet via wifi
+###
 
 <!-- {.-literate-style} -->
 
 Try going online by typing `wifi-menu`. (If this didn't work, have a look at [other ways](https://github.com/rstacruz/arch-installer/blob/master/docs/getting_online.md) of getting online.)
 
 ```sh
+# Connect to the Internet via Wi-Fi
 wifi-menu
 ```
 
-### See if you're online
+###
 
 <!-- {.-literate-style} -->
 
 After all that, ensure that you're finally online.
 
 ```sh
-# Are we online? Hopefully yes!
+# Check if you're online now
 ping 8.8.8.8
 ```
 
@@ -97,14 +97,14 @@ ping 8.8.8.8
 
 ## System clock
 
-### Update system time
+###
 
 <!-- {.-literate-style} -->
 
 This will update your system clock through the Internet via NTP (Network Time Protocol).
 
 ```sh
-# Enable ntp time updates
+# Update your system time
 timedatectl set-ntp true
 ```
 
@@ -114,20 +114,15 @@ timedatectl set-ntp true
 
 You'll need 2 partitions on your computer. You'll need an `EFI partition`, which you already have (and can be reused) if you already have another OS installed. You'll also need an `ext4 partition` for Arch Linux to be installed to.
 
-### Create your ext4 partition
+###
 
 <!-- {.-literate-style} -->
 
-I recommend using `fdisk` for this. See [Partition the disks](https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks) _(wiki.archlinux.org)_ for more info.
+I recommend using `cfdisk` for this. See [Partition the disks](https://wiki.archlinux.org/index.php/Installation_guide#Partition_the_disks) _(wiki.archlinux.org)_ for more info.
 
 ```sh
-fdisk /dev/sda
-
-Welcome to fdisk (util-linux 2.33).
-Command (m for help):
-
-# `p` to print
-# `n` to create a new partition
+# Create your ext4 partition using 'cfdisk'
+cfdisk /dev/sda
 ```
 
 You'll need to create an `ext4` partition. You'll also need an `efi` partition, but you probably have that already if you have an OS installed before all this.
@@ -136,7 +131,7 @@ Unlike other guides, I recommend _not_ setting up a swap partition, and using [s
 
 [systemd-swap]: https://wiki.archlinux.org/index.php/Swap#systemd-swap
 
-### Format disks
+###
 
 <!-- {.-literate-style} -->
 
@@ -154,7 +149,7 @@ mkfs.ext4 /dev/sda1
 
 After creating your partitions, you'll now need to mount it so we can write to it.
 
-### Mount the root partition
+###
 
 <!-- {.-literate-style} -->
 
@@ -165,7 +160,7 @@ mount /dev/sda1 /mnt
 #          ^^^^
 ```
 
-### Mount the EFI partition
+###
 
 <!-- {.-literate-style} -->
 
@@ -347,7 +342,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 _(This section is not listed in the Arch official installation guide, but I highly recommended this for most users.)_
 
-### Create your user
+###
 
 <!-- {.-literate-style} -->
 
@@ -355,25 +350,11 @@ You'll need a user that you'll be logging in with for your day-to-day. (Be sure 
 
 ```sh
 # Create the user
-useradd yourname
-#       ^^^^^^^^
+useradd -Nm -g users -G wheel,sys yourname
+#                                 ^^^^^^^^
 ```
 
-### Create the home dir
-
-<!-- {.-literate-style} -->
-
-`useradd` doesn't create a home directory, so do that now.
-
-```sh
-# Create their home dir
-mkdir /home/yourname
-#           ^^^^^^^^
-chown yourname:yourname /home/yourname
-#     ^^^^^^^^ ^^^^^^^^       ^^^^^^^^
-```
-
-### Set a password
+###
 
 <!-- {.-literate-style} -->
 
@@ -381,21 +362,12 @@ Set a password.
 
 ```sh
 passwd yourname
-#      ^^^^^^^^
+# New password:
+# Retype new password:
+# passwd: password updated successfully
 ```
 
-### Add to the admin group
-
-<!-- {.-literate-style} -->
-
-The admin group is named `wheel`.
-
-```sh
-usermod -a -G wheel yourname
-#                   ^^^^^^^^
-```
-
-### Add to other groups
+###
 
 <!-- {.-literate-style} -->
 
@@ -450,13 +422,14 @@ EDITOR=vi visudo
 
 _(This section is not listed in the Arch official installation guide, but I highly recommended this for most users.)_
 
-### Networking tools
+###
 
 <!-- {.-literate-style} -->
 
 Install some networking tools, so we may be able to go online later. [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager) is used by most desktop environments to manage network connections, and can be used in the console as well via `nmtui`.
 
 ```bash
+# Install NetworkManager to manage your networks
 pacman -S networkmanager
 systemctl enable NetworkManager
 ```

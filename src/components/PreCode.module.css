@@ -22,7 +22,7 @@
   &.comment {
     color: color-mod(var(--accent-text));
     background: color-mod(var(--accent) alpha(10%));
-    padding: 2px 4px;
+    padding: 2px 0;
     border-radius: 2px;
   }
 
