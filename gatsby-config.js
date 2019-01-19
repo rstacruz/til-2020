@@ -6,6 +6,13 @@ function supportsManifest() {
   }
 }
 
+function fs({ name, path }) {
+  return {
+    resolve: 'gatsby-source-filesystem',
+    options: { name, path }
+  }
+}
+
 module.exports = {
   pathPrefix: '/tilnext',
   siteMetadata: {
@@ -34,26 +41,12 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: { name: `posts`, path: `${__dirname}/posts/2018` }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: { name: `posts`, path: `${__dirname}/posts/2017` }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: { name: `posts`, path: `${__dirname}/posts/2016` }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: { name: `posts`, path: `${__dirname}/posts/2015` }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: { name: `posts`, path: `${__dirname}/posts/2013` }
-    },
+    fs({ name: `posts`, path: `${__dirname}/posts/drafts` }),
+    fs({ name: `posts`, path: `${__dirname}/posts/2018` }),
+    fs({ name: `posts`, path: `${__dirname}/posts/2017` }),
+    fs({ name: `posts`, path: `${__dirname}/posts/2016` }),
+    fs({ name: `posts`, path: `${__dirname}/posts/2015` }),
+    fs({ name: `posts`, path: `${__dirname}/posts/2013` }),
     {
       resolve: 'gatsby-transformer-remark',
       options: {
