@@ -25,7 +25,6 @@
 
   & > h3 {
     @apply --h3-font;
-    margin-top: 3.5em;
     text-transform: uppercase;
     font-size: 0.95em;
     color: var(--accent-text);
@@ -93,7 +92,7 @@
 }
 
 /* Horizontal rule before literate-style sections */
-.root:global(.-literate-style) {
+.root {
   @media (--viewport-9) {
     &:not(:first-child)::before {
       @apply --fading-horizontal-rule;

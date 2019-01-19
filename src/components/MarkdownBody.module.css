@@ -5,6 +5,14 @@
 
 @import '../styles/variables.css';
 
+:root {
+  --thin-scrollbar: {
+    /* Firefox 64+ only */
+    scrollbar-width: thin;
+    scrollbar-color: #7894 transparent;
+  }
+}
+
 .context {
   & {
     @apply --body-font;
@@ -81,6 +89,7 @@
     overflow: hidden;
     overflow-x: auto;
     position: relative;
+    @apply --thin-scrollbar;
   }
 
   & pre:global(.-terminal) {
