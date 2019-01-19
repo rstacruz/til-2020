@@ -156,8 +156,6 @@ Let's set up some rules. We want to restrict incoming connections, and allow int
 # UFW firewall rules: allow some internal traffic
 sudo ufw default deny
 sudo ufw allow from 10.8.0.0/24  # vpn network
-sudo ufw allow from 172.16.0.0/12  # allow docker to talk to other docker containers
-sudo ufw allow from 192.168.0.0/16  # ditto
 sudo ufw route allow in on tun0 out on tun0  # dont block peer-to-peer
 ```
 
@@ -165,6 +163,16 @@ sudo ufw route allow in on tun0 out on tun0  # dont block peer-to-peer
 # Allow some services
 sudo ufw limit ssh
 sudo ufw allow mosh
+```
+
+## Make it work with Docker
+
+You will need to add some overrides in `/etc/ufw/after.rules`. See this article for more info: [Solving ufw and Docker issues](https://github.com/chaifeng/ufw-docker/blob/master/README.md#solving-ufw-and-docker-issues).
+
+```sh
+# Read the linked article for the edits
+# you will need to make here.
+sudo vim /etc/ufw/after.rules
 ```
 
 ###
