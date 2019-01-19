@@ -146,7 +146,7 @@ We'll be using Uncomplicated Firewall to set up rules. We only want to expose 3 
 sudo pacman -Syu ufw
 ```
 
-###
+### Set up rules
 
 <!-- {.-literate-style} -->
 
@@ -159,13 +159,21 @@ sudo ufw allow from 10.8.0.0/24  # vpn network
 sudo ufw route allow in on tun0 out on tun0  # dont block peer-to-peer
 ```
 
+### Allow incoming services
+
+<!-- {.-literate-style} -->
+
+Enable the services that you want accessible outside the VPN.
+
 ```sh
 # Allow some services
 sudo ufw limit ssh
 sudo ufw allow mosh
 ```
 
-## Make it work with Docker
+### Make it work with Docker
+
+<!-- {.-literate-style} -->
 
 You will need to add some overrides in `/etc/ufw/after.rules`. See this article for more info: [Solving ufw and Docker issues](https://github.com/chaifeng/ufw-docker/blob/master/README.md#solving-ufw-and-docker-issues).
 
@@ -175,7 +183,7 @@ You will need to add some overrides in `/etc/ufw/after.rules`. See this article 
 sudo vim /etc/ufw/after.rules
 ```
 
-###
+### Start the firewall
 
 <!-- {.-literate-style} -->
 
@@ -192,29 +200,6 @@ sudo ufw status
 ```
 
 > Tip: No need to allow OpenVPN connections yourself. The VPN installer installs its own iptables rules.
-
-## Docker support for UFW
-
-###
-
-<!-- {.-literate-style} -->
-
-Docker-compose makes its own iptables rules. These rules allow traffic from everywhere (`0.0.0.0`) to reach your Docker containers. This is usually good, but not for development machines.
-
-```sh
-echo "{ \"iptables\": false }" | sudo tee /etc/docker/daemon.json
-sudo systemctl restart docker
-```
-
-We'll disable iptables support for Docker. Instead, we'll use the ufw rules above to manage this.
-
-### Also see
-
-Here are some further reading on this topic:
-
-- https://www.linode.com/docs/security/firewalls/configure-firewall-with-ufw/
-- https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw/
-- https://www.mkubaczyk.com/2017/09/05/force-docker-not-bypass-ufw-rules-ubuntu-16-04/
 
 ## Fail2ban
 
