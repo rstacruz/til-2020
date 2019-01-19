@@ -45,7 +45,11 @@ $(document).on('hover', '.tooltip', function () {
 });
 ```
 
-### Using behaviors
+## Using behaviors
+
+### 
+
+<!-- {.literate-style} -->
 
 Just include them all into one file. In Rails, this should be as easy as:
 

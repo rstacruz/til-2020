@@ -5,10 +5,13 @@ tags: [Ruby]
 description: Organize long views into smaller sub-views with this tip.
 ---
 
+### 
+
+<!-- {.literate-style} -->
+
 Ever find it annoying to have really long blocks of code being hard to parse in your head?
 
 ```haml
-
 - if @list.any?
   - @list.each do |item|
     - # really long code
@@ -18,6 +21,11 @@ Ever find it annoying to have really long blocks of code being hard to parse in 
   - # also long code
   - # ...
 ```
+
+
+### 
+
+<!-- {.literate-style} -->
 
 You can break them into partials, or like so:
 

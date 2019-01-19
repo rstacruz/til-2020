@@ -1,11 +1,11 @@
 ---
 date: '2015-11-28'
-title: Using factory_girl with custom factories
+title: Using factory_bot with custom factories
 tags: [Ruby]
-description: Do you use an actual factory pattern in Rails? Set up factory_girl to use this factory.
+description: Do you use an actual factory pattern in Rails? Set up factory_bot to use this factory.
 ---
 
-[Factory Girl](https://github.com/thoughtbot/factory_girl) is great when creating 'presets' of ActiveRecord models. This is all you really need for most simple cases.
+[Factory Bot](https://github.com/thoughtbot/factory_bot) is great when creating 'presets' of ActiveRecord models. This is all you really need for most simple cases.
 
 ```rb
 factory :user do
@@ -18,8 +18,6 @@ end
 create :user
 # same as User.create(name: 'John', email: 'john@example.com')
 ```
-
-{:.light}
 
 ### Using custom factories
 
@@ -42,11 +40,9 @@ creator = UserCreator.create(name: 'John')
 creator.user
 ```
 
-{:.light}
-
 ### Setting it up (the hard way)
 
-Factory Girl will then consume a class in this manner:
+Factory Bot will then consume a class in this manner:
 
 ```
 user = User.new
@@ -54,7 +50,7 @@ user.name = 'John'
 user.save!
 ```
 
-You can set up a `factory_girl` factory to use this by passing a `class` option. You'll have to make your factory implement these methods. This is silly and painful.
+You can set up a `factory_bot` factory to use this by passing a `class` option. You'll have to make your factory implement these methods. This is silly and painful.
 
 ```rb
 factory :real_user, class: 'UserCreator' do
@@ -66,16 +62,14 @@ end
 create(:real_user).user
 ```
 
-{:.light}
-
 ## Even easier
 
-Why not use the [attributes_for](http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md#Using_factories) helper instead?
+Why not use the [attributes_for](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Using_factories) helper instead?
 
 ```rb
 UserCreator.create attributes_for(:user)
 ```
 
-## Also see
+### Also see
 
-Also see the [Factory Girl cheatsheet](http://ricostacruz.com/cheatsheets/factory_girl.html), along with other cheatsheets from my [cheatsheets](http://ricostacruz.com/cheatsheets) archive.
+Also see the [Factory Bot cheatsheet](http://devhints.oo/factory_bot.html), along with other cheatsheets from my [cheatsheets](http://ricostacruz.com/cheatsheets) archive.
