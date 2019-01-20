@@ -17,7 +17,7 @@ module.exports = {
     ecmaFeatures: { jsx: true }
   },
 
-  plugins: ['react'],
+  plugins: ['react', '@typescript-eslint/eslint-plugin'],
   settings: {
     react: {
       version: '16.5.0'
@@ -27,5 +27,5 @@ module.exports = {
     'react/prop-types': 0
   },
 
-  parser: 'babel-eslint'
+  parser: '@typescript-eslint/parser'
 }

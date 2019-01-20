@@ -5,7 +5,7 @@ tags: [Ruby]
 description: Organize long views into smaller sub-views with this tip.
 ---
 
-### 
+###
 
 <!-- {.literate-style} -->
 
@@ -22,8 +22,7 @@ Ever find it annoying to have really long blocks of code being hard to parse in 
   - # ...
 ```
 
-
-### 
+###
 
 <!-- {.literate-style} -->
 

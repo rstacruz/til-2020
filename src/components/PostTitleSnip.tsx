@@ -1,14 +1,14 @@
 // @flow
 
-import Overdrive from 'react-overdrive'
-import React from 'react'
-import CSS from './PostTitleSnip.module.css'
 import cn from 'classnames'
+import React from 'react'
+import Overdrive from 'react-overdrive'
+import CSS from './PostTitleSnip.module.css'
 
-export type Props = {
-  slug: string,
-  title: string,
-  className?: string,
+export interface Props {
+  slug: string
+  title: string
+  className?: string
   variant?: '-small' | null
 }
 

@@ -1,10 +1,16 @@
-import React from 'react'
-import PostContent from './PostContent'
-import CardWaypoint from './CardWaypoint'
-import CSS from './BlogPostTitle.module.css'
 import cn from 'classnames'
+import React from 'react'
+import CSS from './BlogPostTitle.module.css'
+import CardWaypoint from './CardWaypoint'
+import PostContent from './PostContent'
 
-const BlogPostTitle = ({ title, date, body }) => {
+interface Props {
+  title: string
+  date: string | void
+  body: any
+}
+
+const BlogPostTitle = ({ title, date, body }: Props) => {
   return (
     <CardWaypoint>
       {({ entered }) => {
@@ -19,11 +25,12 @@ const BlogPostTitle = ({ title, date, body }) => {
               </h1>
             </div>
 
-            <p className={CSS.byline}>Written by Rico Sta. Cruz / {date}</p>
+            <p className={CSS.byline}>
+              <span>Written by Rico Sta. Cruz</span>
+              {date ? <span> / {date}</span> : null}
+            </p>
 
-            <div className={CSS.body}>
-              <PostContent body={body} />
-            </div>
+            <div className={CSS.body}>{PostContent({ body })}</div>
           </div>
         )
       }}

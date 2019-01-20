@@ -3,22 +3,20 @@
  * ===============
  *
  * Blog post content
- *
- * @flow
  */
 
-import React from 'react'
-import PostContent from './PostContent'
-import { type HastNode } from '../types'
-import BlogPostTitle from './BlogPostTitle'
-import PostFooter from './PostFooter'
-import CSS from './BlogPostContent.module.css'
 import cn from 'classnames'
+import React from 'react'
+import { HastNode } from '../types'
+import CSS from './BlogPostContent.module.css'
+import BlogPostTitle from './BlogPostTitle'
+import PostContent from './PostContent'
+import PostFooter from './PostFooter'
 
-export type Props = {
-  body: HastNode[],
-  title: string,
-  date: ?string,
+export interface Props {
+  body: HastNode[]
+  title: string
+  date: string | void
   titleBody: HastNode[]
 }
 
@@ -33,7 +31,7 @@ const BlogPostContent = ({ body, titleBody, title, date }: Props) => {
   return (
     <div className={cn(CSS.root)}>
       <BlogPostTitle {...{ title, date, body: titleBody }} />
-      <PostContent {...{ body }} />
+      {PostContent({ body })}
       <PostFooter {...{ title, date }} />
     </div>
   )

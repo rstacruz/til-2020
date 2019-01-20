@@ -1,14 +1,12 @@
-// @flow
-
 import toH from 'hast-to-hyperscript'
-import * as React from 'react'
+import React from 'react'
 
-export type Options = {
+export interface Options {
   components?: ComponentList
 }
 
-export type ComponentList = {
-  [string]: React.ComponentType<*> | string
+export interface ComponentList {
+  [id: string]: React.Component<any, any> | React.SFC<any> | string
 }
 
 /**
@@ -17,7 +15,11 @@ export type ComponentList = {
  */
 
 const toReact = ({ components }: Options = {}) => {
-  const createElement = (tag: string, props: Object, children: React.Node) => {
+  const createElement = (
+    tag: string,
+    props: object,
+    children: React.ReactNode
+  ) => {
     let component
 
     if (components && components[tag]) {
@@ -27,7 +29,7 @@ const toReact = ({ components }: Options = {}) => {
     return React.createElement(component || tag, props, children)
   }
 
-  const compile = (node: any): React.Node => {
+  const compile = (node: any): React.ReactNode => {
     return toH(createElement, node)
   }
 

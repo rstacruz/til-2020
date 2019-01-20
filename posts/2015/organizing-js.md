@@ -47,7 +47,7 @@ $(document).on('hover', '.tooltip', function () {
 
 ## Using behaviors
 
-### 
+###
 
 <!-- {.literate-style} -->
 

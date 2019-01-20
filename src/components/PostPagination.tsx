@@ -1,12 +1,10 @@
-// @flow
-
-import React from 'react'
 import { Link } from 'gatsby'
+import React from 'react'
+import { PageNode } from '../types'
 import CSS from './PostPagination.module.css'
-import { type PageNode } from '../types'
 
-export type Props = {
-  previous: PageNode,
+export interface Props {
+  previous: PageNode
   next: PageNode
 }
 
