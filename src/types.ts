@@ -1,21 +1,21 @@
 // @flow
 
-export type PageNode = {
-  excerpt: string,
+export interface PageNode {
+  excerpt: string
   fields: {
     slug: string
-  },
+  }
   frontmatter: {
-    title: string,
-    date: ?string,
-    tags: ?(string[]),
-    description: ?string,
-    attachments: ?Array<{ publicURL: ?string }>
+    title: string
+    date: string | void
+    tags: (string[]) | void
+    description: string | void
+    attachments: Array<{ publicURL: string | void }> | void
   }
 }
 
-export type HastNode = {
-  type: 'element' | 'comment' | 'text',
-  tagName: string,
+export interface HastNode {
+  type: 'element' | 'comment' | 'text'
+  tagName: string
   children?: HastNode[]
 }

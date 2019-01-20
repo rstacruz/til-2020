@@ -35,7 +35,12 @@ const PreCode = ({ children, className, ...props }) => {
  * Attempt to extract { language, content } from a <pre> element
  */
 
-function getCode(children: any): ?{ language: string, content: string } {
+interface GetCodeResult {
+  language: string
+  content: string
+}
+
+function getCode(children: any): GetCodeResult | void {
   if (!children) return
 
   const code = children[0]

@@ -8,14 +8,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import { type PageNode } from '../types'
+import { PageNode } from '../types'
 import GroupedPageList from '../components/GroupedPageList'
 
-export type Props = {
+export interface Props {
   data: {
     site: {
       siteMetadata: { title: string }
-    },
+    }
     allMarkdownRemark: {
       edges: Array<{
         node: PageNode

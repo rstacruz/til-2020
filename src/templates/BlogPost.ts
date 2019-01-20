@@ -1,5 +1,3 @@
-// @flow
-
 import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
@@ -8,21 +6,21 @@ import decorate from 'rehype-decorate'
 import sectionize from 'rehype-sectionize-headings'
 import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
-import { type PageNode, type HastNode } from '../types'
+import { PageNode, HastNode } from '../types'
 import { BlogNav } from '../components/BlogNav'
 import { PostPagination } from '../components/PostPagination'
 // import { ColophonSection } from '../components/ColophonSection'
 
-export type Props = {
-  location: string,
+export interface Props {
+  location: string
   pageContext: {
-    previous: PageNode,
+    previous: PageNode
     next: PageNode
-  },
+  }
   data: {
     markdownRemark: PageNode & {
       htmlAst: HastNode
-    },
+    }
     site: { siteMetadata: { title: string } }
   }
 }

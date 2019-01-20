@@ -3,22 +3,20 @@
  * ===============
  *
  * Blog post content
- *
- * @flow
  */
 
 import React from 'react'
 import PostContent from './PostContent'
-import { type HastNode } from '../types'
+import { HastNode } from '../types'
 import BlogPostTitle from './BlogPostTitle'
 import PostFooter from './PostFooter'
 import CSS from './BlogPostContent.module.css'
 import cn from 'classnames'
 
-export type Props = {
-  body: HastNode[],
-  title: string,
-  date: ?string,
+export interface Props {
+  body: HastNode[]
+  title: string
+  date: string | void
   titleBody: HastNode[]
 }
 
