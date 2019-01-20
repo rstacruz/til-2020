@@ -32,6 +32,7 @@ module.exports = {
       // For options, see https://www.npmjs.com/package/gatsby-plugin-feed
     },
     'gatsby-plugin-sharp',
+    'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
