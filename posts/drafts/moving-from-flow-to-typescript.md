@@ -2,21 +2,129 @@
 title: TypeScript vs. Flow
 ---
 
+## Open objects
+
+You can also use `type X = {}` in TypeScript, but interfaces are preferred.
+
+<two-comparison><div>
+
+#### Flow
+
+```javascript
+type User = {
+  name: string,
+  age: number
+}
+```
+
+</div><div>
+
+#### TypeScript
+
+```typescript
+interface User {
+  name: string
+  age: number
+}
+```
+
+</div></two-comparison>
+
+## Sealed objects
+
+<two-comparison><div>
+
+#### Flow
+
+```javascript
+type User = {|
+  name: string,
+  age: number
+|}
+```
+
+</div><div>
+
+#### TypeScript
+
+```typescript
+type User = {
+  name: string
+  age: number
+}
+```
+
+</div></two-comparison>
+
+## Importing
+
+<two-comparison><div>
+
+#### Flow
+
+```javascript
+import type { User } from './user'
+
+export type User
+```
+
+</div><div>
+
+#### TypeScript
+
+```typescript
+import { User } from './user'
+
+export User
+```
+
+</div></two-comparison>
+
+## Implicit any types
+
+<two-comparison><div>
+
+#### Flow
+
+```javascript
+const greet = user => {
+  console.log('hello', user.name)
+}
+```
+
+</div><div>
+
+#### TypeScript
+
+```typescript
+const greet = (user: any) => {
+  console.log('hello', user.name)
+}
+```
+
+</div></two-comparison>
+
 ## Question mark types
 
 Avoid them in TypeScript. They're considered a `jsdoc` type, which can't be used in many places. In contrast, you have to be explicit in TypeScript: eg, `mytype | void | null` instead of `?mytype`.
 
-### Flow
+<two-comparison><div>
+
+#### Flow
 
 ```javascript
 ?mytype
 ```
 
-### TypeScript
+</div><div>
+
+#### TypeScript
 
 ```typescript
 mytype | void
 ```
+
+</div></two-comparison>
 
 ## Function types
 
@@ -32,28 +140,6 @@ type getUserName = User => string
 
 ```typescript
 type getUserName = (user: User) => string
-```
-
-## Documenting objects
-
-You can also use `type X = {}` in TypeScript, but interfaces are preferred.
-
-### Flow
-
-```
-export type User = {
-  name: string,
-  age: number
-}
-```
-
-### TypeScript
-
-```
-interface User {
-  name: string,
-  age: number
-}
 ```
 
 ## Type inheritance
@@ -118,7 +204,6 @@ console.log((user: AdminUser).role)
 console.log((user as AdminUser).role)
 ```
 
-
 ## Ignoring things
 
 ### Flow
@@ -132,4 +217,3 @@ console.log((user as AdminUser).role)
 ```typescript
 // @ts-ignore
 ```
-
