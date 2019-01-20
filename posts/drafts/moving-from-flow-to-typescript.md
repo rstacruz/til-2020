@@ -6,7 +6,7 @@ title: TypeScript vs. Flow
 
 You can also use `type X = {}` in TypeScript, but interfaces are preferred.
 
-<two-comparison><div>
+<multi-comparison><div>
 
 #### Flow
 
@@ -28,11 +28,11 @@ interface User {
 }
 ```
 
-</div></two-comparison>
+</div></multi-comparison>
 
 ## Sealed objects
 
-<two-comparison><div>
+<multi-comparison><div>
 
 #### Flow
 
@@ -54,11 +54,11 @@ type User = {
 }
 ```
 
-</div></two-comparison>
+</div></multi-comparison>
 
 ## Importing
 
-<two-comparison><div>
+<multi-comparison><div>
 
 #### Flow
 
@@ -78,11 +78,11 @@ import { User } from './user'
 export User
 ```
 
-</div></two-comparison>
+</div></multi-comparison>
 
 ## Implicit any types
 
-<two-comparison><div>
+<multi-comparison><div>
 
 #### Flow
 
@@ -102,13 +102,13 @@ const greet = (user: any) => {
 }
 ```
 
-</div></two-comparison>
+</div></multi-comparison>
 
 ## Question mark types
 
 Avoid them in TypeScript. They're considered a `jsdoc` type, which can't be used in many places. In contrast, you have to be explicit in TypeScript: eg, `mytype | void | null` instead of `?mytype`.
 
-<two-comparison><div>
+<multi-comparison><div>
 
 #### Flow
 
@@ -124,7 +124,7 @@ Avoid them in TypeScript. They're considered a `jsdoc` type, which can't be used
 mytype | void
 ```
 
-</div></two-comparison>
+</div></multi-comparison>
 
 ## Function types
 
