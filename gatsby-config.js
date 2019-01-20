@@ -27,12 +27,10 @@ module.exports = {
     siteUrl: 'https://ricostacruz.com/tilnext/'
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-feed'
-      // For options, see https://www.npmjs.com/package/gatsby-plugin-feed
-    },
+    'gatsby-plugin-feed',
     'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
+    'gatsby-plugin-typescript-css-modules',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
@@ -57,7 +55,7 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 1400 }
           },
-          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-copy-linked-files'
         ]
       }
     },
