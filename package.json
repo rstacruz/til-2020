@@ -53,7 +53,7 @@
     "start": "gatsby develop",
     "format": "prettier --write 'src/**/*.js' 'posts/**/*.md'",
     "prettier:check": "prettier --list-different 'src/**/*.js' 'posts/**/*.md'",
-    "ci": "run-s build tsc lint prettier:check",
+    "ci": "run-s tsc lint prettier:check",
     "lint": "tslint --project .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "run-s deploy:build deploy:gh-pages",
