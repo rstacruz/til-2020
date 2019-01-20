@@ -4,12 +4,12 @@ import groupBy from 'group-by'
 import PageListGroup from './PageListGroup'
 
 export type Props = {
-  pages: Array<{ node: PageNode, key: string }>,
+  pages: Array<{ node: PageNode; key: string }>
   recentCount: number
 }
 
 export type Groups = {
-  [id: string]: Array<{ node: PageNode, key: string }>
+  [id: string]: Array<{ node: PageNode; key: string }>
 }
 
 const GroupedPageList = ({ pages, recentCount }: Props) => {
@@ -37,9 +37,9 @@ GroupedPageList.defaultProps = {
  * Returns the first tag of a given page node.
  */
 
-function getFirstTag(node: PageNode): ?string {
+function getFirstTag(node: PageNode): string | void {
   const { tags } = node.frontmatter
-  return tags && tags[0]
+  if (tags) return tags[0]
 }
 
 /**

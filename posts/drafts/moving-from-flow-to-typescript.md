@@ -217,3 +217,17 @@ console.log((user as AdminUser).role)
 ```typescript
 // @ts-ignore
 ```
+
+## React equivalents
+
+| What       | Flow                     | TypeScript                                 |
+| ---------- | ------------------------ | ------------------------------------------ |
+| Nodes      | `React.Node`             | `React.ReactNode`                          |
+| Components | `React.ComponentType<*>` | `React.?`                                  |
+| Events     | `React.SyntheticEvent`   | `React.FormEventHandler<HTMLInputElement>` |
+
+## More equivalents
+
+| Flow               | TypeScript        |
+| ------------------ | ----------------- |
+| `$Keys<OtherType>` | `keyof OtherType` |

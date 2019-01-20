@@ -34,7 +34,7 @@ const toReact = makeToReact({
   }
 })
 
-const PostContent = ({ body }: Props): React.Node => {
+const PostContent = ({ body }: Props): React.ReactElement<any>[] => {
   return body.map((ast, index) => {
     return <React.Fragment key={index}>{toReact(ast)}</React.Fragment>
   })
