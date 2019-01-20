@@ -53,7 +53,7 @@ class CardWaypoint extends React.Component<Props, State> {
         topOffset={topOffset || `${(TRIPWIRE - OVERLAP) * 100}%`}
         bottomOffset={bottomOffset || `${(1 - TRIPWIRE) * 100}%`}
       >
-        <span>{children(this.state || {})}</span>
+        <span>{children(this.state || { entered: false, dirty: false })}</span>
       </Waypoint>
     )
   }

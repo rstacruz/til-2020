@@ -31,7 +31,7 @@ const BlogPostContent = ({ body, titleBody, title, date }: Props) => {
   return (
     <div className={cn(CSS.root)}>
       <BlogPostTitle {...{ title, date, body: titleBody }} />
-      <PostContent {...{ body }} />
+      {PostContent({ body })}
       <PostFooter {...{ title, date }} />
     </div>
   )

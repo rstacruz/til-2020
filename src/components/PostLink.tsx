@@ -12,7 +12,7 @@ const PostLink = ({ node }: Props) => {
   const { slug } = node.fields
   const { title, date, tags } = node.frontmatter
   return (
-    <article className={CSS.root}>
+    <article>
       <Link to={slug} className={CSS.link}>
         <PostTitleSnip {...{ slug, title }} />
         <small className={CSS.tags}>{(tags || []).join(' ')}</small>
