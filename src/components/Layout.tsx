@@ -5,7 +5,12 @@ import { StaticQuery, graphql } from 'gatsby'
 import 'sanitize.css'
 import './Layout.css'
 
-const Layout = ({ children }) => (
+export interface Props {
+  children: React.ReactNode
+  location?: string
+}
+
+const Layout = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {

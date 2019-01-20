@@ -70,7 +70,8 @@ function getCode(children: any): GetCodeResult | void {
 
 function toReact(nodes) {
   const root = { type: 'root', children: nodes }
-  return makeToReact({})(root).props.children
+  const element = makeToReact({})(root) as JSX.Element
+  return element.props.children
 }
 
 /*

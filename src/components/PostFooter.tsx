@@ -19,7 +19,16 @@ const PostFooter = (props: Props) => {
             <div className={CSS.body}>
               <h3>Thank you for reading</h3>
               <p>
-                You have just read <em>{title}</em>, written on <em>{date}</em>.
+                {date ? (
+                  <>
+                    You have just read <em>{title}</em>, written on{' '}
+                    <em>{date}</em>.
+                  </>
+                ) : (
+                  <>
+                    You have just read <em>{title}</em>.
+                  </>
+                )}
               </p>
             </div>
           </div>

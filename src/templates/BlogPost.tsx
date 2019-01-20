@@ -46,9 +46,9 @@ class BlogPostTemplate extends React.Component<Props> {
           ]}
           title={`${title}`}
         />
-        <MainHeading {...{ title, slug }} />
+        <MainHeading />
         <div>
-          <BlogNav {...{ title, slug }} />
+          <BlogNav />
           <BlogPostContent
             {...{ title, date, titleBody, body: sections.slice(1) }}
           />
