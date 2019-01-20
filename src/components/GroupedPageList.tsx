@@ -1,7 +1,5 @@
-// @flow
-
 import React from 'react'
-import { type PageNode } from '../types'
+import { PageNode } from '../types'
 import groupBy from 'group-by'
 import PageListGroup from './PageListGroup'
 

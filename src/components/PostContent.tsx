@@ -11,14 +11,14 @@ import * as React from 'react'
 import NextBlock from './NextBlock'
 import H2Section from './H2Section'
 import H3Section from './H3Section'
-import { type HastNode } from '../types'
+import { HastNode } from '../types'
 import makeToReact from '../helpers/to_react'
 import H2Body from './H2Body'
 import H3Body from './H3Body'
 import MultiComparison from './MultiComparison'
 import PreCode from './PreCode'
 
-export type Props = {
+export interface Props {
   body: HastNode[]
 }
 

@@ -3,14 +3,14 @@
 import * as React from 'react'
 import Waypoint from 'react-waypoint'
 
-export type State = {
-  entered: boolean,
+export interface State {
+  entered: boolean
   dirty: boolean
 }
 
-export type Props = {
-  children: State => React.Node,
-  topOffset?: string,
+export interface Props {
+  children: (state: State) => React.ReactNode
+  topOffset?: string
   bottomOffset?: string
 }
 

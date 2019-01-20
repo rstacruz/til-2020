@@ -1,13 +1,13 @@
 // @flow
 
 import * as React from 'react'
-import CardWaypoint, { type State } from './CardWaypoint'
+import CardWaypoint, { State } from './CardWaypoint'
 import CSS from './H2Section.module.css'
 import cn from 'classnames'
 import slugger from 'github-slugger'
 
-export type Props = {
-  children: React.Node,
+export interface Props {
+  children: React.ReactNode
   className: string | string[]
 }
 
@@ -29,7 +29,7 @@ const H2Section = ({ children, className }: Props) => {
   )
 }
 
-function getH2Text(children: React.Node): ?string {
+function getH2Text(children: React.ReactNode): string | void {
   if (!Array.isArray(children)) return
 
   const h2 = children.find(node => node.type === 'h2')

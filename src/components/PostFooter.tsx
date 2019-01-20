@@ -1,13 +1,11 @@
-// @flow
-
 import React from 'react'
 import CSS from './PostFooter.module.css'
-import CardWaypoint, { type State } from './CardWaypoint'
+import CardWaypoint, { State } from './CardWaypoint'
 import cn from 'classnames'
 
-export type Props = {
-  title: string,
-  date: ?string
+export interface Props {
+  title: string
+  date: string | void
 }
 
 const PostFooter = (props: Props) => {

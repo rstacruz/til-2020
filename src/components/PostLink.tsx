@@ -1,12 +1,10 @@
-// @flow
-
 import { Link } from 'gatsby'
 import React from 'react'
 import { PostTitleSnip } from './PostTitleSnip'
-import { type PageNode } from '../types'
+import { PageNode } from '../types'
 import CSS from './PostLink.module.css'
 
-export type Props = {
+export interface Props {
   node: PageNode
 }
 
