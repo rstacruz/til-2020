@@ -30,11 +30,15 @@ const H2Section = ({ children, className }: Props) => {
 }
 
 function getH2Text(children: React.ReactNode): string | void {
-  if (!Array.isArray(children)) { return }
+  if (!Array.isArray(children)) {
+    return
+  }
 
   const childrenList = children as JSX.Element[]
   const h2 = childrenList.find(node => node.type === 'h2')
-  if (!h2) { return }
+  if (!h2) {
+    return
+  }
 
   return ((h2 && h2.props && h2.props.children) || []).join('')
 }

@@ -29,7 +29,9 @@ class CardWaypoint extends React.Component<Props, State> {
   componentDidMount() {
     this.setState(
       (state: State): State => {
-        if (state.dirty) { return state }
+        if (state.dirty) {
+          return state
+        }
         return { entered: false, dirty: true }
       }
     )

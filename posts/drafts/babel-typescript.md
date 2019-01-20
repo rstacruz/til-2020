@@ -19,10 +19,7 @@ Configure `babel.config.js`
 
 ```javascript
 module.exports = {
-  presets: [
-    '@babel/preset-typescript',
-    '@babel/preset-env'
-  ]
+  presets: ['@babel/preset-typescript', '@babel/preset-env']
 }
 ```
 

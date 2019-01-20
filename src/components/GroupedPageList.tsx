@@ -39,7 +39,9 @@ GroupedPageList.defaultProps = {
 
 function getFirstTag(node: PageNode): string | void {
   const { tags } = node.frontmatter
-  if (tags) { return tags[0] }
+  if (tags) {
+    return tags[0]
+  }
 }
 
 /**

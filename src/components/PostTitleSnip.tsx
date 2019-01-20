@@ -6,9 +6,9 @@ import Overdrive from 'react-overdrive'
 import CSS from './PostTitleSnip.module.css'
 
 export interface Props {
-  slug: string,
-  title: string,
-  className?: string,
+  slug: string
+  title: string
+  className?: string
   variant?: '-small' | null
 }
 

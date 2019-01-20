@@ -24,10 +24,10 @@ Let's say you have an innocent URL in your layout like the one below. This is a 
 
 This works well in pages of your site placed in the root directory. Once you path one level deep though, you'll encounter problems.
 
-| From this page...     | Base     | Final URL                 | Result  |
+| From this page...     | Base     | Final URL                 |  Result |
 | --------------------- | -------- | ------------------------- | ------: |
-| `/index.html`         | `/`      | `/assets/style.css`       | Good ✓  |
-| `/me.html`            | `/`      | `/assets/style.css`       | Good ✓  |
+| `/index.html`         | `/`      | `/assets/style.css`       |  Good ✓ |
+| `/me.html`            | `/`      | `/assets/style.css`       |  Good ✓ |
 | `/about/profile.html` | `/about` | `/about/assets/style.css` | Wrong ✗ |
 
 <!-- {.-wide} -->
@@ -50,7 +50,7 @@ This works great for sites that live on its own domain. When your site will be h
 
 | If your site is in...     | It resolves to...   |         |
 | ------------------------- | ------------------- | ------: |
-| `user.github.io/`         | `/assets/style.css` | Good ✓  |
+| `user.github.io/`         | `/assets/style.css` |  Good ✓ |
 | `user.github.io/project/` | `/assets/style.css` | Wrong ✗ |
 
 <!-- {.-wide} -->
