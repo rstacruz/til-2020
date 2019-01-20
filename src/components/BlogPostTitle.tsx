@@ -1,8 +1,8 @@
-import React from 'react'
-import PostContent from './PostContent'
-import CardWaypoint from './CardWaypoint'
-import CSS from './BlogPostTitle.module.css'
 import cn from 'classnames'
+import React from 'react'
+import CSS from './BlogPostTitle.module.css'
+import CardWaypoint from './CardWaypoint'
+import PostContent from './PostContent'
 
 const BlogPostTitle = ({ title, date, body }) => {
   return (

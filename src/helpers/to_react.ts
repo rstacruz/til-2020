@@ -1,11 +1,11 @@
 import toH from 'hast-to-hyperscript'
 import React from 'react'
 
-export type Options = {
+export interface Options {
   components?: ComponentList
 }
 
-export type ComponentList = {
+export interface ComponentList {
   [id: string]: React.Component<any, any> | React.SFC<any> | string
 }
 
@@ -17,7 +17,7 @@ export type ComponentList = {
 const toReact = ({ components }: Options = {}) => {
   const createElement = (
     tag: string,
-    props: Object,
+    props: object,
     children: React.ReactNode
   ) => {
     let component

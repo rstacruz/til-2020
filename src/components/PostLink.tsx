@@ -1,8 +1,8 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { PostTitleSnip } from './PostTitleSnip'
 import { PageNode } from '../types'
 import CSS from './PostLink.module.css'
+import { PostTitleSnip } from './PostTitleSnip'
 
 export interface Props {
   node: PageNode

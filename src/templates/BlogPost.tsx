@@ -1,14 +1,15 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import BlogPostContent from '../components/BlogPostContent'
 import decorate from 'rehype-decorate'
 import sectionize from 'rehype-sectionize-headings'
+
+import { BlogNav } from '../components/BlogNav'
+import BlogPostContent from '../components/BlogPostContent'
 import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
-import { PageNode, HastNode } from '../types'
-import { BlogNav } from '../components/BlogNav'
 import { PostPagination } from '../components/PostPagination'
+import { HastNode, PageNode } from '../types'
 // import { ColophonSection } from '../components/ColophonSection'
 
 export interface Props {
@@ -65,16 +66,16 @@ function transformHtmlAst(ast: HastNode): HastNode {
   ast = decorate(ast)
   ast = sectionize(ast, {
     h2: {
-      sectionTag: 'h2-section',
-      sectionClass: [],
+      bodyClass: [],
       bodyTag: 'h2-body',
-      bodyClass: []
+      sectionClass: [],
+      sectionTag: 'h2-section'
     },
     h3: {
-      sectionTag: 'h3-section',
-      sectionClass: [],
+      bodyClass: [],
       bodyTag: 'h3-body',
-      bodyClass: []
+      sectionClass: [],
+      sectionTag: 'h3-section'
     }
   })
   return ast

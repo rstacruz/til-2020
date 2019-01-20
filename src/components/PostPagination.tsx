@@ -1,7 +1,7 @@
-import React from 'react'
 import { Link } from 'gatsby'
-import CSS from './PostPagination.module.css'
+import React from 'react'
 import { PageNode } from '../types'
+import CSS from './PostPagination.module.css'
 
 export interface Props {
   previous: PageNode

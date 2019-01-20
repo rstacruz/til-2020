@@ -1,26 +1,29 @@
+import cn from 'classnames'
 import React from 'react'
 import refractor from 'refractor'
 import makeToReact from '../helpers/to_react'
 import CSS from './PreCode.module.css'
-import cn from 'classnames'
 
 const LANGUAGES = {
   sh: 'bash'
 }
 
 const PreCode = ({ children, className, ...props }) => {
-  let ast, highlighted
+  let ast
+  let highlighted
 
   // Try to extract { language, content }, but if that fails,
   // just pass thru to a regular `<pre>`.
   const code = getCode(children)
-  if (!code) return <pre {...props}>{children}</pre>
+  if (!code) {
+    return <pre {...props}>{children}</pre>
+  }
 
   // Highlight using prism (via refractor)
   try {
     ast = refractor.highlight(code.content, code.language)
     highlighted = toReact(ast)
-  } catch (_e) {
+  } catch (error) {
     return <pre {...props}>{children}</pre>
   }
 
@@ -41,25 +44,37 @@ interface GetCodeResult {
 }
 
 function getCode(children: any): GetCodeResult | void {
-  if (!children) return
+  if (!children) {
+    return
+  }
 
   const code = children[0]
-  if (!code) return
-  if (code.type !== 'code') return
-  if (!code.props) return
+  if (!code) {
+    return
+  }
+  if (code.type !== 'code') {
+    return
+  }
+  if (!code.props) {
+    return
+  }
 
   const { className } = code.props
-  if (!className) return
+  if (!className) {
+    return
+  }
 
   const m = className.match(/^language-(.*)$/)
-  if (!m) return
+  if (!m) {
+    return
+  }
 
   const language = m[1]
   const textNodes = code.props.children
 
   return {
-    language: LANGUAGES[language] || language,
-    content: textNodes.join('')
+    content: textNodes.join(''),
+    language: LANGUAGES[language] || language
   }
 }
 

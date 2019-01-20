@@ -1,14 +1,14 @@
+import groupBy from 'group-by'
 import React from 'react'
 import { PageNode } from '../types'
-import groupBy from 'group-by'
 import PageListGroup from './PageListGroup'
 
-export type Props = {
+export interface Props {
   pages: Array<{ node: PageNode; key: string }>
   recentCount: number
 }
 
-export type Groups = {
+export interface Groups {
   [id: string]: Array<{ node: PageNode; key: string }>
 }
 
@@ -39,7 +39,7 @@ GroupedPageList.defaultProps = {
 
 function getFirstTag(node: PageNode): string | void {
   const { tags } = node.frontmatter
-  if (tags) return tags[0]
+  if (tags) { return tags[0] }
 }
 
 /**

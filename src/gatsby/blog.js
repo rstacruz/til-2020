@@ -11,12 +11,12 @@ const { createFilePath } = require('gatsby-source-filesystem')
 
 const buildExports = (ctx /*: Context */) => {
   return {
-    onCreateNode: onCreateNode.bind(null, ctx),
-    createPages: createPages.bind(null, ctx)
+    createPages: createPages.bind(null, ctx),
+    onCreateNode: onCreateNode.bind(null, ctx)
   }
 }
 
-const onCreateNode = (_ctx /*: any */, { node, actions, getNode }) => {
+const onCreateNode = (ctx /*: any */, { node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -38,7 +38,9 @@ const createPages = (
   { actions, graphql } /*: { actions: Actions, graphql: Graphql } */
 ) => {
   return graphql(buildQuery()).then(result => {
-    if (result.errors) return Promise.reject(result.errors)
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
 
     const { edges } = result.data.allMarkdownRemark
 
@@ -46,9 +48,9 @@ const createPages = (
       const next = edges[idx + 1]
       const prev = edges[idx - 1]
       buildPage(ctx, {
-        node,
         actions,
         next: next && next.node,
+        node,
         previous: prev && prev.node
       })
     })
@@ -69,19 +71,19 @@ function buildPage(
     typeof ctx.buildContext === 'function' && ctx.buildContext(node)
 
   const context = {
-    node_id: node.id,
-    nodeType: 'post',
-    title: node.frontmatter.title,
-    slug: node.fields.slug,
-    previous,
     next,
+    nodeType: 'post',
+    node_id: node.id,
+    previous,
+    slug: node.fields.slug,
+    title: node.frontmatter.title,
     ...(extraContext || {})
   }
 
   createPage({
-    path: node.fields.slug,
     component: ctx.templatePath,
-    context
+    context,
+    path: node.fields.slug
   })
 }
 

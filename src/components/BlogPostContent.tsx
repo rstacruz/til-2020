@@ -5,13 +5,13 @@
  * Blog post content
  */
 
-import React from 'react'
-import PostContent from './PostContent'
-import { HastNode } from '../types'
-import BlogPostTitle from './BlogPostTitle'
-import PostFooter from './PostFooter'
-import CSS from './BlogPostContent.module.css'
 import cn from 'classnames'
+import React from 'react'
+import { HastNode } from '../types'
+import CSS from './BlogPostContent.module.css'
+import BlogPostTitle from './BlogPostTitle'
+import PostContent from './PostContent'
+import PostFooter from './PostFooter'
 
 export interface Props {
   body: HastNode[]

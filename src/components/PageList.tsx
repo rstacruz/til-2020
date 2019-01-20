@@ -1,7 +1,7 @@
 // @flow
 
-import PostLink from '../components/PostLink'
 import React from 'react'
+import PostLink from '../components/PostLink'
 import { PageNode } from '../types'
 import CSS from './PageList.module.css'
 

@@ -5,11 +5,11 @@
  * @flow
  */
 
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
+import GroupedPageList from '../components/GroupedPageList'
 import Layout from '../components/Layout'
 import { PageNode } from '../types'
-import GroupedPageList from '../components/GroupedPageList'
 
 export interface Props {
   data: {
@@ -29,8 +29,8 @@ const IndexPage = (props: Props) => {
   const { edges } = data.allMarkdownRemark
 
   const pages = edges.map((edge: { node: PageNode }) => ({
-    node: edge.node,
-    key: edge.node.fields.slug
+    key: edge.node.fields.slug,
+    node: edge.node
   }))
 
   return (

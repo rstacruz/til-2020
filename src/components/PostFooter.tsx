@@ -1,7 +1,7 @@
-import React from 'react'
-import CSS from './PostFooter.module.css'
-import CardWaypoint, { State } from './CardWaypoint'
 import cn from 'classnames'
+import React from 'react'
+import CardWaypoint, { State } from './CardWaypoint'
+import CSS from './PostFooter.module.css'
 
 export interface Props {
   title: string
