@@ -2,11 +2,13 @@
 title: TypeScript vs. Flow
 ---
 
-## Open objects
+Lets talk about TypeScript and Flow.
+
+## Types vs. Interfaces
 
 You can also use `type X = {}` in TypeScript, but interfaces are preferred.
 
-<multi-comparison><div>
+<div data-element="multi-comparison"><div>
 
 #### Flow
 
@@ -16,6 +18,8 @@ type User = {
   age: number
 }
 ```
+
+Object types are defined in Flow much like object literals.This is how you would typically define types like React props, or options parameters for functions. This is how you would typically define types like React props, or options parameters for functions.
 
 </div><div>
 
@@ -28,11 +32,81 @@ interface User {
 }
 ```
 
-</div></multi-comparison>
+The same object type of Flow works in TypeScript, as well. However, interfaces are often preferred. Interfaces work much like object types with additional features only available to interface types.
+
+</div></div>
+
+## Type inheritance
+
+<div data-element="multi-comparison"><div>
+
+```javascript
+type Customer = User & {
+  cardNumber: string
+}
+```
+
+Types can be extended in Flow using the `&` operator. This effectively creates a new type based on another.
+
+</div><div>
+
+```typescript
+interface Customer extends User {
+  cardNumber: string
+}
+```
+
+TypeScripr has no `&`, but one advantage of interfaces is that it can be extended just like classes.
+
+</div></div>
+
+## Unsealed objects
+
+<div data-element="multi-comparison"><div>
+
+#### Flow
+
+```javascript
+type User = {
+  name: string,
+  age: number
+}
+```
+
+```javascript
+function getEmail(user: User) {
+  // ✓ No error
+  console.log(user.email)
+}
+```
+
+Object types in Flow are "unsealed" by default. They can have additional fields assigned and retrieved from them thay may not br defined in the schema.
+
+</div><div>
+
+#### TypeScript
+
+```typescript
+interface User {
+  name: string
+  age: number
+}
+```
+
+```javascript
+function getEmail(user: User) {
+  // ✗ Error
+  console.log(user.email)
+}
+```
+
+In contrast, TypeScript object types and interfaces are all sealed. Accessing any parameter not defined in the schema will produce an error.
+
+</div></div>
 
 ## Sealed objects
 
-<multi-comparison><div>
+<div data-element="multi-comparison"><div>
 
 #### Flow
 
@@ -42,6 +116,8 @@ type User = {|
   age: number
 |}
 ```
+
+Object types have to be manually sealed in Flow using `{| ... |}` braces.
 
 </div><div>
 
@@ -54,11 +130,11 @@ type User = {
 }
 ```
 
-</div></multi-comparison>
+</div></div>
 
 ## Importing
 
-<multi-comparison><div>
+<div data-element="multi-comparison"><div>
 
 #### Flow
 
@@ -78,11 +154,11 @@ import { User } from './user'
 export User
 ```
 
-</div></multi-comparison>
+</div></div>
 
 ## Implicit any types
 
-<multi-comparison><div>
+<div data-element="multi-comparison"><div>
 
 #### Flow
 
@@ -102,13 +178,13 @@ const greet = (user: any) => {
 }
 ```
 
-</div></multi-comparison>
+</div></div>
 
 ## Question mark types
 
 Avoid them in TypeScript. They're considered a `jsdoc` type, which can't be used in many places. In contrast, you have to be explicit in TypeScript: eg, `mytype | void | null` instead of `?mytype`.
 
-<multi-comparison><div>
+<div data-element="multi-comparison"><div>
 
 #### Flow
 
@@ -124,7 +200,7 @@ Avoid them in TypeScript. They're considered a `jsdoc` type, which can't be used
 mytype | void
 ```
 
-</div></multi-comparison>
+</div></div>
 
 ## Function types
 

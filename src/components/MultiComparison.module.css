@@ -1,7 +1,42 @@
+@import '../styles/variables.css';
+
 .root {
-  display: flex;
+  @apply --thin-scrollbar;
+  composes: root from './H3Section.module.css';
+  overflow-x: auto;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-bottom: 32px;
+
+  @media (--ms-viewport-lg) {
+    marin-left: 0;
+    marin-right: 0;
+  }
 }
 
-.root > div {
-  flex: 1 1 auto;
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 600px;
+  padding: 8px;
+
+  @media (--viewport-7) {
+    width: var(--column-size-inverse);
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+}
+
+/* Each column */
+.inner > div {
+  flex: 0 0 50%;
+  padding: 0 8px;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.inner > div > h4 {
+  margin: 0 0 16px 0;
 }
