@@ -35,7 +35,7 @@ const toReact = ({ components }: Options = {}) => {
       component = components[tag]
     }
 
-    return React.createElement(component || tag, props, children)
+    return React.createElement(component || tag, props || {}, children)
   }
 
   const compile = (node: any): React.ReactNode => {
