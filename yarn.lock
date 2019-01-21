@@ -213,9 +213,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@babel/node@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.2.0.tgz#0b601be8ef03897923e3908dc18129836d44e6fa"
+"@babel/node@^7.2.2":
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.2.2.tgz#1557dd23545b38d7b1d030a9c0e8fb225dbf70ab"
+  integrity sha512-jPqgTycE26uFsuWpLika9Ohz9dmLQHWjOnMNxBOjYb1HXO+eLKxEr5FfKSXH/tBvFwwaw+pzke3gagnurGOfCA==
   dependencies:
     "@babel/polyfill" "^7.0.0"
     "@babel/register" "^7.0.0"
@@ -2951,18 +2952,6 @@ css-loader@^1.0.0:
     postcss-value-parser "^3.3.0"
     source-list-map "^2.0.0"
 
-css-modules-loader-core@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/css-modules-loader-core/-/css-modules-loader-core-1.1.0.tgz#5908668294a1becd261ae0a4ce21b0b551f21d16"
-  integrity sha1-WQhmgpShvs0mGuCkziGwtVHyHRY=
-  dependencies:
-    icss-replace-symbols "1.1.0"
-    postcss "6.0.1"
-    postcss-modules-extract-imports "1.1.0"
-    postcss-modules-local-by-default "1.2.0"
-    postcss-modules-scope "1.1.0"
-    postcss-modules-values "1.3.0"
-
 css-prefers-color-scheme@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/css-prefers-color-scheme/-/css-prefers-color-scheme-3.0.0.tgz#690f1eef52bff570791940e57d61b68ba9ed6d2a"
@@ -3183,6 +3172,13 @@ debug@^3.1.0, debug@^3.2.5:
 debug@^4.0.1, debug@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
+  dependencies:
+    ms "^2.1.1"
+
+debug@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
+  integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
   dependencies:
     ms "^2.1.1"
 
@@ -4716,9 +4712,10 @@ gatsby-cli@^2.4.8:
     yargs "^11.1.0"
     yurnalist "^1.0.2"
 
-gatsby-link@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.0.7.tgz#b25b75c9d2dd34cfee4fa629019f8c6b0da719c9"
+gatsby-link@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.0.8.tgz#35db4c24372c9da54ffc9c3baf165b90d1fcfcb9"
+  integrity sha512-IDiSuoJFY1y08yFsQ0Axx56t04VhJb2LMRqp52OYYQCXhcHIHfmjgpcTQw/2lqmgUX6dSBqn3mSm/UjycpLPDg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@reach/router" "^1.1.1"
@@ -4756,9 +4753,10 @@ gatsby-plugin-postcss@^2.0.2:
     "@babel/runtime" "^7.0.0"
     postcss-loader "^3.0.0"
 
-gatsby-plugin-react-helmet@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.4.tgz#07811c8ccc626ecfea40554ccc5f946db705409d"
+gatsby-plugin-react-helmet@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.5.tgz#eaeca7c83c6c273d31454598949dd0d3b4ff5f31"
+  integrity sha512-Xn8d4EckfUkO3xB8qfjn1AcqeA2fYgd6Mbin3RHc/Zu6YRiOQqdJAVBXz+7PbFpTt+6GCluKklEpFUA4RS4oYw==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
@@ -4850,9 +4848,10 @@ gatsby-remark-images@^3.0.1:
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.0.1"
 
-gatsby-source-filesystem@^2.0.12:
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.12.tgz#2d447f547a575fd6b867bce4381b2d1abbee61d1"
+gatsby-source-filesystem@^2.0.16:
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.16.tgz#d2d0ed731c07739b66bef3862b2fa6a78a17c3eb"
+  integrity sha512-cq9NGoO9BqBsopBRDh7vVZF9HuUzEFKyssKUlbbgkdC4U1OyYI7JP6rjNrcK9J5VoLhcYze6isFRhPdLKkTiLQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     better-queue "^3.8.7"
@@ -4864,14 +4863,16 @@ gatsby-source-filesystem@^2.0.12:
     md5-file "^3.1.1"
     mime "^2.2.0"
     pretty-bytes "^4.0.2"
+    progress "^1.1.8"
     read-chunk "^3.0.0"
     slash "^1.0.0"
     valid-url "^1.0.9"
     xstate "^3.1.0"
 
-gatsby-transformer-remark@^2.1.15:
-  version "2.1.15"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-2.1.15.tgz#c744bebdcb94017409826011a3f78af8c1e0ff1c"
+gatsby-transformer-remark@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-2.2.0.tgz#9f59ae105de56b156b10b5942995da0078cbad0b"
+  integrity sha512-TNt+UWl2hxxcZTa95OhAAdZpeTBKrI6Pk9NfaDvz59TUv5CFuhCZs95GkUTqW1WNuYnwk7/M4c+niOWx0/0D+Q==
   dependencies:
     "@babel/runtime" "^7.0.0"
     bluebird "^3.5.0"
@@ -4893,10 +4894,10 @@ gatsby-transformer-remark@^2.1.15:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.3.0"
 
-gatsby@^2.0.85:
-  version "2.0.85"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.85.tgz#325cf5f61357868bc7365b2ea7196a89c3320312"
-  integrity sha512-nDqdp35rI6OYvZD/qfJAwYV0MuFpC4Etoxwu49dVpbdwH2wIx/88K4/w4y6WB4rFBNTrCe1kbcB7qYROti9opw==
+gatsby@^2.0.91:
+  version "2.0.91"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.91.tgz#177869f475615dd4bd67e6b9d96779b214f3df52"
+  integrity sha512-Z54P7oLqn2x1pvAPmk3CDRAxKMCXKBwsU3YzMAofAnA2OJXoCfZmbbkn9aLtXGin67sM9Jqg3GXnEcb6IiODcQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -4952,7 +4953,7 @@ gatsby@^2.0.85:
     fs-exists-cached "1.0.0"
     fs-extra "^5.0.0"
     gatsby-cli "^2.4.8"
-    gatsby-link "^2.0.7"
+    gatsby-link "^2.0.8"
     gatsby-plugin-page-creator "^2.0.5"
     gatsby-react-router-scroll "^2.0.2"
     glob "^7.1.1"
@@ -5090,9 +5091,16 @@ github-from-package@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
 
-github-slugger@^1.0.0, github-slugger@^1.1.1, github-slugger@^1.2.0:
+github-slugger@^1.0.0, github-slugger@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.2.0.tgz#8ada3286fd046d8951c3c952a8d7854cfd90fd9a"
+  dependencies:
+    emoji-regex ">=6.0.0 <=6.1.1"
+
+github-slugger@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.2.1.tgz#47e904e70bf2dccd0014748142d31126cfd49508"
+  integrity sha512-SsZUjg/P03KPzQBt7OxJPasGw6NRO5uOgiZ5RGXVud5iSIZ0eNZeNp5rTwCxtavrRUa/A77j8mePVc5lEvk0KQ==
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
@@ -5748,7 +5756,7 @@ iconv-lite@^0.4.17, iconv-lite@^0.4.24, iconv-lite@^0.4.4, iconv-lite@^0.4.5, ic
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-icss-replace-symbols@1.1.0, icss-replace-symbols@^1.1.0:
+icss-replace-symbols@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/icss-replace-symbols/-/icss-replace-symbols-1.1.0.tgz#06ea6f83679a7749e386cfe1fe812ae5db223ded"
 
@@ -6359,11 +6367,6 @@ is-symbol@^1.0.2:
   resolved "https://registry.yarnpkg.com/is-symbol/-/is-symbol-1.0.2.tgz#a055f6ae57192caee329e7a860118b497a950f38"
   dependencies:
     has-symbols "^1.0.0"
-
-is-there@^4.4.2:
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/is-there/-/is-there-4.4.4.tgz#9bc1a093fe56d378be97b822eed763606ab4d337"
-  integrity sha512-WbEGbR5i/vSLJ/cc72kVCoM0RvKWmtmPpRXriNlhsredolym2aSTHZA02IzvDR5ewmwD0V6e9S3s9aHs6Ygw5A==
 
 is-typedarray@~1.0.0:
   version "1.0.0"
@@ -7577,15 +7580,16 @@ node-releases@^1.0.1:
   dependencies:
     semver "^5.3.0"
 
-nodemon@^1.18.8:
-  version "1.18.8"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.18.8.tgz#eb4c0052dc81395bdc503f3c8ae3cba86ca7146a"
+nodemon@^1.18.9:
+  version "1.18.9"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.18.9.tgz#90b467efd3b3c81b9453380aeb2a2cba535d0ead"
+  integrity sha512-oj/eEVTEI47pzYAjGkpcNw0xYwTl4XSTUQv2NPQI6PpN3b75PhpuYk3Vb3U80xHCyM2Jm+1j68ULHXl4OR3Afw==
   dependencies:
     chokidar "^2.0.4"
     debug "^3.1.0"
     ignore-by-default "^1.0.1"
     minimatch "^3.0.4"
-    pstree.remy "^1.1.3"
+    pstree.remy "^1.1.6"
     semver "^5.5.0"
     supports-color "^5.2.0"
     touch "^3.1.0"
@@ -8666,34 +8670,27 @@ postcss-minify-selectors@^4.0.1:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-postcss-modules-extract-imports@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-modules-extract-imports/-/postcss-modules-extract-imports-1.1.0.tgz#b614c9720be6816eaee35fb3a5faa1dba6a05ddb"
-  integrity sha1-thTJcgvmgW6u41+zpfqh26agXds=
-  dependencies:
-    postcss "^6.0.1"
-
 postcss-modules-extract-imports@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/postcss-modules-extract-imports/-/postcss-modules-extract-imports-1.2.1.tgz#dc87e34148ec7eab5f791f7cd5849833375b741a"
   dependencies:
     postcss "^6.0.1"
 
-postcss-modules-local-by-default@1.2.0, postcss-modules-local-by-default@^1.2.0:
+postcss-modules-local-by-default@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/postcss-modules-local-by-default/-/postcss-modules-local-by-default-1.2.0.tgz#f7d80c398c5a393fa7964466bd19500a7d61c069"
   dependencies:
     css-selector-tokenizer "^0.7.0"
     postcss "^6.0.1"
 
-postcss-modules-scope@1.1.0, postcss-modules-scope@^1.1.0:
+postcss-modules-scope@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/postcss-modules-scope/-/postcss-modules-scope-1.1.0.tgz#d6ea64994c79f97b62a72b426fbe6056a194bb90"
   dependencies:
     css-selector-tokenizer "^0.7.0"
     postcss "^6.0.1"
 
-postcss-modules-values@1.3.0, postcss-modules-values@^1.3.0:
+postcss-modules-values@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/postcss-modules-values/-/postcss-modules-values-1.3.0.tgz#ecffa9d7e192518389f42ad0e83f72aec456ea20"
   dependencies:
@@ -8944,15 +8941,6 @@ postcss-values-parser@^2.0.0:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
-postcss@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.1.tgz#000dbd1f8eef217aa368b9a212c5fc40b2a8f3f2"
-  integrity sha1-AA29H47vIXqjaLmiEsX8QLKo8/I=
-  dependencies:
-    chalk "^1.1.3"
-    source-map "^0.5.6"
-    supports-color "^3.2.3"
-
 postcss@^5.0.4:
   version "5.2.18"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.18.tgz#badfa1497d46244f6390f58b319830d9107853c5"
@@ -9129,9 +9117,10 @@ psl@^1.1.24:
   version "1.1.29"
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.1.29.tgz#60f580d360170bb722a797cc704411e6da850c67"
 
-pstree.remy@^1.1.3:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/pstree.remy/-/pstree.remy-1.1.4.tgz#a03d5dbc06ba639fb6dd4874644c4bad9882ec21"
+pstree.remy@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/pstree.remy/-/pstree.remy-1.1.6.tgz#73a55aad9e2d95814927131fbf4dc1b62d259f47"
+  integrity sha512-NdF35+QsqD7EgNEI5mkI/X+UwaxVEbQaz9f4IooEmMUv6ZPmlTQYGjBPJGgrlzNdjSvIy4MWMg6Q6vCgBO2K+w==
 
 public-encrypt@^4.0.0:
   version "4.0.3"
@@ -9290,14 +9279,15 @@ react-dev-utils@^4.2.1:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@^16.6.3:
-  version "16.6.3"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
+react-dom@^16.7.0:
+  version "16.7.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.7.0.tgz#a17b2a7ca89ee7390bc1ed5eb81783c7461748b8"
+  integrity sha512-D0Ufv1ExCAmF38P2Uh1lwpminZFRXEINJe53zRAbm4KPwSyd6DY/uDoS0Blj9jvPpn1+wivKpZYc8aAAN/nAkg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.11.2"
+    scheduler "^0.12.0"
 
 react-error-overlay@^3.0.0:
   version "3.0.0"
@@ -9346,9 +9336,10 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-typist@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/react-typist/-/react-typist-2.0.4.tgz#e7ee4de53ead913d363d38f07b700c00ce271be0"
+react-typist@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-typist/-/react-typist-2.0.5.tgz#9830395a73a03e6368e1392ecb98edaa3a648e44"
+  integrity sha512-iZCkeqeegO0TlkTMiH2JD1tvMtY9RrXkRylnAI6m8aCVAUUwNzoWTVF7CKLij6THeOMcUDCznLDDvNp55s+YZA==
   dependencies:
     prop-types "^15.5.10"
 
@@ -9360,14 +9351,15 @@ react-waypoint@^8.1.0:
     prop-types "^15.0.0"
     react-is "^16.6.3"
 
-react@^16.6.3:
-  version "16.6.3"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
+react@^16.7.0:
+  version "16.7.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.7.0.tgz#b674ec396b0a5715873b350446f7ea0802ab6381"
+  integrity sha512-StCz3QY8lxTb5cl2HJxjwLFOXPIFQp+p+hxQfc8WE0QiLfCtIlKj8/+5tjjKm8uSTlAW+fCPaavGFS06V9Ar3A==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.11.2"
+    scheduler "^0.12.0"
 
 read-cache@^1.0.0:
   version "1.0.0"
@@ -9935,9 +9927,10 @@ sax@>=0.6.0, sax@^1.2.4, sax@~1.2.1, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-scheduler@^0.11.2:
-  version "0.11.3"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.11.3.tgz#b5769b90cf8b1464f3f3cfcafe8e3cd7555a2d6b"
+scheduler@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.12.0.tgz#8ab17699939c0aedc5a196a657743c496538647b"
+  integrity sha512-t7MBR28Akcp4Jm+QoR63XgAi9YgCUmgvDHqf5otgAj4QvdoBE4ImCX0ffehefePPG+aitiYHp0g/mW6s4Tp+dw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -11090,20 +11083,6 @@ type-of@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/type-of/-/type-of-2.0.1.tgz#e72a1741896568e9f628378d816d6912f7f23972"
 
-typed-css-modules@^0.3.7:
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/typed-css-modules/-/typed-css-modules-0.3.7.tgz#430ba9b8bfe9d193dfa4f3bfd34f4f9e2fcf47c7"
-  integrity sha512-KR1VG/U0rgFWaiQtXKtFMgKaurs80nvlBvZ7BfuYGLldw6kss/97sd+aMG4CI73BbujvefG7DBjnsBqq2Aowcw==
-  dependencies:
-    camelcase "^4.1.0"
-    chalk "^2.1.0"
-    chokidar "^2.0.3"
-    css-modules-loader-core "^1.1.0"
-    glob "^7.1.2"
-    is-there "^4.4.2"
-    mkdirp "^0.5.1"
-    yargs "^8.0.2"
-
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
@@ -11933,25 +11912,6 @@ yargs@^11.1.0:
     which-module "^2.0.0"
     y18n "^3.2.1"
     yargs-parser "^9.0.2"
-
-yargs@^8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-8.0.2.tgz#6299a9055b1cefc969ff7e79c1d918dceb22c360"
-  integrity sha1-YpmpBVsc78lp/355wdkY3Osiw2A=
-  dependencies:
-    camelcase "^4.1.0"
-    cliui "^3.2.0"
-    decamelize "^1.1.1"
-    get-caller-file "^1.0.1"
-    os-locale "^2.0.0"
-    read-pkg-up "^2.0.0"
-    require-directory "^2.1.1"
-    require-main-filename "^1.0.1"
-    set-blocking "^2.0.0"
-    string-width "^2.0.0"
-    which-module "^2.0.0"
-    y18n "^3.2.1"
-    yargs-parser "^7.0.0"
 
 yargs@^9.0.0:
   version "9.0.1"
