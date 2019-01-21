@@ -1,14 +1,17 @@
 @import '../styles/variables.css';
 
 .root {
-  @apply --thin-scrollbar;
-  composes: root from './H3Section.module.css';
+  display: inline;
   overflow-x: auto;
   margin-left: -16px;
   margin-right: -16px;
   padding-bottom: 32px;
 
-  @media (--ms-viewport-lg) {
+  @media (--viewport-7) {
+    @apply --thin-scrollbar;
+    overflow-x: visible;
+    display: flex;
+    width: var(--column-size-inverse);
     marin-left: 0;
     marin-right: 0;
   }
@@ -17,13 +20,11 @@
 .inner {
   display: flex;
   flex-wrap: wrap;
-  min-width: 600px;
+  width: 600px;
   padding: 8px;
 
   @media (--viewport-7) {
-    width: var(--column-size-inverse);
-    margin-left: -8px;
-    margin-right: -8px;
+    width: auto;
   }
 }
 
@@ -38,5 +39,6 @@
 }
 
 .inner > div > h4 {
-  margin: 0 0 16px 0;
+  margin: 0 0 -16px 0;
+  color: var(--accent-text);
 }

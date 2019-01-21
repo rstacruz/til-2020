@@ -12,18 +12,35 @@ You can also use `type X = {}` in TypeScript, but interfaces are preferred.
 
 #### Flow
 
-```javascript
+```typescript
 type User = {
-  name: string,
+  name: string
   age: number
 }
 ```
 
-Object types are defined in Flow much like object literals.This is how you would typically define types like React props, or options parameters for functions. This is how you would typically define types like React props, or options parameters for functions.
+Object types are defined in Flow much like object literals. This is how you would typically define types like React props, or options parameters for functions.
 
 </div><div>
 
 #### TypeScript
+
+```typescript
+type User = {
+  name: string
+  age: number
+}
+```
+
+The same object type of Flow works in TypeScript as well.
+
+</div></div>
+
+### TypeScript's interfaces
+
+<!-- {.-literate-style} -->
+
+The same object type of Flow works in TypeScript as well. However, interfaces are often preferred. Interfaces work much like object types with additional features only available to interface types.
 
 ```typescript
 interface User {
@@ -32,13 +49,11 @@ interface User {
 }
 ```
 
-The same object type of Flow works in TypeScript, as well. However, interfaces are often preferred. Interfaces work much like object types with additional features only available to interface types.
-
-</div></div>
-
 ## Type inheritance
 
-<div data-element="multi-comparison"><div>
+### Flow ­ intersections
+
+<!-- {.-literate-style} -->
 
 ```javascript
 type Customer = User & {
@@ -46,9 +61,12 @@ type Customer = User & {
 }
 ```
 
-Types can be extended in Flow using the `&` operator. This effectively creates a new type based on another.
+Types can be extended in Flow using the `&` operator to create an _intersection type_. This effectively creates a new type based on another.
+TypeScript also has `&`, just like Flow, so the code on the left will also work. However, one advantage of interfaces is that it can be extended just like classes.
 
-</div><div>
+### TypeScript extending interfaces
+
+<!-- {.-literate-style} -->
 
 ```typescript
 interface Customer extends User {
@@ -56,9 +74,58 @@ interface Customer extends User {
 }
 ```
 
-TypeScripr has no `&`, but one advantage of interfaces is that it can be extended just like classes.
+TypeScript also has `&`, just like Flow, so the code on the left will also work. However, one advantage of interfaces is that it can be extended just like classes.
 
-</div></div>
+## Inheritance example
+
+###
+
+<!-- {.-literate-style} -->
+
+Here's an example that works in TypeScript, but not in Flow. Let's try to model a tree structure where there are two types of nodes: _Categories_ and _Products_ (and possibly more), but we want to keep a common `BaseNode` interface for all of them.
+
+```js
+type BaseNode = {
+  children: BaseNode[],
+  type: string
+}
+
+type Category = BaseNode & {
+  type: 'category',
+  children: Product[]
+}
+
+type Product = BaseNode & {
+  type: 'product'
+}
+
+const category: Category = {
+  type: 'category',
+  children: [{ type: 'product', children: [] }]
+}
+```
+
+###
+
+<!-- {.-literate-style} -->
+
+In this case, Flow gets confused by the multiple definitions of `type`.
+
+```
+Cannot assign object literal to `category` because
+string [1] is incompatible with string literal
+`category` [2] in property `type`.
+```
+
+```js
+type BaseNode = {
+  type: string /* [1] */
+}
+
+type Category = BaseNode & {
+  type: 'category' /* [2] */
+}
+```
 
 ## Unsealed objects
 
