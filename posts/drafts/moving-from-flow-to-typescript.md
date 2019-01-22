@@ -1,5 +1,5 @@
 ---
-title: TypeScript vs. Flow
+title: TypeScript for Flow users
 ---
 
 Lets talk about TypeScript and Flow.
@@ -51,11 +51,12 @@ interface User {
 
 ## Type inheritance
 
-### Flow ­ intersections
+### Intersection types
 
 <!-- {.-literate-style} -->
 
 ```javascript
+// This works for both Flow and TypeScript!
 type Customer = User & {
   cardNumber: string
 }
@@ -69,12 +70,13 @@ TypeScript also has `&`, just like Flow, so the code on the left will also work.
 <!-- {.-literate-style} -->
 
 ```typescript
+// TypeScript
 interface Customer extends User {
   cardNumber: string
 }
 ```
 
-TypeScript also has `&`, just like Flow, so the code on the left will also work. However, one advantage of interfaces is that it can be extended just like classes.
+TypeScript also has `&`, just like Flow, so this code will work with either. However, one advantage of interfaces is that it can be extended just like classes.
 
 ## Inheritance example
 

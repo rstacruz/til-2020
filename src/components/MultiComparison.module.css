@@ -1,7 +1,7 @@
 @import '../styles/variables.css';
 
 .root {
-  display: inline;
+  display: block;
   overflow-x: auto;
   margin-left: -16px;
   margin-right: -16px;
@@ -10,7 +10,7 @@
   @media (--viewport-7) {
     @apply --thin-scrollbar;
     overflow-x: visible;
-    display: flex;
+    display: inline;
     width: var(--column-size-inverse);
     marin-left: 0;
     marin-right: 0;
