@@ -9,6 +9,7 @@ services:
       - .:/app
       - node_modules:/app/node_modules
       - cache:/app/.cache
+      - public:/app/public
     ports:
       - '25800:25800'
     command: ["npm", "run", "develop", "--", "--host", "0.0.0.0", "--port", "25800"]
@@ -16,3 +17,4 @@ services:
 volumes:
   node_modules:
   cache:
+  public:
