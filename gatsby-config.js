@@ -30,7 +30,6 @@ module.exports = {
     'gatsby-plugin-feed',
     'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-typescript-css-modules',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
