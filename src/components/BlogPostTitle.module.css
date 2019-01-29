@@ -44,8 +44,8 @@
     transition: opacity 300ms linear;
   }
 
-  &.isInactive > * {
-    opacity: 0.25;
+  &.isInactive {
+    @apply --inactive-section;
   }
 }
 

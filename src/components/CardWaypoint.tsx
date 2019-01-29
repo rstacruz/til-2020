@@ -18,7 +18,7 @@ export interface Props {
 const TRIPWIRE = 0.65
 
 // Larger overlap = more chances of having 2 active at a time
-const OVERLAP = 0.04
+const OVERLAP = 0.02
 
 class CardWaypoint extends React.Component<Props, State> {
   constructor(props: Props) {

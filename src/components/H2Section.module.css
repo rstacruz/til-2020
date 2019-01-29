@@ -63,11 +63,6 @@
     color: var(--accent);
     text-shadow: none;
   }
-
-  & > .body {
-    color: var(--mute-text-color);
-    opacity: 0.9;
-  }
 }
 
 .root:global(.-active) {

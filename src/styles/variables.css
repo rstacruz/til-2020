@@ -133,7 +133,7 @@
   }
 
   --shadow-paper: {
-    box-shadow: 0 2px 3px #3681, 0 16px 24px #3683;
+    box-shadow: 0 2px 3px #3681, 12px 12px 18px #3681;
   }
 
   --shadow-paper-inactive: {
@@ -145,9 +145,14 @@
       transform 250ms ease-in, filter 250ms linear;
   }
 
+  --inactive-section: {
+    background: white;
+    filter: brightness(0.97);
+    @apply --shadow-paper-transition;
+  }
+
   --side-line-section: {
     @apply --shadow-paper;
-    @apply --shadow-paper-transition;
     @apply --side-line;
 
     & {
@@ -157,17 +162,16 @@
     }
 
     @media (--ms-viewport-md) {
-      margin: 8px;
+      margin: 0 8px;
     }
 
     @media (--ms-viewport-xxl) {
-      margin: 8px 32px;
+      margin: 0 32px;
     }
 
     &:global(.-inactive) {
       @apply --shadow-paper-inactive;
-      transform: scale(0.995);
-      background: white;
+      @apply --inactive-section;
     }
 
     &:global(.-inactive)::after {
