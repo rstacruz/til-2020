@@ -12,7 +12,7 @@ I like using [Startify] not just as a pretty splash screen, but also as a sessio
 
 ### Installing Startify
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Install Startify in your vim configuration. Here's how you would do it with vim-plug.
 
@@ -22,7 +22,7 @@ Plug 'mhinz/vim-startify'
 
 ### Saving sessions
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Save your current session using `:SSave`.
 
@@ -32,7 +32,7 @@ Save your current session using `:SSave`.
 
 ### Loading sessions
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 The next time you start `vim` (or `nvim`), you will see a screen of your saved sessions.
 
@@ -42,7 +42,7 @@ The next time you start `vim` (or `nvim`), you will see a screen of your saved s
 
 ### Loading sessions
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 From a running Vim session, you can use `:SClose` to switch to a different project. Bonus: by default, this will also save your current session if it's already saved.
 
@@ -54,7 +54,7 @@ From a running Vim session, you can use `:SClose` to switch to a different proje
 
 ### Key bindings
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Set up some keybindings. I like these Spacemacs-inspired leader key bindings, but feel free to use any.
 
@@ -68,7 +68,7 @@ nnoremap <leader>ll :SClose<CR>
 
 ### Extra configuration
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Here's some extra config you can try!
 
