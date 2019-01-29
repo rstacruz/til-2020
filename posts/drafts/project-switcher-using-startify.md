@@ -24,7 +24,8 @@ The next time you start `vim` (or `nvim`), you will see a screen of your saved s
 
 ### Loading sessions
 
-From a running Vim session, you session
+From a running Vim session, you can use `:SClose` to switch to a different project. Bonus: by default, this will also save your current session if it's already saved.
+
 ![](project-switcher-using-startify/startify-sclose-2.gif)
 
 ### Extra configuration
