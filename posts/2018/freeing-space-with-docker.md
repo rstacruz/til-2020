@@ -6,7 +6,7 @@ tags: [Development]
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 You can use `docker system prune` to remove unused Docker artifacts.
 
@@ -25,7 +25,7 @@ docker volume prune
 
 ### Deleting old things
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Delete unused things using `docker system prune --filter until=240h`. This will remove old containers, images, cache files and networks.
 
@@ -61,7 +61,7 @@ Total reclaimed space: 197.1MB
 
 ### Delete unused volumes
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Now that you've deleted some containers, you may want to delete their associated volumes as well with `docker volume prune`.
 
