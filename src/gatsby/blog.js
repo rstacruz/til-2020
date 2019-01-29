@@ -42,8 +42,7 @@ const createPages = (
       return Promise.reject(result.errors)
     }
 
-    const { edges } = result.data.allMarkdownRemark
-
+    const { edges } = result.data.publishedPosts
     edges.forEach(({ node }, idx) => {
       const next = edges[idx + 1]
       const prev = edges[idx - 1]
@@ -53,6 +52,11 @@ const createPages = (
         node,
         previous: prev && prev.node
       })
+    })
+
+    const { edges: draftEdges } = result.data.draftPosts
+    draftEdges.forEach(({ node }) => {
+      buildPage(ctx, { actions, node })
     })
   })
 }
@@ -94,9 +98,26 @@ function buildPage(
 function buildQuery() {
   return `
   {
-    allMarkdownRemark(
+    publishedPosts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { date: { ne: null } } }
+      limit: 1000
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+    draftPosts: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { date: { eq: null } } }
       limit: 1000
     ) {
       edges {
