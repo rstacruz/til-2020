@@ -13,7 +13,11 @@ There are 3 providers I can suggest. They more or less have the same offerings; 
 
 ### \$5 a month
 
+<!-- {.-wider-literate-style} -->
+
 For **\$5** a month, you can get:
+
+<figure>
 
 | Provider                         |  RAM | CPU | Storage |
 | -------------------------------- | ---: | --: | ------: |
@@ -21,9 +25,15 @@ For **\$5** a month, you can get:
 | [**Vultr**][vultr]               | 1 GB |  1x |   25 GB |
 | [**DigitalOcean**][digitalocean] | 1 GB |  1x |   25 GB |
 
+</figure>
+
 ### \$10 a month
 
+<!-- {.-wider-literate-style} -->
+
 For **\$10** a month, you can get:
+
+<figure>
 
 | Provider                         |  RAM | CPU | Storage |
 | -------------------------------- | ---: | --: | ------: |
@@ -31,15 +41,23 @@ For **\$10** a month, you can get:
 | [**Vultr**][vultr]               | 2 GB |  1x |   40 GB |
 | [**DigitalOcean**][digitalocean] | 2 GB |  1x |   50 GB |
 
+</figure>
+
 ### \$20 a month
 
+<!-- {.-wider-literate-style} -->
+
 For **\$20** a month, you can get:
+
+<figure>
 
 | Provider                         |  RAM | CPU | Storage |
 | -------------------------------- | ---: | --: | ------: |
 | [**Linode**][linode]             | 4 GB |  2x |   80 GB |
 | [**Vultr**][vultr]               | 4 GB |  2x |   60 GB |
 | [**DigitalOcean**][digitalocean] | 4 GB |  2x |   60 GB |
+
+</figure>
 
 [vultr]: https://www.vultr.com/
 [linode]: https://www.linode.com/
@@ -49,7 +67,7 @@ For **\$20** a month, you can get:
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Create your everyday user. For me, that's `rsc`, but change that as you need. You'll also want to set up sudo, of course, so let's do that.
 
@@ -67,7 +85,7 @@ passwd
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Make sure you can connect to it! After doing this, you can start connecting to your devbox via SSH, and do the rest of this setup via SSH.
 
@@ -88,7 +106,7 @@ ssh-keygen
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Arch Linux has no `sudo` by default. You can use the built-in `su`, but sudo is much more convenient.
 
@@ -102,7 +120,7 @@ echo "%wheel ALL=(ALL) NOPASSWD: ALL" | EDITOR="tee -a" visudo
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Install the packages you'd use on a day-to-day basis. Protip: [mosh](https://mosh.org/) is a great way to connect to your devbox.
 
@@ -117,7 +135,7 @@ sudo pacman -Syu \
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Set up OpenVPN. I'm using the installer script [Angristan/OpenVPN-install](https://github.com/Angristan/OpenVPN-install) which will set up everything for you: openVPN, certificates, iptables, generate `.ovpn` files, and so on.
 
@@ -138,7 +156,7 @@ chmod +x openvpn-install.sh
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 We'll be using Uncomplicated Firewall to set up rules. We only want to expose 3 things to the outside world: SSH, Mosh, and OpenVPN.
 
@@ -148,7 +166,7 @@ sudo pacman -Syu ufw
 
 ### Set up rules
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Let's set up some rules. We want to restrict incoming connections, and allow internal traffic to flow freely.
 
@@ -161,7 +179,7 @@ sudo ufw route allow in on tun0 out on tun0  # dont block peer-to-peer
 
 ### Allow incoming services
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Enable the services that you want accessible outside the VPN.
 
@@ -173,7 +191,7 @@ sudo ufw allow mosh
 
 ### Make it work with Docker
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 You will need to add some overrides in `/etc/ufw/after.rules`. See this article for more info: [Solving ufw and Docker issues](https://github.com/chaifeng/ufw-docker/blob/master/README.md#solving-ufw-and-docker-issues).
 
@@ -193,7 +211,7 @@ sudo ufw route allow proto tcp from any to any port 443
 
 ### Start the firewall
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Start and enable your firewall.
 
@@ -213,7 +231,7 @@ sudo ufw status
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Use [fail2ban] to restrict SSH access to anyone trying to get in and failing to do so.
 
@@ -225,7 +243,7 @@ sudo pacman -Syu fail2ban
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Configure fail2ban to "jail" sshd connections.
 
@@ -240,7 +258,7 @@ enabled = true
 
 ###
 
-<!-- {.-literate-style} -->
+<!-- {.-wider-literate-style} -->
 
 Start fail2ban and auto-start it on boot.
 
@@ -251,6 +269,10 @@ sudo systemctl start fail2ban
 
 ## NFS server
 
+###
+
+<!-- {.-wider-literate-style} -->
+
 You can use NFS to access your files from within the VPN. In this example above, we'll be sharing `/home/rsc/Dev` via NFS.
 
 ```sh
@@ -258,41 +280,70 @@ You can use NFS to access your files from within the VPN. In this example above,
 sudo pacman -Syu nfs-utils
 ```
 
+###
+
+<!-- {.-wider-literate-style} -->
+
+Add mount point.
+
 ```sh
-# Add mount point
 sudo mount --bind /home/rsc/Dev /srv/Dev
 ```
 
+###
+
+<!-- {.-wider-literate-style} -->
+
+Edit fstab to auto-mount it on boot up.
+
 ```sh
-# Edit fstab to auto-mount it on boot up
 sudo vim /etc/fstab
 ```
 
-> ```
-> /home/rsc/Dev /srv/Dev none rw,bind 0 0
-> ```
+```
+/home/rsc/Dev /srv/Dev none rw,bind 0 0
+```
+
+###
+
+<!-- {.-wider-literate-style} -->
+
+Edit nfs config to export this path.
 
 ```sh
-# Edit nfs config to export this path
 sudo vim /etc/exports
 ```
 
-> ```
-> /srv/Dev 10.8.0.0/24(rwsync)
-> ```
+```
+/srv/Dev 10.8.0.0/24(rwsync)
+```
+
+###
+
+<!-- {.-wider-literate-style} -->
+
+Make /etc/exports take effect.
 
 ```sh
-# Make /etc/exports take effect
 sudo exportfs -arv
 ```
 
+###
+
+<!-- {.-wider-literate-style} -->
+
+Start and enable server.
+
 ```sh
-# Start and enable server
 sudo systemctl enable nfs-server
 sudo systemctl start nfs-server
 ```
 
 ## Git setup
+
+###
+
+<!-- {.-wider-literate-style} -->
 
 Configure Git.
 
@@ -305,16 +356,28 @@ git config --global user.email "rstacruz@users.noreply.github.com"
 
 ## Secure SSHD config
 
+###
+
+<!-- {.-wider-literate-style} -->
+
+Secure your SSH server.
+
 ```sh
 sudo vim /etc/ssh/sshd_server
 ```
 
-> ```
-> PermitRootLogin no
-> PasswordAuthentication no
-> ```
+```
+PermitRootLogin no
+PasswordAuthentication no
+```
 
 ## Rico's stuff
+
+###
+
+<!-- {.-wider-literate-style} -->
+
+Here are some other suggestions.
 
 ```sh
 # Install for puppeteer
@@ -328,11 +391,17 @@ chsh -s /usr/bin/fish
 
 ## Workstation setup
 
+### Set up hosts
+
+<!-- {.-wider-literate-style} -->
+
 In your laptop, it'd make sense to add the devbox IP to your `/etc/hosts`.
 
 ```sh
 # /etc/hosts
+```
 
+```
 # The local one works if you're connected to the VPN.
 # Use this when accessing resources, eg `http://devbox.local:4000/`
 devbox.local 10.8.0.1
@@ -341,6 +410,10 @@ devbox.local 10.8.0.1
 # Use this when connecting via mosh or ssh
 devbox.remote 123.234.123.234
 ```
+
+### Set up aliases
+
+<!-- {.-wider-literate-style} -->
 
 Set up an alias so you only have to type `A` to attach to your working session.
 
@@ -352,7 +425,11 @@ abbr A 'mosh --experimental-remote-ip=remote rsc@devbox.remote -- sh -c "tmux at
 alias A='mosh --experimental-remote-ip=remote rsc@devbox.remote -- sh -c "tmux attach || tmux"'
 ```
 
-You can mount the NFS. (Be sure to turn off Git prompts here, it gets slow)
+### Mounting NFS volumes
+
+<!-- {.-wider-literate-style} -->
+
+You can mount the NFS volumes. (Be sure to turn off Git prompts here, it gets slow)
 
 ```sh
 # You also need nfs-utils in the client side
