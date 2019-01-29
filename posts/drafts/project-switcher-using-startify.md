@@ -28,6 +28,18 @@ From a running Vim session, you can use `:SClose` to switch to a different proje
 
 ![](project-switcher-using-startify/startify-sclose-2.gif)
 
+### Bonus: key bindings
+
+Set up some keybindings. I like these Spacemacs-inspired leader key bindings, but feel free to use any.
+
+```vim
+" `SPC l s` - save current session
+nnoremap <leader>ls :SSave<CR>
+
+" `SPC l l` - list sessions / switch to different project
+nnoremap <leader>ll :SClose<CR>
+```
+
 ### Extra configuration
 
 Here's some extra config you can try!
