@@ -15,6 +15,7 @@
  *  - `-wider`
  *  - `-panorama`
  *  - `-terminal` (only for `pre`)
+ *  - `-crop` (only for `figure`)
  */
 
 [id] .root {
@@ -188,5 +189,28 @@
   @media (--ms-viewport-lg) {
     /* This is where it gets funny */
     max-width: 100%;
+  }
+}
+
+/*
+ * variations
+ */
+
+.body {
+  & > pre,
+  & > figure,
+  & > blockquote {
+    & {
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    & > img {
+      max-width: 100%;
+    }
+
+    &:global(.-crop) > img {
+      max-width: 100vw;
+    }
   }
 }

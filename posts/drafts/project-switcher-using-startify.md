@@ -1,6 +1,7 @@
 ---
 title: Vim project switcher using Startify
 date: 2019-01-29
+category: [Vim]
 ---
 
 I like using [Startify] not just as a pretty splash screen, but also as a session manager and project switcher. Here's how to use it.
@@ -25,7 +26,9 @@ Plug 'mhinz/vim-startify'
 
 Save your current session using `:SSave`.
 
-![](project-switcher-using-startify/startify-ssave.gif)
+<figure class='-crop'>
+<img src='project-switcher-using-startify/startify-ssave.gif'>
+</figure>
 
 ### Loading sessions
 
@@ -33,7 +36,9 @@ Save your current session using `:SSave`.
 
 The next time you start `vim` (or `nvim`), you will see a screen of your saved sessions.
 
-![](project-switcher-using-startify/startify-start.gif)
+<figure class='-crop'>
+<img src='project-switcher-using-startify/startify-start.gif'>
+</figure>
 
 ### Loading sessions
 
@@ -41,7 +46,9 @@ The next time you start `vim` (or `nvim`), you will see a screen of your saved s
 
 From a running Vim session, you can use `:SClose` to switch to a different project. Bonus: by default, this will also save your current session if it's already saved.
 
-![](project-switcher-using-startify/startify-sclose-2.gif)
+<figure class='-crop'>
+<img src='project-switcher-using-startify/startify-sclose-2.gif'>
+</figure>
 
 ## Bonus extras
 
