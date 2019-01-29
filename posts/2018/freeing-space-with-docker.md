@@ -4,9 +4,24 @@ date: 2019-01-29
 tags: [Development]
 ---
 
-Hey
+###
 
-## Sup
+<!-- {.-literate-style} -->
+
+You can use `docker system prune` to remove unused Docker artifacts.
+
+```bash
+# Remove containers, images, etc not used
+# in the last 240 hours
+docker system prune --filter --until=240h
+```
+
+```bash
+# Remove unused volumes
+docker volume prune
+```
+
+## How does it work?
 
 ### Deleting old things
 
@@ -18,7 +33,7 @@ Delete unused things using `docker system prune --filter until=240h`. This will 
 ─ docker system prune --filter until=240h
 ```
 
-<!-- {.-terminal} -->
+<!-- {.-bold} -->
 
 ```
 WARNING! This will remove:
@@ -54,7 +69,7 @@ Now that you've deleted some containers, you may want to delete their associated
 ─ docker volume prune
 ```
 
-<!-- {.-terminal} -->
+<!-- {.-bold} -->
 
 ```
 WARNING! This will remove all local volumes not used by at least one container.

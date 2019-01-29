@@ -219,6 +219,10 @@
       box-shadow: inset 0 0 0 2px var(--accent);
     }
 
+    &:global(.-bold) {
+      font-weight: bold;
+    }
+
     & + pre {
       box-shadow: inset 2px 0 0 var(--accent), inset -2px -2px 0 var(--accent),
         inset 0 1px 0 var(--border-color);
