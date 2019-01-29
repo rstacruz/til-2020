@@ -1,10 +1,19 @@
 ---
 title: Vim project switcher using Startify
+date: 2019-01-29
 ---
+
+I like using [Startify] not just as a pretty splash screen, but also as a session manager and project switcher. Here's how to use it.
+
+[Startify]: https://github.com/mhinz/vim-startify
+
+## Getting started
 
 ### Installing Startify
 
-Install [mhinz/vim-startify](https://github.com/mhinz/vim-startify) in your vimrc.
+<!-- {.-literate-style} -->
+
+Install Startify in your vim configuration. Here's how you would do it with vim-plug.
 
 ```vim
 Plug 'mhinz/vim-startify'
@@ -12,11 +21,15 @@ Plug 'mhinz/vim-startify'
 
 ### Saving sessions
 
+<!-- {.-literate-style} -->
+
 Save your current session using `:SSave`.
 
 ![](project-switcher-using-startify/startify-ssave.gif)
 
 ### Loading sessions
+
+<!-- {.-literate-style} -->
 
 The next time you start `vim` (or `nvim`), you will see a screen of your saved sessions.
 
@@ -24,11 +37,17 @@ The next time you start `vim` (or `nvim`), you will see a screen of your saved s
 
 ### Loading sessions
 
+<!-- {.-literate-style} -->
+
 From a running Vim session, you can use `:SClose` to switch to a different project. Bonus: by default, this will also save your current session if it's already saved.
 
 ![](project-switcher-using-startify/startify-sclose-2.gif)
 
-### Bonus: key bindings
+## Bonus extras
+
+### Key bindings
+
+<!-- {.-literate-style} -->
 
 Set up some keybindings. I like these Spacemacs-inspired leader key bindings, but feel free to use any.
 
@@ -41,6 +60,8 @@ nnoremap <leader>ll :SClose<CR>
 ```
 
 ### Extra configuration
+
+<!-- {.-literate-style} -->
 
 Here's some extra config you can try!
 
