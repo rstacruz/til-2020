@@ -183,6 +183,14 @@ You will need to add some overrides in `/etc/ufw/after.rules`. See this article 
 sudo vim /etc/ufw/after.rules
 ```
 
+```sh
+# As mentioned in the article above, you can open
+# certain ports to the outside world using:
+# (don't do this if you don't plan to open a webserver)
+sudo ufw route allow proto tcp from any to any port 80
+sudo ufw route allow proto tcp from any to any port 443
+```
+
 ### Start the firewall
 
 <!-- {.-literate-style} -->
