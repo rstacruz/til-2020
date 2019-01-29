@@ -1,7 +1,7 @@
 ---
 date: '2016-09-29'
 title: Neovim with Python on OSX
-tags: [Development, Vim]
+tags: [Vim]
 description: Here's how you can set up Neovim with Python support on OSX.
 ---
 
