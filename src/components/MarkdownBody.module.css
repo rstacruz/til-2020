@@ -131,7 +131,7 @@
   }
 
   & pre + pre {
-    margin-top: -2.6em;
+    @apply --pre;
   }
 
   & table {

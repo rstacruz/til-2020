@@ -1,7 +1,7 @@
 ---
 title: Vim project switcher using Startify
 date: 2019-01-29
-category: [Vim]
+tags: [Vim]
 ---
 
 I like using [Startify] not just as a pretty splash screen, but also as a session manager and project switcher. Here's how to use it.

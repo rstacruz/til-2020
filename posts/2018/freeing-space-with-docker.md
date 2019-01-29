@@ -1,7 +1,12 @@
 ---
 title: Freeing space with Docker
+date: 2019-01-29
 tags: [Development]
 ---
+
+Hey
+
+## Sup
 
 ### Deleting old things
 
@@ -11,7 +16,11 @@ Delete unused things using `docker system prune --filter until=240h`. This will 
 
 ```
 ─ docker system prune --filter until=240h
+```
 
+<!-- {.-terminal} -->
+
+```
 WARNING! This will remove:
         - all stopped containers
         - all networks not used by at least one container
@@ -33,13 +42,21 @@ deleted: sha256:be1a87a5b74fd86f118cb68450acffd70bad442d5f41854a641405286b8ded96
 Total reclaimed space: 197.1MB
 ```
 
+<!-- {.-terminal} -->
+
 ### Delete unused volumes
+
+<!-- {.-literate-style} -->
 
 Now that you've deleted some containers, you may want to delete their associated volumes as well with `docker volume prune`.
 
 ```
 ─ docker volume prune
+```
 
+<!-- {.-terminal} -->
+
+```
 WARNING! This will remove all local volumes not used by at least one container.
 Are you sure you want to continue? [y/N] y
 

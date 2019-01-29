@@ -213,6 +213,22 @@
       scrollbar-color: #7896 #7891;
     }
   }
+
+  --pre: {
+    & {
+      box-shadow: inset 0 0 0 2px var(--accent);
+    }
+
+    & + pre {
+      box-shadow: inset 2px 0 0 var(--accent), inset -2px -2px 0 var(--accent),
+        inset 0 1px 0 var(--border-color);
+      margin-top: calc(-2.6em);
+      padding-top: 16px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-top: 0;
+    }
+  }
 }
 
 /* Modular scale */

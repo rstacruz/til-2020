@@ -1,44 +1,9 @@
 /*
  * Home page
- * =========
- *
- * @flow
  */
 
 import { graphql } from 'gatsby'
-import React from 'react'
-import GroupedPageList from '../components/GroupedPageList'
-import Layout from '../components/Layout'
-import { PageNode } from '../types'
-
-export interface Props {
-  data: {
-    site: {
-      siteMetadata: { title: string }
-    }
-    allMarkdownRemark: {
-      edges: Array<{
-        node: PageNode
-      }>
-    }
-  }
-}
-
-const IndexPage = (props: Props) => {
-  const data = props.data
-  const { edges } = data.allMarkdownRemark
-
-  const pages = edges.map((edge: { node: PageNode }) => ({
-    key: edge.node.fields.slug,
-    node: edge.node
-  }))
-
-  return (
-    <Layout>
-      <GroupedPageList pages={pages} />
-    </Layout>
-  )
-}
+import IndexPage from './all'
 
 export default IndexPage
 
@@ -49,7 +14,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { date: { ne: null } } }
+    ) {
       edges {
         node {
           excerpt

@@ -124,6 +124,10 @@
       margin-right: 0;
     }
   }
+
+  & > pre {
+    @apply --pre;
+  }
 }
 
 .body:global(.-wider-literate-style) {
