@@ -36,7 +36,7 @@
     position: fixed;
     top: 24px;
     left: 48px;
-    z-index: 20;
+    z-index: 1; /* Set to 20 to be super on top */
   }
 }
 

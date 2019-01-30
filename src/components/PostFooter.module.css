@@ -4,11 +4,11 @@
   & {
     background: white;
     margin-top: 0;
-    padding-top: 64px;
-    padding-bottom: 64px;
-    z-index: 5;
+    padding-top: 32px;
+    padding-bottom: 32px;
     position: relative;
     @apply --side-line-section;
+    z-index: 5;
   }
 
   &:global(.-active) {
@@ -18,8 +18,8 @@
 
   @media (--ms-viewport-xl) {
     margin: 0 32px;
-    padding-top: 128px;
-    padding-bottom: 128px;
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 
   & {
@@ -40,5 +40,12 @@
 
   & > h3 {
     color: var(--heading-color);
+    @apply --em-style;
+    line-height: 1.5;
+  }
+
+  & > p {
+    @apply --em-style;
+    line-height: 1.5;
   }
 }

@@ -31,11 +31,6 @@
     @apply --shadow-paper-transition;
   }
 
-  &.isActive {
-    /* Places less emphasis on the top line */
-    box-shadow: 0 2px 3px #3681, 0 24px 24px #3682, inset 0 1px #7891;
-  }
-
   &.isInactive {
     @apply --shadow-paper-inactive;
   }

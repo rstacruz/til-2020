@@ -147,7 +147,7 @@
 
   --inactive-section: {
     background: white;
-    filter: brightness(0.97);
+    filter: brightness(0.99);
     @apply --shadow-paper-transition;
   }
 
@@ -166,7 +166,7 @@
     }
 
     @media (--ms-viewport-xxl) {
-      margin: 0 32px;
+      margin: 2px 32px;
     }
 
     &:global(.-inactive) {
@@ -185,7 +185,7 @@
       display: block;
       position: absolute;
       width: 1px;
-      background: var(--border-color);
+      background: color-mod(var(--border-color) alpha(-10%));
 
       @media (--show-side-line) {
         display: block;
@@ -194,9 +194,9 @@
         bottom: 16px;
       }
 
-      @media (--ms-viewport-xxl) {
-        left: 64px;
-      }
+      /* @media (--ms-viewport-xxl) { */
+      /*   left: 64px; */
+      /* } */
     }
   }
 
