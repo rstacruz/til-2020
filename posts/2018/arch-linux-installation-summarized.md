@@ -18,8 +18,13 @@ Arch Linux has a great [Installation Guide](https://wiki.archlinux.org/index.php
 
 _(Skip this step if you're not dual-booting Windows or MacOS.)_ Before you create your `ext4` (Linux) partition, you'll need make space for it. Resize your current OS's partition down at least 60GB less to give you some space to create your Linux partition.
 
-> - **Windows:** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in _Disk Management_.
-> - **MacOS:** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using _Disk Utility.app_ to resize your partition.
+<figure class='-bordered'>
+
+**Windows users,** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in _Disk Management_.
+
+**MacOS users,** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using _Disk Utility.app_ to resize your partition.
+
+</figure>
 
 ## Create a boot disk
 
@@ -238,7 +243,9 @@ See [tzdata](https://www.archlinux.org/packages/core/x86_64/tzdata/) for a list 
 # Set your timezone (eg, Asia/Manila)
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 #                          ^^^^^^^^^^^
+```
 
+```bash
 # Update time config (/etc/adjclock)
 hwclock --systohc
 ```
@@ -252,7 +259,9 @@ Set your default locale. For most of us, that would be `en_US.UTF-8`, but feel f
 ```bash
 # Uncomment `en_US.UTF-8 UTF-8` in this file
 vi /etc/locale.gen
+```
 
+```bash
 # Generate locale config (/etc/locale.gen)
 locale-gen
 ```
@@ -296,8 +305,9 @@ Update `/etc/hosts` with your new hostname. (Be sure to change `myhostname` to y
 
 ```sh
 vi /etc/hosts
-# Then update it to:
+```
 
+```
 127.0.0.1 localhost
 ::1 localhost
 127.0.1.1 myhostname.localdomain myhostname
@@ -326,12 +336,16 @@ You'll need a boot loader in your EFI partition. Think of this as a small progra
 Let's install grub into `/boot`. Be sure to read the Arch wiki, instructions may be different for your system!
 
 ```bash
-# Install grub
+# Install packages
 pacman -S grub efibootmgr
+```
 
-# Install GRUB
+```bash
+# Install GRUB to EFI
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+```
 
+```bash
 # Update Grub config
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -446,7 +460,9 @@ Congratulations, you now have a working Arch Linux installation. At this point, 
 
 ```
 exit
+```
 
+```
 reboot
 ```
 
