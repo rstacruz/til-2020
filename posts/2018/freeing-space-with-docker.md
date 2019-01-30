@@ -33,7 +33,7 @@ Delete unused things using `docker system prune --filter until=240h`. This will 
 ─ docker system prune --filter until=240h
 ```
 
-<!-- {.-bold} -->
+<!-- {.-terminal} -->
 
 ```
 WARNING! This will remove:

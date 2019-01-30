@@ -21,7 +21,8 @@ const BlogPostTitle = ({ title, date, body }: Props) => {
             <div className={CSS.titleContainer}>
               <h1 className={CSS.title}>
                 <span>{title}</span>
-                <span className={CSS.blinker} />
+                {/* I don't like how it looks now, plus it wraps weird */}
+                {/* <span className={CSS.blinker} /> */}
               </h1>
             </div>
 

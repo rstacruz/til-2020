@@ -69,6 +69,8 @@ Redux middleware is simply a decorator for `dispatch()`. Here's an example where
 
 ### Using redux-thunk
 
+<!-- {.-wider-literate-style} -->
+
 Perhaps the most well-known solution to this is [redux-thunk](https://www.npmjs.com/package/redux-thunk), which allows you to dispatch functions ("thunks").
 
 ```js
@@ -81,15 +83,21 @@ store.dispatch(dispatch => {
 })
 ```
 
-<!-- {.-wide} -->
-
 ### Why not use redux-thunk?
+
+<!-- {.-wider-literate-style} -->
 
 I personally advise against this approach for a number of reasons:
 
-- It moves logic to your action creators, which were supposed to be very simple pieces of code.
-- It makes actions complicated, when they can just be simple JSON instructions (eg, `{ type: 'profile:load' }`).
-- It can't interact with other side effects. For instance, you can't make a side effect to send `profile:error`s to an error tracking service. Middleware can do this.
+<figure class='-bordered'>
+
+⚠ It moves logic to your action creators, which were supposed to be very simple pieces of code.
+
+⚠ It makes actions complicated, when they can just be simple JSON instructions (eg, `{ type: 'profile:load' }`).
+
+⚠ It can't interact with other side effects. For instance, you can't make a side effect to send `profile:error`s to an error tracking service. Middleware can do this.
+
+</Figure>
 
 ## Naming convention
 

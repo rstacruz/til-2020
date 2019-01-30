@@ -84,38 +84,6 @@
     position: relative;
   }
 
-  & pre:global(.-terminal) {
-    padding-top: 56px;
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      content: '';
-      display: block;
-      height: 32px;
-      border-bottom: solid 1px var(--accent);
-      opacity: 0.25;
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: var(--accent);
-      opacity: 0.5;
-      margin-left: -2px;
-      margin-top: -2px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      box-shadow: 16px 0 var(--accent), 32px 0 var(--accent);
-    }
-  }
-
   & code {
     @apply --code-font;
     padding: 0.2em 0;
@@ -130,8 +98,12 @@
     font-size: 1em;
   }
 
-  & pre + pre {
+  & pre {
     @apply --pre;
+  }
+
+  & figure {
+    @apply --figure;
   }
 
   & table {
