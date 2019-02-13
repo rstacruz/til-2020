@@ -4920,7 +4920,7 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-get-caller-file@^1.0.1:
+get-caller-file@^1.0.1, get-caller-file@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
 
@@ -7183,6 +7183,19 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mock-require@^3.0.2:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/mock-require/-/mock-require-3.0.3.tgz#ccd544d9eae81dd576b3f219f69ec867318a1946"
+  integrity sha512-lLzfLHcyc10MKQnNUCv7dMcoY/2Qxd6wJfbqCcVk3LDb8An4hF6ohk5AztrvgKhJCqj36uyzi/p5se+tvyD+Wg==
+  dependencies:
+    get-caller-file "^1.0.2"
+    normalize-path "^2.1.1"
+
+modularscale-sass@^3.0.8:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/modularscale-sass/-/modularscale-sass-3.0.8.tgz#57c92ee0750f6807e37359699ef2ce63a4997db6"
+  integrity sha512-NOO6NLXPiVG8T/ZkXImxSj1YtvzF37suAGxc9ty0pmQrU998fmJqR6kNqs+HmFqOjeCRJ3roBfA9Arohta2sBQ==
 
 moment@^2.21.0:
   version "2.22.2"
@@ -10826,6 +10839,15 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+typescript-tslint-plugin@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/typescript-tslint-plugin/-/typescript-tslint-plugin-0.3.0.tgz#b58ab0227d12b576371742bc75604b8a7a2784ae"
+  integrity sha512-QlfcS5YebM55cUISn3mgal+ePtsRmyh1RJ0DqHPrF7+NEDO8P+ucDsD1GlLyYaIJQvVAbkekUmczsjzQk5eoKA==
+  dependencies:
+    minimatch "^3.0.4"
+    mock-require "^3.0.2"
+    vscode-languageserver "^5.1.0"
+
 typescript@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
@@ -11209,6 +11231,37 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
+
+vscode-jsonrpc@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/vscode-jsonrpc/-/vscode-jsonrpc-4.0.0.tgz#a7bf74ef3254d0a0c272fab15c82128e378b3be9"
+  integrity sha512-perEnXQdQOJMTDFNv+UF3h1Y0z4iSiaN9jIlb0OqIYgosPCZGYh/MCUlkFtV2668PL69lRDO32hmvL2yiidUYg==
+
+vscode-languageserver-protocol@3.14.1:
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver-protocol/-/vscode-languageserver-protocol-3.14.1.tgz#b8aab6afae2849c84a8983d39a1cf742417afe2f"
+  integrity sha512-IL66BLb2g20uIKog5Y2dQ0IiigW0XKrvmWiOvc0yXw80z3tMEzEnHjaGAb3ENuU7MnQqgnYJ1Cl2l9RvNgDi4g==
+  dependencies:
+    vscode-jsonrpc "^4.0.0"
+    vscode-languageserver-types "3.14.0"
+
+vscode-languageserver-types@3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver-types/-/vscode-languageserver-types-3.14.0.tgz#d3b5952246d30e5241592b6dde8280e03942e743"
+  integrity sha512-lTmS6AlAlMHOvPQemVwo3CezxBp0sNB95KNPkqp3Nxd5VFEnuG1ByM0zlRWos0zjO3ZWtkvhal0COgiV1xIA4A==
+
+vscode-languageserver@^5.1.0:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver/-/vscode-languageserver-5.2.1.tgz#0d2feddd33f92aadf5da32450df498d52f6f14eb"
+  integrity sha512-GuayqdKZqAwwaCUjDvMTAVRPJOp/SLON3mJ07eGsx/Iq9HjRymhKWztX41rISqDKhHVVyFM+IywICyZDla6U3A==
+  dependencies:
+    vscode-languageserver-protocol "3.14.1"
+    vscode-uri "^1.0.6"
+
+vscode-uri@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-1.0.6.tgz#6b8f141b0bbc44ad7b07e94f82f168ac7608ad4d"
+  integrity sha512-sLI2L0uGov3wKVb9EB+vIQBl9tVP90nqRvxSoJ35vI3NjxE8jfsE5DSOhWgSunHSZmKS4OCi2jrtfxK7uyp2ww==
 
 warning@^3.0.0:
   version "3.0.0"

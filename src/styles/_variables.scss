@@ -1,0 +1,297 @@
+// @import 'responsive-modular-scale.css';
+// @import 'modularscale-sass';
+
+// Color palette
+$yellow: #ffeaa7;
+$mint: #55efc4;
+$poster: #81ecec;
+$ube: lighten(#6c5ce7, 0.2);
+
+// Metrics
+$column-size: 60%;
+$column-size-inverse: calc(100% / 0.6);
+
+// Colors 2
+$mute-text-color: #708090;
+$text-color: #303030;
+$heading-color: #080808;
+$border-color: #7080903f;
+$pane-background: #f3f5f8;
+$code-background: #fcfcfc;
+
+// More colorz
+$accent: $ube;
+$co-accent: adjust-color($accent, $hue: -10deg, $saturation: +40%);
+$highlighter-color: change-color($accent, $alpha: 0.5);
+$accent-border-color: change-color($accent, $alpha: 0.3);
+
+$accent-text: adjust-color(
+  $accent,
+  $lightness: -30%,
+  $saturation: +30%,
+  $hue: -10deg
+);
+
+// Typography mixins
+
+@mixin body-font {
+  /* font-family: 'IBM Plex Sans', system-ui; */
+  font-family: 'Roboto', system-ui;
+}
+
+@mixin h1-font {
+  font-weight: 200;
+  font-family: 'Iosevka Web', system-ui;
+}
+
+@mixin ui-font {
+  font-weight: 400;
+  font-family: 'IBM Plex Sans', system-ui;
+}
+
+@mixin h2-font {
+  font-weight: 700;
+  font-family: 'Barlow', system-ui;
+}
+
+@mixin h3-font {
+  font-weight: 400;
+  font-family: 'Iosevka Web', system-ui;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+
+@mixin monolike-font {
+  font-weight: normal;
+  font-family: 'Iosevka Web', system-ui;
+  font-style: normal;
+  letter-spacing: 0em;
+}
+
+@mixin code-font {
+  font-family: 'Iosevka Web', monospace;
+}
+
+@mixin em-style {
+  font-family: 'Alegreya', sans-serif;
+  font-size: 1.1em;
+  line-height: 0.2em;
+  font-style: italic;
+}
+
+// Utility mixins
+
+@mixin horizontal-rule {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    $co-accent,
+    $accent 20%,
+    transparent 20%
+  );
+}
+
+@mixin container-padding {
+  & {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media #{$show-side-line} {
+    padding-left: 80px;
+  }
+
+  @media #{$ms-viewport-xxl} {
+    padding-left: calc((100vw - 960px) * 0.5 + 32px);
+    padding-right: calc((100vw - 960px) * 0.5 - 32px);
+  }
+}
+
+@mixin container-padding-antimargin {
+  & {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  @media #{$show-side-line} {
+    margin-left: -80px;
+  }
+
+  @media #{$ms-viewport-xxl} {
+    margin-left: calc(-1 * ((100vw - 960px) * 0.5 + 32px));
+    margin-right: calc(-1 * ((100vw - 960px) * 0.5 - 32px));
+    width: calc(100vw - 64px - 8px);
+  }
+}
+
+@mixin shadow-paper {
+  box-shadow: 0 2px 3px #3681, 12px 12px 18px #3681;
+}
+
+@mixin shadow-paper-inactive {
+  box-shadow: 1px 1px 1px change-color($mute-text-color, $alpha: 0.2);
+}
+
+@mixin shadow-paper-transition {
+  transition: background-color 250ms linear, box-shadow 250ms linear,
+    transform 250ms ease-in, filter 250ms linear;
+}
+
+@mixin inactive-section {
+  background: white;
+  filter: brightness(0.99);
+  @include shadow-paper-transition;
+}
+
+@mixin side-line-section {
+  @include shadow-paper;
+  @include side-line;
+
+  & {
+    transform-origin: 32px 50%;
+    margin: 2px 0;
+    border-radius: 2px;
+  }
+
+  @media #{$ms-viewport-md} {
+    margin: 2px 8px;
+  }
+
+  @media #{$ms-viewport-xxl} {
+    margin: 2px 32px;
+  }
+
+  &:global(.-inactive) {
+    @include shadow-paper-inactive;
+    @include inactive-section;
+  }
+
+  &:global(.-inactive)::after {
+    background-color: change-color($mute-text-color, $alpha: 0.5);
+  }
+}
+
+@mixin side-line {
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    background: fade-out($border-color, 0.1);
+
+    @media #{$show-side-line} {
+      display: block;
+      left: 48px;
+      top: 16px;
+      bottom: 16px;
+    }
+
+    /* @media #{$ms-viewport-xxl} { */
+    /*   left: 64px; */
+    /* } */
+  }
+}
+
+@mixin fading-horizontal-rule {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, $border-color 50%, transparent);
+}
+
+@mixin thin-scrollbar {
+  /* Firefox 64+ only */
+  scrollbar-width: thin;
+  scrollbar-color: #7894 transparent;
+
+  &:hover {
+    scrollbar-color: #7896 #7891;
+  }
+}
+
+@mixin figure {
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+  &:global(.-bordered) {
+    box-shadow: inset 0 0 0 2px $accent;
+    padding: 16px;
+  }
+}
+
+@mixin pre {
+  & {
+    box-shadow: inset 0 0 0 2px $accent;
+  }
+
+  &:global(.-bold) {
+    font-weight: bold;
+  }
+
+  &:global(.-terminal) {
+    padding-top: 56px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      content: '';
+      display: block;
+      height: 32px;
+      border-bottom: solid 1px $accent;
+      opacity: 0.25;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: $accent;
+      opacity: 0.5;
+      margin-left: -2px;
+      margin-top: -2px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      box-shadow: 16px 0 $accent, 32px 0 $accent;
+    }
+  }
+
+  & + pre {
+    box-shadow: inset 2px 0 0 $accent, inset -2px -2px 0 $accent,
+      inset 0 1px 0 $border-color;
+    margin-top: calc(-2.6em);
+    padding-top: 16px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+  }
+}
+
+// prettier-ignore
+$modularscale: (
+  base: 1em 1em 1em,
+  480px: ( ratio: 1.17 ),
+  768px: ( ratio: 1.17 ),
+  900px: ( ratio: 1.2 )
+);
+
+// Viewport media queries
+$viewport-4: 'min-width: #{480px + .1px}';
+$viewport-7: 'min-width: #{768px + .1px}';
+$viewport-9: 'min-width: #{900px + .1px}';
+$viewport-11: 'min-width: #{1100px + .1px}';
+
+// Custom media queries
+$show-side-line: 'min-width: #{900px + .1px}';
