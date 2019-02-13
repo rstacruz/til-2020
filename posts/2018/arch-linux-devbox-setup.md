@@ -1,7 +1,7 @@
 ---
 title: Setting up an Arch Linux dev box
 date: '2019-01-15'
-tags: [Arch Linux]
+tags: [Arch Linux, Linux]
 draft: true
 ---
 
