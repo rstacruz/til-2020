@@ -156,11 +156,11 @@ $accent-text: adjust-color(
   }
 
   @media #{$ms-viewport-md} {
-    margin: 2px 8px;
+    margin: 4px 8px;
   }
 
   @media #{$ms-viewport-xxl} {
-    margin: 2px 32px;
+    margin: 8px 32px;
   }
 
   &:global(.-inactive) {
