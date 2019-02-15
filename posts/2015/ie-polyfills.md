@@ -5,10 +5,11 @@ tags: [CSS]
 description: Speed along your legacy IE development with this all-purpose 8-line snippet.
 ---
 
-Use this convenient snippet in almost any project. It will fill in some basic support for modern CSS features for legacy IE versions.
-{:.brief-intro.center}
+###
 
-{:.wide.light}
+<!-- {.-literate-style} -->
+
+Use this convenient snippet in almost any project. It will fill in some basic support for modern CSS features for legacy IE versions.
 
 ```js
 <!--[if lt IE 9]>
@@ -20,8 +21,6 @@ Use this convenient snippet in almost any project. It will fill in some basic su
 <script src='https://cdn.jsdelivr.net/es5.shim/4.4.1/es5-shim.min.js'></script>
 <![endif]-->
 ```
-
-<br>
 
 ## What's going on?
 
