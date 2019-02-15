@@ -3,6 +3,8 @@ date: '2015-05-26'
 title: Babel class inheritance in Internet Explorer
 tags: [JavaScript]
 description: IE doesn't support class inheritance in Babel. Here's a way to fix that.
+outdated: |
+  This post was written for Babel version 5. Also, this post is made for supporting IE8, a version which has very negligible use in 2019.
 ---
 
 ```js
