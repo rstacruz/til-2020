@@ -6,26 +6,37 @@ tags: [Development, GitHub]
 ---
 
 Two-factor authentication in GitHub is pretty simple to set up, though the exact steps are layed out in maybe 3 different articles. I've consolidated them all together to this one simple guide.
-{:.brief-intro.center}
-
----
 
 ### Enable 2FA
 
+<!-- {.-literate-style} -->
+
 Enable [2 factor authentication](https://github.com/settings/security) on the GitHub website (Settings → Security → Two Factor Authentication).
+
+<figure class='-bordered'>
+
+[2 factor authentication settings](https://github.com/settings/security) _(github.com)_
+
+</figure>
 
 ### Prepare your phone
 
-Install [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator). Works for iOS and Android. In Authenticator, tap _Add_, then _Scan Barcode_. Take a picture of the QR code on your computer. ([More info on apps](https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/))
+<!-- {.-literate-style} -->
+
+Install [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator), or an equivalent of such. Works for iOS and Android. In Authenticator, tap _Add_, then _Scan Barcode_. Take a picture of the QR code on your computer. ([More info on apps](https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/))
 
 ### Enable git credential caching
 
+<!-- {.-literate-style} -->
+
 On your computer, [enable caching your GitHub HTTPS credentials](https://help.github.com/articles/caching-your-github-password-in-git/). This allows you to store your 2FA token and not get asked for it everytime.
 
-```
-git config --global credential.helper osxkeychain   # OSX
+```bash
+git config --global credential.helper osxkeychain   # MacOS
 git config --global credential.helper cache         # Linux
 ```
+
+This only applies if you use HTTP authentication for your Git repositories. If you use SSH keys, this shouldn't be necessary.
 
 ### Generate an API key
 
@@ -33,9 +44,11 @@ git config --global credential.helper cache         # Linux
 
 ### Use HTTPS on your repos
 
+<!-- {.-literate-style} -->
+
 If your git repos still use SSH (`git@github.com:user/repo.git`), change them to use HTTPS (`https://github.com/user/repo.git`). ([More info on remote URLs](https://help.github.com/articles/which-remote-url-should-i-use/#cloning-with-https-recommended))
 
-```
+```bash
 cd project
 vim .git/config
 ```
@@ -44,8 +57,11 @@ vim .git/config
 
 Push a repo. You'll be asked for a password. Use the token for the password. You won't have to do this again if enabled credential caching.
 
-```
+```bash
 $ git push
+```
+
+```
 Username for 'https://github.com': rstacruz
 Password for 'https://rstacruz@github.com':
 ```
