@@ -2,7 +2,7 @@
 date: '2015-06-06'
 title: Alfred color schemes
 description: Here's my nice color scheme for Alfred.
-tags: [OSX]
+tags: [MacOS]
 attachments:
   - ./alfred-color-schemes/alfred-dark.png
 ---

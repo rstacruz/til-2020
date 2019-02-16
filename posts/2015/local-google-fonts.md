@@ -2,12 +2,18 @@
 date: '2015-05-18'
 title: The best way to get Google Fonts offline
 tags: [Misc]
-image: images/skyfonts.png
+attachments:
+  - local-google-fonts/skyfonts.png
 description: Chances are you've downloaded a few Google fonts to your computer. Here's a better way to do it.
 ---
 
-![Image]({{ page.image }}){:style='max-width:600px;margin-bottom:-130px'}
-{:.full-image.cropped.bottom-space-4}
+###
+
+<!-- {.-literate-style} -->
+
+<figure>
+<img src='local-google-fonts/skyfonts.png'>
+</figure>
 
 If you're doing any work creating UI mockups, chances are you've downloaded a few [Google fonts] to your computer. Doing this manually is tedious, and you wouldn't be up to date when the fonts get updated.
 
