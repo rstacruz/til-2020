@@ -4,34 +4,41 @@ title: Getting Mocha coverage reports using Istanbul
 description: Here's how to get detailed coverage reports from Mocha via Istanbul.
 image: images/mocha-istanbul.png
 tags: [JavaScript]
+attachments:
+  - ./mocha-istanbul-coverage/screenshot.png
 ---
 
-![]({{ page.image }}){:style='max-width:600px;margin-bottom:-75px'}
-{:.full-image.cropped.bottom-space-4}
+<figure class='-wide'>
+<img src='./mocha-istanbul-coverage/screenshot.png'>
+</figure>
+
+###
+
+<!-- {.-literate-style} -->
 
 This is all you really need to run coverage reports on [Mocha] tests via [Istanbul].
 
-```
+```sh
 istanbul cover _mocha
 ```
 
-{:.terminal.large}
-
 ### Opening reports
+
+<!-- {.-literate-style} -->
 
 Your reports will be available under `coverage/`. By default, you'll get JSON files and an HTML report.
 
-```nohighlight
+```sh
 open coverage/lcov-report/*.html
 ```
 
-{:.light}
-
----
+## Improving your setup
 
 ### Locking istanbul
 
-Preferrably, though, you'll want to add `istanbul` to your project so you can pin down the version you need and have it available on your CI.
+<!-- {.-literate-style} -->
+
+Preferably, though, you'll want to add `istanbul` to your project so you can pin down the version you need and have it available on your CI.
 
 [mocha]: http://mochajs.org/
 [istanbul]: https://www.npmjs.com/package/istanbul
@@ -41,9 +48,9 @@ npm install --save-dev istanbul
 ./node_modules/.bin/istanbul cover _mocha
 ```
 
-{:.light}
-
 ### Adding to gitignore
+
+<!-- {.-literate-style} -->
 
 There's no need to commit the coverage reports.
 
@@ -51,9 +58,9 @@ There's no need to commit the coverage reports.
 echo "/coverage" >> .gitignore
 ```
 
-{:.light}
-
 ### Making an npm task
+
+<!-- {.-literate-style} -->
 
 To make things a bit easier, add a script to your `package.json` to run this. After that, just invoke `npm run coverage`.
 
@@ -68,6 +75,8 @@ To make things a bit easier, add a script to your `package.json` to run this. Af
 ```
 
 ### Travis integration
+
+<!-- {.-literate-style} -->
 
 If you're using [Travis] to automate your tests, you can also set it up to show coverage reports on your builds. [Looks like this](https://travis-ci.org/rstacruz/ractive-ractive).
 
