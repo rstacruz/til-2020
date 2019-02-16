@@ -1,7 +1,7 @@
 ---
 date: '2015-05-19'
 title: Installing iojs on Homebrew
-tags: [OSX]
+tags: [MacOS]
 image: images/iojs-linking.png
 description: Here's how to get iojs on OSX using Homebrew.
 outdated: io.js has already been merged into Node.js since v4, and is now considered deprecated. Consider using nodejs instead.

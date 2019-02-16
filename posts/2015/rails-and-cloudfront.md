@@ -1,7 +1,7 @@
 ---
 date: '2015-12-17'
 title: Using Cloudfront as a Rails CDN
-tags: [Ruby]
+tags: [Ruby, Devops]
 description: This guide will walk you through using Amazon CloudFront as an asset CDN for your Rails app.
 ---
 
@@ -11,33 +11,62 @@ There are other guides out there today; [Heroku's CloudFront guide](https://devc
 
 ## Set up CloudFront
 
+###
+
+<!-- {.-literate-style} -->
+
 Sign up in [aws.amazon.com](http://aws.amazon.com) and create a new CloudFront distribution. This will get you a subdomain (like `d1h2t3n5.cloudfront.net`) that will act as a caching proxy to your actual site. You may opt to use your own domain names if you like.
+
+<figure class='-bordered'>
+
+[Amazon Web Services (AWS)](http://aws.amazon.com) _(aws.amazon.com)_
+
+</figure>
 
 ### Custom configuration
 
+<!-- {.-literate-style} -->
+
 Make sure that `OPTIONS` is also being passed through. This will allow CORS requests through (see next section). Also, enable "compress automatically" to let CloudFront handle gzip compression for you.
 
-- **Origin Settings**
-  - Origin domain name: `www.yoursite.com`
-- **Default Cache Behavior Settings**
-  - Allowed HTTP Methods: `GET, HEAD, OPTIONS`
-  - Cached HTTP Methods: Turn on `OPTIONS`
-  - Compress Objects Automatically: `on`
+<figure class='-bordered'>
+
+**Origin Settings**
+
+- Origin domain name: `www.yoursite.com`
+
+</figure>
+<figure class='-bordered'>
+
+**Default Cache Behavior Settings**
+
+- Allowed HTTP Methods: `GET, HEAD, OPTIONS`
+- Cached HTTP Methods: Turn on `OPTIONS`
+- Compress Objects Automatically: `on`
+
+</figure>
 
 ## Set up asset host
 
-{:.top-space-4}
+###
+
+<!-- {.-literate-style} -->
 
 This will make `image_tag`, `asset_url` and other asset-related helpers point your assets to your CloudFront distribution. Do this only for `production.rb`.
 
 ```rb
 # config/environments/production.rb
+```
+
+```rb
 config.action_controller.asset_host = '<YOUR DISTRIBUTION SUBDOMAIN>.cloudfront.net'
 ```
 
 ## Serve static assets
 
-{:.top-space-4}
+###
+
+<!-- {.-literate-style} -->
 
 Enable the serving of static assets. You will want to do this if you're using Heroku or any 12-factor-style deployment.
 If you use a reverse proxy like Nginx or Haproxy, skip this section and configure your reverse proxy to handle CORS instead.
@@ -59,11 +88,11 @@ config.static_cache_control = 'public, max-age=31536000'
 
 ## Enable CORS in assets
 
-{:.top-space-4}
-
 If you use `serve_static_assets`, you will need to enable cross-origin requests for assets. This will prevent issues like Firefox not loading custom icons and fonts.
 
 ### Install the `rack-cors` gem
+
+<!-- {.-literate-style} -->
 
 Use the [rack-cors] gem to enable cross-origin requests. At time of writing, it is at version 0.4.0.
 
@@ -75,6 +104,8 @@ gem 'rack-cors'
 ```
 
 ### Configure rack-cors
+
+<!-- {.-literate-style} -->
 
 This will make assets accessible from any website. You want to enable this because you'd want `yoursite.com` to be able to load assets out of `<id>.cloudfront.net`.
 
@@ -96,11 +127,11 @@ end
 
 ## Deny everything but /assets
 
-{:.top-space-4}
+###
+
+<!-- {.-literate-style} -->
 
 Set up your app to disallow Cloudfront from fetching anything but `/assets`. This uses User Agent detection; see CloudFront's docs on [User-Agent headers](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-user-agent-header) for information.
-
-If you miss this step, you'll be able to access the rest of your site in your CloudFront URL. While those aren't public, you'd best have them secured as it can open up security flaws and possibly lead to SEO penalties.
 
 ```rb
 # app/services/cloudfront_denier.rb
@@ -136,3 +167,5 @@ end
 Rails.application.config.middleware.use CloudfrontDenier,
   target: 'https://www.yoursite.com/'
 ```
+
+If you miss this step, you'll be able to access the rest of your site in your CloudFront URL. While those aren't public, you'd best have them secured as it can open up security flaws and possibly lead to SEO penalties.
