@@ -267,7 +267,7 @@ function cite(author) {
 }
 ```
 
-Import types using the special `{ import('...') }` syntax. You can then define your types in an external `.d.ts` file.
+Import types using the special `import` syntax. You can then define your types in an external `.d.ts` file.
 
 ### Defining types externally
 
