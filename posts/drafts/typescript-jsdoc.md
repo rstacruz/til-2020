@@ -44,7 +44,7 @@ function repeat(text, count) {
 }
 ```
 
-This means you can take advantage of TypeScript's type checking _in JavaScript_, without having to convert your JavaScript code to TypeScript.
+This means you can take advantage of TypeScript's type checking in JavaScript, without having to convert your JavaScript code to TypeScript.
 
 ### Why JSDoc?
 
