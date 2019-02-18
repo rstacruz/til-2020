@@ -374,10 +374,6 @@ class MyComponent extends React.Component {
 
 ## Advanced features
 
-###
-
-<!-- {.-literate-style} -->
-
 The JSDoc syntax isn't as expressive as the TypeScript syntax, but it comes very close. There are also some other advanced TypeScript features that are available in JSDoc:
 
 - Templates with `@template`
