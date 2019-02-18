@@ -409,15 +409,12 @@ Write your documentations as block comments that begin with a double-star. Docum
 
 ```js
 /**
- * Repeats some text a given number of times.
- *
- * @param {string} text - The text to repeat
- * @param {number} count - Number of times
+ * Multiply a number by itself.
+ * @param {number} n - What to square
  */
 
-function repeat(text, count) {
+function square(n) {
   // ...
-}
 ```
 
 ### Importing type definitions
