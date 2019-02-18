@@ -162,6 +162,8 @@ function repeat(text, count) {
 
 Here's the same example, but with some text to describe what it does.
 
+<next-block title="Let's write some more annotations."></next-block>
+
 ## Documenting parameters
 
 ### Optional types
@@ -205,6 +207,8 @@ function repeat(text, options) {
 ```js
 repeat('hello', { count: 2, separator: '-' })
 ```
+
+<next-block title="Let's write some more annotations."></next-block>
 
 ## Type assertions
 
@@ -356,6 +360,8 @@ class MyComponent extends React.Component {
 }
 ```
 
+<next-block title="Let's write some more annotations."></next-block>
+
 ## Advanced types
 
 There are also other things you can do: (TODO)
@@ -363,3 +369,46 @@ There are also other things you can do: (TODO)
 - Templates with `@template`
 - Return values with `@returns`
 - Type guards with `@returns`
+
+<next-block title="Let's recap what we've learned."></next-block>
+
+## Recap
+
+### @param for parameters
+
+<!-- {.-literate-style} -->
+
+Document parameters with `@param`.
+
+```js
+/**
+ * Repeats some text a given number of times.
+ *
+ * @param {string} text - The text to repeat
+ * @param {number} count - Number of times
+ */
+
+function repeat(text, count: number) {
+  return Array(count + 1).join(text)
+}
+```
+
+### Importing type definitions
+
+<!-- {.-literate-style} -->
+
+Import type definitions with `@typedef { import ... }`.
+
+```js
+/** @typedef { import('./myTypes').User } User */
+```
+
+### Optionals
+
+<!-- {.-literate-style} -->
+
+Use the equal sign to denote `| null | undefined` ("nullable types").
+
+```js
+/** @param {User=} user */
+```
