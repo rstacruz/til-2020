@@ -160,6 +160,8 @@ function repeat(text, count) {
 }
 ```
 
+Here's the same example, but with some text to describe what it does.
+
 ## Documenting parameters
 
 ### Optional types
