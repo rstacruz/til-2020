@@ -395,6 +395,16 @@ Consult the official [JSDoc in TypeScript][jsdoc-in-typescript] documentation fo
 
 ## Recap
 
+### Type-checking JavaScript
+
+<!-- {.-literate-style} -->
+
+Add a `@ts-check` comment to the JavaScript files that you want to type-check.
+
+```js
+// @ts-check
+```
+
 ### Documenting functions
 
 <!-- {.-literate-style} -->
