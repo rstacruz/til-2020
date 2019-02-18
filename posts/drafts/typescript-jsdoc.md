@@ -39,7 +39,7 @@ You can document TypeScript with [JSDoc] syntax&mdash;the standard syntax for do
  * @param {number} count - Number of times
  */
 
-function repeat(text, count: number) {
+function repeat(text, count) {
   return Array(count + 1).join(text)
 }
 ```
@@ -289,7 +289,7 @@ Using _import()_, the JSDoc syntax effectively is as feature-rich as the TypeScr
 
 ## Type definitions in JavaScript
 
-### Type definitions
+### Object types
 
 <!-- {.-literate-style} -->
 
@@ -315,6 +315,16 @@ const ArticleLink = props => {
   console.log(props.updatedAt)
   // ...
 }
+```
+
+### Union types
+
+<!-- {.-literate-style} -->
+
+Use union types (`|`) to signify types that can be one or another. To simplify things, you can define a _typedef_ for them.
+
+```js
+/** @typedef {number | string} NumberOrString */
 ```
 
 <next-block title="What about React?"></next-block>
@@ -362,23 +372,34 @@ class MyComponent extends React.Component {
 
 <next-block title="Let's write some more annotations."></next-block>
 
-## Advanced types
+## Advanced features
 
-There are also other things you can do: (TODO)
+###
+
+<!-- {.-literate-style} -->
+
+The JSDoc syntax isn't as expressive as the TypeScript syntax, but it comes very close. There are also some other advanced TypeScript features that are available in JSDoc:
 
 - Templates with `@template`
 - Return values with `@returns`
 - Type guards with `@returns`
+- Function types with `@callback`
+- Enums with `@enum`
+- ...and more
+
+Consult the official [JSDoc in TypeScript][jsdoc-in-typescript] documentation for details on these features and more.
+
+[jsdoc-in-typescript]: https://github.com/Microsoft/TypeScript/wiki/JSDoc-support-in-TypeScript
 
 <next-block title="Let's recap what we've learned."></next-block>
 
 ## Recap
 
-### @param for parameters
+### Documenting functions
 
 <!-- {.-literate-style} -->
 
-Document parameters with `@param`.
+Write your documentations as block comments that begin with a double-star. Document parameters with `@param`.
 
 ```js
 /**
@@ -388,8 +409,8 @@ Document parameters with `@param`.
  * @param {number} count - Number of times
  */
 
-function repeat(text, count: number) {
-  return Array(count + 1).join(text)
+function repeat(text, count) {
+  // ...
 }
 ```
 
@@ -397,7 +418,7 @@ function repeat(text, count: number) {
 
 <!-- {.-literate-style} -->
 
-Import type definitions with `@typedef { import ... }`.
+Import type definitions with `@typedef { import }`. This allows you to write your type definitions in TypeScript ambient definition files (`.d.ts`).
 
 ```js
 /** @typedef { import('./myTypes').User } User */
@@ -407,7 +428,7 @@ Import type definitions with `@typedef { import ... }`.
 
 <!-- {.-literate-style} -->
 
-Use the equal sign to denote `| null | undefined` ("nullable types").
+Use the equal sign to denote nullable types. This is equivalent to `User | null | undefined`.
 
 ```js
 /** @param {User=} user */
