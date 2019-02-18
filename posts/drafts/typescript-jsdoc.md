@@ -421,7 +421,7 @@ function square(n) {
 
 <!-- {.-literate-style} -->
 
-Import type definitions with `@typedef { import }`. This allows you to write your type definitions in TypeScript ambient definition files (`.d.ts`).
+Import type definitions with `@typedef` and `import`. This allows you to write your type definitions in TypeScript ambient definition files (`.d.ts`).
 
 ```js
 /** @typedef { import('./myTypes').User } User */
@@ -453,7 +453,7 @@ numbers.map((/** @type number */ n) => {
 
 <!-- {.-literate-style} -->
 
-You can document object parameters.
+You can document the properties of object parameters.
 
 ```js
 /**
@@ -464,5 +464,4 @@ You can document object parameters.
 
 function repeat(options) {
   // ... options.count, options.sep
-}
 ```
