@@ -433,3 +433,33 @@ Use the equal sign to denote nullable types. This is equivalent to `User | null 
 ```js
 /** @param {User=} user */
 ```
+
+### Anonymous functions
+
+<!-- {.-literate-style} -->
+
+Use `@type` to document parameters of an anonymous function.
+
+```js
+numbers.map((/** @type number */ n) => {
+  return n * 2
+})
+```
+
+###Documenting options
+
+<!-- {.-literate-style} -->
+
+You can document object parameters.
+
+```js
+/**
+ * @param {Object} options
+ * @param {number} options.count
+ * @param {string} options.sep
+ */
+
+function repeat(options) {
+  // ... options.count, options.sep
+}
+```
