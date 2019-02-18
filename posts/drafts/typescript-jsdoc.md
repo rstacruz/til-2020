@@ -204,7 +204,7 @@ function repeat(text, options) {
 repeat('hello', { count: 2, separator: '-' })
 ```
 
-## Type definitions
+## Type assertions
 
 ### Variables
 
@@ -221,27 +221,31 @@ Use `@type` to provide inline type definitions to function arguments. This isn't
 let timeout = 3000
 ```
 
-### Anonymous function parameters
+### Function parameters
 
 <!-- {.-literate-style} -->
 
-Use `@type` to provide inline type definitions to function arguments.
+`@type` can also be used to provide inline type definitions to function arguments. Great for anonymous functions.
 
+<!-- prettier-ignore -->
 ```js
-list.reduce((/** @type number */ acc, /** @type number */ item) => {
+list.reduce((
+  /** @type number */ acc,
+  /** @type number */ item
+) => {
   return acc + item
 }, 0)
 ```
 
-## Importing definitions
+<next-block title="Let's refactor our type definitions to be in external files."></next-block>
 
-Complex, reusable types are better defined in an external TypeScript file. You can then import these TypeScript definitions into your JavaScript files.
+## Importing definitions
 
 ### Importing types
 
 <!-- {.-literate-style} -->
 
-Import types using the special `{ import('...') }` syntax. You can then define your types in an external `.d.ts` file.
+Complex, reusable types are better defined in an external TypeScript file. You can then import these TypeScript definitions into your JavaScript files.
 
 ```js
 /** @typedef { import('./myTypes').User } User */
@@ -257,6 +261,8 @@ function cite(author) {
 }
 ```
 
+Import types using the special `{ import('...') }` syntax. You can then define your types in an external `.d.ts` file.
+
 ### Defining types externally
 
 <!-- {.-literate-style} -->
@@ -271,7 +277,11 @@ export interface User {
 }
 ```
 
-## Type definitions
+Using _import()_, the JSDoc syntax effectively is as feature-rich as the TypeScript syntax. If the JSDoc syntax is too limiting, you can define your types in a TypeScript file and import them later.
+
+<next-block title="Can I define complex types in JavaScript files?"></next-block>
+
+## Type definitions in JavaScript
 
 ### Type definitions
 
@@ -289,6 +299,8 @@ Use `@typedef` to define a type. External `.d.ts` files are preferred to this ap
 
 ```js
 /**
+ * A component.
+ *
  * @param {Props} props
  */
 
@@ -298,6 +310,8 @@ const ArticleLink = props => {
   // ...
 }
 ```
+
+<next-block title="What about React?"></next-block>
 
 ## Using with React
 
@@ -309,6 +323,8 @@ Function components are plain functions. You can document them in any of the way
 
 ```js
 /**
+ * This is a React function component.
+ *
  * @param {Object} props
  * @param {string} props.title
  * @param {string} props.url
@@ -328,6 +344,8 @@ Use `@extends` to define the types for your props and state. You can then use `@
 
 ```js
 /**
+ * This is a React class component.
+ *
  * @extends {React.Component<Props, State>}
  */
 
@@ -335,3 +353,11 @@ class MyComponent extends React.Component {
   // ...
 }
 ```
+
+## Advanced types
+
+There are also other things you can do: (TODO)
+
+- Templates with `@template`
+- Return values with `@returns`
+- Type guards with `@returns`
