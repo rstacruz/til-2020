@@ -158,7 +158,7 @@ After creating your partitions, you'll now need to mount it so we can write to i
 
 <!-- {.-literate-style} -->
 
-Mount the root partition to `/mnt`.
+Mount the root partition to `/mnt`. This is the ext4 partition that'll be installing Linux into.
 
 ```sh
 mount /dev/sda1 /mnt
@@ -169,7 +169,7 @@ mount /dev/sda1 /mnt
 
 <!-- {.-literate-style} -->
 
-Mount the EFI partition to `/mnt/boot`.
+Mount the EFI partition to `/mnt/boot`. This is where the bootloader will be installed.
 
 ```sh
 mkdir /mnt/boot
