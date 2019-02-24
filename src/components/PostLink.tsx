@@ -16,7 +16,7 @@ const PostLink = ({ node }: Props) => {
       <Link to={slug} className={CSS.link}>
         <PostTitleSnip {...{ slug, title }} />
         <small className={CSS.tags}>{(tags || []).join(' ')}</small>
-        <small className={CSS.date}>{date || 'Unpubished'}</small>
+        <small className={CSS.date}>{date || 'Unpublished'}</small>
       </Link>
     </article>
   )

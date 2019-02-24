@@ -1,8 +1,16 @@
 ---
-title: Setting up babel and typescript
+title: Setting up Babel and TypeScript
+tags: [TypeScript, JavaScript]
 ---
 
 ### Install Babel
+
+<!-- {.-literate-style} -->
+
+Install Babel and its required packages. We'll be using [@babel/preset-typescript] to allow Babel to consume TypeScript files, and [typescript] to check our types.
+
+[@babel/preset-typescript]: https://yarn.pm/@babel/preset-typescript
+[typescript]: https://yarn.pm/typescript
 
 ```sh
 yarn add --dev \
@@ -13,17 +21,63 @@ yarn add --dev \
   typescript
 ```
 
-### Babel config
+### Configure Babel
 
-Configure `babel.config.js`
+<!-- {.-literate-style} -->
 
+In `babel.config.js`, add the `preset-typescript` preset. This strips out type annotations from your TypeScript files, allowing Babel to compile them just as it would regular JavaScript.
+
+```
+babel.config.js
+```
+
+<!-- prettier-ignore -->
 ```javascript
 module.exports = {
-  presets: ['@babel/preset-typescript', '@babel/preset-env']
+  presets: [
+    '@babel/preset-typescript',
+    '@babel/preset-env'
+  ]
 }
 ```
 
-## Auto-compile Babel files
+This only makes Babel ignore the types&mdash;it doesn't check them! For that, we'll use TypeScript's `tsc`, which we'll get to later.
+
+### Configure TypeScript
+
+<!-- {.-literate-style} -->
+
+Configure TypeScript by creating a file called `tsconfig.json`. Of particular interest here is `noEmit`, which prevents TypeScript from writing its own JavaScript files. We'll only be using TypeScript for type-checking. We'll leave the compilation duties to Babel.
+
+```
+tsconfig.json
+```
+
+```javascript
+{
+  "compilerOptions": {
+    "noEmit": true
+  }
+}
+```
+
+### Just run tsc
+
+<!-- {.-literate-style} -->
+
+Run `tsc` to check types.
+
+```sh
+yarn run tsc
+```
+
+## Configuring Babel
+
+### Auto-compile Babel files
+
+<!-- {.-literate-style} -->
+
+Write some scripts.
 
 ```sh
 "scripts": {
@@ -31,12 +85,6 @@ module.exports = {
   "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
   "tsc": "tsc"
 }
-```
-
-### Just run tsc
-
-```sh
-yarn run tsc
 ```
 
 ## Also see
