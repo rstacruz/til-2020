@@ -2,20 +2,17 @@
 date: '2015-04-20'
 title: Navigate OS X with the keyboard
 description: Speed through the Mac OS X GUI with these shortcuts.
-image: images/osx-keyboard.png
-tags: [OSX]
+tags: [macOS]
+attachments:
+  - ./osx-keyboard-shortcuts/keyboard.png
 ---
 
-![Image](./images/osx-keyboard.png){:style='max-width:600px;margin-bottom:-130px'}
-{:.full-image.cropped.bottom-space-4}
+![Image](./osx-keyboard-shortcuts/keyboard.png)
 
 After switching to OS X, one thing I've always missed in Windows and Linux is the ability to spawn menus using `Alt` `F`. Today I realized that OS X has two ways to accomplish this.
-{:.brief-intro}
 
 - **By arrows:** `Ctrl` + `F2` lets you navigate menus with arrow keys.
 - **By typing:** `⌘` `⇧` `/` will get you the help menu.
-
----
 
 ### Spotlight for menus
 
@@ -25,7 +22,7 @@ The `⌘` `⌥` `/` shortcut is essentially a Spotlight for menu items—it open
 
 Under the _Keyboard_ preference pane, there's an option for _Full Keyboard Access_. I suggest enabling this, as this lets you navigate through file save windows with just the keyboard.
 
-## More shortcuts
+### More shortcuts
 
 | Key         | Description                 |
 | ----------- | --------------------------- |
@@ -36,5 +33,3 @@ Under the _Keyboard_ preference pane, there's an option for _Full Keyboard Acces
 | `^` `F6`    | Floating window             |
 | `^` `F8`    | Status menu                 |
 | `⌘` `⇧` `/` | Help                        |
-
-{:.shortcuts}
