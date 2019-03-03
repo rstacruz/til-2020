@@ -1,5 +1,3 @@
-// @flow
-
 export interface PageNode {
   excerpt: string
   fields: {

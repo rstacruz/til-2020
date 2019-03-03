@@ -1,5 +1,3 @@
-// @flow
-
 import cn from 'classnames'
 import slugger from 'github-slugger'
 import * as React from 'react'

@@ -1,5 +1,3 @@
-// @flow
-
 import cn from 'classnames'
 import React from 'react'
 import Overdrive from 'react-overdrive'

@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react'
 import PostLink from '../components/PostLink'
 import { PageNode } from '../types'

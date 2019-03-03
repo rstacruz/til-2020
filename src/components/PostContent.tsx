@@ -3,8 +3,6 @@
  * ===========
  *
  * Renders a Remark HAST as React nodes.
- *
- * @flow
  */
 
 import * as React from 'react'
