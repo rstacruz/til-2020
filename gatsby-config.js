@@ -14,7 +14,7 @@ function fs({ name, path }) {
 }
 
 module.exports = {
-  pathPrefix: '/tilnext',
+  pathPrefix: '/til',
   siteMetadata: {
     title: 'TIL',
     fullTitle: 'Today I Learned — web development musings semi-daily',

@@ -1,0 +1,5 @@
+[build]
+command = "yarn build"
+
+[context.production]
+command = "yarn build --prefix-paths"

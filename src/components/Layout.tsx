@@ -31,8 +31,7 @@ const Layout = ({ children }: Props) => (
           <Helmet
             title={fullTitle}
             meta={[
-              { name: 'description', content: shortDescription },
-              { name: 'robots', content: 'noindex' }
+              { name: 'description', content: shortDescription }
               // { name: 'keywords', content: 'sample, something' }
             ]}
           >

@@ -57,10 +57,7 @@
     "prettier:check": "prettier --list-different 'src/**/*.{ts,tsx,js,jsx}' 'posts/**/*.md'",
     "ci": "run-s tsc lint prettier:check",
     "lint": "tslint --project .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "run-s deploy:build deploy:gh-pages",
-    "deploy:build": "gatsby build --prefix-paths",
-    "deploy:gh-pages": "gh-pages -d public"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
