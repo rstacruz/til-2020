@@ -2,7 +2,7 @@
 date: '2015-03-27'
 title: GitHub two-factor authenication guide
 description: Secure your GitHub account with these easy steps.
-tags: [Development, GitHub]
+tags: [Git]
 ---
 
 Two-factor authentication in GitHub is pretty simple to set up, though the exact steps are layed out in maybe 3 different articles. I've consolidated them all together to this one simple guide.

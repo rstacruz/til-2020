@@ -1,7 +1,7 @@
 ---
 date: '2015-12-10'
 title: Use git merge-base for big merges
-tags: [Development, Git]
+tags: [Git]
 description: Use this one command to help you with big Git merges.
 ---
 
