@@ -8,7 +8,7 @@ tags: [Git]
 <img src='images/tig-commit-graph.gif'>
 </figure>
 
-Everyone's ran into [Guitar Hero]-like git graphs. These are usually made by tools that can't make the graphs readable enough. There's a way to make them easier to read!
+Everyone's ran into [Guitar Hero]-like git graphs. These are usually made by tools that can't tidy up the graphs. There's a way to make them readable!
 
 [Tig] is a fantastic tool for visualizing Git trees in the command line. Press `shift-g` to switch the commit graph to _v1_, which simplifies the graph. The example above shows the same fragment of Git history, but changing how it's visualized will make it apparent that it's simply a few PR's being merged en masse.
 
