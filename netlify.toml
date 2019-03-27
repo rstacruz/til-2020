@@ -3,3 +3,9 @@ command = "yarn build"
 
 [context.production]
 command = "yarn build --prefix-paths"
+
+[[redirects]]
+  from = 'https://til.ricostacruz.com/*'
+  to = 'https://ricostacruz.com/til/:splat'
+  status = 301
+  force = true
