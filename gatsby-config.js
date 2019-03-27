@@ -33,6 +33,12 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-20473929-1'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: 'https://ricostacruz.com/til'
