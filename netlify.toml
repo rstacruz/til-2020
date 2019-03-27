@@ -3,3 +3,8 @@ command = "yarn build --prefix-paths"
 
 [context.deploy-preview]
 command = "yarn build"
+
+# Allow browsing the Netlify URL, https://til.ricostacruz.com.
+[[redirects]]
+  from = "/til/*"
+  to = "/:splat"
