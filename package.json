@@ -50,6 +50,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "postbuild": "bash scripts/postbuild.sh",
     "tsc": "tsc",
     "develop": "gatsby develop",
     "start": "gatsby develop",
