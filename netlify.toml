@@ -3,3 +3,6 @@ command = "yarn build"
 
 [context.production]
 command = "yarn build --prefix-paths"
+
+[context.deploy-preview]
+command = "yarn build"
