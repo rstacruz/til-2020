@@ -5,10 +5,6 @@
 You can set up a development environment with [Docker]. First install _docker_ and _docker-compose_, then:
 
 ```sh
-alias dr='docker-compose run --rm web'
-
-# Install dependencies
-dr yarn
 docker-compose up
 ```
 
