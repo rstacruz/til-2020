@@ -1,0 +1,7 @@
+@import '../styles/variables.css';
+
+html,
+body {
+  overflow-x: hidden;
+  @apply --body-font;
+}

@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Alegreya:400,400i,700i');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400');
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-/* @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono'); */
-/* @import url('https://fonts.googleapis.com/css?family=Chivo:400,700'); */
-/* @import url('https://typeof.net/Iosevka/iosevka/webfont.css'); */
+@import url('https://rsms.me/inter/inter.css');
 
 @font-face {
   font-family: 'Iosevka Web';
@@ -39,9 +36,4 @@
       format('woff'),
     url('https://typeof.net/Iosevka/iosevka/ttf/iosevka-italic.ttf')
       format('truetype');
-}
-
-html,
-body {
-  overflow-x: hidden;
 }

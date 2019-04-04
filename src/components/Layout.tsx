@@ -3,7 +3,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import 'sanitize.css'
-import './Layout.css'
+
+import './Layout.fonts.css'
+
+import './Layout.base.css'
 
 export interface Props {
   children: React.ReactNode

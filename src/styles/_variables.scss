@@ -35,8 +35,7 @@ $accent-text: adjust-color(
 // Typography mixins
 
 @mixin body-font {
-  /* font-family: 'IBM Plex Sans', system-ui; */
-  font-family: 'Roboto', system-ui;
+  font-family: 'Inter', system-ui;
 }
 
 @mixin h1-font {
