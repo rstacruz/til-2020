@@ -26,7 +26,6 @@
     color: var(--heading-color);
     line-height: 1.23;
     margin-bottom: 24px;
-    /* text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%)); */
   }
 
   /* Horizontal line */
@@ -41,7 +40,7 @@
     }
 
     & > h2::after {
-      width: 800px;
+      width: calc(100% / 0.6);
     }
   }
 }
