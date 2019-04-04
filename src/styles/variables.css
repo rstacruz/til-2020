@@ -5,7 +5,7 @@
 :root {
   --yellow: #ffeaa7;
   --mint: #55efc4;
-  --poster: color-mod(#81ecec lightnes(-10%));
+  --poster: #81ecec;
   --ube: color-mod(#6c5ce7 lightness(+20%));
 }
 
@@ -25,11 +25,7 @@
   --pane-background: #f3f5f8;
   --code-background: #fcfcfc;
 
-  --accent: color-mod(var(--poster));
-  /* --accent: color-mod(var(--yellow)); */
-  /* --accent: color-mod(var(--ube)); */
-  /* --accent: color-mod(tomato tint(1%) hue(-10deg)); */
-  /* --accent: color-mod(var(--mint) tint(40%) saturation(-20%)); */
+  --accent: #2BC7B5;
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
   --highlighter-color: color-mod(var(--accent) alpha(50%));
   --accent-border-color: color-mod(var(--accent) alpha(30%));
@@ -199,7 +195,7 @@
     display: block;
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, var(--border-color) 50%, transparent);
+    background: linear-gradient(to right, var(--border-color) 50%, var(--border-color));
   }
 
   --thin-scrollbar: {
@@ -229,7 +225,9 @@
 
   --pre: {
     & {
-      box-shadow: inset 0 0 0 2px var(--accent);
+      box-shadow: none;
+      background: #f2f2fa;
+      border-radius: 2px;
     }
 
     &:global(.-bold) {
@@ -269,8 +267,7 @@
     }
 
     & + pre {
-      box-shadow: inset 2px 0 0 var(--accent), inset -2px -2px 0 var(--accent),
-        inset 0 1px 0 var(--border-color);
+      box-shadow: inset 0 1px 0 var(--border-color);
       margin-top: calc(-2.6em);
       padding-top: 16px;
       border-top-left-radius: 0;
