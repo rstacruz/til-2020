@@ -12,15 +12,16 @@ $column-size: 60%;
 $column-size-inverse: calc(100% / 0.6);
 
 // Colors 2
-$mute-text-color: #708090;
+$mute-text-color: #707080;
 $text-color: #303030;
+$bold-color: #101010;
 $heading-color: #080808;
 $border-color: #7080903f;
 $pane-background: #f3f5f8;
 $code-background: #fcfcfc;
 
 // More colorz
-$accent: $ube;
+$accent: adjust-color(tomato, $lightness: -10%);
 $co-accent: adjust-color($accent, $hue: -10deg, $saturation: +40%);
 $highlighter-color: change-color($accent, $alpha: 0.5);
 $accent-border-color: change-color($accent, $alpha: 0.3);
@@ -38,26 +39,25 @@ $accent-text: adjust-color(
   font-family: 'Inter', system-ui;
 }
 
-@mixin h1-font {
-  font-weight: 200;
-  font-family: 'Iosevka Web', system-ui;
-}
-
-@mixin ui-font {
-  font-weight: 400;
-  font-family: 'IBM Plex Sans', system-ui;
+@mixin work-sans-700 {
+  font-weight: 700;
+  font-family: 'Work Sans', system-ui;
+  font-style: normal;
+  letter-spacing: 0.1em;
 }
 
 @mixin h2-font {
-  font-weight: 700;
-  font-family: 'Barlow', system-ui;
+  font-family: 'Alegreya', system-ui;
+  font-weight: 400;
 }
 
 @mixin h3-font {
   font-weight: 400;
-  font-family: 'Iosevka Web', system-ui;
+  font-family: 'Work Sans', system-ui;
   font-style: normal;
   letter-spacing: 0.1em;
+  @include work-sans-700;
+}
 }
 
 @mixin monolike-font {

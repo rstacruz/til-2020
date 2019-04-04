@@ -11,8 +11,7 @@ attachments:
 
 After switching to OS X, one thing I've always missed in Windows and Linux is the ability to spawn menus using `Alt` `F`. Today I realized that OS X has two ways to accomplish this.
 
-- **By arrows:** `Ctrl` + `F2` lets you navigate menus with arrow keys.
-- **By typing:** `⌘` `⇧` `/` will get you the help menu.
+Use `Ctrl` + `F2` to navigate menus with arrow keys, or use `⌘` `⇧` `/` will get you the help menu.
 
 ### Spotlight for menus
 

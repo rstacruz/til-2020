@@ -21,11 +21,10 @@
   }
 
   & > h2 {
-    font-family: 'Alegreya', system-ui;
-    font-weight: 400;
     @apply --font-size-5;
+    @apply --h2-font;
     color: var(--heading-color);
-    line-height: 1.4;
+    line-height: 1.23;
     margin-bottom: 24px;
     /* text-shadow: 2px 0 0 color-mod(var(--accent) alpha(40%)); */
   }
@@ -60,7 +59,8 @@
   }
 
   & > h2 {
-    color: var(--accent);
+    /* color: var(--accent); */
+    /* opacity: 0.5; */
     text-shadow: none;
   }
 }

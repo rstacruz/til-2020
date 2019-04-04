@@ -59,6 +59,7 @@
     margin: 0;
     padding: 0;
     line-height: 1.2;
+    color: var(--bold-color);
   }
 
   /* Typist */
@@ -74,7 +75,9 @@
 /* "Written by..." */
 .byline {
   & {
-    @apply --em-style;
+    /* @apply --em-style; */
+    @apply --h3-font;
+    letter-spacing: 0;
     line-height: 1.4;
     color: var(--accent-text);
     white-space: nowrap;

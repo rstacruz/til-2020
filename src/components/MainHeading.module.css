@@ -44,7 +44,7 @@
   & {
     display: none;
     transition: opacity 250ms ease-in;
-    color: #7898;
+    color: var(--mute-text-color);
     animation: textappear 750ms linear;
   }
 
@@ -71,10 +71,10 @@
 }
 
 .right {
+  @apply --work-sans-500;
   flex: 0 1 auto;
   text-align: right;
-  color: var(--text-bold);
-  font-weight: bold;
+  color: var(--bold-color);
   line-height: 1.6;
 }
 
@@ -99,7 +99,7 @@
 
   & path {
     fill: var(--accent-text);
-  }
+ }
 }
 
 .brandlink:hover svg {

@@ -5,7 +5,7 @@
 :root {
   --yellow: #ffeaa7;
   --mint: #55efc4;
-  --poster: #81ecec;
+  --poster: color-mod(#81ecec lightnes(-10%));
   --ube: color-mod(#6c5ce7 lightness(+20%));
 }
 
@@ -17,17 +17,18 @@
 
 /* Colors 2 */
 :root {
-  --mute-text-color: #708090;
+  --mute-text-color: #707080;
   --text-color: #303030;
+  --bold-color: #101010;
   --heading-color: #080808;
   --border-color: #7080903f;
   --pane-background: #f3f5f8;
   --code-background: #fcfcfc;
 
-  /* --accent: color-mod(var(--poster)); */
+  --accent: color-mod(var(--poster));
   /* --accent: color-mod(var(--yellow)); */
-  --accent: color-mod(var(--ube));
-  /* --accent: color-mod(tomato tint(30%)); */
+  /* --accent: color-mod(var(--ube)); */
+  /* --accent: color-mod(tomato tint(1%) hue(-10deg)); */
   /* --accent: color-mod(var(--mint) tint(40%) saturation(-20%)); */
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
   --highlighter-color: color-mod(var(--accent) alpha(50%));
@@ -43,25 +44,19 @@
     font-family: 'Inter', system-ui;
   }
 
-  --h1-font: {
-    font-weight: 200;
-    font-family: 'Iosevka Web', system-ui;
-  }
-
-  --ui-font: {
-    font-weight: 400;
-    font-family: 'IBM Plex Sans', system-ui;
+  --work-sans-500: {
+    font-family: 'Work Sans', system-ui;
+    font-weight: 500;
+    font-style: normal;
   }
 
   --h2-font: {
-    font-weight: 700;
-    font-family: 'Barlow', system-ui;
+    font-family: 'Alegreya', system-ui;
+    font-weight: 400;
   }
 
   --h3-font: {
-    font-weight: 400;
-    font-family: 'Iosevka Web', system-ui;
-    font-style: normal;
+    @apply --work-sans-500;
     letter-spacing: 0.1em;
   }
 
