@@ -15,7 +15,7 @@ services:
       - '25800:25800'
     environment:
       CHOKIDAR_USEPOLLING: 'true'
-    command: ["npm", "run", "develop", "--", "--host", "0.0.0.0", "--port", "25800"]
+    command: "sh ./docker-compose.web.sh"
 
 volumes:
   node_modules:
