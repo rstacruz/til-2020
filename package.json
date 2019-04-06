@@ -16,7 +16,7 @@
     "gatsby-plugin-remove-trailing-slashes": "^2.0.6",
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-typescript": "^2.0.3",
-    "gatsby-remark-component": "^1.1.3",
+    "gatsby-remark-component": "npm:@rstacruz/gatsby-remark-component",
     "gatsby-remark-copy-linked-files": "^2.0.8",
     "gatsby-remark-images": "^3.0.1",
     "gatsby-source-filesystem": "^2.0.16",
