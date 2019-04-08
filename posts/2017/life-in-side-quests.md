@@ -6,9 +6,11 @@ image: images/side-quest-example.jpg
 description: Video games organize tasks in quests. There's no reason this can't work in real life, too.
 ---
 
+<figure class='-panorama'>
+
 ![Example image](./life-in-side-quests/side-quest-example.jpg)
 
-<!-- {.-panorama} -->
+</figure>
 
 Video games tell you what to do using _quests_ or _missions_. There's no reason this can't work in real life, too. Books tell us to lead purpose-driven lives with long-term and short-term goals. Seems like a perfect way to make your life an RPG.
 
@@ -16,7 +18,7 @@ Video games tell you what to do using _quests_ or _missions_. There's no reason 
 
 A _mission_ is an achievable goal within 3 months or less. A mission should be broken down into sub-tasks. In other words, it's an actionable short-term goal.
 
-<figure class='-panorama'>
+<figure class='-panorama -transparent'>
 <div class='mission-list'>
 <div class='mission-item'>
 <h3>1703 Start a blog <em>#project</em></h3>
@@ -59,7 +61,7 @@ A _mission_ is an achievable goal within 3 months or less. A mission should be b
 
 I prefix each mission with a projected date of completion (`1702` is 2017, February), but this is totally up to you. I do this to get a good retrospective at the end of the year of all the missions I've completed.
 
-<figure>
+<figure class='-transparent'>
 <div class='mission-list'>
 <div class='mission-item -goals'>
 <ul>
@@ -82,7 +84,7 @@ I prefix each mission with a projected date of completion (`1702` is 2017, Febru
 
 This system is so simple, you can use anything to keep track of it. As an Android user, I prefer using [Google Keep](https://keep.google.com). It lets me view all my missions at a glance, both ongoing and completed.
 
-<figure>
+<figure class='-transparent'>
 <img src='./life-in-side-quests/keep-missions.png'>
 </figure>
 

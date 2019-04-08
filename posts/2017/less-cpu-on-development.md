@@ -1,6 +1,6 @@
 ---
 date: '2017-07-12'
-title: Use less CPU for Rails
+title: Make Rails (and other dev servers) use less CPU
 tags: [Development, Linux]
 description: Is Rails eating your CPU in development? Try this nifty trick.
 ---

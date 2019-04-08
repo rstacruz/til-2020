@@ -1,6 +1,6 @@
 ---
 date: '2015-03-03'
-title: Easy color computations
+title: Easy color computations using Sass/Stylus CLI
 tags: [CSS, Sass]
 description: Need to lighten/darken colors easily? Here's how.
 ---

@@ -1,7 +1,7 @@
 ---
 title: After installing Arch Linux
 date: '2018-12-12'
-tags: [Arch Linux]
+tags: [Linux]
 ---
 
 These are things I suggest to do after an Arch Linux installation. These are items not covered in the official [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration), but I strongly suggest you do!

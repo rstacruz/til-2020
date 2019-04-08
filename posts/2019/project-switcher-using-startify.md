@@ -4,6 +4,14 @@ date: 2019-01-29
 tags: [Vim]
 ---
 
+###
+
+<!-- {.-wider-literate-style} -->
+
+<figure class='-no-pad'>
+<img src='https://source.unsplash.com/lCYoIM-fbuU/600x200' alt='Unrelated picture'>
+</figure>
+
 I like using [Startify] not just as a pretty splash screen, but also as a session manager and project switcher. Here's how to use it.
 
 [Startify]: https://github.com/mhinz/vim-startify

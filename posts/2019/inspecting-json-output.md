@@ -1,8 +1,18 @@
 ---
-title: Inspecting JSON output
+title: Inspecting JSON output in the command line
 date: 2019-03-24
 tags: [Development, CLI]
 ---
+
+###
+
+<!-- {.-wider-literate-style} -->
+
+<figure class='-no-pad'>
+
+![Example image](./images/json-curl.png)
+
+</figure>
 
 View JSON output in the command line using [jq] together with _less_. This makes JSON output more readable.
 

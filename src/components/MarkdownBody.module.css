@@ -58,6 +58,10 @@
     @apply --code-font;
   }
 
+  & img {
+    color: rgba(0, 0, 0, 0.1);
+  }
+
   & pre code {
     background: transparent;
     padding: 0;
