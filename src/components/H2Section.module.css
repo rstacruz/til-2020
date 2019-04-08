@@ -1,25 +1,44 @@
 @import '../styles/variables.css';
 
+:root {
+  --h2-style: {
+    font-family: 'Work Sans', system-ui;
+    font-weight: bold;
+    letter-spacing: -0.03em;
+  }
+}
+
 .root {
   @apply --container-padding;
-
-  & {
-    padding-top: 32px;
-    padding-bottom: 32px;
-    position: relative;
-  }
-
-  @media (--ms-viewport-md) {
-    padding-bottom: 64px;
-  }
+  @apply --section-padding;
+  position: relative;
 
   & > h2 {
     @apply --font-size-5;
+    @apply --h2-style;
+    color: var(--bold-color);
+    margin-bottom: 16px;
   }
 }
 
-.root:global(.-inactive) {
+/* Border */
+.root::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  bottom: -1px;
+  border: solid 1px var(--border-color);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms linear;
 }
 
-.root:global(.-active) {
+.root:global(.-active)::after {
+  /* opacity: 1; */
+  /* transition: opacity 50ms linear; */
 }
+
+/* .root:global(.-inactive) { } */

@@ -1,51 +1,20 @@
 @import '../styles/variables.css';
 
 .root {
-  & {
-    background: white;
-    margin-top: 0;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    position: relative;
-    @apply --side-line-section;
-    z-index: 5;
-  }
+  display: block;
+  @apply --container-padding;
+  @apply --section-padding;
+}
 
-  &:global(.-active) {
-    /* Don't draw too much attention */
-    @apply --shadow-paper-inactive;
-  }
-
-  @media (--ms-viewport-xl) {
-    margin: 0 32px;
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-
-  & {
-    margin-bottom: 8px;
+.body {
+  @media (--viewport-7) {
+    padding-right: 35%;
   }
 }
 
 [id] .body {
-  & {
-    text-align: center;
-  }
-
-  & > h3,
-  & > p {
-    margin: 0;
-    padding: 0;
-  }
-
-  & > h3 {
-    color: var(--heading-color);
-    @apply --em-style;
-    line-height: 1.5;
-  }
-
-  & > p {
-    @apply --em-style;
-    line-height: 1.5;
+  em {
+    font-style: normal;
+    color: var(--mute-text-color);
   }
 }

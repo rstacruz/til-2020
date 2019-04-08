@@ -2,6 +2,11 @@
 
 .root {
   display: block;
+  padding: 16px;
+
+  @media (--viewport-7) {
+    padding: 32px;
+  }
 }
 
 .brandlink svg {
@@ -12,7 +17,7 @@
 
   & path {
     fill: var(--accent-text);
- }
+  }
 }
 
 .brandlink:hover svg {

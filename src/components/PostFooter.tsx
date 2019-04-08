@@ -23,7 +23,9 @@ const PostFooter = (props: Props) => {
               You have just read <em>{title}</em>, which is an unpublished
               draft.
             </>
-          )}
+          )}{' '}
+          This is Today I Learned, a collection of random tidbits I've learned
+          through my day-to-day web development work. I'm Rico Sta. Cruz.
         </p>
       </div>
     </div>

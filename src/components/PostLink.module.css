@@ -4,10 +4,9 @@
   & {
     padding: 12px 8px;
     display: block;
-    border-top: solid 1px var(--border-color);
   }
 
-  @media (--viewport-4) {
+  @media (--viewport-9) {
     padding: 12px 0;
   }
 
@@ -28,6 +27,5 @@
 .date {
   float: right;
   @apply --font-size--1;
-  @apply --monolike-font;
   color: var(--mute-text-color);
 }

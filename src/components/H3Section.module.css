@@ -31,6 +31,12 @@
     max-width: var(--column-size);
   }
 
+  /* Collapse space between h3 and its body */
+  & > h3 {
+    margin-bottom: 4px;
+    color: var(--bold-color);
+  }
+
   & > h3:empty {
     display: none;
   }
