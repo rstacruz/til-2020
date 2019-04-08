@@ -24,6 +24,7 @@
   width: 3px;
   height: 6px;
   background: var(--accent);
+  transition: height 250ms ease-out;
 }
 
 .isActive {

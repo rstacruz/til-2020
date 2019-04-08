@@ -214,11 +214,13 @@
     @apply --figure-border;
     padding: 16px;
 
-    & > :first-child {
+    & > :first-child,
+    & > figcaption > :first-child {
       margin-top: 0;
     }
 
-    & > :last-child {
+    & > :last-child,
+    & > figcaption > :last-child {
       margin-bottom: 0;
     }
 
@@ -229,6 +231,7 @@
     }
 
     & > figcaption {
+      @apply --font-size--1;
       border-top: solid 1px var(--border-color);
       padding-top: 16px;
     }
@@ -236,6 +239,10 @@
     &:global(.-no-pad) {
       box-shadow: 0 16px 24px rgba(0, 0, 0, 0.08);
       padding: 0;
+
+      & > figcaption {
+        padding: 16px;
+      }
     }
   }
 

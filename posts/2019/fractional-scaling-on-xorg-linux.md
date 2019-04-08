@@ -9,7 +9,7 @@ date: 2019-04-08
 <!-- {.-literate-style} -->
 
 <figure class='-no-pad'>
-<img src='https://source.unsplash.com/zhvaeh-R9rA/600x600' alt='Display'>
+<img src='https://source.unsplash.com/NpZmRfdgNT8/600x600' alt='Display'>
 </figure>
 
 Getting fractional scaling right in Xorg is tricky, but possible. The solution

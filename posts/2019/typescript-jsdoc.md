@@ -4,11 +4,20 @@ tags: [TypeScript, JavaScript]
 date: 2019-04-07
 ---
 
+###
+
+<!-- {.-literate-style} -->
+
 [TypeScript] lets you annotate your JavaScript with type annotations. It can even check these for errors in build-time, so you can catch errors before they get deployed to production. You'll never have to deal with another _undefined is not a function_ error ever again!
 
-[typescript]: https://www.typescriptlang.org/
+<figure class='-no-pad'>
+<img src='https://source.unsplash.com/0X7ZNRcBT-k/600x300' alt='Display'>
+<figcaption>Numbers are pretty cool.</figcaption>
+</figure>
 
 TypeScript, by default, requires you to make a few changes to your build setup. You'll need to rename your JavaScript files to `.ts` and `.tsx`, and either use `tsc` (the TypeScript Compiler) or Babel (with _preset-typescript_) to compile them.
+
+[typescript]: https://www.typescriptlang.org/
 
 ### TypeScript syntax
 
