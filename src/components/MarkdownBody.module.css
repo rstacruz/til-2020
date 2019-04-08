@@ -50,7 +50,8 @@
     overflow: hidden;
     overflow-x: auto;
     position: relative;
-    line-height: 1.3em;
+    line-height: 1.35em;
+    font-size: 0.91em;
   }
 
   & code {

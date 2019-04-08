@@ -256,7 +256,6 @@
 
     & {
       padding: 16px;
-      font-size: 0.86em;
     }
 
     &:global(.-bold) {

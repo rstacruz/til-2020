@@ -50,7 +50,13 @@
     margin-top: 0;
   }
 
-  @media (--ms-viewport-lg) {
+  @media (--viewport-7) {
+    /* Increase padding in wide things */
+    & > pre {
+      padding: 24px;
+    }
+
+    & > pre,
     & > :global(.-wide),
     & > :global(.-wider) {
       width: var(--column-size-inverse);
@@ -127,6 +133,12 @@
       & ~ ol {
         float: none;
       }
+    }
+
+    /* Smaller text for code in literate style */
+    & > pre {
+      line-height: 1.3em;
+      font-size: 0.86em;
     }
   }
 }
@@ -217,13 +229,6 @@
 
     &:global(.-crop) > img {
       max-width: 100vw;
-    }
-  }
-
-  /* Increase padding in wide things */
-  & > pre:global(.-wide) {
-    @media (--viewport-7) {
-      padding: 32px;
     }
   }
 }

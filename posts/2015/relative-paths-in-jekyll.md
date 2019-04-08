@@ -20,8 +20,6 @@ Let's say you have an innocent URL in your layout like the one below. This is a 
 <link href="assets/style.css" rel="stylesheet" />
 ```
 
-<!-- {.-wide} -->
-
 This works well in pages of your site placed in the root directory. Once you path one level deep though, you'll encounter problems.
 
 | From this page...     | Base     | Final URL                 |  Result |
