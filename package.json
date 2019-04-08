@@ -59,7 +59,8 @@
     "prettier:check": "prettier --list-different 'src/**/*.{ts,tsx,js,jsx}' 'posts/**/*.md'",
     "ci": "run-s tsc lint prettier:check",
     "lint": "tslint --project .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css_modules:update": "tcm src/; prettier --write 'src/**/*.module.*.d.ts'"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -73,6 +74,7 @@
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "tslint-microsoft-contrib": "^6.0.0",
+    "typed-css-modules": "^0.4.2",
     "typescript": "^3.2.4"
   },
   "repository": {

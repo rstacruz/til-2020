@@ -12,30 +12,18 @@ interface Props {
 
 const BlogPostTitle = ({ title, date, body }: Props) => {
   return (
-    <CardWaypoint>
-      {({ entered }) => {
-        return (
-          <div
-            className={cn(CSS.root, entered ? CSS.isActive : CSS.isInactive)}
-          >
-            <div className={CSS.titleContainer}>
-              <h1 className={CSS.title}>
-                <span>{title}</span>
-                {/* I don't like how it looks now, plus it wraps weird */}
-                {/* <span className={CSS.blinker} /> */}
-              </h1>
-            </div>
+    <div className={CSS.root}>
+      <div>
+        <h1 className={CSS.title}>{title}</h1>
+      </div>
 
-            <p className={CSS.byline}>
-              <span className={CSS.author}>by Rico Sta. Cruz</span>
-              {date ? <span className={CSS.date}>{date}</span> : null}
-            </p>
+      <p className={CSS.byline}>
+        <span className={CSS.author}>by Rico Sta. Cruz</span>
+        {date ? <span className={CSS.date}>{date}</span> : null}
+      </p>
 
-            <div className={CSS.body}>{PostContent({ body })}</div>
-          </div>
-        )
-      }}
-    </CardWaypoint>
+      <div className={CSS.body}>{PostContent({ body })}</div>
+    </div>
   )
 }
 
