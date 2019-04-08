@@ -1,6 +1,6 @@
 ---
 title: Setting up Babel and TypeScript
-tags: [TypeScript, JavaScript]
+tags: [TypeScript, JavaScript, Featured]
 date: 2019-04-10
 ---
 

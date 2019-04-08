@@ -1,6 +1,6 @@
 ---
 title: Fractional scaling on Linux Xorg
-tags: [Linux]
+tags: [Linux, Featured]
 date: 2019-04-08
 ---
 

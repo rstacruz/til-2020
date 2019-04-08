@@ -1,8 +1,7 @@
 ---
 title: Setting up an Arch Linux dev box in the cloud
 date: '2019-01-15'
-tags: [Linux]
-draft: true
+tags: [Linux, Featured]
 ---
 
 ###

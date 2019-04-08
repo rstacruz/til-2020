@@ -1,6 +1,6 @@
 ---
 date: '2016-01-02'
-title: Selective polyfilling
+title: Selective polyfilling for legacy IE
 tags: [JavaScript]
 description: Load JavaScript polyfills in a smart, controlled manner.
 ---

@@ -16,9 +16,25 @@ const PostLink = ({ node }: Props) => {
       <Link to={slug} className={CSS.link}>
         <small className={CSS.date}>{date || 'Unpublished'}</small>
         <PostTitleSnip {...{ slug, title }} />
-        <small className={CSS.tags}>{(tags || []).join(' ')}</small>
+        <small className={CSS.tags}>
+          {(tags || []).map(tag => (
+            <Tag tag={tag} />
+          ))}
+        </small>
       </Link>
     </article>
+  )
+}
+
+const Tag = ({ tag }) => {
+  if (tag === 'Featured') {
+    return <>★</>
+  }
+
+  return (
+    <>
+      <span>{tag}</span>{' '}
+    </>
   )
 }
 

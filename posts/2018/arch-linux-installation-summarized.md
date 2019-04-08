@@ -1,7 +1,7 @@
 ---
 title: Demystifying Arch Linux installation
 date: '2018-12-12'
-tags: [Linux]
+tags: [Linux, Featured]
 ---
 
 ###

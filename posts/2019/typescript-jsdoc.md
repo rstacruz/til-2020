@@ -1,6 +1,6 @@
 ---
 title: Type annotations in JavaScript files
-tags: [TypeScript, JavaScript]
+tags: [TypeScript, JavaScript, Featured]
 date: 2019-04-07
 ---
 
