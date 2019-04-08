@@ -1,16 +1,39 @@
 import cn from 'classnames'
 import { Link } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
+import { Waypoint } from 'react-waypoint'
 import CSS from './MainHeading.module.css'
 
+interface State {
+  /** If the thing should be visible */
+  visible: boolean
+}
+
 export const MainHeading = () => {
+  const [state, setState] = useState<State>({ visible: false })
   return (
-    <div className={CSS.root}>
-      <Link to='/' className={CSS.brandlink}>
-        <BackIcon />
-      </Link>
-    </div>
+    <Waypoint
+      onEnter={doHandleEnter({ setState })}
+      onLeave={doHandleLeave({ setState })}
+    >
+      <span>
+        <div className={CSS.placeholder} />
+        <nav className={cn(CSS.nav, { [CSS.isVisible]: state.visible })}>
+          <Link to='/' className={CSS.brandlink}>
+            <BackIcon />
+          </Link>
+        </nav>
+      </span>
+    </Waypoint>
   )
+}
+
+const doHandleEnter = ({ setState }) => () => {
+  setState({ visible: true })
+}
+
+const doHandleLeave = ({ setState }) => () => {
+  setState({ visible: false })
 }
 
 const BackIcon = () => (

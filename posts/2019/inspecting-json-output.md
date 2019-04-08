@@ -4,6 +4,10 @@ date: 2019-03-24
 tags: [Development, CLI]
 ---
 
+View JSON output in the command line using [jq] together with _less_. This makes JSON output more readable.
+
+## Setting it up
+
 ###
 
 <!-- {.-literate-style} -->
@@ -29,6 +33,5 @@ Use this `jless` alias to make better sense of Docker's output:
 ```bash
 docker ps --format '{{ json . }}' | jless
 ```
-
 
 [jq]: https://stedolan.github.io/jq/

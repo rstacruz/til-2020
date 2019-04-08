@@ -20,33 +20,27 @@ Install Startify in your vim configuration. Here's how you would do it with vim-
 Plug 'mhinz/vim-startify'
 ```
 
-### Saving sessions
-
-<!-- {.-wider-literate-style} -->
+## Saving sessions
 
 Save your current session using `:SSave`.
 
-<figure class='-crop'>
+<figure class='-wide'>
 <img src='project-switcher-using-startify/startify-ssave.gif'>
 </figure>
 
-### Loading sessions
-
-<!-- {.-wider-literate-style} -->
+## Loading sessions
 
 The next time you start `vim` (or `nvim`), you will see a screen of your saved sessions.
 
-<figure class='-crop'>
+<figure class='-wide'>
 <img src='project-switcher-using-startify/startify-start.gif'>
 </figure>
 
-### Loading sessions
-
-<!-- {.-wider-literate-style} -->
+## Switching sessions
 
 From a running Vim session, you can use `:SClose` to switch to a different project. Bonus: by default, this will also save your current session if it's already saved.
 
-<figure class='-crop'>
+<figure class='-wide'>
 <img src='project-switcher-using-startify/startify-sclose-2.gif'>
 </figure>
 

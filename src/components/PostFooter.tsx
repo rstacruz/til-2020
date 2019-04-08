@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { Link } from 'gatsby'
 import React from 'react'
 import CSS from './PostFooter.module.css'
 
@@ -13,18 +14,22 @@ const PostFooter = (props: Props) => {
     <div className={cn(CSS.root, '-active')}>
       <div className={CSS.body}>
         <p>
+          You have just read <span>{title}</span>,{' '}
           {date ? (
             <>
-              You have just read <em>{title}</em>, written on <em>{date}</em>.
+              written on <span>{date}</span>.
             </>
           ) : (
-            <>
-              You have just read <em>{title}</em>, which is an unpublished
-              draft.
-            </>
+            <>an unpublished draft.</>
           )}{' '}
-          This is Today I Learned, a collection of random tidbits I've learned
-          through my day-to-day web development work. I'm Rico Sta. Cruz.
+          This is <Link to='/'>Today I Learned</Link>, a collection of random
+          tidbits I've learned through my day-to-day web development work. I'm
+          Rico Sta. Cruz.
+        </p>
+        <p>
+          <Link to='/'>
+            <strong>&larr; More articles</strong>
+          </Link>
         </p>
       </div>
     </div>

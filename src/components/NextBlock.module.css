@@ -1,8 +1,20 @@
 @import '../styles/variables.css';
 
 .root {
-  display: none;
-}
+  margin: 0;
+  clear: both;
+  color: var(--accent-text);
 
-.prefix {
+  @media (--viewport-7) {
+    padding-top: 16px;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 2px;
+    background: var(--accent);
+    margin: 16px 0;
+  }
 }

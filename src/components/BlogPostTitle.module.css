@@ -9,6 +9,10 @@
   @media (--viewport-9) {
     padding-top: 128px;
   }
+
+  @media (--viewport-11) {
+    padding-top: 160px;
+  }
 }
 
 .title {

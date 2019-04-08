@@ -225,11 +225,16 @@
     & > img {
       display: block;
       margin: 0 auto;
+      max-width: 100%;
     }
 
     & > figcaption {
       border-top: solid 1px var(--border-color);
       padding-top: 16px;
+    }
+
+    &:global(.-crop) {
+      overflow: hidden;
     }
   }
 
