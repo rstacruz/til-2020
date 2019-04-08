@@ -15,6 +15,7 @@ import CardWaypoint, { State as WaypointState } from './CardWaypoint'
 import H2Section from './H2Section'
 import PostContent from './PostContent'
 import PostFooter from './PostFooter'
+import ScrollIndicator from './ScrollIndicator'
 
 interface Props {
   body: HastNode[]
@@ -38,24 +39,38 @@ const BlogPostContent = (props: Props) => {
   const { body, titleBody, title, date } = props
   const [state, setState] = useState({ activeSection: 0 })
   const sections = body
+  const count = sections.length + 1
 
   return (
     <div className={cn(CSS.root)}>
-      <BlogPostTitle {...{ title, date, body: titleBody }} />
-      <div style={{ position: 'fixed', top: 0, right: 0 }}>
-        {state.activeSection} / {sections.length}
-      </div>
+      {/* Scroll indicator */}
+      <ScrollIndicator count={count} active={state.activeSection} />
 
+      {/* First section (index 0) */}
+      <Waypoint
+        onEnter={doHandleEnter({ state, setState, idx: 0 })}
+        topOffset='63%'
+        bottomOffset='35%'
+      >
+        <span>
+          <BlogPostTitle {...{ title, date, body: titleBody }} />
+        </span>
+      </Waypoint>
+
+      {/* H2 sections (index 1..n) */}
       {sections.map((h2section, idx) => (
         <Waypoint
-          onEnter={doHandleEnter({ state, setState, idx })}
+          onEnter={doHandleEnter({ state, setState, idx: idx + 1 })}
           topOffset='63%'
           bottomOffset='35%'
         >
           <span>
             <H2Section
               {...h2section.properties}
-              active={idx === state.activeSection}
+              active={
+                idx + 1 === state.activeSection ||
+                (idx === 0 && state.activeSection === 0)
+              }
             >
               <PostContent body={h2section.children} />
             </H2Section>
