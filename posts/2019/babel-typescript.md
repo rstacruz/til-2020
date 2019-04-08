@@ -8,12 +8,12 @@ date: 2019-04-10
 
 <!-- {.-literate-style} -->
 
+You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!
+
 <figure class='-no-pad'>
 <img src='https://source.unsplash.com/CNmvgopt0L8/600x300' alt='Display'>
 <figcaption>The alien <a href='https://en.m.wikipedia.org/wiki/Babel_fish'>Babel fish</a> can translate any language. This is not a babel fish.</figcaption>
 </figure>
-
-You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!
 
 To do this, we'll configure `tsc` (the TypeScript compiler) only check types, but not emit files. We'll use Babel to do the actual compilation.
 

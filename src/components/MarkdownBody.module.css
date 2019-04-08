@@ -44,12 +44,23 @@
     margin-top: -1.5em;
   }
 
-  & pre {
+  /* Undo the default figure margins */
+  & figure {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Scrollbars when necessary */
+  & pre,
+  & figure {
     @apply --thin-scrollbar;
     background: white;
     overflow: hidden;
     overflow-x: auto;
     position: relative;
+  }
+
+  & pre {
     line-height: 1.35em;
     font-size: 0.91em;
   }

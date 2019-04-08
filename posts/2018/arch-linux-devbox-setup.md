@@ -8,12 +8,12 @@ tags: [Linux, Featured]
 
 <!-- {.-wider-literate-style} -->
 
+I do a lot of my day-to-day development work on a Linux VPS in the cloud. This lets me, say, run very taxing Rails projects without thrashing my laptop.
+
 <figure class='-no-pad'>
 <img src='https://source.unsplash.com/0juC5JIhPks/600x300' alt='Display'>
 <figcaption>Believe it or not, Arch Linux can run on these.</figcaption>
 </figure>
-
-I do a lot of my day-to-day development work on a Linux VPS in the cloud. This lets me, say, run very taxing Rails projects without thrashing my laptop.
 
 For this, I use the same OS as I use on my workstation: Arch Linux! In this article, I'll show you what I did to set up my on-the-cloud development box.
 
