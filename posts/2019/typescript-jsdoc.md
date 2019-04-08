@@ -15,11 +15,18 @@ TypeScript, by default, requires you to make a few changes to your build setup. 
 Many people don't like how working with TypeScript means having to use a new syntax, even if it's a strict superset of JavaScript.
 If this describes you, then this article is for you.
 
+<figure>
+
 ```js
 function repeat(text: string, count: number) {
   return Array(count + 1).join(text)
 }
 ```
+
+<figcaption>TypeScript syntax allows you to put inline type annotations.</figcaption>
+</figure>
+
+<!-- {.-wide} -->
 
 <next-block title="Let's learn about an alternative to the TypeScript syntax."></next-block>
 

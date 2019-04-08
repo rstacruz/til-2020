@@ -1,9 +1,9 @@
 @import '../styles/variables.css';
 
 :root {
-  --code-a: color-mod(var(--accent-text) hue(+30deg) saturation(+10%));
-  --code-b: #3c9;
-  --code-m: #999;
+  --code-a: #6c5ce7;
+  --code-b: #c39;
+  --code-m: #707080;
 
   --code-a1: color-mod(var(--code-a) lightness(-20%) saturation(+20%));
   --code-a2: color-mod(var(--code-a));
@@ -20,7 +20,7 @@
   }
 
   &.comment {
-    color: color-mod(var(--accent-text));
+    color: var(--code-m);
     border-radius: 2px;
   }
 
