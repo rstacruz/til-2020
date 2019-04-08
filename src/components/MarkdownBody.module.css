@@ -135,7 +135,8 @@
 }
 
 [id] .context {
-  & pre + pre {
+  & pre + pre,
+  & figure + figure {
     margin-top: -2.5em;
   }
 

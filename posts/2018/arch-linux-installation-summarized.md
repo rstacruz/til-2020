@@ -15,7 +15,7 @@ tags: [Arch Linux]
 
 Arch Linux's wiki has a great [installation guide](https://wiki.archlinux.org/index.php/Installation_guide), but some find it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.
 
-**This is not a "How to Install Arch Linux" instruction guide.** It's not a replacement for official [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide). Consider this more like a refresher course!
+**This is not a replacement for the the official [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide).** Consider this more like a refresher course!
 
 <next-block title="Let's get started."></next-block>
 
@@ -27,9 +27,13 @@ Arch Linux's wiki has a great [installation guide](https://wiki.archlinux.org/in
 
 _(Skip this step if you're not dual-booting Windows or MacOS.)_ Before you create your `ext4` (Linux) partition, you'll need make space for it. Resize your current OS's partition down at least 60GB less to give you some space to create your Linux partition.
 
-<figure class='-bordered'>
+<figure>
 
 **Windows users,** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in _Disk Management_.
+
+</figure>
+
+<figure>
 
 **MacOS users,** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using _Disk Utility.app_ to resize your partition.
 
