@@ -59,13 +59,27 @@ This works great for sites that live on its own domain. When your site will be h
 
 This snippet below automatically determines the relative base and stores it in the variable `base`. Place it in your partials path, and include the partial in your layouts.
 
+<figure>
+
+<!-- prettier-ignore -->
 ```html
 <!-- _includes/base.html -->
-{% assign base = '' %} {% assign depth = page.url | split: '/' | size | minus: 1
-%} {% if depth <= 1 %}{% assign base = '.' %} {% elsif depth == 2 %}{% assign
-base = '..' %} {% elsif depth == 3 %}{% assign base = '../..' %} {% elsif depth
-== 4 %}{% assign base = '../../..' %}{% endif %}
+{% assign base = ''
+%}{% assign depth = page.url | split: '/' | size | minus: 1
+%}{% if depth <= 1
+%}{% assign base = '.'
+%}{% elsif depth == 2
+%}{% assign base = '..'
+%}{% elsif depth == 3
+%}{% assign base = '../..'
+%}{% elsif depth == 4
+%}{% assign base = '../../..'
+%}{% endif
+%}
 ```
+
+<figcaption>Tip: You can also collapse this into one line.</figcaption>
+</figure>
 
 <!-- {.-wide} -->
 

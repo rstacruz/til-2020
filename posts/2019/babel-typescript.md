@@ -1,7 +1,23 @@
 ---
 title: Setting up Babel and TypeScript
 tags: [TypeScript, JavaScript]
+date: 2019-04-10
 ---
+
+###
+
+<!-- {.-literate-style} -->
+
+<figure class='-no-pad'>
+<img src='https://source.unsplash.com/CNmvgopt0L8/600x300' alt='Display'>
+<figcaption>The alien <a href='https://en.m.wikipedia.org/wiki/Babel_fish'>Babel fish</a> can translate any language. This is not a babel fish.</figcaption>
+</figure>
+
+You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!
+
+To do this, we'll configure `tsc` (the TypeScript compiler) only check types, but not emit files. We'll use Babel to do the actual compilation.
+
+## Setting it up
 
 ### Install Babel
 
@@ -12,6 +28,8 @@ Install Babel and its required packages. We'll be using [@babel/preset-typescrip
 [@babel/preset-typescript]: https://yarn.pm/@babel/preset-typescript
 [typescript]: https://yarn.pm/typescript
 
+<figure>
+
 ```sh
 yarn add --dev \
   @babel/core \
@@ -20,6 +38,9 @@ yarn add --dev \
   @babel/preset-typescript \
   typescript
 ```
+
+<figcaption>Note: If you're already using a bundler like Webpack or Rollup, you may not need <code>@babel/cli</code>.</figcaption>
+</figure>
 
 ### Configure Babel
 
@@ -61,32 +82,46 @@ tsconfig.json
 }
 ```
 
-### Just run tsc
+## Trying it out
+
+### Check types with `tsc`
 
 <!-- {.-literate-style} -->
 
-Run `tsc` to check types.
+Just run `tsc` to check types. This should print a few errors if you have any.
 
 ```sh
 yarn run tsc
 ```
 
-## Configuring Babel
-
-### Auto-compile Babel files
+### Build files with `babel`
 
 <!-- {.-literate-style} -->
 
-Write some scripts.
+If you installed `@babel/cli`, you can test building files using the `babel` command. (Note: if you're using Webpack or Rollup, you don't need this package; use Webpack/Rollup to compile your JavaScript instead.)
+
+```sh
+yarn run babel src --out-dir lib --extensions '.ts,.tsx'
+```
+
+## Configuring Babel-CLI
+
+You can use Babel without Webpack or Rollup. If you're using already Webpack or Rollup, you can skip this; this is mostly ideal for writing small open-source libraries with limited compilation needs.
+
+### Auto-compile Babel files
+
+You can use `@babel/cli` to compile files. In this example, we'll set up some NPM scripts to convert every TypeScript file in `src/` to JavaScript files into `lib/`.
 
 ```sh
 "scripts": {
-  "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
+  "watch": "babel src --out-dir lib --extensions '.ts,.tsx' --watch",
   "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
   "tsc": "tsc"
 }
 ```
 
-## Also see
+##
+
+### References
 
 - https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/
