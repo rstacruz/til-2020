@@ -6,6 +6,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import GroupedPageList from '../components/GroupedPageList'
 import Layout from '../components/Layout'
+import { MainHeading } from '../components/MainHeading'
 import { PageNode } from '../types'
 
 export interface Props {
@@ -39,9 +40,12 @@ const IndexPage = (props: Props) => {
 
 const Home = ({ pages }) => {
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '16px' }}>
-      <GroupedPageList pages={pages} />
-    </div>
+    <>
+      <MainHeading />
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '16px' }}>
+        <GroupedPageList pages={pages} />
+      </div>
+    </>
   )
 }
 

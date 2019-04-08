@@ -9,7 +9,11 @@ interface State {
   visible: boolean
 }
 
-export const MainHeading = () => {
+interface Props {
+  back?: boolean
+}
+
+export const MainHeading = ({ back }: Props) => {
   const [state, setState] = useState<State>({ visible: false })
   return (
     <Waypoint
@@ -19,9 +23,25 @@ export const MainHeading = () => {
       <span>
         <div className={CSS.placeholder} />
         <nav className={cn(CSS.nav, { [CSS.isVisible]: state.visible })}>
-          <Link to='/' className={CSS.brandlink}>
-            <BackIcon />
-          </Link>
+          <span className={CSS.left}>
+            {back ? (
+              <Link to='/' className={CSS.brandlink}>
+                <BackIcon />
+              </Link>
+            ) : null}
+          </span>
+
+          <span className={CSS.right}>
+            <a href='https://github.com/rstarcuz' className={CSS.otherLink}>
+              <span>@rstacruz</span>
+              <img
+                width={16}
+                height={16}
+                src='https://avatars.githubusercontent.com/rstacruz'
+                className={CSS.avatar}
+              />
+            </a>
+          </span>
         </nav>
       </span>
     </Waypoint>

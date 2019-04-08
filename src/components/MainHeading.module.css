@@ -10,11 +10,13 @@
 
 /* Actual navigation */
 .nav {
-  display: block;
+  display: flex;
   padding: 16px;
   opacity: 0;
-  transform: scale(0.5);
-  transition: opacity 250ms linear, transform 250ms ease-out;
+  width: 100%;
+  transform: translate3d(0, -24px, 0);
+  transition: opacity 150ms linear, transform 150ms ease-out;
+  align-items: center;
 
   @media (--viewport-9) {
     position: fixed;
@@ -23,6 +25,16 @@
   @media (--viewport-11) {
     padding: 32px;
   }
+}
+
+.left,
+.right {
+  display: block;
+  flex: 1 1 auto;
+}
+
+.right {
+  text-align: right;
 }
 
 .nav.isVisible {
@@ -51,4 +63,22 @@
   & path {
     fill: var(--accent-text);
   }
+}
+
+.otherLink {
+  text-decoration: none;
+  color: var(--bold-text);
+  white-space: nowrap;
+}
+
+.otherLink img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-left: 12px;
+  border: solid 2px var(--accent);
+}
+
+.otherLink span {
+  box-shadow: inset 0 -2px var(--accent);
 }

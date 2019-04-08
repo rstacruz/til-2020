@@ -47,7 +47,7 @@ class BlogPostTemplate extends React.Component<Props> {
           ]}
           title={`${title}`}
         />
-        <MainHeading />
+        <MainHeading back />
         <div>
           <BlogNav />
           <BlogPostContent
