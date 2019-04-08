@@ -32,13 +32,12 @@ export const MainHeading = ({ back }: Props) => {
           </span>
 
           <span className={CSS.right}>
-            <a href='https://github.com/rstarcuz' className={CSS.otherLink}>
+            <a href='https://github.com/rstacruz' className={CSS.otherLink}>
               <span>@rstacruz</span>
               <img
                 width={16}
                 height={16}
                 src='https://avatars.githubusercontent.com/rstacruz'
-                className={CSS.avatar}
               />
             </a>
           </span>
