@@ -236,13 +236,18 @@
       padding-top: 16px;
     }
 
+    &:global(.-transparent),
     &:global(.-no-pad) {
-      box-shadow: 0 16px 24px rgba(0, 0, 0, 0.08);
+      box-shadow: none;
       padding: 0;
 
       & > figcaption {
         padding: 16px;
       }
+    }
+
+    &:global(.-no-pad) {
+      box-shadow: 0 16px 24px rgba(0, 0, 0, 0.08);
     }
   }
 

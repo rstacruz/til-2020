@@ -11,7 +11,7 @@ description: Chances are you've downloaded a few Google fonts to your computer. 
 
 <!-- {.-literate-style} -->
 
-<figure>
+<figure class='-transparent'>
 <img src='local-google-fonts/skyfonts.png'>
 </figure>
 
