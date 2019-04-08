@@ -30,7 +30,7 @@ const GroupedPageList = ({ pages, recentCount }: Props) => {
 }
 
 GroupedPageList.defaultProps = {
-  recentCount: 4
+  recentCount: 6
 }
 
 /*
