@@ -27,7 +27,9 @@ export interface Props {
  *     <BlogPostContent htmlAst={htmlAst} />
  */
 
-const BlogPostContent = ({ body, titleBody, title, date }: Props) => {
+const BlogPostContent = (props: Props) => {
+  const { body, titleBody, title, date } = props
+
   return (
     <div className={cn(CSS.root)}>
       <BlogPostTitle {...{ title, date, body: titleBody }} />
