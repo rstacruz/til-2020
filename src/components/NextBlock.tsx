@@ -11,7 +11,7 @@ import CSS from './NextBlock.module.css'
 const NextBlock = ({ title }) => {
   return (
     <blockquote className={CSS.root}>
-      <strong className={CSS.prefix}>Next:</strong> {title}
+      <strong>Next:</strong> {title}
     </blockquote>
   )
 }
