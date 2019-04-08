@@ -4,9 +4,20 @@ date: '2018-11-08'
 tags: [JavaScript, React]
 ---
 
-[styled-jsx] has been my preferred way of integrating CSS in JavaScript. It lets me write CSS in a more declarative fashion. It leads to code that's easier to understand.
+###
+
+<!-- {.-wider-literate-style} -->
+
+<figure class='-no-pad'>
+<img src='https://source.unsplash.com/Xf7o2W7qgP0/600x250' alt='Unrelated photo'>
+<figcaption>CSS-in-JS developers are obsessed with this emoji. Please explain it to me.</figcaption>
+</figure>
+
+[styled-jsx] lets developers write CSS-in-JS in a more declarative fashion compared to other CSS-in-JS solutions. In my opinion, it leads to code that's easier to understand.
 
 Before I tell you why I prefer _styled-jsx_, let's learn about some programming concepts&mdash;It'll all make sense later, trust me!
+
+<next-block title="What does it mean to write 'more declarative' code?"></next-block>
 
 ## Imperative vs. declarative code
 
@@ -16,6 +27,8 @@ Before I tell you why I prefer _styled-jsx_, let's learn about some programming 
 
 There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a **declarative** style of writing, where we try to express logic without providing any instructions.
 
+<figure>
+
 ```js
 {
   "name": "my-js-package",
@@ -24,11 +37,16 @@ There are two styles of expressing data. The most common way is to simply write 
 }
 ```
 
+<figcaption>JSON is declarative.</figcaption>
+</figure>
+
 ### Approach 2
 
 <!-- {.-literate-style} -->
 
 There are cases when this style may not be flexible enough, so some systems take an **imperative** approach. In contrast to the declarative style, it's a piece of code with instructions that runs procedurally. Here's an example of a Ruby [gem specification](https://guides.rubygems.org/specification-reference/), which defines a Ruby package's metadata.
+
+<figure>
 
 ```rb
 Gem::Specification.new do |spec|
@@ -38,16 +56,23 @@ Gem::Specification.new do |spec|
 end
 ```
 
+<figcaption>You can do the same thing above with imperative code.</figcaption>
+</figure>
+
 <next-block title="What's the difference?"></next-block>
 
 ## But they look the same!
 
 Ruby's gem specification style is _imperative_ because we're issuing instructions that are to be ran sequentially. It can keep variables, call functions, and do all the things you can do in a Ruby program. Think of the Ruby gemspec as a program talking to the system:
 
-> - _Okay, computer. Build a new Gem specification._
-> - _Set the name to 'my-ruby-gem'._
-> - _Set the summary to 'A sample package'._
-> - _Finish building._
+<figure>
+
+- **Step 1:** _Okay, computer. Build a new Gem specification._
+- **Step 2:** _Set the name to 'my-ruby-gem'._
+- **Step 3:** _Set the summary to 'A sample package'._
+- **Step 4:** _Finish building._
+
+</figure>
 
 On the other hand, JavaScript's _declarative_ style isn't concerned with any instructions or control flow. It's not a piece of code that talks to your system, it's really just a table of keys and values.
 
@@ -55,11 +80,11 @@ On the other hand, JavaScript's _declarative_ style isn't concerned with any ins
 
 ## Imperative is powerful
 
+Imperative style gives you the power to write expressions that you can't easily do with a declarative-style conventions. For instance, here's an example gem specification where the list of files are gathered via a system command (`git ls-files`).
+
 ###
 
-<!-- {.-literate-style} -->
-
-Imperative style gives you the power to write expressions that you can't easily do with a declarative-style conventions. For instance, here's an example gem specification where the list of files are gathered via a system command (`git ls-files`).
+<!-- {.-captioned-style} -->
 
 ```rb
 Gem::Specification.new do |spec|
@@ -69,29 +94,19 @@ Gem::Specification.new do |spec|
 end
 ```
 
+> We'll run a system command (`git ls-files -z`) to generate a list of files rather than listing them out by hand.
+
 <next-block title="What makes declarative-style different?"></next-block>
 
-## Declarative is easier to understand
+## Declarative is straightforward
 
-### Imperative in Ruby
+###
 
-<!-- {.-literate-style} -->
+In contrast, here's how it may be _declaratively_ defined in a JavaScript package's `package.json`. JavaScript's _declarative approach_ may be less flexible than the _imperative_ one, but the constraints of a JSON format makes things more predictable and easier to glance.
 
-Imperative conventions give developers a great amount of flexibility. However, this power comes at the cost of _complexity_. Here's an example where development dependencies are _imperatively_ defined in a Ruby gem, taking advantage of Ruby's `Array#each` to reduce redundancy.
+###
 
-```rb
-Gem::Specification.new do |spec|
-  ['bundler', 'rake', 'minitest', 'rails'].each do |gemname|
-    spec.add_development_dependency(gemname)
-  end
-end
-```
-
-### Declarative in JavaScript
-
-<!-- {.-literate-style} -->
-
-In contrast, here's how it may be _declaratively_ defined in a JavaScript package's `package.json`.
+<!-- {.-captioned-style} -->
 
 ```js
 {
@@ -103,7 +118,7 @@ In contrast, here's how it may be _declaratively_ defined in a JavaScript packag
 }
 ```
 
-JavaScript's _declarative aproach_ may be less flexible than the _imperative_ one, but the constraints of a JSON format makes things more predictable and easier to glance.
+> **No instructions here.** The package.json format is really just a list of things, there are no imperative instructions to be executed.
 
 <next-block title="What does this have to do with CSS?"></next-block>
 
@@ -111,28 +126,42 @@ JavaScript's _declarative aproach_ may be less flexible than the _imperative_ on
 
 CSS is beautifully declarative. To write CSS is to write a list of rules, not a set of instructions. For instance, we would say _buttons are supposed to be blue_, rather than _turn all buttons to blue_.
 
+###
+
+<!-- {.-captioned-style} -->
+
 ```css
-/* "Buttons are supposed to be blue" in CSS. */
 button {
   background: blue;
 }
 ```
 
+> **Declarative:** Writing "buttons are supposed to be blue" in CSS.
+
+###
+
+<!-- {.-captioned-style} -->
+
 ```js
-// "Turn all buttons to blue" in JavaScript.
-// (Please don't do this.)
-Array.from(document.querySelectorAll('button')).forEach(button => {
+const buttons = document.querySelectorAll('button')
+
+Array.from(buttons).forEach(button => {
   button.style.background = 'blue'
 })
 ```
+
+> **Imperative:** Writing "please turn all buttons to blue" in JavaScript.
+> (Please don't do this.)
 
 <next-block title="What about CSS-in-JS?"></next-block>
 
 ## A lot of CSS-in-JS is imperative
 
+At first glance, we can say that most CSS-in-JS solutions require you to write in a declarative style, since it's mostly just taking CSS and putting it in JavaScript. Here's how you would define a blue button using [styled-components]:
+
 ###
 
-At first glance, we can say that most CSS-in-JS solutions require you to write in a declarative style, since it's mostly just taking CSS and putting it in JavaScript. Here's how you would define a blue button using [styled-components]:
+<!-- {.-captioned-style} -->
 
 ```js
 const Button = styled.a`
@@ -140,12 +169,17 @@ const Button = styled.a`
 `
 ```
 
+> **Declarative CSS-in-JS:** No imperative logic here, right?
+
 ### Where it breaks down
 
 However, how would you start making red `danger` buttons? With _styled-components_, you'll have to provide a function which returns a CSS fragment depending on how you would interpret `props`:
 
+###
+
+<!-- {.-captioned-style} -->
+
 ```js
-// using styled-components
 const Button = styled.a`
   background: blue;
 
@@ -157,27 +191,39 @@ const Button = styled.a`
 `
 ```
 
-This is where it starts to break down. We're now mixing the declarative nature of CSS with some rules that are written in an imperative style. We're also now interweaving 2 languages together&mdash;CSS and JavaScript&mdash;where your brain may have to switch contexts mid-way.
+> **Using styled-components:** Using some JavaScript logic to generate some CSS. That is, CSS-in-JS-in-CSS-in-JS.
 
-### Interpolation
+### Interwoven CSS and JavaScript
 
-This brain-context-switching is even more apparent in some other CSS-in-JS libraries:
+We're now mixing the declarative nature of CSS with some rules that are written in an imperative style. We're also now interweaving 2 languages together&mdash;CSS and JavaScript&mdash;where your brain may have to switch contexts mid-way.
 
-```css
+###
+
+<!-- {.-captioned-style} -->
+
+```js
 // using emotion
 const Button = styled.a`
-  background: ${props => props.danger ? 'red' : 'blue'};
-  opacity: ${props => props.isHidden ? 0 : 1};
+  background: ${props => (props.danger ? 'red' : 'blue')};
+  opacity: ${props => (props.isHidden ? 0 : 1)};
 `
 ```
 
+> **Using Emotion:** Emotion also advises the use of the `?:` ternary operator to generate CSS based on props.
+
 <next-block title="Let's look at how styled-jsx solves this."></next-block>
 
-## Declarative CSS with styled-jsx
+## Declarative CSS-in-JS
 
 ### No props logic required
 
-<!-- {.-literate-style} -->
+[styled-jsx] lets me write CSS in a declarative fashion. It also minimizes the interweaving of CSS and JavaScript code. This, in my opinion, makes styled-jsx code easier-to-understand, even at the modest cost of a little extra verbosity.
+
+How would you style a danger button differently in _styled-jsx_? Just use CSS classes as you normally would. Simple!
+
+###
+
+<!-- {.-captioned-style} -->
 
 ```js
 const Button = ({ children, danger }) => {
@@ -200,14 +246,12 @@ const style = css`
 `
 ```
 
-[styled-jsx] lets me write CSS in a declarative fashion. It also minimizes the interweaving of CSS and JavaScript code. This, in my opinion, makes styled-jsx code easier-to-understand, even at the modest cost of a little extra verbosity.
-
-How would you style a danger button differently in _styled-jsx_? Just use CSS classes as you normally would. Simple!
-
-In this example, we simply declare a class rule with `.button.danger`, just as we would with regular CSS. There's no need for the props to be parsed from the CSS block.
-
-<next-block title="Let's recap what we've learned."></next-block>
+> **Logicless CSS-in-JS.** In this example, we simply declare a class rule with `.button.danger`, just as we would with regular CSS. There's no need for the props to be parsed from the CSS block.
 
 [styled-components]: https://www.styled-components.com/
 [styled-jsx]: https://github.com/zeit/styled-jsx
 [emotion]: https://emotion.sh/
+
+## Epilogue
+
+Since writing this article, I've decided that I like the simpler approach of just using [CSS modules](https://github.com/css-modules/css-modules). The reasons for that is the same as what's in this article: it's as declarative as you can get, and it's compatibility with existing tools is so far unbeatable.

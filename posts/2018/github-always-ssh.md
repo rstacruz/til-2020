@@ -14,8 +14,6 @@ git config --global url."git@github.com:".insteadOf "https://github.com/"
 
 <!-- {.-terminal.-wide} -->
 
-<next-block title="What does it do?"></next-block>
-
 ## How it works
 
 When you clone an HTTPS URL, it now gets rewritten as an SSH URL.
@@ -30,8 +28,6 @@ git clone https://github.com/rstacruz/vimfiles.git
 
 > **This URL will get rewritten** to access via SSH instead of HTTPS.
 > It will instead be: `git@github.com:rstacruz/vimfiles.git`
-
-<next-block title="Here's another neat trick for macOS."></next-block>
 
 ## The inverse: <br> Use HTTPS instead of SSH
 

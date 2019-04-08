@@ -9,6 +9,7 @@
     @apply --font-size-5;
     @apply --h2-style;
     color: var(--bold-color);
+    line-height: 1.2;
     margin-bottom: 16px;
     margin-top: 0;
   }
