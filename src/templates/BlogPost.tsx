@@ -32,7 +32,6 @@ class BlogPostTemplate extends React.Component<Props> {
     const siteDescription = post.excerpt
     const { previous, next } = this.props.pageContext
     const { title, date, description } = post.frontmatter
-    const { slug } = post.fields
     const htmlAst = transformHtmlAst(post.htmlAst)
     const sections = htmlAst.children || []
 
