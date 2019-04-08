@@ -7,13 +7,15 @@ tags: [Git]
 
 Two-factor authentication in GitHub is pretty simple to set up, though the exact steps are layed out in maybe 3 different articles. I've consolidated them all together to this one simple guide.
 
+## Setting up 2FA
+
 ### Enable 2FA
 
 <!-- {.-literate-style} -->
 
 Enable [2 factor authentication](https://github.com/settings/security) on the GitHub website (Settings → Security → Two Factor Authentication).
 
-<figure class='-bordered'>
+<figure>
 
 [2 factor authentication settings](https://github.com/settings/security) _(github.com)_
 
@@ -25,6 +27,16 @@ Enable [2 factor authentication](https://github.com/settings/security) on the Gi
 
 Install [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator), or an equivalent of such. Works for iOS and Android. In Authenticator, tap _Add_, then _Scan Barcode_. Take a picture of the QR code on your computer. ([More info on apps](https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/))
 
+<figure>
+
+[Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) _(en.wikipedia.org)_
+
+</figure>
+
+## For HTTPS
+
+If you're using SSH keys to access your Git repos, you can skip this section. If you're using `https://` URL's in your Git repos, then read on!
+
 ### Enable git credential caching
 
 <!-- {.-literate-style} -->
@@ -32,15 +44,28 @@ Install [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticato
 On your computer, [enable caching your GitHub HTTPS credentials](https://help.github.com/articles/caching-your-github-password-in-git/). This allows you to store your 2FA token and not get asked for it everytime.
 
 ```bash
-git config --global credential.helper osxkeychain   # MacOS
-git config --global credential.helper cache         # Linux
+# MacOS:
+git config --global credential.helper osxkeychain
+```
+
+```bash
+# Linux:
+git config --global credential.helper cache
 ```
 
 This only applies if you use HTTP authentication for your Git repositories. If you use SSH keys, this shouldn't be necessary.
 
 ### Generate an API key
 
+<!-- {.-literate-style} -->
+
 [Generate a GitHub API key](https://github.com/settings/tokens) under "Personal Access Tokens". You'll use this for the Git command line. Leave the scopes unchanged.
+
+<figure>
+
+[Generate a GitHub API key](https://github.com/settings/tokens) _(github.com)_
+
+</figure>
 
 ### Use HTTPS on your repos
 
@@ -53,9 +78,13 @@ cd project
 vim .git/config
 ```
 
+## Try it out
+
 ### Git push
 
 Push a repo. You'll be asked for a password. Use the token for the password. You won't have to do this again if enabled credential caching.
+
+<figure>
 
 ```bash
 $ git push
@@ -66,13 +95,19 @@ Username for 'https://github.com': rstacruz
 Password for 'https://rstacruz@github.com':
 ```
 
+</figure>
+
+<!-- {.-wide} -->
+
 ### Save your recovery codes
 
 Get your [recovery codes](https://github.com/settings/auth/recovery-codes) (Settings → Security → Two Factor Authentication → Recovery Codes) and put them somewhere safe. This will allow you to log onto your account when, say, your phone isn't charged. ([More info on recovery codes](https://help.github.com/articles/downloading-your-two-factor-authentication-recovery-codes/))
 
 ## That's it!
 
-If everything worked, your `git push` should work. Further reading below:
+If everything worked, your `git push` should work just fine.
+
+### References
 
 - [Two factor authentication articles](https://help.github.com/categories/two-factor-authentication-2fa/) (github.com)
 - [TOTP mobile apps](https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) (github.com)
