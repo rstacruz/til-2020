@@ -24,13 +24,14 @@ module.exports = {
     // For gatsby-feed
     description:
       'TIL - a collection of things I learned on my day-to-day web development work.',
-    siteUrl: 'https://ricostacruz.com/tilnext/'
+    siteUrl: 'https://ricostacruz.com/til'
   },
   plugins: [
     'gatsby-plugin-feed',
     'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-google-analytics',
