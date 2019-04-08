@@ -107,6 +107,15 @@
     &:last-child {
       padding-right: 0;
     }
+
+    /* For when you add code into tables */
+    & > :first-child {
+      margin-top: 0;
+    }
+
+    & > :last-child {
+      margin-bottom: 0;
+    }
   }
 
   & ul,

@@ -65,14 +65,24 @@ end
 
 Ruby's gem specification style is _imperative_ because we're issuing instructions that are to be ran sequentially. It can keep variables, call functions, and do all the things you can do in a Ruby program. Think of the Ruby gemspec as a program talking to the system:
 
-<figure>
+<table><tr><td>
+
+```rb
+Gem::Specification.new do |spec|
+  spec.name = 'my-ruby-gem'
+  spec.summary = 'A sample package'
+  spec.authors = ['Rico Sta. Cruz']
+end
+```
+
+</td><td>
 
 - **Step 1:** _Okay, computer. Build a new Gem specification._
 - **Step 2:** _Set the name to 'my-ruby-gem'._
 - **Step 3:** _Set the summary to 'A sample package'._
 - **Step 4:** _Finish building._
 
-</figure>
+</td></tr></table>
 
 On the other hand, JavaScript's _declarative_ style isn't concerned with any instructions or control flow. It's not a piece of code that talks to your system, it's really just a table of keys and values.
 
