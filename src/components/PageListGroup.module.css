@@ -5,6 +5,6 @@
 }
 
 .heading {
-  text-align: center;
   color: var(--accent-text);
+  @apply --h2-style;
 }

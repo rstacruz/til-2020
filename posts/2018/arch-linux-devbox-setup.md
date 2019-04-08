@@ -221,6 +221,8 @@ sudo ufw route allow proto tcp from any to any port 443
 
 Start and enable your firewall.
 
+<figure>
+
 ```sh
 # Start and enable
 sudo ufw enable
@@ -231,7 +233,10 @@ sudo systemctl start ufw
 sudo ufw status
 ```
 
-> Tip: No need to allow OpenVPN connections yourself. The VPN installer installs its own iptables rules.
+<figcaption>
+Tip: No need to allow OpenVPN connections yourself. The VPN installer installs its own iptables rules.
+</figcaption>
+</figure>
 
 ## Fail2ban
 
@@ -286,21 +291,21 @@ You can use NFS to access your files from within the VPN. In this example above,
 sudo pacman -Syu nfs-utils
 ```
 
-###
+### Mount to /srv
 
 <!-- {.-wider-literate-style} -->
 
-Add mount point.
+Add mount point. We'll be serving things in `/srv` via NFS.
 
 ```sh
 sudo mount --bind /home/rsc/Dev /srv/Dev
 ```
 
-###
+### Set up auto-mounting
 
 <!-- {.-wider-literate-style} -->
 
-Edit fstab to auto-mount it on boot up.
+Edit fstab to auto-mount this path on every boot up.
 
 ```sh
 sudo vim /etc/fstab
@@ -310,7 +315,7 @@ sudo vim /etc/fstab
 /home/rsc/Dev /srv/Dev none rw,bind 0 0
 ```
 
-###
+### Tell nfsd about it
 
 <!-- {.-wider-literate-style} -->
 

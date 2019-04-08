@@ -12,10 +12,6 @@
   z-index: 8;
   pointer-events: none;
   display: none;
-
-  @media (--show-side-line) {
-    display: block;
-  }
 }
 
 .area {

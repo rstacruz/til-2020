@@ -32,8 +32,16 @@ const IndexPage = (props: Props) => {
 
   return (
     <Layout>
-      <GroupedPageList pages={pages} />
+      <Home pages={pages} />
     </Layout>
+  )
+}
+
+const Home = ({ pages }) => {
+  return (
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '16px' }}>
+      <GroupedPageList pages={pages} />
+    </div>
   )
 }
 

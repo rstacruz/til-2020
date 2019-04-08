@@ -58,9 +58,9 @@ GitHub does not provide shell access.
 Connection to github.com closed.
 ```
 
-## Bonus
+##
 
-### Generating keys
+### Generating new keys
 
 <!-- {.-literate-style} -->
 

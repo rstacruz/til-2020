@@ -25,7 +25,7 @@
   --pane-background: #f3f5f8;
   --code-background: #fcfcfc;
 
-  --accent: #FFEF62;
+  --accent: #ffef62;
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
   --highlighter-color: color-mod(var(--accent) alpha(50%));
   --accent-border-color: color-mod(var(--accent) alpha(30%));
@@ -96,13 +96,9 @@
       padding-right: 16px;
     }
 
-    @media (--show-side-line) {
-      padding-left: 80px;
-    }
-
     @media (--ms-viewport-xxl) {
-      padding-left: calc((100vw - 960px) * 0.5 + 32px);
-      padding-right: calc((100vw - 960px) * 0.5 - 32px);
+      padding-left: calc((100vw - 960px) * 0.5);
+      padding-right: calc((100vw - 960px) * 0.5);
     }
   }
 
@@ -110,10 +106,6 @@
     & {
       margin-left: -16px;
       margin-right: -16px;
-    }
-
-    @media (--show-side-line) {
-      margin-left: -80px;
     }
 
     @media (--ms-viewport-xxl) {
@@ -277,3 +269,24 @@
 @custom-media --ms-viewport-xl (--viewport-9); /* laptop+ */
 @custom-media --ms-viewport-xxl (--viewport-11); /* desktop+ */
 @custom-media --show-side-line (width > 900px);
+
+:root {
+  --h2-style: {
+    font-family: 'Work Sans', system-ui;
+    font-weight: bold;
+    letter-spacing: -0.03em;
+  }
+
+  --h1-style: {
+    font-family: 'Work Sans', system-ui;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+  }
+
+  --alt-style: {
+    font-family: 'Work Sans', system-ui;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}

@@ -14,7 +14,7 @@ $ git merge-base develop master
 b8ac838cad3266f6a7e414181875831fd9b86ed5
 ```
 
-<!-- {.-terminal} -->
+<!-- {.-wide} -->
 
 ### Set up git tags
 
@@ -24,7 +24,7 @@ This command will create a tag `_base` that will point to where they both diverg
 git tag _base `git merge-base develop master`
 ```
 
-<!-- {.-terminal} -->
+<!-- {.-wide} -->
 
 ### Inspecting changes
 
@@ -39,7 +39,7 @@ git diff _base...develop -- Gemfile
 git diff _base...master -- Gemfile
 ```
 
-<!-- {.-terminal} -->
+<!-- {.-wide} -->
 
 ### Check if both branches diverged
 
@@ -51,7 +51,7 @@ $ git merge-base develop master --independent
 8501118e0d958115caff692abda0f29ad530db4f
 ```
 
-<!-- {.-terminal} -->
+<!-- {.-wide} -->
 
 If it only prints 1, it means only one side has changes.
 
@@ -60,7 +60,7 @@ $ git merge-base develop master --independent
 8501118e0d958115caff692abda0f29ad530db4f
 ```
 
-<!-- {.-terminal} -->
+<!-- {.-wide} -->
 
 [git merge-base]: http://git-scm.com/docs/git-merge-base
 [tig]: https://jonas.nitro.dk/tig

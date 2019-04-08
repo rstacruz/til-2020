@@ -2,12 +2,8 @@
 
 .link {
   & {
-    padding: 12px 8px;
-    display: block;
-  }
-
-  @media (--viewport-9) {
     padding: 12px 0;
+    display: block;
   }
 
   &,
@@ -22,6 +18,7 @@
   color: var(--mute-text-color);
   margin-left: 16px;
   display: none;
+  @apply --alt-style;
 
   @media (--viewport-7) {
     display: inline;
@@ -29,7 +26,13 @@
 }
 
 .date {
-  float: right;
   @apply --font-size--1;
   color: var(--mute-text-color);
+  @apply --code-font;
+
+  &::after {
+    content: '—';
+    margin: 0 12px;
+    color: var(--accent);
+  }
 }

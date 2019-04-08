@@ -1,13 +1,5 @@
 @import '../styles/variables.css';
 
-:root {
-  --h2-style: {
-    font-family: 'Work Sans', system-ui;
-    font-weight: bold;
-    letter-spacing: -0.03em;
-  }
-}
-
 .root {
   @apply --container-padding;
   @apply --section-padding;

@@ -5,6 +5,10 @@ description: Insert Markdown into any Jekyll document with this simple tag.
 tags: [Development, Jekyll]
 ---
 
+Here's how you can do inline Markdown blocks in Jekyll.
+
+##
+
 ### Using capture
 
 <!-- {.-literate-style} -->
@@ -32,16 +36,19 @@ kramdown:
   input: GFM
 ```
 
+##
+
 ### Markdown in Kramdown
 
 If you do, there's a great alternative. Name your HTML files as `.md`, which is fine, because Markdown will ignore HTML blocks by default. You can then opt into Markdown processing via `markdown="1"`. More info on this on Kramdown's [documentation]. Hat tip to [@marksteve].
 
+<!-- prettier-ignore -->
 ```html
 <div>
   <h3>I'm HTML</h3>
   <div markdown="1">
-    I am *Markdown text*. Be sure not to indent me, else I'll be interpreted as
-    a code block.
+    I am *Markdown text*. Be sure not to indent me,
+    else I'll be interpreted as a code block.
   </div>
 </div>
 ```

@@ -4,7 +4,7 @@ date: '2018-12-12'
 tags: [Arch Linux]
 ---
 
-Arch Linux has a great [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide), but I personally found it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.
+Arch Linux has a great [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide), but some find it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.
 
 **This is not a "How to Install Arch Linux" instruction guide.** It's not a replacement for official [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)­consider this more like a refresher course!
 
@@ -32,7 +32,7 @@ _(Skip this step if you're not dual-booting Windows or MacOS.)_ Before you creat
 
 You can download the latest ArchLinux ISO from the [Arch Linux Downloads](https://www.archlinux.org/download/) page. To create these USB disks, you can use [dd](https://wiki.archlinux.org/index.php/USB_flash_installation_media#Using_dd) in Linux, [RUFUS](https://wiki.archlinux.org/index.php/USB_flash_installation_media#Using_Rufus) in Windows, or [dd](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_macOS) in MacOS.
 
-###
+### Boot into your disk
 
 <!-- {.-literate-style} -->
 
@@ -76,7 +76,7 @@ ls /sys/firmware/efi/efivars
 
 You will be installing packages from the Arch package repository over the Internet. For that, you'll need to be online.
 
-###
+### Connect to WiFi
 
 <!-- {.-literate-style} -->
 
@@ -87,7 +87,7 @@ Try going online by typing `wifi-menu`. (If this didn't work, have a look at [ot
 wifi-menu
 ```
 
-###
+### Are we online yet?
 
 <!-- {.-literate-style} -->
 
@@ -282,13 +282,11 @@ echo "KEYMAP=dvorak" > /etc/vconsole.conf
 
 ## Hostname
 
-It's time to pick a name for your machine.
-
-### Set hostname
+###
 
 <!-- {.-literate-style} -->
 
-Pick a hostname and update `/etc/hostname`.
+It's time to pick a name for your machine. Pick a hostname and update `/etc/hostname`.
 
 ```sh
 echo "myhostname" > /etc/hostname
@@ -368,20 +366,23 @@ useradd -Nm -g users -G wheel,sys yourname
 #                                 ^^^^^^^^
 ```
 
-###
+### Change the password
 
 <!-- {.-literate-style} -->
 
-Set a password.
+Set a password using `passwd`.
 
 ```sh
 passwd yourname
-# New password:
-# Retype new password:
-# passwd: password updated successfully
 ```
 
-###
+```
+New password: ····
+Retype new password: ····
+passwd: password updated successfully
+```
+
+### Add to groups
 
 <!-- {.-literate-style} -->
 
