@@ -99,14 +99,14 @@
 
 .body:global(.-wider-literate-style),
 .body:global(.-literate-style) {
-  @media (--ms-viewport-lg) {
+  @media (--viewport-9) {
     & > ul,
     & > ol,
     & > p {
       width: 50%;
       float: left;
       clear: left;
-      padding-right: 32px;
+      padding-right: 48px;
       margin-top: 0;
     }
 
@@ -119,6 +119,14 @@
       margin-top: 0;
       margin-left: 0;
       margin-right: 0;
+
+      /* Undo the floating. This fixes margin collapsing in cases of h3 +
+       * figure + p + p. */
+      & ~ p,
+      & ~ ul,
+      & ~ ol {
+        float: none;
+      }
     }
   }
 }

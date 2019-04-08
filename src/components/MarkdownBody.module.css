@@ -74,6 +74,11 @@
     width: 100%;
     border-collapse: collapse;
     border-radius: 3px;
+    border-bottom: solid 1px var(--border-color);
+  }
+
+  & table tr {
+    border-top: solid 1px var(--border-color);
   }
 
   & table th,
@@ -90,11 +95,11 @@
     }
 
     &:first-child {
-      padding-left: 16px;
+      padding-left: 0;
     }
 
     &:last-child {
-      padding-right: 16px;
+      padding-right: 0;
     }
   }
 

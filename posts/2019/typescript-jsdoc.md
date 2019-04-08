@@ -1,7 +1,7 @@
 ---
 title: Type annotations in JavaScript files
 tags: [TypeScript, JavaScript]
-date: 2019-04-08
+date: 2019-04-07
 ---
 
 [TypeScript] lets you annotate your JavaScript with type annotations. It can even check these for errors in build-time, so you can catch errors before they get deployed to production. You'll never have to deal with another _undefined is not a function_ error ever again!

@@ -207,7 +207,7 @@
 
   --figure-border: {
     background: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.07);
   }
 
   --figure: {
@@ -233,8 +233,9 @@
       padding-top: 16px;
     }
 
-    &:global(.-crop) {
-      overflow: hidden;
+    &:global(.-no-pad) {
+      box-shadow: 0 16px 24px rgba(0, 0, 0, 0.08);
+      padding: 0;
     }
   }
 
