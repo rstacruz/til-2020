@@ -31,7 +31,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/all', '/drafts']
+      }
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-google-analytics',
