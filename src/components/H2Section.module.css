@@ -55,14 +55,14 @@
   opacity: 0;
   transition: opacity 300ms linear, transform 300ms ease-out,
     border-color 300ms linear;
-  transform: scale(0.93);
+  transform: scaleX(0.98) scaleY(0.92);
   border-radius: 3px;
 }
 
 .root:global(.-active)::after {
   @media (--viewport-7) {
     opacity: 0.5;
-    transform: scale(1);
+    transform: scaleX(1) scaleY(1);
     border-color: var(--accent);
   }
 }
