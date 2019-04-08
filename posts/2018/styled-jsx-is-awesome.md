@@ -132,8 +132,6 @@ Array.from(document.querySelectorAll('button')).forEach(button => {
 
 ###
 
-<!-- {.literate-section} -->
-
 At first glance, we can say that most CSS-in-JS solutions require you to write in a declarative style, since it's mostly just taking CSS and putting it in JavaScript. Here's how you would define a blue button using [styled-components]:
 
 ```js
