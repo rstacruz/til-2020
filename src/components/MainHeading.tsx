@@ -1,22 +1,15 @@
 import cn from 'classnames'
 import { Link } from 'gatsby'
 import React from 'react'
-import CardWaypoint from './CardWaypoint'
 import CSS from './MainHeading.module.css'
 
 export const MainHeading = () => {
   return (
-    <CardWaypoint topOffset='0%' bottomOffset='10%'>
-      {({ entered }) => (
-        <div className={cn(CSS.root, entered ? CSS.isActive : CSS.isInactive)}>
-          <div className={CSS.fixed}>
-            <Link to='/' className={CSS.brandlink}>
-              <BackIcon />
-            </Link>
-          </div>
-        </div>
-      )}
-    </CardWaypoint>
+    <div className={CSS.root}>
+      <Link to='/' className={CSS.brandlink}>
+        <BackIcon />
+      </Link>
+    </div>
   )
 }
 

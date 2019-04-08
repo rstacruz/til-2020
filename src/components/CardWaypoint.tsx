@@ -1,6 +1,5 @@
-import * as React from 'react'
-
-import Waypoint from 'react-waypoint'
+import React from 'react'
+import { Waypoint } from 'react-waypoint'
 
 export interface State {
   entered: boolean
