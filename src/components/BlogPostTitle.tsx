@@ -1,7 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
 import CSS from './BlogPostTitle.module.css'
-import CardWaypoint from './CardWaypoint'
 import PostContent from './PostContent'
 
 interface Props {
@@ -13,9 +12,7 @@ interface Props {
 const BlogPostTitle = ({ title, date, body }: Props) => {
   return (
     <div className={CSS.root}>
-      <div>
-        <h1 className={CSS.title}>{title}</h1>
-      </div>
+      <h1 className={CSS.title}>{title}</h1>
 
       <p className={CSS.byline}>
         <span className={CSS.author}>by Rico Sta. Cruz</span>

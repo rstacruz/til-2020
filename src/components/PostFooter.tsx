@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import React from 'react'
-import CardWaypoint, { State } from './CardWaypoint'
 import CSS from './PostFooter.module.css'
 
 export interface Props {

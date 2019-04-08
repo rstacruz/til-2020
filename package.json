@@ -66,6 +66,7 @@
     "@babel/cli": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/react": "^16.8.13",
     "empty": "^0.10.1",
     "gh-pages": "^2.0.1",
     "nodemon": "^1.18.10",
@@ -82,6 +83,7 @@
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
   "resolutions": {
-    "event-stream": ">=4.0.0"
+    "event-stream": ">=4.0.0",
+    "@types/react": ">=16.8.3"
   }
 }

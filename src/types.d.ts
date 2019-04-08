@@ -16,4 +16,8 @@ export interface HastNode {
   type: 'element' | 'comment' | 'text'
   tagName: string
   children?: HastNode[]
+  properties: {
+    className?: string
+    id?: string
+  }
 }
