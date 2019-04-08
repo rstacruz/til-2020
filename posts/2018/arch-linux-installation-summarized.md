@@ -15,7 +15,7 @@ tags: [Arch Linux]
 
 Arch Linux's wiki has a great [installation guide](https://wiki.archlinux.org/index.php/Installation_guide), but some find it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.
 
-**This is not a "How to Install Arch Linux" instruction guide.** It's not a replacement for official [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide)­consider this more like a refresher course!
+**This is not a "How to Install Arch Linux" instruction guide.** It's not a replacement for official [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide). Consider this more like a refresher course!
 
 <next-block title="Let's get started."></next-block>
 
