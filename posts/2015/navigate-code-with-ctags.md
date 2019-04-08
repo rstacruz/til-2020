@@ -112,9 +112,7 @@ Use `vim -t` to open vim to a certain tag.
 vim -t <tag>
 ```
 
-### Navigating through multiple definition
-
-<!-- {.-literate-style} -->
+## Navigating through multiple definition
 
 If you used `:tag` on a tag that's got multiple definitions, use these commands to sift through them all.
 
@@ -124,9 +122,7 @@ If you used `:tag` on a tag that's got multiple definitions, use these commands 
 | `:tp`    | Move to previous definition (`:tprevious`) |
 | `:ts`    | List all definitions (`:tselect`)          |
 
-### Key shortcuts
-
-<!-- {.-literate-style} -->
+## Key shortcuts
 
 You can also place your cursor on some text and press `^]` to jump to that tag.
 
@@ -137,7 +133,9 @@ You can also place your cursor on some text and press `^]` to jump to that tag.
 | `^W` `}` | Preview definition        |
 | `g]`     | See all definitions       |
 
-### Unite integration
+## Unite integration
+
+###
 
 <!-- {.-literate-style} -->
 

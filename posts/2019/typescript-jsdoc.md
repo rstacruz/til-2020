@@ -35,8 +35,6 @@ function repeat(text: string, count: number) {
 <figcaption>TypeScript syntax allows you to put inline type annotations.</figcaption>
 </figure>
 
-<!-- {.-wide} -->
-
 <next-block title="Let's learn about an alternative to the TypeScript syntax."></next-block>
 
 ## Documenting JavaScript

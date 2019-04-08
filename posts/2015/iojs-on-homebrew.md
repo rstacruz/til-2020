@@ -9,7 +9,7 @@ attachments:
   - ./iojs-on-homebrew/iojs-linking.png
 ---
 
-<figure class='-wide'>
+<figure class='-transparent'>
 <img src='./iojs-on-homebrew/iojs-linking.png'>
 </figure>
 

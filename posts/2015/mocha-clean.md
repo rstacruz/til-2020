@@ -10,9 +10,11 @@ image: https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/compariso
 with useless frames from Mocha internals and 3rd-party modules. Let's try and
 clean it up.
 
+<figure class='-panorama'>
+
 ![Comparison screenshot](./mocha-clean/comparison.png)
 
-<!-- {.-wider} -->
+</figure>
 
 ## Introducing mocha-clean
 

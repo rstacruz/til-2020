@@ -5,10 +5,6 @@ tags: [CSS]
 description: Speed along your legacy IE development with this all-purpose 8-line snippet.
 ---
 
-###
-
-<!-- {.-literate-style} -->
-
 Use this convenient snippet in almost any project. It will fill in some basic support for modern CSS features for legacy IE versions.
 
 ```js

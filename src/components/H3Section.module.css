@@ -50,6 +50,7 @@
     margin-top: 0;
   }
 
+  /* "Wide" is deprecated, things are now wide by default */
   @media (--viewport-7) {
     /* Increase padding in wide things */
     & > pre {
@@ -57,6 +58,8 @@
     }
 
     & > pre,
+    & > figure,
+    & > table,
     & > :global(.-wide),
     & > :global(.-wider) {
       width: var(--column-size-inverse);

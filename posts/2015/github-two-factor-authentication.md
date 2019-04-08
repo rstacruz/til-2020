@@ -84,8 +84,6 @@ vim .git/config
 
 Push a repo. You'll be asked for a password. Use the token for the password. You won't have to do this again if enabled credential caching.
 
-<figure>
-
 ```bash
 $ git push
 ```
@@ -94,8 +92,6 @@ $ git push
 Username for 'https://github.com': rstacruz
 Password for 'https://rstacruz@github.com':
 ```
-
-</figure>
 
 <!-- {.-wide} -->
 
