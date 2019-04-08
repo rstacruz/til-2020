@@ -1,9 +1,18 @@
 ---
-title: Setting up an Arch Linux dev box
+title: Setting up an Arch Linux dev box in the cloud
 date: '2019-01-15'
 tags: [Arch Linux, Linux]
 draft: true
 ---
+
+###
+
+<!-- {.-wider-literate-style} -->
+
+<figure class='-no-pad'>
+<img src='https://source.unsplash.com/0juC5JIhPks/600x300' alt='Display'>
+<figcaption>Arch Linux can run on these.</figcaption>
+</figure>
 
 I do a lot of my day-to-day development work on a Linux VPS in the cloud. This lets me, say, run very taxing Rails projects without thrashing my laptop.
 
@@ -77,7 +86,9 @@ Create your everyday user. For me, that's `rsc`, but change that as you need. Yo
 # As root, add the user
 useradd -Nm -g users -G wheel,sys rsc
 passwd rsc
+```
 
+```sh
 # Might as well change the root password.
 # Later, you can use `su` to elevate your permissions.
 passwd
@@ -95,11 +106,15 @@ Make sure you can connect to it! After doing this, you can start connecting to y
 # Let's assume the user `rsc`, if
 # you're not that user yet.
 su rsc
+```
 
+```sh
 # Add ssh authorized key to ~/.ssh/authorized_keys
 echo "ssh-rsa AAAAAHHLOLPUTYOURKEYHERE" | tee -a ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
+```
 
+```sh
 # Generate our own key for later use
 ssh-keygen
 ```
@@ -153,10 +168,6 @@ chmod +x openvpn-install.sh
 <figcaption>Tip: Keep this script around, you'll use it to create more VPN credentials.</figcaption>
 
 </figure>
-
-### Also see
-
-- [Angristan/OpenVPN-install](https://github.com/Angristan/OpenVPN-install)
 
 ## UFW firewall
 
@@ -252,11 +263,11 @@ Use [fail2ban] to restrict SSH access to anyone trying to get in and failing to 
 sudo pacman -Syu fail2ban
 ```
 
-###
+### Configure fail2ban
 
 <!-- {.-wider-literate-style} -->
 
-Configure fail2ban to "jail" sshd connections.
+Configure fail2ban to "jail" sshd connections. This will shut off SSH access to IP's that try to log in and fail.
 
 ```sh
 nvim /etc/fail2ban/jail.d/sshd.local
@@ -267,7 +278,7 @@ nvim /etc/fail2ban/jail.d/sshd.local
 enabled = true
 ```
 
-###
+### Start it
 
 <!-- {.-wider-literate-style} -->
 
@@ -329,17 +340,17 @@ sudo vim /etc/exports
 /srv/Dev 10.8.0.0/24(rwsync)
 ```
 
-###
+### Reload your config
 
 <!-- {.-wider-literate-style} -->
 
-Make /etc/exports take effect.
+Make `/etc/exports` take effect.
 
 ```sh
 sudo exportfs -arv
 ```
 
-###
+### Start it
 
 <!-- {.-wider-literate-style} -->
 
@@ -356,7 +367,7 @@ sudo systemctl start nfs-server
 
 <!-- {.-wider-literate-style} -->
 
-Configure Git.
+Configure Git like you typically would.
 
 ```sh
 # Configure Git
@@ -371,7 +382,7 @@ git config --global user.email "rstacruz@users.noreply.github.com"
 
 <!-- {.-wider-literate-style} -->
 
-Secure your SSH server.
+Secure your SSH server by disabling root login, and only allowing SSH keys.
 
 ```sh
 sudo vim /etc/ssh/sshd_server
