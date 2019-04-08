@@ -33,13 +33,13 @@
   }
 }
 
-/* Border */
+/* Rectangular border */
 .root::after {
   content: '';
   display: block;
   position: absolute;
-  left: 16px;
-  right: 16px;
+  left: -2px;
+  right: -2px;
   top: 0;
   bottom: 0;
   border: solid 1px var(--border-color);
@@ -49,6 +49,11 @@
     border-color 300ms linear;
   transform: scaleX(0.98) scaleY(0.92);
   border-radius: 3px;
+
+  @media (--viewport-11) {
+    left: 16px;
+    right: 16px;
+  }
 }
 
 .root:global(.-active)::after {
