@@ -16,12 +16,12 @@
   animation: appear 250ms ease-in;
 
   & path {
-    fill: var(--accent-text);
+    fill: var(--accent);
   }
 }
 
 .brandlink:hover svg {
   & path {
-    fill: var(--accent);
+    fill: var(--accent-text);
   }
 }

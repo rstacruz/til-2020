@@ -57,15 +57,9 @@
   }
 
   --code-font: {
-    font-family: 'Inconsolata', monospace;
-    letter-spacing: -0.1em;
-  }
-
-  --em-style: {
-    font-family: 'Alegreya', sans-serif;
-    font-size: 1.1em;
-    line-height: 0.2em;
-    font-style: italic;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: -0.03em;
+    font-weight: 400;
   }
 }
 
@@ -90,7 +84,8 @@
       padding-bottom: 32px;
     }
 
-    @media (--ms-viewport-md) {
+    @media (--viewport-7) {
+      padding-top: 64px;
       padding-bottom: 64px;
     }
   }
@@ -234,6 +229,16 @@
     & > :last-child {
       margin-bottom: 0;
     }
+
+    & > img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    & > figcaption {
+      border-top: solid 1px var(--border-color);
+      padding-top: 16px;
+    }
   }
 
   --pre: {
@@ -246,12 +251,6 @@
 
     &:global(.-bold) {
       font-weight: bold;
-    }
-
-    /* TODO &:global(.-terminal) { } */
-
-    & + pre {
-      margin-top: -1.9em;
     }
   }
 }

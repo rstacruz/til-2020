@@ -18,6 +18,26 @@
     @apply --h2-style;
     color: var(--bold-color);
     margin-bottom: 16px;
+    margin-top: 0;
+  }
+}
+
+/* Yellow HR */
+.root::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--accent);
+  z-index: 2;
+  box-shadow: inset 16px 0 #fff, inset -16px 0 #fff, 0 0 0 4px #fff;
+
+  @media (--viewport-7) {
+    left: 40%;
+    right: 40%;
   }
 }
 
@@ -29,16 +49,22 @@
   left: 16px;
   right: 16px;
   top: 0;
-  bottom: -1px;
+  bottom: 0;
   border: solid 1px var(--border-color);
   pointer-events: none;
   opacity: 0;
-  transition: opacity 300ms linear;
+  transition: opacity 300ms linear, transform 300ms ease-out,
+    border-color 300ms linear;
+  transform: scale(0.93);
+  border-radius: 3px;
 }
 
 .root:global(.-active)::after {
-  /* opacity: 1; */
-  /* transition: opacity 50ms linear; */
+  @media (--viewport-7) {
+    opacity: 0.5;
+    transform: scale(1);
+    border-color: var(--accent);
+  }
 }
 
 /* .root:global(.-inactive) { } */

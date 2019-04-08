@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import React from 'react'
 import CardWaypoint from './CardWaypoint'
 import CSS from './MainHeading.module.css'
-// import { PostTitleSnip } from './PostTitleSnip'
 
 export const MainHeading = () => {
   return (

@@ -1,5 +1,5 @@
 ---
-title: Arch Linux installation, summarized
+title: Demystifying Arch Linux installation
 date: '2018-12-12'
 tags: [Arch Linux]
 ---
@@ -119,7 +119,7 @@ timedatectl set-ntp true
 
 You'll need 2 partitions on your computer. You'll need an `EFI partition`, which you already have (and can be reused) if you already have another OS installed. You'll also need an `ext4 partition` for Arch Linux to be installed to.
 
-###
+### Using cfdisk
 
 <!-- {.-literate-style} -->
 
@@ -136,7 +136,7 @@ Unlike other guides, I recommend _not_ setting up a swap partition, and using [s
 
 [systemd-swap]: https://wiki.archlinux.org/index.php/Swap#systemd-swap
 
-###
+### Formatting your disk
 
 <!-- {.-literate-style} -->
 

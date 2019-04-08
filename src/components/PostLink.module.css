@@ -21,7 +21,11 @@
   @apply --font-size--1;
   color: var(--mute-text-color);
   margin-left: 16px;
-  @apply --em-style;
+  display: none;
+
+  @media (--viewport-7) {
+    display: inline;
+  }
 }
 
 .date {

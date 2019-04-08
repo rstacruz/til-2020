@@ -6,6 +6,8 @@ date: 2019-02-13
 
 It's a good idea to keep a different key for every host. That way, should one be compromised, you're not compromising your access to all your hosts. An easy way to do this is to configure your SSH to automatically look for the key based on the host you're connecting to.
 
+##
+
 ### Configure your SSH client
 
 <!-- {.-literate-style} -->

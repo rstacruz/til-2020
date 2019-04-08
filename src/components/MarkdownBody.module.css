@@ -28,13 +28,13 @@
   & p,
   & ul,
   & ol,
-  & pre,
-  & figure,
   & h3 {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
   }
 
+  & pre,
+  & figure,
   & table {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
@@ -124,5 +124,17 @@
     &:focus {
       background: var(--accent);
     }
+  }
+}
+
+[id] .context {
+  & pre + pre {
+    margin-top: -2.5em;
+  }
+
+  & figure pre {
+    margin: -16px;
+    box-shadow: none;
+    margin-bottom: 0;
   }
 }

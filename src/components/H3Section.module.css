@@ -100,6 +100,8 @@
 .body:global(.-wider-literate-style),
 .body:global(.-literate-style) {
   @media (--ms-viewport-lg) {
+    & > ul,
+    & > ol,
     & > p {
       width: 50%;
       float: left;
@@ -119,18 +121,12 @@
       margin-right: 0;
     }
   }
-
-  & > pre {
-    @apply --pre;
-  }
-
-  & > figure {
-    @apply --figure;
-  }
 }
 
 .body:global(.-wider-literate-style) {
   @media (--ms-viewport-xl) {
+    & > ul,
+    & > ol,
     & > p {
       width: 40%;
     }
@@ -143,13 +139,17 @@
   }
 }
 
+/**
+ * Captioned style: a pre following a blockquote?
+ * Hmm, maybe we should go with figcaption instead
+ */
+
 .body:global(.-captioned-style) {
   & > blockquote {
     padding: 0;
     margin-left: 0;
     margin-right: 0;
     color: var(--mute-text-color);
-    @apply --em-style;
     font-size: 0.9em;
     line-height: 1.6;
   }
