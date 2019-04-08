@@ -24,7 +24,10 @@ module.exports = {
     // For gatsby-feed
     description:
       'TIL - a collection of things I learned on my day-to-day web development work.',
-    siteUrl: 'https://ricostacruz.com/til'
+
+    // This needs to be the bare domain, without the pathPrefix, for
+    // gatsby-plugin-sitemap to work properly
+    siteUrl: 'https://ricostacruz.com'
   },
   plugins: [
     'gatsby-plugin-feed',
