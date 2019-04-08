@@ -5,19 +5,13 @@ tags: [JavaScript]
 description: You can run multiple NPM script tasks in parallel. This is great for tasks like running build watchers.
 ---
 
-###
-
-<!-- {.-literate-style} -->
-
 You can run multiple NPM script tasks in parallel. This is great for tasks like running build watchers. Just use the bash construct `&` to put each command in the background, then finally add `wait` so they can be terminated with `^C`. The final syntax would be:
 
 ```bash
 command1 & command2 & wait
 ```
 
-###
-
-<!-- {.-literate-style} -->
+<!-- {.-wide} -->
 
 In practice, this looks like so:
 
@@ -30,3 +24,5 @@ In practice, this looks like so:
   }
 }
 ```
+
+<!-- {.-wide} -->

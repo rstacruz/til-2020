@@ -1,9 +1,20 @@
 @import '../styles/variables.css';
 
 .root {
-  display: block;
   @apply --container-padding;
   @apply --section-padding;
+  display: block;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 16px;
+    right: 16px;
+    border-top: solid 1px var(--accent);
+  }
 }
 
 .body {
