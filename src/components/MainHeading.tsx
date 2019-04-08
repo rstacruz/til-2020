@@ -47,6 +47,11 @@ export const MainHeading = ({ back }: Props) => {
   )
 }
 
+/**
+ * Handle the waypoint entry. This will show the navigation bar if it's not
+ * visible.
+ */
+
 const doHandleEnter = ({ setState }) => () => {
   setState({ visible: true })
 }

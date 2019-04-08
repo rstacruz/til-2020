@@ -1,5 +1,5 @@
-import React from 'react'
 import { Link } from 'gatsby'
+import React from 'react'
 import CSS from './ColophonSection.module.css'
 
 export const ColophonSection = () => {
