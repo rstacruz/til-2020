@@ -2,7 +2,6 @@
 
 .root {
   @apply --container-padding;
-  @apply --side-line-section;
 
   & {
     padding-top: 32px;
@@ -14,57 +13,13 @@
     padding-bottom: 64px;
   }
 
-  /* Too airy, lol, reserve it for huge screens */
-  @media (min-height: 900px) {
-    padding-top: 64px;
-    padding-bottom: 96px;
-  }
-
   & > h2 {
     @apply --font-size-5;
-    @apply --h2-font;
-    color: var(--heading-color);
-    line-height: 1.23;
-    margin-bottom: 24px;
-  }
-
-  /* Horizontal line */
-  & > h2::after {
-    @apply --fading-horizontal-rule;
-    margin: 16px 0;
-  }
-
-  @media (--show-side-line) {
-    & > h2 {
-      max-width: var(--column-size);
-    }
-
-    & > h2::after {
-      width: calc(100% / 0.6);
-    }
-  }
-}
-
-.root {
-  & > h2,
-  & > .body {
-    transition: opacity 250ms linear, color 250ms linear;
   }
 }
 
 .root:global(.-inactive) {
-  & {
-    z-index: 1;
-  }
-
-  & > h2 {
-    /* color: var(--accent); */
-    /* opacity: 0.5; */
-    text-shadow: none;
-  }
 }
 
 .root:global(.-active) {
-  background-color: white;
-  z-index: 5;
 }

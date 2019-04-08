@@ -108,27 +108,12 @@
 
   & table {
     width: 100%;
-    border-top: solid 1px var(--accent-border-color);
     border-collapse: collapse;
-    border: solid 2px var(--accent);
     border-radius: 3px;
-  }
-
-  & table tr {
-    border-bottom: solid 1px var(--accent-border-color);
-  }
-
-  & table th {
-    color: var(--accent-text);
-  }
-
-  & table thead {
-    border-bottom: solid 2px var(--accent);
   }
 
   & table th,
   & table td {
-    @apply --font-size--1;
     padding: 12px;
     text-align: left;
 
@@ -162,8 +147,6 @@
 
   & ul:global(.-bordered),
   & ol:global(.-bordered) {
-    border: solid 2px var(--accent);
-    border-radius: 3px;
-    padding: 16px;
+    /* TODO */
   }
 }

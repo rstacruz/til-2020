@@ -1,1 +1,4 @@
-export const context: string
+declare const styles: {
+  readonly context: string
+}
+export = styles

@@ -15,18 +15,6 @@ export const MainHeading = () => {
               <BackIcon />
             </Link>
           </div>
-
-          <div className={CSS.strapline}>
-            <div className={CSS.left}>
-              This is{' '}
-              <Link to='/' className={CSS.homelink}>
-                Today I Learned
-              </Link>{' '}
-              — a collection of things I've learned in my day-to-day web
-              development work.
-            </div>
-            <div className={CSS.right}>@rstacruz</div>
-          </div>
         </div>
       )}
     </CardWaypoint>
