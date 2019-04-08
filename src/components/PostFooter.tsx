@@ -24,7 +24,8 @@ const PostFooter = (props: Props) => {
           )}{' '}
           This is <Link to='/'>Today I Learned</Link>, a collection of random
           tidbits I've learned through my day-to-day web development work. I'm
-          Rico Sta. Cruz.
+          Rico Sta. Cruz, <a href='https://github.com/rstacruz'>@rstacruz</a> on
+          GitHub (and <a href='https://twitter.com/rstacruz'>Twitter</a>!).
         </p>
         <p>
           <Link to='/'>
