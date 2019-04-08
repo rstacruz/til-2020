@@ -27,6 +27,15 @@ const H2Section = ({ children, className }: Props) => {
   )
 }
 
+/**
+ * Returns the H2 text. Used for headings
+ *
+ * @example
+ *
+ *     getH2Text(<><h2>Hello</h2><p>Hey there</p></>)
+ *     // => 'Hello'
+ */
+
 function getH2Text(children: React.ReactNode): string | void {
   if (!Array.isArray(children)) {
     return

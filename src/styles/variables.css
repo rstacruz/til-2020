@@ -18,14 +18,14 @@
 /* Colors 2 */
 :root {
   --mute-text-color: #707080;
-  --text-color: #303030;
+  --text-color: #404040;
   --bold-color: #101010;
   --heading-color: #080808;
   --border-color: #7080903f;
   --pane-background: #f3f5f8;
   --code-background: #fcfcfc;
 
-  --accent: #2BC7B5;
+  --accent: #FFEF62;
   --co-accent: color-mod(var(--accent) hue(-10deg) saturation(+40%));
   --highlighter-color: color-mod(var(--accent) alpha(50%));
   --accent-border-color: color-mod(var(--accent) alpha(30%));
@@ -56,22 +56,10 @@
     letter-spacing: 0.1em;
   }
 
-  --monolike-font: {
-    font-weight: normal;
-    font-family: 'Iosevka Web', system-ui;
-    font-style: normal;
-    letter-spacing: 0em;
-  }
-
   --code-font: {
-    font-family: 'Iosevka Web', monospace;
-  }
-
-  --em-style: {
-    font-family: 'Alegreya', sans-serif;
-    font-size: 1.1em;
-    line-height: 0.2em;
-    font-style: italic;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: -0.03em;
+    font-weight: 400;
   }
 }
 
@@ -87,6 +75,19 @@
       var(--accent) 20%,
       transparent 20%
     );
+  }
+
+  /* Padding meant to be used in h2section */
+  --section-padding: {
+    & {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    @media (--viewport-7) {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
   }
 
   --container-padding: {
@@ -195,7 +196,11 @@
     display: block;
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, var(--border-color) 50%, var(--border-color));
+    background: linear-gradient(
+      to right,
+      var(--border-color) 50%,
+      var(--border-color)
+    );
   }
 
   --thin-scrollbar: {
@@ -208,7 +213,15 @@
     }
   }
 
+  --figure-border: {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
   --figure: {
+    @apply --figure-border;
+    padding: 16px;
+
     & > :first-child {
       margin-top: 0;
     }
@@ -217,62 +230,27 @@
       margin-bottom: 0;
     }
 
-    &:global(.-bordered) {
-      box-shadow: inset 0 0 0 2px var(--accent);
-      padding: 16px;
+    & > img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    & > figcaption {
+      border-top: solid 1px var(--border-color);
+      padding-top: 16px;
     }
   }
 
   --pre: {
+    @apply --figure-border;
+
     & {
-      box-shadow: none;
-      background: #f2f2fa;
-      border-radius: 2px;
+      padding: 16px;
+      font-size: 0.86em;
     }
 
     &:global(.-bold) {
       font-weight: bold;
-    }
-
-    &:global(.-terminal) {
-      padding-top: 56px;
-
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        content: '';
-        display: block;
-        height: 32px;
-        border-bottom: solid 1px var(--accent);
-        opacity: 0.25;
-      }
-
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        background: var(--accent);
-        opacity: 0.5;
-        margin-left: -2px;
-        margin-top: -2px;
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        box-shadow: 16px 0 var(--accent), 32px 0 var(--accent);
-      }
-    }
-
-    & + pre {
-      box-shadow: inset 0 1px 0 var(--border-color);
-      margin-top: calc(-2.6em);
-      padding-top: 16px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border-top: 0;
     }
   }
 }

@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import React from 'react'
 import CardWaypoint from './CardWaypoint'
 import CSS from './MainHeading.module.css'
-// import { PostTitleSnip } from './PostTitleSnip'
 
 export const MainHeading = () => {
   return (
@@ -14,18 +13,6 @@ export const MainHeading = () => {
             <Link to='/' className={CSS.brandlink}>
               <BackIcon />
             </Link>
-          </div>
-
-          <div className={CSS.strapline}>
-            <div className={CSS.left}>
-              This is{' '}
-              <Link to='/' className={CSS.homelink}>
-                Today I Learned
-              </Link>{' '}
-              — a collection of things I've learned in my day-to-day web
-              development work.
-            </div>
-            <div className={CSS.right}>@rstacruz</div>
           </div>
         </div>
       )}

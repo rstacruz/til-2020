@@ -19,7 +19,6 @@
   padding: 30vh 30vh;
   color: var(--mute-text-color);
   text-decoration: none;
-  @apply --monolike-font;
   text-transform: uppercase;
 
   &:hover,

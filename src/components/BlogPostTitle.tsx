@@ -27,8 +27,8 @@ const BlogPostTitle = ({ title, date, body }: Props) => {
             </div>
 
             <p className={CSS.byline}>
-              <span>Written by Rico Sta. Cruz</span>
-              {date ? <span> / {date}</span> : null}
+              <span className={CSS.author}>by Rico Sta. Cruz</span>
+              {date ? <span className={CSS.date}>{date}</span> : null}
             </p>
 
             <div className={CSS.body}>{PostContent({ body })}</div>

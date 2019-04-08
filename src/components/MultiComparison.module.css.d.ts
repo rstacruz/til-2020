@@ -1,5 +1,5 @@
 declare const styles: {
   readonly root: string
-  readonly heading: string
+  readonly inner: string
 }
 export = styles

@@ -5,7 +5,9 @@ tags: [Arch Linux, Linux]
 draft: true
 ---
 
-Hey.
+I do a lot of my day-to-day development work on a Linux VPS in the cloud. This lets me, say, run very taxing Rails projects without thrashing my laptop.
+
+For this, I use the same OS as I use on my workstation: Arch Linux! In this article, I'll show you what I did to set up my on-the-cloud development box.
 
 ## Get an Arch Linux box
 
@@ -15,7 +17,7 @@ There are 3 providers I can suggest. They more or less have the same offerings; 
 
 <!-- {.-wider-literate-style} -->
 
-For **\$5** a month, you can get:
+For **\$5** a month, you can get 1GB RAM. This is okay to play around in, but for day-to-day use, I suggest getting the \$10 or \$20 plans.
 
 <figure>
 
@@ -31,7 +33,7 @@ For **\$5** a month, you can get:
 
 <!-- {.-wider-literate-style} -->
 
-For **\$10** a month, you can get:
+For **\$10** a month, you can get 2GB RAM. CPU is limited to 1x though. It's alright for light day-to-day use.
 
 <figure>
 
@@ -47,7 +49,7 @@ For **\$10** a month, you can get:
 
 <!-- {.-wider-literate-style} -->
 
-For **\$20** a month, you can get:
+For **\$20** a month, you can get 4GB RAM and 2x CPU. This is enough for most cases! While 4GB is a bit limited, you can set up a swap file on their really-fast SSD's.
 
 <figure>
 
@@ -139,6 +141,8 @@ sudo pacman -Syu \
 
 Set up OpenVPN. I'm using the installer script [Angristan/OpenVPN-install](https://github.com/Angristan/OpenVPN-install) which will set up everything for you: openVPN, certificates, iptables, generate `.ovpn` files, and so on.
 
+<figure>
+
 ```sh
 # OpenVPN setup
 curl -O https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh
@@ -146,7 +150,9 @@ chmod +x openvpn-install.sh
 ./openvpn-install.sh
 ```
 
-> Tip: Keep this script around, you'll use it to create more VPN credentials.
+<figcaption>Tip: Keep this script around, you'll use it to create more VPN credentials.</figcaption>
+
+</figure>
 
 ### Also see
 

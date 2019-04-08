@@ -26,7 +26,7 @@ Consider seeing this code in a view. It seems a little long, and may be a candid
 
 <!-- {.-literate-style} -->
 
-One way to rewrite this is to make it as short as possible, ie, store all the complexity in a helper function.
+One way to rewrite this is to make it as short as possible, ie, store all the complexity in a helper function. In my opinion, this isn't really ideal for the following reasons:
 
 ```ruby
 <%= custom_message_for(event) %>
@@ -41,10 +41,6 @@ def custom_message_for(event)
 end
 ```
 
-### Analysis
-
-In my opinion, this isn't really ideal for the following reasons.
-
 1. **Same complexity, new location.** The complexity was simply moved from one part to another, instead of broken down into more easily-understandable chunks.
 
 2. **Tight coupling.** The method `custom_message_for` is too tightly coupled. To test this, you will need to create a mock event, with a mock ticket, with a mock custom message.
@@ -55,7 +51,7 @@ In my opinion, this isn't really ideal for the following reasons.
 
 <!-- {.-literate-style} -->
 
-I would prefer this to be written as a helper that takes in a string, such as so.
+I would prefer this to be written as a helper that takes in a string, such as so. The view code may be a little longer, but you get these advantages:
 
 ```ruby
 = format_message(event.ticket.custom_message)
@@ -66,10 +62,6 @@ def format_message(message)
   message.to_s.strip.gsub("[URL]", site_url)
 end
 ```
-
-### Why write longer code?
-
-The view code may be a little longer, but you get these advantages:
 
 1. **Simple and obvious.** The method `format_message` is simple and its purpose is immediately obvious.
 

@@ -1,70 +1,39 @@
 @import '../styles/variables.css';
 
+:root {
+  --h1-style: {
+    font-family: 'Work Sans', system-ui;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+  }
+
+  --alt-style: {
+    font-family: 'Work Sans', system-ui;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}
+
 .root {
   @apply --container-padding;
-  @apply --side-line-section;
+  @apply --section-padding;
 
-  & {
-    background: white;
-    position: relative;
-    z-index: 5;
-    border-top: solid 1px transparent;
-    transition: box-shadow 300ms linear, transform 300ms ease-in;
-    padding-bottom: 32px;
-    margin-top: 64px;
-    transition: margin-top 50ms ease-in;
-  }
+  background: white;
 
-  @media (--viewport-4) {
-    padding-bottom: 80px;
+  @media (--viewport-9) {
     padding-top: 128px;
   }
-
-  @media (--viewport-7) {
-    margin-top: 80px;
-    padding-top: 224px;
-  }
-}
-
-.root {
-  & {
-    @apply --shadow-paper-transition;
-  }
-
-  &.isInactive {
-    @apply --shadow-paper-inactive;
-  }
-
-  & > * {
-    transition: opacity 300ms linear;
-  }
-
-  &.isInactive {
-    @apply --inactive-section;
-  }
-}
-
-.titleContainer {
-  position: relative;
-  margin-top: -0.6em;
-  transform: translate3d(0, 0, 0);
 }
 
 .title {
   & {
-    font-family: 'Alegreya', system-ui;
-    font-weight: 400;
-    font-style: normal;
     @apply --font-size-7;
+    @apply --h1-style;
     margin: 0;
     padding: 0;
     line-height: 1.2;
     color: var(--bold-color);
-  }
-
-  /* Typist */
-  & > div {
-    display: inline;
   }
 
   @media (--viewport-7) {
@@ -75,80 +44,50 @@
 /* "Written by..." */
 .byline {
   & {
-    /* @apply --em-style; */
-    @apply --h3-font;
-    letter-spacing: 0;
-    line-height: 1.4;
-    color: var(--accent-text);
-    white-space: nowrap;
-    border-top: solid 1px var(--border-color);
-    border-bottom: solid 1px var(--border-color);
-    padding: 16px 0;
+    display: block;
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 
-  /* Horizontal line */
+  @media (--viewport-7) {
+    margin-left: -16px;
+  }
+
+  /* Hyphen */
   &::before {
     content: '';
-    width: 2em;
-    height: 4px;
-    border-radius: 4px;
-    vertical-align: baseline;
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    height: 2px;
     background: var(--accent);
-    margin-top: 0.5em;
-    float: right;
-    display: none;
-
-    @media (--viewport-7) {
-      display: inline-block;
-    }
-  }
-
-  @media (--show-side-line) {
-    margin: 2em 0;
-    margin-top: 3em;
+    margin-right: 12px;
   }
 }
 
-/*
- * Cursor
- */
+.author,
+.date {
+  text-transform: uppercase;
+  @apply --alt-style;
+  color: var(--bold-color);
+  @apply --font-size--1;
+}
 
-.blinker {
+/* Vertical pipe separating author and date */
+.date::before {
+  content: '';
   vertical-align: middle;
-  width: 0.1em;
-  height: 1em;
-  background: repeating-linear-gradient(
-      45deg,
-      white,
-      white 3px,
-      transparent 3px,
-      transparent 5px
-    ),
-    linear-gradient(30deg, var(--accent), var(--co-accent));
-  margin-left: 0.2em;
-  margin-top: -0.1em;
-  animation: cursor-blink 1200ms ease-in infinite;
-  display: none;
+  height: 2em;
+  width: 1px;
+  background: var(--border-color);
+  display: inline-block;
+  margin: 0 16px;
+}
 
-  @media (--viewport-9) {
-    display: inline-block;
-  }
+.author {
+  font-weight: bold;
 }
 
 .body {
   composes: context from './MarkdownBody.module.css';
-}
-
-@keyframes cursor-blink {
-  0% {
-    opacity: 1;
-  }
-
-  60% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
 }

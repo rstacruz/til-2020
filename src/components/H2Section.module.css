@@ -1,70 +1,70 @@
 @import '../styles/variables.css';
 
+:root {
+  --h2-style: {
+    font-family: 'Work Sans', system-ui;
+    font-weight: bold;
+    letter-spacing: -0.03em;
+  }
+}
+
 .root {
   @apply --container-padding;
-  @apply --side-line-section;
-
-  & {
-    padding-top: 32px;
-    padding-bottom: 32px;
-    position: relative;
-  }
-
-  @media (--ms-viewport-md) {
-    padding-bottom: 64px;
-  }
-
-  /* Too airy, lol, reserve it for huge screens */
-  @media (min-height: 900px) {
-    padding-top: 64px;
-    padding-bottom: 96px;
-  }
+  @apply --section-padding;
+  position: relative;
 
   & > h2 {
     @apply --font-size-5;
-    @apply --h2-font;
-    color: var(--heading-color);
-    line-height: 1.23;
-    margin-bottom: 24px;
-  }
-
-  /* Horizontal line */
-  & > h2::after {
-    @apply --fading-horizontal-rule;
-    margin: 16px 0;
-  }
-
-  @media (--show-side-line) {
-    & > h2 {
-      max-width: var(--column-size);
-    }
-
-    & > h2::after {
-      width: calc(100% / 0.6);
-    }
+    @apply --h2-style;
+    color: var(--bold-color);
+    margin-bottom: 16px;
+    margin-top: 0;
   }
 }
 
-.root {
-  & > h2,
-  & > .body {
-    transition: opacity 250ms linear, color 250ms linear;
+/* Yellow HR */
+.root::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--accent);
+  z-index: 2;
+  box-shadow: inset 16px 0 #fff, inset -16px 0 #fff, 0 0 0 4px #fff;
+
+  @media (--viewport-7) {
+    left: 40%;
+    right: 40%;
   }
 }
 
-.root:global(.-inactive) {
-  & {
-    z-index: 1;
-  }
+/* Border */
+.root::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  bottom: 0;
+  border: solid 1px var(--border-color);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms linear, transform 300ms ease-out,
+    border-color 300ms linear;
+  transform: scale(0.93);
+  border-radius: 3px;
+}
 
-  & > h2 {
-    /* color: var(--accent); */
-    /* opacity: 0.5; */
-    text-shadow: none;
+.root:global(.-active)::after {
+  @media (--viewport-7) {
+    opacity: 0.5;
+    transform: scale(1);
+    border-color: var(--accent);
   }
 }
 
-.root:global(.-active) {
-  background-color: white;
-  z-index: 5;
-}
+/* .root:global(.-inactive) { } */
