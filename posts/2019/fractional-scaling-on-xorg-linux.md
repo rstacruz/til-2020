@@ -164,7 +164,7 @@ scale="1.14"  # ie: 2.0 / 1.75
 width=1920
 height=1080
 
-# The dimensions above, divided by $scale
+# The dimensions above, multiplied by $scale
 panwidth="$(echo "scale=0; $width * $scale / 1" | bc)"
 panheight="$(echo "scale=0; $height * $scale / 1" | bc)"
 
