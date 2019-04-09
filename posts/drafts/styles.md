@@ -51,6 +51,8 @@ One day, Gregor Samsa, a traveling salesman, wakes up to find himself transforme
 
 Gregor becomes annoyed at how his boss never accepts excuses or explanations from any of his employees no matter how hard-working they are, displaying an apparent lack of trusting abilities. Gregor's mother knocks on the door, and he answers her. She is concerned for Gregor because he is late for work, which is unorthodox for him. Gregor answers his mother and realizes that his voice has changed, but his answer is short, so his mother does not notice. His sister, Grete, to whom he is very close, then whispers through the door and begs him to open it. He tries to get out of bed but is incapable of moving his body. While trying to move, he finds that his office manager, the chief clerk, has shown up to check on him. He finally rocks his body to the floor and calls out that he will open the door shortly.
 
+-  o entu
+
 ## Figures
 
 ###
