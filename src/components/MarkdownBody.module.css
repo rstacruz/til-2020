@@ -140,11 +140,6 @@
     margin-left: 1em;
   }
 
-  & ul:global(.-bordered),
-  & ol:global(.-bordered) {
-    /* TODO */
-  }
-
   & a:not(:global(.gatsby-resp-image-link)) {
     &,
     &:visited {
@@ -161,14 +156,23 @@
 }
 
 [id] .context {
+  /** Collapse pre's that are on top of each other. */
   & pre + pre,
   & figure + figure {
     margin-top: -2.5em;
   }
 
+  /* 16px is for literate style */
   & figure pre {
+    padding: 16px;
     margin: -16px;
     box-shadow: none;
     margin-bottom: 0;
+  }
+
+  & figure pre + pre {
+    border-top: solid 1px var(--border-color);
+    margin-top: 0;
+    margin-bottom: -16px;
   }
 }

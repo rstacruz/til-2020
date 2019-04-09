@@ -256,10 +256,37 @@
 
     & {
       padding: 16px;
+      position: relative;
     }
 
-    &:global(.-bold) {
-      font-weight: bold;
+    &:global(.-command),
+    &:global(.-command) + pre {
+      padding-left: 40px;
+
+      & > code {
+        position: relative;
+      }
+
+      & > code::before {
+        content: '->';
+        position: absolute;
+        left: -24px;
+        top: 0;
+        color: var(--accent-text);
+      }
+    }
+
+    &:global(.-command) + pre {
+      background: color-mod(var(--accent) lightness(99%));
+      color: var(--mute-text-color);
+
+      & > code {
+        position: relative;
+      }
+
+      & > code::before {
+        content: '<-';
+      }
     }
   }
 }

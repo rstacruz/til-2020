@@ -106,11 +106,9 @@ phy#0
 
 Use `netctl enable` to "enable" a profile. This creates and enables a systemd service, which is invoked on every bootup.
 
-
 ```sh
 sudo netctl enable wlp3s0-PrettyFly
 ```
-
 
 <!-- {.-command} -->
 
@@ -118,6 +116,14 @@ sudo netctl enable wlp3s0-PrettyFly
 '/etc/systemd/systemd/multi-user.target.wants/netctl@wlp3s0\x2dPrettyFly.service' -> /usr/bin/systemd/netctl@service
 generated '/etc/sstemd/systemd/multi-user.target.wants/netctl@wlp3s0\x2dPrettyFly.service.d/profile.cnof'
 ```
+
+## Why use netctl?
+
+For the most part, I find [NetworkManager] to be a preferrable choice over `netctl` for desktop systems. It works, it integrates with GNOME and Plasma, it has a lot of user interfaces (`nmtui` being my favorite&mdash;a CLI version!), has support for OpenVPN, and many more.
+
+With that said, I've been trying to use netctl instead lately for one silly reason: it _seems_ to wake up faster from sleep! This only happens on my MacBook Air though, I've found NetworkManager to connect pretty fast in other systems.
+
+There's also something to be said about going with a slimmer setup. Netctl seems a little closer to the metal than NetworkManager, and comes built-in as part of the `base` package in Arch Linux.
 
 ##
 
