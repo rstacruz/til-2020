@@ -11,7 +11,6 @@ import { Waypoint } from 'react-waypoint'
 import { HastNode } from '../types'
 import CSS from './BlogPostContent.module.css'
 import BlogPostTitle from './BlogPostTitle'
-import CardWaypoint, { State as WaypointState } from './CardWaypoint'
 import H2Section from './H2Section'
 import PostContent from './PostContent'
 import PostFooter from './PostFooter'
@@ -60,7 +59,7 @@ const BlogPostContent = (props: Props) => {
       {/* H2 sections (index 1..n) */}
       {sections.map((h2section, idx) => (
         <Waypoint
-          onEnter={doHandleEnter({ state, setState, idx: idx + 1 })}
+          onEnter={doHandleEnter({ setState, idx: idx + 1 })}
           topOffset='63%'
           bottomOffset='35%'
         >
@@ -83,7 +82,7 @@ const BlogPostContent = (props: Props) => {
   )
 }
 
-const doHandleEnter = ({ state, setState, idx }) => () => {
+const doHandleEnter = ({ setState, idx }) => () => {
   setState({ activeSection: idx })
 }
 

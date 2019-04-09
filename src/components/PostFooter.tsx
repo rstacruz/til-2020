@@ -1,4 +1,3 @@
-import cn from 'classnames'
 import { Link } from 'gatsby'
 import React from 'react'
 import CSS from './PostFooter.module.css'
@@ -10,8 +9,9 @@ export interface Props {
 
 const PostFooter = (props: Props) => {
   const { title, date } = props
+
   return (
-    <div className={cn(CSS.root, '-active')}>
+    <div className={CSS.root}>
       <div className={CSS.body}>
         <p>
           You have just read <span>{title}</span>,{' '}

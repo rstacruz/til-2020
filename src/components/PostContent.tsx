@@ -1,10 +1,3 @@
-/*
- * PostContent
- * ===========
- *
- * Renders a Remark HAST as React nodes.
- */
-
 import * as React from 'react'
 import makeToReact from '../helpers/to_react'
 import { HastNode } from '../types'
@@ -17,6 +10,7 @@ import NextBlock from './NextBlock'
 import PreCode from './PreCode'
 
 export interface Props {
+  /** The HTML AST to be rendered into React */
   body: HastNode[]
 }
 
@@ -32,7 +26,14 @@ const toReact = makeToReact({
   }
 })
 
-const PostContent = ({ body }: Props) => {
+/**
+ * Renders a Remark HAST as React nodes.
+ *
+ * @param props.body The HTML AST to be rendered
+ */
+
+const PostContent = (props: Props) => {
+  const { body } = props
   return (
     <>
       {body.map((ast, index) => {
