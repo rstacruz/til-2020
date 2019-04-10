@@ -52,7 +52,7 @@ const useAppState = () => {
     }
   }
 
-  return [state, actions]
+  return { state, actions }
 }
 
 export default useAppState
@@ -78,7 +78,7 @@ import React, { useAppState } from './useAppState'
 
 const MyApp = () => {
   // Use the custom hook we wrote earlier
-  const [state, actions] = useAppState()
+  const { state, actions } = useAppState()
 
   return (
     <div>
@@ -178,10 +178,10 @@ import Toolbar from './Toolbar'
 
 // Top-level app component
 const MyApp = () => {
-  const [state, actions] = useAppState()
+  const { state, actions } = useAppState()
 
   return (
-    <AppContext.Provider value={[state, actions]}>
+    <AppContext.Provider value={{ state, actions }}>
       <div>
         {/* Components here will consume the value */}
         {/* given to the provider above. */}
@@ -213,7 +213,7 @@ const Toolbar = () => {
   //
   // This takes the `value` given in `<AppContext.Provider>`
   // in the top-level component above (MyApp.js).
-  const [state, actions] = useAppContext()
+  const { state, actions } = useAppContext()
 
   return (
     <div>
