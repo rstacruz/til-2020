@@ -30,20 +30,20 @@ This hook is a thin wrapper around React's `useState` hook. Instead of giving a 
 ```js
 import { useState } from 'react'
 
+// Our custom React hook
 const useAppState = () => {
-  const initialState = {
-    count: 0
-  }
+  const initialState = { count: 0 }
 
   // Manage the state using React.useState()
   const [state, setState] = useState(initialState)
 
-  // Define your actions as functions that call setState()
+  // Define your actions as functions that call setState().
+  // It's a bit like Redux's dispatch(), but as individual
+  // functions.
   const actions = {
     increment: () => {
       setState({ ...state, count: count + 1 })
     },
-
     decrement: () => {
       setState({ ...state, count: count - 1 })
     }
@@ -69,7 +69,9 @@ You can use the `useAppState()` hook in your React components. It will provide t
 ```js
 import { useAppState } from './useAppState'
 
+// Our top-level app
 const MyApp = () => {
+  // Use the custom hook we wrote earlier
   const { state, actions } = useAppState()
 
   return (
