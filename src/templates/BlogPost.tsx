@@ -46,7 +46,10 @@ class BlogPostTemplate extends React.Component<Props> {
     const titleBody = (sections[0] && sections[0].children) || []
 
     // Absolute URL of the current article
-    const absurl = `${siteUrl}/${pathPrefix}/${slug}`.replace(/\/\/+/g, '/')
+    const absurl = `${siteUrl}/${pathPrefix}/${slug}`.replace(
+      /([^:])\/\/+/g,
+      '$1/'
+    )
 
     return (
       <Layout location={this.props.location}>
