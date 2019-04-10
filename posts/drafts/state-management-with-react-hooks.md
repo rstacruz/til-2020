@@ -155,7 +155,7 @@ const useAppState = () => {
 // `state` and `actions` given by useAppState() higher in the
 // component tree.
 const useAppContext = () => {
-  return useContext(Context)
+  return useContext(AppContext)
 }
 
 export { AppContext, useAppState, useAppContext }
@@ -180,7 +180,7 @@ const MyApp = () => {
   const { state, actions } = useAppState()
 
   return (
-    <APpContext.Provider value={{state, actions}}>
+    <AppContext.Provider value={{state, actions}}>
       <div>
         {/* More components go here. */}
       </div>
