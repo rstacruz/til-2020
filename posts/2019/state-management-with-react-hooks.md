@@ -1,5 +1,6 @@
 ---
 title: State management with React hooks
+tags: [React]
 date: 2019-04-10
 ---
 

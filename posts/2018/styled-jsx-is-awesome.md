@@ -1,7 +1,7 @@
 ---
 title: Why I prefer styled-jsx
 date: '2018-11-08'
-tags: [JavaScript, React]
+tags: [React]
 ---
 
 ###
