@@ -29,9 +29,9 @@ export interface Props {
 class BlogPostTemplate extends React.Component<Props> {
   render() {
     const post = this.props.data.markdownRemark
-    const siteDescription = post.excerpt
     const { previous, next } = this.props.pageContext
-    const { title, date, description } = post.frontmatter
+    const { title, date, description: frontDescription } = post.frontmatter
+    const description = frontDescription || post.excerpt
     const htmlAst = transformHtmlAst(post.htmlAst)
     const sections = htmlAst.children || []
 
@@ -40,12 +40,13 @@ class BlogPostTemplate extends React.Component<Props> {
 
     return (
       <Layout location={this.props.location}>
-        <Helmet
-          meta={[
-            { name: 'description', content: description || siteDescription }
-          ]}
-          title={`${title}`}
-        />
+        <Helmet>
+          <title>{title}</title>
+          <meta property='og:type' content='article' />
+          <meta property='og:title' content={title} />
+          <meta property='og:description' content={description} />
+          <meta name='description' content={description} />
+        </Helmet>
         <MainHeading back />
         <div>
           <BlogNav />
