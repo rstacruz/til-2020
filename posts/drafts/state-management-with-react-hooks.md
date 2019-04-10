@@ -212,7 +212,7 @@ const Toolbar = () => {
   // from higher up in the component tree.
   //
   // This takes the `value` given in `<AppContext.Provider>`
-  // in the top-level copmonent above (MyApp.js).
+  // in the top-level component above (MyApp.js).
   const [state, actions] = useAppContext()
 
   return (
