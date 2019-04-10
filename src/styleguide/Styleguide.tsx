@@ -1,16 +1,18 @@
+// Page
 import React from 'react'
-import CSS from './Styleguide.module.css'
 import Navigation from './Navigation'
+import Page from './Page'
+import CSS from './Styleguide.module.css'
 import { Pages } from './types'
-import useAppState, { Actions } from './useAppState'
+import useAppState from './useAppState'
 
-interface Props {
+export interface Props {
   title?: string
   pages: Pages
 }
 
 const Styleguide = (props: Props) => {
-  const { state, actions } = useAppState()
+  const { state, actions } = useAppState(props)
   const { title, pages } = props
 
   return (
@@ -28,9 +30,6 @@ const Styleguide = (props: Props) => {
   )
 }
 
-const Page = ({ page }) => {
-  return <>{page()}</>
-}
 
 Styleguide.defaultProps = {
   title: 'Styleguide',

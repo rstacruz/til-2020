@@ -1,12 +1,16 @@
 import { useState } from 'react'
+import { Props } from './Styleguide'
+import { Pages } from './types'
 
 export interface State {
   activePage: string
+  pages: Pages
 }
 
-const useAppState = () => {
+const useAppState = (props: Props) => {
   const initialState = {
-    activePage: null
+    activePage: null,
+    pages: props.pages
   }
 
   const [state, setState] = useState<State>(initialState)

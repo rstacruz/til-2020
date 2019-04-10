@@ -1,0 +1,208 @@
+---
+title: State management with React hooks
+---
+
+###
+
+<!-- {.-wider-literate-style} -->
+
+<figure class='-no-pad'>
+<img src='https://source.unsplash.com/Rs5BQj5zbf8/600x300' alt='Unrelated photo'>
+</figure>
+
+React now comes with hooks that can be used to manage state and propagate it throughout your app. In essence - you can do Redux without using Redux!
+
+I've been trying to use [useState][usestate] and [useContext][usecontext] to manage a large block of state in a React app. In think it's a great alternative to Redux.
+
+## Custom state manager
+
+Let's write our state manager as a [custom React hook][custom].
+
+### Defining the hook
+
+<!-- {.-wider-literate-style} -->
+
+This hook is a thin wrapper around React's `useState` hook. Instead of giving a `setState()` function, it gives a bunch of setState macros (ie, `actions`).
+
+<figure>
+<figcaption class='-title -alt'>useAppState.js</figcaption>
+
+```js
+import { useState } from 'react'
+
+const useAppState = () => {
+  const initialState = {
+    count: 0
+  }
+
+  // Manage the state using React.useState()
+  const [state, setState] = useState(initialState)
+
+  // Define your actions as functions that call setState()
+  const actions = {
+    increment({
+      setState({ ...state, count: count + 1 })
+    }
+
+    decrement({
+      setState({ ...state, count: count - 1 })
+    }
+  }
+
+  return { state, actions }
+}
+
+export default useAppState
+```
+
+</figure>
+
+### Using the hook
+
+<!-- {.-wider-literate-style} -->
+
+You can use the `useAppState()` hook in your React components. It will provide the current state as `state`, and `actions`.
+
+<figure>
+<figcaption class='-title'>MyApp.js</figcaption>
+
+```js
+import { useAppState } from './useAppState'
+
+const MyApp = () => {
+  const { state, actions } = useAppState()
+
+  return (
+    <div>
+      <span>{state.count}</span>
+
+      <button onClick={actions.increment}> + </button>
+      <button onClick={actions.decrement}> - </button>
+    </div>
+  )
+}
+```
+
+</figure>
+
+## Passing actions
+
+### Passing as props
+
+<!-- {.-wider-literate-style} -->
+
+The functions in `actions` are plain old functions that you can pass down into child components.
+You can pass them to event props as-is.
+
+<!-- prettier-ignore -->
+```js
+<Toolbar
+  count={state.count}
+  onIncrement={actions.increment}
+  onDecrement={actions.decrement}
+/>
+```
+
+### Passing many actions down
+
+<!-- {.-wider-literate-style} -->
+
+If you need to pass many functions down, it's also possible to simply pass the entire `actions` object downwards.
+
+<!-- prettier-ignore -->
+```js
+<Toolbar
+  count={state.count}
+  actions={actions}
+/>
+```
+
+[custom]: https://reactjs.org/docs/hooks-custom.html
+
+## Working with contexts
+
+The one essential feature of react-redux is the way the application's state is available to all its descendant components. This can be done with [React contexts][context].
+
+### Exporting a context
+
+<!-- {.-wider-literate-style} -->
+
+In our `useAppState.js` file, we'll export a context created with [React.createContext][createcontext], along with a new custom hook for using the app context.
+
+<figure>
+<figcaption class='-title -alt'>useAppState.js</figcaption>
+
+```js
+import { useState, useContext } from 'react'
+
+const Context = React.createContext({})
+
+const useAppState = () => {
+  /* (...same as in examples above.) */
+}
+
+const useAppContext = () => {
+  return useContext(Context)
+}
+
+export { useAppState, Context, useAppContext }
+```
+
+</figure>
+
+### Defining a provider
+
+<!-- {.-wider-literate-style} -->
+
+In your app's root, use the _Context.Provider_ component. This makes it possible to use the `useAppContext()` hook in child components.
+
+<figure>
+<figcaption class='-title'>MyApp.js</figcaption>
+
+```js
+import { Context, useAppState } from './useAppState'
+
+const MyApp = () => {
+  const { state, actions } = useAppState()
+
+  return (
+  <Context.Provider value={{state, actions}}>
+    <div>
+      {/* Put more stuff here *}
+    </div>
+  </Context.Provider>
+  )
+}
+```
+
+</figure>
+
+### Consuming it
+
+<!-- {.-wider-literate-style} -->
+
+The `useAppContext` hook allows you to use the app state anywhere inside the Provider tree. This is similar to using react-redux's connect() function.
+
+<figure>
+<figcaption class='-title -alt'>Toolbar.js</figcaption>
+
+```js
+import { useAppContext } from './useAppState'
+
+const Toolbar = () => {
+  const { state, actions } = useAppContext()
+  //                         ^^^^^^^^^^^^^
+
+  return (
+    <button onClick={actions.increment}> + </button>
+    <button onClick={actions.decrement}> - </button>
+  )
+}
+```
+
+</figure>
+
+[usecontext]: https://reactjs.org/docs/hooks-reference.html#usecontext
+[usestate]: https://reactjs.org/docs/hooks-reference.html#usestate
+[context]: https://reactjs.org/docs/context.html
+[createcontext]: https://reactjs.org/docs/context.html#createcontext
