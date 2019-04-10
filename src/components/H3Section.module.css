@@ -139,9 +139,10 @@
     }
 
     /* Smaller text for code in literate style */
-    & > pre {
+    & > pre,
+    & > figure > pre {
       line-height: 1.3em;
-      font-size: 0.86em;
+      font-size: 0.88em;
     }
   }
 }
