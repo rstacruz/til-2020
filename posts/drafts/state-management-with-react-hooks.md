@@ -40,11 +40,11 @@ const useAppState = () => {
 
   // Define your actions as functions that call setState()
   const actions = {
-    increment({
+    increment: () => {
       setState({ ...state, count: count + 1 })
-    }
+    },
 
-    decrement({
+    decrement: () => {
       setState({ ...state, count: count - 1 })
     }
   }
