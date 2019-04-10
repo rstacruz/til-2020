@@ -30,7 +30,10 @@ This hook is a thin wrapper around React's `useState` hook. Instead of giving a 
 ```js
 import { useState } from 'react'
 
-// Our custom React hook
+/**
+ * Our custom React hook to manage state
+ */
+
 const useAppState = () => {
   const initialState = { count: 0 }
 
@@ -67,9 +70,12 @@ You can use the `useAppState()` hook in your React components. It will provide t
 <figcaption class='-title'>MyApp.js</figcaption>
 
 ```js
-import { useAppState } from './useAppState'
+import React, { useAppState } from './useAppState'
 
-// Our top-level app
+/**
+ * Our top-level app component
+ */
+
 const MyApp = () => {
   // Use the custom hook we wrote earlier
   const { state, actions } = useAppState()
