@@ -46,10 +46,7 @@ class BlogPostTemplate extends React.Component<Props> {
     const titleBody = (sections[0] && sections[0].children) || []
 
     // Absolute URL of the current article
-    const absurl = `${siteUrl}/${pathPrefix}/${slug}`.replace(
-      /([^:])\/\/+/g,
-      '$1/'
-    )
+    const absurl = collapseSlashes(`${siteUrl}/${pathPrefix}/${slug}`)
 
     return (
       <Layout location={this.props.location}>
@@ -94,6 +91,16 @@ function transformHtmlAst(ast: HastNode): HastNode {
     }
   })
   return ast
+}
+
+/**
+ * @example
+ *     collapseSlashes('https://a/b//c/d')
+ *     // => 'https://a/b/c/d'
+ */
+
+function collapseSlashes(str: string) {
+  return str.replace(/([^:])\/\/+/g, '$1/')
 }
 
 export default BlogPostTemplate
