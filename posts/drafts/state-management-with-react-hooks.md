@@ -169,15 +169,16 @@ In your app's root, use the _Context.Provider_ component. This makes it possible
 ```js
 import { Context, useAppState } from './useAppState'
 
+// Top-level app component
 const MyApp = () => {
   const { state, actions } = useAppState()
 
   return (
-  <Context.Provider value={{state, actions}}>
-    <div>
-      {/* Put more stuff here *}
-    </div>
-  </Context.Provider>
+    <Context.Provider value={{state, actions}}>
+      <div>
+        {/* More components go here. */}
+      </div>
+    </Context.Provider>
   )
 }
 ```
@@ -197,8 +198,10 @@ The `useAppContext` hook allows you to use the app state anywhere inside the Pro
 import { useAppContext } from './useAppState'
 
 const Toolbar = () => {
+  // In other components such as this, we can use the
+  // useAppContext() hook to fetch the 'state' and 'actions'
+  // from higher up in the component tree.
   const { state, actions } = useAppContext()
-  //                         ^^^^^^^^^^^^^
 
   return (
     <button onClick={actions.increment}> + </button>
