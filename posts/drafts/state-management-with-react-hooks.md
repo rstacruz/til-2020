@@ -216,8 +216,10 @@ const Toolbar = () => {
   const [state, actions] = useAppContext()
 
   return (
-    <button onClick={actions.increment}> + </button>
-    <button onClick={actions.decrement}> - </button>
+    <div>
+      <button onClick={actions.increment}> + </button>
+      <button onClick={actions.decrement}> - </button>
+    </div>
   )
 }
 ```
