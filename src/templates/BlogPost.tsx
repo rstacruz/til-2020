@@ -56,16 +56,15 @@ class BlogPostTemplate extends React.Component<Props> {
           <title>{title}</title>
 
           <meta name='twitter:card' content='summary_large_image' />
-          <meta name='twitter:site' content={siteName} />
-          <meta name='twitter:title' content={title} />
-          <meta name='twitter:description' content={description} />
           <meta name='twitter:image' content={image} />
+          <meta name='twitter:creator' content={'@rstacruz'} />
 
           <meta property='og:type' content='article' />
           <meta property='og:title' content={title} />
           <meta property='og:image' content={image} />
           <meta property='og:description' content={description} />
           <meta property='og:site_name' content={siteName} />
+          <meta property='og:url' content={absurl} />
 
           <meta name='description' content={description} />
         </Helmet>
