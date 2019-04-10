@@ -137,15 +137,20 @@ import { useState, useContext } from 'react'
 
 const Context = React.createContext({})
 
+// This is for the top-level component, providing `state`
+// and `actions`. (Same function as in the examples above.)
 const useAppState = () => {
-  /* (...same as in examples above.) */
+  // ...
 }
 
+// Sub-components can use this function. It will pick up the
+// `state` and `actions` given by useAppState() higher in the
+// component tree.
 const useAppContext = () => {
   return useContext(Context)
 }
 
-export { useAppState, Context, useAppContext }
+export { Context, useAppState, useAppContext }
 ```
 
 </figure>
