@@ -52,7 +52,7 @@ const useAppState = () => {
     }
   }
 
-  return [ state, actions ]
+  return [state, actions]
 }
 
 export default useAppState
@@ -78,7 +78,7 @@ import React, { useAppState } from './useAppState'
 
 const MyApp = () => {
   // Use the custom hook we wrote earlier
-  const [ state, actions ] = useAppState()
+  const [state, actions] = useAppState()
 
   return (
     <div>
