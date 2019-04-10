@@ -174,6 +174,7 @@ In your app's root, use the _AppContext.Provider_ component. This makes it possi
 
 ```js
 import { AppContext, useAppState } from './useAppState'
+import Toolbar from './Toolbar'
 
 // Top-level app component
 const MyApp = () => {
@@ -182,7 +183,9 @@ const MyApp = () => {
   return (
     <AppContext.Provider value={{state, actions}}>
       <div>
-        {/* More components go here. */}
+        {/* Components here will consume the value */}
+        {/* given to the provider above. */}
+        <Toolbar />
       </div>
     </AppContext.Provider>
   )
