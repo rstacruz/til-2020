@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
+// @ts-ignore
 import decorate from 'rehype-decorate'
 import sectionize from 'rehype-sectionize-headings'
 
@@ -22,28 +23,41 @@ export interface Props {
     markdownRemark: PageNode & {
       htmlAst: HastNode
     }
-    site: { siteMetadata: { title: string } }
+    site: {
+      pathPrefix: string
+      siteMetadata: { title: string; siteUrl: string }
+    }
   }
 }
 
 class BlogPostTemplate extends React.Component<Props> {
   render() {
-    const post = this.props.data.markdownRemark
+    const { data } = this.props
+    const post = data.markdownRemark
     const { previous, next } = this.props.pageContext
     const { title, date, description: frontDescription } = post.frontmatter
-    const description = frontDescription || post.excerpt
+    const { pathPrefix } = data.site
+    const { siteUrl } = data.site.siteMetadata
+    const { slug } = post.fields
+
     const htmlAst = transformHtmlAst(post.htmlAst)
     const sections = htmlAst.children || []
+    const description = frontDescription || post.excerpt
 
     // The first part of the excerpt that will be promoted to the title card
     const titleBody = (sections[0] && sections[0].children) || []
+
+    const absurl = `${siteUrl}${pathPrefix}/${slug}`
 
     return (
       <Layout location={this.props.location}>
         <Helmet>
           <title>{title}</title>
+          <meta name='twitter:card' content='summary_large_image' />
           <meta property='og:type' content='article' />
           <meta property='og:title' content={title} />
+          <meta name='twitter:image' content={`${absurl}/twitter-card.jpg`} />
+          <meta property='og:image' content={`${absurl}/twitter-card.jpg`} />
           <meta property='og:description' content={description} />
           <meta name='description' content={description} />
         </Helmet>
@@ -86,8 +100,10 @@ export default BlogPostTemplate
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
+      pathPrefix
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

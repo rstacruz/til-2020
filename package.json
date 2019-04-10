@@ -20,6 +20,7 @@
     "gatsby-remark-component": "npm:@rstacruz/gatsby-remark-component",
     "gatsby-remark-copy-linked-files": "^2.0.11",
     "gatsby-remark-images": "^3.0.10",
+    "gatsby-remark-social-cards": "^0.4.1",
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-remark": "^2.3.8",
     "github-slugger": "^1.2.1",

@@ -33,10 +33,7 @@ const Layout = ({ children }: Props) => (
         <>
           <Helmet
             title={fullTitle}
-            meta={[
-              { name: 'description', content: shortDescription }
-              // { name: 'keywords', content: 'sample, something' }
-            ]}
+            meta={[{ name: 'description', content: shortDescription }]}
           >
             <html lang='en' />
           </Helmet>
