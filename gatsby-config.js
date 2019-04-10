@@ -77,8 +77,7 @@ module.exports = {
             resolve: 'gatsby-remark-social-cards',
             options: {
               meta: {
-                parts: ['Today I Learned'],
-                color: '#808090'
+                parts: ['Today I Learned']
               },
               background: '#f2f2f2'
             }
