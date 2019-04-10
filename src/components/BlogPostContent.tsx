@@ -47,7 +47,7 @@ const BlogPostContent = (props: Props) => {
 
       {/* First section (index 0) */}
       <Waypoint
-        onEnter={doHandleEnter({ state, setState, idx: 0 })}
+        onEnter={doHandleEnter({ setState, idx: 0 })}
         topOffset='63%'
         bottomOffset='35%'
       >
