@@ -64,7 +64,7 @@ export default useAppState
 
 <!-- {.-wider-literate-style} -->
 
-You can use the `useAppState()` hook in your React components. It will provide the current state as `state`, and `actions`.
+You can use the `useAppState()` hook in your React components. It will provide the current `state` and the `actions`.
 
 <figure>
 <figcaption class='-title'>MyApp.js</figcaption>
