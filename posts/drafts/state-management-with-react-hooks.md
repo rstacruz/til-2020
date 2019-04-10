@@ -143,7 +143,7 @@ In our `useAppState.js` file, we'll export a context created with [React.createC
 ```js
 import { useState, useContext } from 'react'
 
-const Context = React.createContext({})
+const AppContext = React.createContext({})
 
 // This is for the top-level component, providing `state`
 // and `actions`. (Same function as in the examples above.)
@@ -158,7 +158,7 @@ const useAppContext = () => {
   return useContext(Context)
 }
 
-export { Context, useAppState, useAppContext }
+export { AppContext, useAppState, useAppContext }
 ```
 
 </figure>
@@ -167,24 +167,24 @@ export { Context, useAppState, useAppContext }
 
 <!-- {.-wider-literate-style} -->
 
-In your app's root, use the _Context.Provider_ component. This makes it possible to use the `useAppContext()` hook in child components.
+In your app's root, use the _AppContext.Provider_ component. This makes it possible to use the `useAppContext()` hook in child components.
 
 <figure>
 <figcaption class='-title'>MyApp.js</figcaption>
 
 ```js
-import { Context, useAppState } from './useAppState'
+import { AppContext, useAppState } from './useAppState'
 
 // Top-level app component
 const MyApp = () => {
   const { state, actions } = useAppState()
 
   return (
-    <Context.Provider value={{state, actions}}>
+    <APpContext.Provider value={{state, actions}}>
       <div>
         {/* More components go here. */}
       </div>
-    </Context.Provider>
+    </AppContext.Provider>
   )
 }
 ```
