@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-// @ts-ignore
 import decorate from 'rehype-decorate'
 import sectionize from 'rehype-sectionize-headings'
 
@@ -11,7 +10,6 @@ import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
 import { PostPagination } from '../components/PostPagination'
 import { HastNode, PageNode } from '../types'
-// import { ColophonSection } from '../components/ColophonSection'
 
 export interface Props {
   location: string
@@ -47,7 +45,8 @@ class BlogPostTemplate extends React.Component<Props> {
     // The first part of the excerpt that will be promoted to the title card
     const titleBody = (sections[0] && sections[0].children) || []
 
-    const absurl = `${siteUrl}${pathPrefix}/${slug}`
+    // Absolute URL of the current article
+    const absurl = `${siteUrl}/${pathPrefix}/${slug}`.replace(/\/\/+/g, '/')
 
     return (
       <Layout location={this.props.location}>
@@ -70,7 +69,6 @@ class BlogPostTemplate extends React.Component<Props> {
         </div>
 
         <PostPagination {...{ previous, next }} />
-        {/* <ColophonSection /> */}
       </Layout>
     )
   }
