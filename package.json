@@ -46,6 +46,9 @@
     "remark-slug": "^5.1.1",
     "responsive-modular-scale.css": "^0.2.0",
     "sanitize.css": "^8.0.0",
+    "typeface-ibm-plex-mono": "^0.0.61",
+    "typeface-inter": "^3.3.0",
+    "typeface-work-sans": "^0.0.72",
     "typescript-tslint-plugin": "^0.3.1"
   },
   "keywords": [
