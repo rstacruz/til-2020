@@ -10,12 +10,19 @@ date: 2019-04-11
 
 Many desktop systems rely on [NetworkManager], but this isn't the only way to get a Linux system online. Arch Linux comes with [netctl]&mdash;a systemd-native way of managing physical network connections.
 
-<figure class='-no-pad'>
-<img src='https://source.unsplash.com/2mVEwwcao_Y/600x300' alt='Unrelated photo'>
-</figure>
+<figure>
+<figcaption class='-title'>TLDR</figcaption>
 
-[netctl]: https://wiki.archlinux.org/index.php/netctl
-[networkmanager]: https://wiki.archlinux.org/index.php/NetworkManager
+```sh
+# Open a menu to find Wi-Fi connections.
+# This creates a profile and connects to it
+sudo wifi-menu
+
+# Set it to auto-connect on boot
+sudo netctl enable wlp3s0-WifiNameHere
+```
+
+</figure>
 
 ## Connecting to Wi-Fi
 
@@ -130,3 +137,6 @@ There's also something to be said about going with a slimmer setup. Netctl seems
 ### References
 
 - [Wireless network configuration](https://wiki.archlinux.org/index.php/Wireless_network_configuration) _(wiki.archlinux.org)_
+
+[netctl]: https://wiki.archlinux.org/index.php/netctl
+[networkmanager]: https://wiki.archlinux.org/index.php/NetworkManager
