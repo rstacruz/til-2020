@@ -1262,10 +1262,10 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@rstacruz/penpad@^0.1.0-pre.1":
-  version "0.1.0-pre.1"
-  resolved "https://registry.yarnpkg.com/@rstacruz/penpad/-/penpad-0.1.0-pre.1.tgz#24dbaa4bb8b53c0ca84ff6b8bd8fa065ef7e91b4"
-  integrity sha512-zAe6dxxMSRK1LiKZ1IpZ6kmUSYT+0CnUdyr0CzFWFPh78SyCDK9ZKgAj/bMswL3C4iapYXuYc46Bn3TEmv1olg==
+"@rstacruz/penpad@0.1.0-pre.4":
+  version "0.1.0-pre.4"
+  resolved "https://registry.yarnpkg.com/@rstacruz/penpad/-/penpad-0.1.0-pre.4.tgz#ae1565ff8909b9d441147b3abc9b9d61e170cec1"
+  integrity sha512-Jdai6eKG/ySzDbhnGzf7c8hXBhfGzCYwyiJEZzMB+gGTULzm9FvOyWY8aClJfPJKfrnpIZBvrScvcNqsmhzzyg==
   dependencies:
     clarity-icons-svg "^0.2.0"
     classnames "^2.2.6"
