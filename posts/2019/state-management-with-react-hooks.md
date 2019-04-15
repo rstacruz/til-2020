@@ -44,20 +44,24 @@ const useAppState = () => {
   // Manage the state using React.useState()
   const [state, setState] = useState(initialState)
 
-  // Define your actions as functions that call setState().
-  // It's a bit like Redux's dispatch(), but as individual
-  // functions.
-  const actions = {
-    increment: () => {
-      setState({ ...state, count: count + 1 })
-    },
-    decrement: () => {
-      setState({ ...state, count: count - 1 })
-    }
-  }
+  // Build our actions. We'll use useMemo() as an optimization,
+  // so this will only ever be called once.
+  const actions = useMemo(() => getActions(setState), [setState])
 
   return { state, actions }
 }
+
+// Define your actions as functions that call setState().
+// It's a bit like Redux's dispatch(), but as individual
+// functions.
+const getActions = setState => ({
+  increment: () => {
+    setState(state => ({ ...state, count: count + 1 }))
+  },
+  decrement: () => {
+    setState(state => ({ ...state, count: count - 1 }))
+  }
+})
 
 export default useAppState
 ```
@@ -74,7 +78,7 @@ You can use the `useAppState()` hook in your React components. It will provide t
 <figcaption class='-title'>MyApp.js</figcaption>
 
 ```js
-import React, { useAppState } from './useAppState'
+import { useAppState } from './useAppState'
 
 /**
  * Our top-level app component
@@ -229,6 +233,15 @@ const Toolbar = () => {
 ```
 
 </figure>
+
+## Epilogue
+
+Thanks for reading this! I've done a few edits to this article since it was first published:
+
+- Changed `setState({ ...state })` to `setState(state => ({ ...state }))`, because the latter would cause trouble when many setState's are called.
+
+- Added `useMemo()` the actions block to optimize it and make it faster.
+
 
 [usecontext]: https://reactjs.org/docs/hooks-reference.html#usecontext
 [usestate]: https://reactjs.org/docs/hooks-reference.html#usestate
