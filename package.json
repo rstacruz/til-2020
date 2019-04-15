@@ -5,7 +5,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@clr/icons": "^1.1.2",
-    "@rstacruz/penpad": "0.1.0-pre.4",
+    "@rstacruz/penpad": "0.1.0-pre.8",
     "classnames": "^2.2.6",
     "debug": "^4.1.1",
     "gatsby": "^2.3.14",
@@ -58,13 +58,13 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "tsc": "tsc",
+    "tsc:check": "tsc",
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx}' 'posts/**/*.md'",
+    "prettier:fix": "prettier --write 'src/**/*.{ts,tsx,js,jsx}' 'posts/**/*.md'",
     "prettier:check": "prettier --list-different 'src/**/*.{ts,tsx,js,jsx}' 'posts/**/*.md'",
-    "ci": "run-s tsc lint prettier:check",
-    "lint": "tslint --project .",
+    "ci": "run-s tsc:check tslint:check prettier:check",
+    "tslint:check": "tslint --project .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "css_modules:update": "tcm src/; prettier --write 'src/**/*.module.*.d.ts'"
   },

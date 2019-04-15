@@ -72,16 +72,20 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-component',
-          {
-            // https://www.npmjs.com/package/gatsby-remark-social-cards
-            resolve: 'gatsby-remark-social-cards',
-            options: {
-              meta: {
-                parts: ['Today I Learned']
-              },
-              background: '#f2f2f2'
-            }
-          },
+          ...(process.env.NODE_ENV === 'develop'
+            ? []
+            : [
+                {
+                  // https://www.npmjs.com/package/gatsby-remark-social-cards
+                  resolve: 'gatsby-remark-social-cards',
+                  options: {
+                    meta: {
+                      parts: ['Today I Learned']
+                    },
+                    background: '#f2f2f2'
+                  }
+                }
+              ]),
           {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 1400 }

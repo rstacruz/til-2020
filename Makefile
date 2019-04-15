@@ -21,8 +21,8 @@ down: ## Stops the server
 bash: ## Runs a shell inside a Docker container [alias: sh]
 	$(run) bash
 
-tsc: ## Runs the TypeScript compiler
-	$(run) yarn tsc
+tsc\:check: ## Runs the TypeScript compiler
+	$(run) yarn tsc:check
 
 tsc\:watch: ## Runs the TypeScript compiler (watch mode) [alias: t]
 	$(run) yarn tsc --watch
