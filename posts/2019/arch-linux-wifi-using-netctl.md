@@ -20,6 +20,9 @@ sudo wifi-menu
 
 # Set it to auto-connect on boot
 sudo netctl enable wlp3s0-WifiNameHere
+
+# To connect to a wifi network:
+sudo netctl switch-to wlp3s0-WifiNameHere
 ```
 
 </figure>
@@ -52,11 +55,11 @@ Only do this once per Wi-Fi network! After the profile's been created, you can c
 
 <!-- {.-literate-style} -->
 
-After creating a profile, you can connect to it using `netctl start <name>`. The _name_ is the name you provided in wifi-menu.
+After creating a profile, you can connect to it using `netctl switch-to <name>`. The _name_ is the name you provided in wifi-menu.
 
 ```bash
 
-sudo netctl start wlp3s0-PrettyFly
+sudo netctl switch-to wlp3s0-PrettyFly
 ```
 
 <!-- {.-command} -->
