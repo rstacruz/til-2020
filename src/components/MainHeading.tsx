@@ -37,7 +37,7 @@ export const MainHeading = ({ back }: Props) => {
               <img
                 width={16}
                 height={16}
-                src='https://avatars.githubusercontent.com/rstacruz'
+                src='https://avatars.githubusercontent.com/rstacruz?s=64'
               />
             </a>
           </span>
