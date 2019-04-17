@@ -8,3 +8,17 @@ command = "yarn build"
 [[redirects]]
   from = "/til/*"
   to = "/:splat"
+
+# https://www.netlify.com/blog/2017/02/23/better-living-through-caching/
+# https://www.netlify.com/docs/headers-and-basic-auth/#custom-headers
+# https://www.netlify.com/docs/headers-and-basic-auth/#structured-configuration
+# https://developers.google.com/web/tools/lighthouse/audits/cache-policy
+[[headers]]
+  for= "/*"
+  [headers.values]
+   Cache-Control = "max-age=86400"
+
+[[headers]]
+  for= "/static/*"
+  [headers.values]
+   Cache-Control = "max-age=31536000"
