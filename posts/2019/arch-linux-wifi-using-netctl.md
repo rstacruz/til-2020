@@ -18,11 +18,15 @@ Many desktop systems rely on [NetworkManager], but this isn't the only way to ge
 # This creates a profile and connects to it
 sudo wifi-menu
 
-# Set it to auto-connect on boot
-sudo netctl enable wlp3s0-WifiNameHere
+# Auto connect on boot
+# (Assuming 'wlp3s0' is your interface name)
+sudo systemctl enable netctl-auto@wlp3s0.service
 
-# To connect to a wifi network:
-sudo netctl switch-to wlp3s0-WifiNameHere
+# Set it to auto-connect on boot
+sudo netctl-auto enable wlp3s0-WifiNameHere
+
+# To manuall yconnect to a wifi network:
+sudo netctl-auto switch-to wlp3s0-WifiNameHere
 ```
 
 </figure>
@@ -51,6 +55,14 @@ The `wifi-menu` is a utility to create netctl profiles. After selecting a networ
 
 Only do this once per Wi-Fi network! After the profile's been created, you can connect to it without wifi-menu.
 
+### Enabling auto-roaming mode
+
+Enable the `netctl-auto@<interface>` service to automatically connect to networks as they become in range. You may need to edit the profile files for this; check the ([wiki entry](https://wiki.archlinux.org/index.php/netctl#Wireless)) for more info.
+
+```sh
+sudo systemctl enable netctl-auto@wlp3s0.service
+```
+
 ### Connecting to profile manually
 
 <!-- {.-literate-style} -->
@@ -59,7 +71,7 @@ After creating a profile, you can connect to it using `netctl switch-to <name>`.
 
 ```bash
 
-sudo netctl switch-to wlp3s0-PrettyFly
+sudo netctl-auto switch-to wlp3s0-PrettyFly
 ```
 
 <!-- {.-command} -->
@@ -72,10 +84,10 @@ sudo netctl switch-to wlp3s0-PrettyFly
 
 <!-- {.-literate-style} -->
 
-Use `netctl list` to show what profiles have been created before.
+Use `netctl-auto list` to show what profiles have been created before.
 
 ```bash
-sudo netctl list
+sudo netctl-auto list
 ```
 
 <!-- {.-command} -->
@@ -135,11 +147,18 @@ With that said, I've been trying to use netctl instead lately for one silly reas
 
 There's also something to be said about going with a slimmer setup. Netctl seems a little closer to the metal than NetworkManager, and comes built-in as part of the `base` package in Arch Linux.
 
-##
+## Epilogue
 
-### References
+Thanks for reading my article! I've done some edits since this was first published.
+
+- Use `netctl-auto` instead of `netctl`. This gets you the benefits of "roaming" (auto-switching connections) and more.
+
+- Removed the use of `netctl enable <profile>`. This works, but will make your boot time slower (Arch will wait for the connection to become successful before finishing the boot process).
+
+## References
 
 - [Wireless network configuration](https://wiki.archlinux.org/index.php/Wireless_network_configuration) _(wiki.archlinux.org)_
+- [netctl](https://wiki.archlinux.org/index.php/netctl) _(wiki.archlinux.org)_
 
 [netctl]: https://wiki.archlinux.org/index.php/netctl
 [networkmanager]: https://wiki.archlinux.org/index.php/NetworkManager
