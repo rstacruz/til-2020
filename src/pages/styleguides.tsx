@@ -3,12 +3,17 @@
  */
 
 import React from 'react'
-import { Penpad, Specimen } from '@rstacruz/penpad'
+import { Penpad, Specimen } from '@penpad/core'
+import { ResponsiveViewPlugin } from '@penpad/plugin-responsive-view'
+import { CodePanelPlugin } from '@penpad/plugin-code-panel'
 import BlogPostTitle from '../components/BlogPostTitle'
 
 const StyleguidePage = () => {
   return (
     <Penpad>
+      <ResponsiveViewPlugin />
+      <CodePanelPlugin />
+
       <Specimen
         id='BlogPostTitle'
         width='100%'
