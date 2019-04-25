@@ -87,6 +87,17 @@
     @apply --figure;
   }
 
+  & figure table {
+    border-bottom: none;
+    margin-top: -16px;
+    margin-bottom: -16px;
+  }
+
+  & figure table > tr:first-child,
+  & figure table > :first-child > tr:first-child {
+    border-top: none;
+  }
+
   & table {
     width: 100%;
     border-collapse: collapse;
