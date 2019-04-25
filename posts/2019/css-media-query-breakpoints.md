@@ -93,7 +93,7 @@ This is mostly subjective and may depend on what screens you would design for. I
 
 <figure>
 
-| Breakpoint          | Description                   |
+| Breakpoint          | Purpose                       |
 | ------------------- | ----------------------------- |
 | _(default)_         | Mobile-portrait               |
 | min-width: `480px`  | Mobile-landscape (and larger) |
@@ -134,7 +134,7 @@ Instead, I propose calling it with more a more generic name. Most designers are 
 ```css
 @custom-media --viewport-4 (min-width: 480px);
 @custom-media --viewport-7 (min-width: 768px);
-@custom-media --viewport-9 (min-width: 900px);
+@custom-media --viewport-9 (min-width: 992px);
 @custom-media --viewport-12 (min-width: 1200px);
 ```
 
