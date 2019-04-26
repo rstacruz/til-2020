@@ -25,7 +25,7 @@
     color: var(--bold-color);
   }
 
-  @media (--viewport-7) {
+  @media (--viewport-9) {
     padding-right: 35%;
   }
 }
@@ -38,7 +38,7 @@
     margin-bottom: 32px;
   }
 
-  @media (--viewport-7) {
+  @media (--viewport-11) {
     margin-left: -16px;
   }
 

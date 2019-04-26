@@ -28,7 +28,7 @@
   z-index: 2;
   box-shadow: inset 16px 0 #fff, inset -16px 0 #fff, 0 0 0 4px #fff;
 
-  @media (--viewport-7) {
+  @media (--viewport-9) {
     left: 40%;
     right: 40%;
   }
@@ -58,7 +58,7 @@
 }
 
 .root:global(.-active)::after {
-  @media (--viewport-7) {
+  @media (--viewport-9) {
     opacity: 0.5;
     transform: scaleX(1) scaleY(1);
     border-color: var(--accent);

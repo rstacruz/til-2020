@@ -20,7 +20,7 @@
   display: none;
   @apply --alt-style;
 
-  @media (--viewport-7) {
+  @media (--viewport-9) {
     display: inline;
   }
 }

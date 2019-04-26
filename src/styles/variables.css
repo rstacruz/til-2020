@@ -84,7 +84,7 @@
       padding-bottom: 32px;
     }
 
-    @media (--viewport-9) {
+    @media (--viewport-7n) {
       padding-top: 64px;
       padding-bottom: 64px;
     }
@@ -353,9 +353,11 @@
 }
 
 @custom-media --viewport-4 (width > 480px);
+/* --viewport-7 should be deprecated in favor of 7n. */
 @custom-media --viewport-7 (width > 768px);
+@custom-media --viewport-7n (min-width: 768px);
 @custom-media --viewport-9 (width > 992px);
-@custom-media --viewport-11 (width > 1100px);
+@custom-media --viewport-11 (width > 1150px);
 @custom-media --viewport-13 (width > 1300px);
 
 /* Custom media queries */
