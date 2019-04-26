@@ -15,12 +15,12 @@ Consider adding `data-test-id` attributes to your components. This makes them ea
 
 ```html
 const TextToolbar = () => (
-	<div>
-		{/* Notice the data-test-id attributes! */}
-		<button data-test-id='button:bold'>Bold</button>
-		<button data-test-id='button:italic'>Italic</button>
-		<button data-test-id='button:underline'>Underline</button>
-	</div>
+<div>
+  {/* Notice the data-test-id attributes! */}
+  <button data-test-id="button:bold">Bold</button>
+  <button data-test-id="button:italic">Italic</button>
+  <button data-test-id="button:underline">Underline</button>
+</div>
 )
 ```
 
@@ -40,7 +40,7 @@ import { render } from 'react-testing-library'
 it('works', () => {
   const co = render(<TextToolbar />)
 
-	// This test will fail if these aren't present.
+  // This test will fail if these aren't present.
   co.getByTestId('button:bold')
   co.getByTestId('button:italic')
   co.getByTestId('button:underline')
@@ -75,4 +75,3 @@ it('works', () => {
   )
 })
 ```
-
