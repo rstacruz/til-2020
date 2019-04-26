@@ -9,18 +9,22 @@ date: 2019-04-25
 <!-- {.-literate-style} -->
 
 <figure class='-no-pad'>
-<img src='https://source.unsplash.com/SO5jpAT2bN8/600x400' alt='Photo unrelated'>
+<img src='https://source.unsplash.com/SO5jpAT2bN8/600x700' alt='Photo unrelated'>
 </figure>
 
 Before we can figure out what media query breakpoints to use, we need to look at what devices we're designing for.
 
-I've dug into some common device resolutions, and the most common ones in my opinion can be grouped to these categories:
+I've dug into some common device resolutions, and most can be grouped into categories. I've listed these categories, along with the resolutions they cater to:
 
-- **Mobile portait** (320px to 414px) &mdash; For devices up to 6" inches
-- **Mobile landscape** (568px to 812px) &mdash; Ditto, but landscape
-- **Tablet portait** (768px to 834px) &mdash; For devices 7" to 10"
-- **Tablet landscape** (1024px to 1112px) &mdash; Ditto, but also 12" tablets on portrait
-- **Laptop & desktop displays** (1200px+) &mdash; Varies a lot, but is usually 1200px and above
+- **Mobile portait** (320px to 414px) <br> For devices with 4" to 6.9" screens.
+
+- **Mobile landscape** (568px to 812px) <br> Same, but landscape.
+
+- **Tablet portait** (768px to 834px) <br> For devices 7" to 10"
+
+- **Tablet landscape** (1024px to 1112px) <br> Ditto, but also 12" tablets on portrait
+
+- **Laptop & desktop displays** (1200px+) <br> Varies a lot, but is usually 1200px and above
 
 <next-block title="So how do we make sense of these devices?"></next-block>
 
@@ -44,10 +48,10 @@ I mostly looked at iOS devices. While Android devices are important too, they ha
 | **Tablet, landscape** | `1024px` | iPad Air, iPad Mini, iPad Pro 9" |
 |                       | `1024px` | iPad Pro 12" (portrait)          |
 |                       | `1112px` | iPad Pro 10"                     |
-| **Laptops**           | `1366px` | HD laptops (768p)                |
+| **Laptop displays**   | `1366px` | HD laptops (768p)                |
 |                       | `1366px` | iPad Pro 12" (landscape)         |
 |                       | `1440px` | 13" MacBook Pro (2x scaling)     |
-| **Desktop monitors**  | `1680px` | 13" MacBook Pro (1.5x scaling)   |
+| **Desktop displays**  | `1680px` | 13" MacBook Pro (1.5x scaling)   |
 |                       | `1920px` | 1080p displays                   |
 
 </figure>
