@@ -242,7 +242,6 @@ Thanks for reading this! I've done a few edits to this article since it was firs
 
 - Added `useMemo()` the actions block to optimize it and make it faster.
 
-
 [usecontext]: https://reactjs.org/docs/hooks-reference.html#usecontext
 [usestate]: https://reactjs.org/docs/hooks-reference.html#usestate
 [context]: https://reactjs.org/docs/context.html
