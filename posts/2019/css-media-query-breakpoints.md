@@ -12,15 +12,15 @@ date: 2019-04-25
 <img src='https://source.unsplash.com/SO5jpAT2bN8/600x400' alt='Photo unrelated'>
 </figure>
 
-Before we can find an answer to what media query breakpoints should we use, we need to look at what devices we're designing for.
+Before we can figure out what media query breakpoints to use, we need to look at what devices we're designing for.
 
-I've looked at some common resolutions, and the most common ones can be grouped to these categories:
+I've dug into some common device resolutions, and the most common ones in my opinion can be grouped to these categories:
 
-- **Mobile portait** (320px to 414px)
-- **Mobile landscape** (568px to 812px)
-- **Tablet portait** (768px to 834px)
-- **Tablet landscape** (1024px to 1112px)
-- **Laptop & desktop displays** (varies)
+- **Mobile portait** (320px to 414px) &mdash; For devices up to 6" inches
+- **Mobile landscape** (568px to 812px) &mdash; Ditto, but landscape
+- **Tablet portait** (768px to 834px) &mdash; For devices 7" to 10"
+- **Tablet landscape** (1024px to 1112px) &mdash; Ditto, but also 12" tablets on portrait
+- **Laptop & desktop displays** (1200px+) &mdash; Varies a lot, but is usually 1200px and above
 
 <next-block title="So how do we make sense of these devices?"></next-block>
 
@@ -30,30 +30,29 @@ I mostly looked at iOS devices. While Android devices are important too, they ha
 
 <figure>
 
-| Category                                            | Width    | Device                           |
-| --------------------------------------------------- | -------- | -------------------------------- |
-| **Mobile, portrait**                                | `320px`  | iPhone SE                        |
-|                                                     | `375px`  | iPhone 6, 7, 8, X                |
-|                                                     | `414px`  | iPhone 8 Plus                    |
-| **Mobile, landscape**                               | `568px`  | iPhone SE                        |
-|                                                     | `667px`  | iPhone 6, 7, 8                   |
-|                                                     | `736px`  | iPhone 8 Plus                    |
-|                                                     | `812px`  | iPhone X                         |
-| **Tablet, portrait**                                | `768px`  | iPad Air, iPad Mini, iPad Pro 9" |
-|                                                     | `834px`  | iPad Pro 10"                     |
-| **Tablet, landscape** _(and large tablet, portait)_ | `1024px` | iPad Air, iPad Mini, iPad Pro 9" |
-|                                                     | `1024px` | iPad Pro 12" (portrait)          |
-|                                                     | `1112px` | iPad Pro 10"                     |
-| **Laptops** _(and large tablet, landscape)_         | `1366px` | HD laptops (768p)                |
-|                                                     | `1366px` | iPad Pro 12" (landscape) |
-|                                                     | `1440px` | 13" MacBook Pro (2x scaling)     |
-| **Desktop monitors**                                | `1680px` | 13" MacBook Pro (1.5x scaling)   |
-|                                                     | `1920px` | 1080p displays                   |
+| Category              | Width    | Device                           |
+| --------------------- | -------- | -------------------------------- |
+| **Mobile, portrait**  | `320px`  | iPhone SE                        |
+|                       | `375px`  | iPhone 6, 7, 8, X                |
+|                       | `414px`  | iPhone 8 Plus                    |
+| **Mobile, landscape** | `568px`  | iPhone SE                        |
+|                       | `667px`  | iPhone 6, 7, 8                   |
+|                       | `736px`  | iPhone 8 Plus                    |
+|                       | `812px`  | iPhone X                         |
+| **Tablet, portrait**  | `768px`  | iPad Air, iPad Mini, iPad Pro 9" |
+|                       | `834px`  | iPad Pro 10"                     |
+| **Tablet, landscape** | `1024px` | iPad Air, iPad Mini, iPad Pro 9" |
+|                       | `1024px` | iPad Pro 12" (portrait)          |
+|                       | `1112px` | iPad Pro 10"                     |
+| **Laptops**           | `1366px` | HD laptops (768p)                |
+|                       | `1366px` | iPad Pro 12" (landscape)         |
+|                       | `1440px` | 13" MacBook Pro (2x scaling)     |
+| **Desktop monitors**  | `1680px` | 13" MacBook Pro (1.5x scaling)   |
+|                       | `1920px` | 1080p displays                   |
 
 </figure>
 
 <next-block title="What breakpoints are most common?"></next-block>
-
 
 ## The most common breakpoints
 
@@ -61,13 +60,13 @@ I took a look at some of the most popular CSS frameworks on 2019 (and some from 
 
 <figure>
 
-| Framework       | Small        | Medium                        | Large                          | Exra large                    |
-| --------------- | ------------ | ----------------------------- | ------------------------------ | ----------------------------- |
-| Bulma           | -            | `min: 769px`  <br> ("mobile") | `min: 1024px` <br> ("desktop") | `min: 1216px` <br> ("fullhd") |
-| Bootstrap 3     | -            | `min: 768px`                  | `min: 992px`                   | `min: 1200px`                 |
-| Bootstrap 4     | `min: 576px` | `min: 768px`                  | `min: 992px`                   | `min: 1200px`                 |
-| Tailwind        | `min: 576px` | `min: 768px`                  | `min: 992px`                   | `min: 1200px`                 |
-| Zurb Foundation | -            | `min: 640px`                  | `min: 1024px`                  | `min: 1200px`                 |
+| Framework       | Small        | Medium                       | Large                          | Exra large                    |
+| --------------- | ------------ | ---------------------------- | ------------------------------ | ----------------------------- |
+| Bulma           | -            | `min: 769px` <br> ("mobile") | `min: 1024px` <br> ("desktop") | `min: 1216px` <br> ("fullhd") |
+| Bootstrap 3     | -            | `min: 768px`                 | `min: 992px`                   | `min: 1200px`                 |
+| Bootstrap 4     | `min: 576px` | `min: 768px`                 | `min: 992px`                   | `min: 1200px`                 |
+| Tailwind        | `min: 576px` | `min: 768px`                 | `min: 992px`                   | `min: 1200px`                 |
+| Zurb Foundation | -            | `min: 640px`                 | `min: 1024px`                  | `min: 1200px`                 |
 
 </figure>
 
@@ -129,7 +128,7 @@ I personally don't like calling things `small`, `medium` and `large`. These word
 
 I'm not a fan of calling them `mobile`, `tablet` and so on, either. The iPad Pro 12" is a tablet, but why can you only target it with a `desktop` media query? The Samsung Note is technically a phone, but why is it covered with `tablet`? Does `tablet` account for landscape or portrait? The lines between device classifications are a bit blurry nowadays.
 
-Instead, I propose calling it with more a more generic name. Most designers are intimately familiar with "how 700px feels like", so I think that would make a more appropriate name. I like naming them by their closest hundredths like so.
+Instead, I propose calling it with more generic names. Most designers are intimately familiar with "how 700px feels like", so I think that would make a more appropriate name. I like naming them by their closest hundredths like so.
 
 ```css
 @custom-media --viewport-4 (min-width: 480px);
