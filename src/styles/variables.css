@@ -84,9 +84,14 @@
       padding-bottom: 32px;
     }
 
-    @media (--viewport-7) {
+    @media (--viewport-9) {
       padding-top: 64px;
       padding-bottom: 64px;
+    }
+
+    @media (--viewport-13) {
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
   }
 
@@ -349,8 +354,9 @@
 
 @custom-media --viewport-4 (width > 480px);
 @custom-media --viewport-7 (width > 768px);
-@custom-media --viewport-9 (width > 900px);
+@custom-media --viewport-9 (width > 992px);
 @custom-media --viewport-11 (width > 1100px);
+@custom-media --viewport-13 (width > 1300px);
 
 /* Custom media queries */
 @custom-media --ms-viewport-md (--viewport-4); /* portrait tablet+ */
