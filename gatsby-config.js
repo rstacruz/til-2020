@@ -13,6 +13,10 @@ function fs({ name, path }) {
   }
 }
 
+function isProduction() {
+  return process.env.NODE_ENV === 'production'
+}
+
 module.exports = {
   pathPrefix: '/til',
   siteMetadata: {
@@ -34,12 +38,16 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        exclude: ['/all', '/drafts']
-      }
-    },
+    ...(isProduction()
+      ? [
+          {
+            resolve: 'gatsby-plugin-sitemap',
+            options: {
+              exclude: ['/all', '/drafts']
+            }
+          }
+        ]
+      : []),
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-google-analytics',
@@ -72,9 +80,8 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-component',
-          ...(process.env.NODE_ENV === 'develop'
-            ? []
-            : [
+          ...(isProduction()
+            ? [
                 {
                   // https://www.npmjs.com/package/gatsby-remark-social-cards
                   resolve: 'gatsby-remark-social-cards',
@@ -85,7 +92,8 @@ module.exports = {
                     background: '#f2f2f2'
                   }
                 }
-              ]),
+              ]
+            : []),
           {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 1400 }
