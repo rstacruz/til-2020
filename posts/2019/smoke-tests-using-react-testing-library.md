@@ -11,7 +11,7 @@ tags: [React]
 
 <!-- {.-literate-style} -->
 
-I like adding `data-test-id` attributes to my tests. This makes them easy to target, and lets me refer to them without having to resort to XPath or CSS.
+Consider adding `data-test-id` attributes to your components. This makes them easy to target, and lets us refer to them without having to resort to XPath or CSS.
 
 ```html
 const TextToolbar = () => (
