@@ -274,6 +274,20 @@ Set your default locale. For most of us, that would be `en_US.UTF-8`, but feel f
 vi /etc/locale.gen
 ```
 
+### Set up locales, part 2
+
+<!-- {.-literate-style} -->
+
+Edit the `/etc/locale.conf` file and add the locale as `LANG=<the locale>`. After this, type, `locale-gen`.
+
+```bash
+vi /etc/locale.conf
+```
+
+```sh
+LANG=en_US.UTF-8
+```
+
 ```bash
 # Generate locale config (/etc/locale.gen)
 locale-gen
