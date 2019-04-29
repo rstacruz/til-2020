@@ -9,6 +9,10 @@ command = "yarn build"
   from = "/til/*"
   to = "/:splat"
 
+[[redirects]]
+  from = "https://til.ricostacruz.com/*"
+  to = "https://ricostacruz.com/til/:splat"
+
 # https://www.netlify.com/blog/2017/02/23/better-living-through-caching/
 # https://www.netlify.com/docs/headers-and-basic-auth/#custom-headers
 # https://www.netlify.com/docs/headers-and-basic-auth/#structured-configuration
