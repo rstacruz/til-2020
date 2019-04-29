@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { Penpad, Specimen } from '@rstacruz/penpad'
+import { Penpad, Specimen } from '@penpad/core'
 import BlogPostTitle from '../components/BlogPostTitle'
 
 const StyleguidePage = () => {
