@@ -17,7 +17,7 @@ Install `xfce4`. This will be the desktop environment you'll use in nvidia-xrun.
 sudo pacman -Syu xfce4
 ```
 
-Edit `~/.nvidia-xinitrc` to launch xfce4 when running nvidia-xrun.
+Edit `~/.nvidia-xinitrc` (this is a new file!) to launch xfce4 when running nvidia-xrun.
 
 ```sh
 if [ $# -gt 0 ]; then
@@ -28,12 +28,6 @@ fi
 ```
 
 ## Running nvidia-xrun
-
-If you are running a display manager, stop it first. **This will log you off.** Closing all your apps before doing this would be a good idea.
-
-```sh
-sudo systemctl stop display-manager
-```
 
 Switch to an empty tty. Try `ctrl-alt-f2` (or f3, f4...). Log in with your username. (You'll enter a username first, then a password.)
 
@@ -50,8 +44,9 @@ Run `nvidia-xrun`. Wait a while - the first run can take a long time!
 nvidia-xrun
 ```
 
-When you're done, log out of your XFCE4 session. Start your DE again by starting your display manager again.
+When you're done, log out of your XFCE4 session, and find your old tty that has your xsession.
 
-```
-sudo systemctl start display-manager
+```sh
+# In case you can't find it, you can restart your display manager
+sudo systemctl restart gdm
 ```
