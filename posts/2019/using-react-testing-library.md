@@ -11,15 +11,15 @@ tags: [React]
 
 <!-- {.-literate-style} -->
 
-Consider adding `data-test-id` attributes to your components. This makes them easy to target, and lets us refer to them without having to resort to XPath or CSS.
+Consider adding `data-testid` attributes to your components. This makes them easy to target, and lets us refer to them without having to resort to XPath or CSS.
 
 ```js
 const TextToolbar = () => (
   <div>
-    {/* Notice the data-test-id attributes! */}
-    <button data-test-id='button:bold'>Bold</button>
-    <button data-test-id='button:italic'>Italic</button>
-    <button data-test-id='button:underline'>Underline</button>
+    {/* Notice the data-testid attributes! */}
+    <button data-testid='button:bold'>Bold</button>
+    <button data-testid='button:italic'>Italic</button>
+    <button data-testid='button:underline'>Underline</button>
   </div>
 )
 ```
