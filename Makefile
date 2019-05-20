@@ -30,6 +30,9 @@ tsc\:watch: ## Runs the TypeScript compiler (watch mode) [alias: t]
 css_modules\:update: ## Update CSS modules [alias: c]
 	$(run) yarn css_modules:update
 
+fix: ## Fix whatever needs fixing
+	$(run) yarn fix
+
 # Aliases
 i: yarn
 s: start

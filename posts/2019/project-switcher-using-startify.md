@@ -14,7 +14,7 @@ tags: [Vim]
 
 I like using [Startify] not just as a pretty splash screen, but also as a session manager and project switcher. Here's how to use it.
 
-[Startify]: https://github.com/mhinz/vim-startify
+[startify]: https://github.com/mhinz/vim-startify
 
 ## Getting started
 

@@ -9,6 +9,10 @@ export interface Props {
   className?: string | string[]
 }
 
+/**
+ * A section for h2 blocks.
+ */
+
 const H2Section = (props: Props) => {
   const { children, className, active } = props
   const activeClass = active ? '-active' : '-inactive'

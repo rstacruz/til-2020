@@ -67,6 +67,8 @@
     "prettier:check": "prettier --list-different 'src/**/*.{ts,tsx,js,jsx}' 'posts/**/*.md'",
     "ci": "run-s tsc:check tslint:check prettier:check",
     "tslint:check": "tslint --project .",
+    "tslint:fix": "tslint --fix .",
+    "fix": "run-s css_modules:update tslint:fix prettier:fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "css_modules:update": "tcm src/; prettier --write 'src/**/*.module.*.d.ts'"
   },

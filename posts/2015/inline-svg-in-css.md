@@ -5,7 +5,6 @@ tags: [CSS]
 description: Create complex shapes easily by combining SVG and CSS.
 ---
 
-
 ###
 
 <!-- {.-literate-style} -->

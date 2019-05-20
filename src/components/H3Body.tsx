@@ -1,6 +1,6 @@
+import cn from 'classnames'
 import React from 'react'
 import CSS from './H3Section.module.css'
-import cn from 'classnames'
 
 const H3Body = ({ children, className, ...props }) => {
   return (
