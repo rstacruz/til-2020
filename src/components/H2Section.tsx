@@ -9,7 +9,8 @@ export interface Props {
   className?: string | string[]
 }
 
-const H2Section = ({ children, className, active }: Props) => {
+const H2Section = (props: Props) => {
+  const { children, className, active } = props
   const activeClass = active ? '-active' : '-inactive'
   const title = getH2Text(children)
   const id = title ? slugger().slug(title) : null

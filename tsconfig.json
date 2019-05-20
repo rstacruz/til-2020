@@ -17,6 +17,10 @@
     "jsx": "react",
     "plugins": [
       { "name": "typescript-tslint-plugin" }
+    ],
+    "typeRoots": [
+      "./src/@types",
+      "./node_modules/@types"
     ]
   },
   "include": [
