@@ -8,7 +8,8 @@ interface Props {
   body: any
 }
 
-const BlogPostTitle = ({ title, date, body }: Props) => {
+const BlogPostTitle = (props: Props) => {
+  const { title, date, body } = props
   return (
     <div className={CSS.root}>
       <h1 className={CSS.title}>{title}</h1>
