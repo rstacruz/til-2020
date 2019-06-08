@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ScrollIndicator = (props: Props) => {
-  const { count } = props
+  const { active, count } = props
 
   // Not much of a point to an indicator when there's only one
   if (count < 2) return <span />
