@@ -1,13 +1,19 @@
 import cn from 'classnames'
 import React from 'react'
-import CSS from './H2Section.module.css'
 
-const H2Body = ({ children, className, ...props }) => {
+const H2Body = (props: Props) => {
+  const { children, className, ...divProps } = props
+
   return (
-    <div {...props} className={cn(className)}>
+    <div {...divProps} className={cn(className)}>
       {children}
     </div>
   )
+}
+
+interface Props {
+  children: React.ReactNode
+  className?: string
 }
 
 export default H2Body

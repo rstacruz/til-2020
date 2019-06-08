@@ -1,15 +1,7 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-
-import 'sanitize.css'
-import 'typeface-inter'
-import 'typeface-work-sans'
-import 'typeface-ibm-plex-mono'
-
-import './Layout.fonts.css'
-
-import './Layout.base.css'
+import './CSS'
 
 export interface Props {
   children: React.ReactNode

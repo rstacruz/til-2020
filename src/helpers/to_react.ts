@@ -25,7 +25,7 @@ const toReact = ({ components }: Options = {}) => {
     props: Propsish | void,
     children: React.ReactNode
   ) => {
-    let component
+    let component: any
 
     if (props && props['data-element']) {
       tag = props['data-element']

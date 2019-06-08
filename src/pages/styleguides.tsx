@@ -2,8 +2,8 @@
  * Home page
  */
 
-import React from 'react'
 import { Penpad, Specimen } from '@penpad/core'
+import React from 'react'
 import BlogPostTitle from '../components/BlogPostTitle'
 
 const StyleguidePage = () => {
