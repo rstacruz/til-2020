@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 import refractor from 'refractor'
-import makeToReact from '../helpers/to_react'
+import makeToReact from '../../helpers/to_react'
 import CSS from './PreCode.module.css'
 
 const LANGUAGES = {

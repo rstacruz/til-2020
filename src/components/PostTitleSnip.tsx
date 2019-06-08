@@ -10,8 +10,11 @@ export interface Props {
   variant?: '-small' | null
 }
 
-export const PostTitleSnip = ({ slug, title, variant, className }: Props) => {
-  const varClass = variant === '-small' ? CSS.isSmall : ''
+export const PostTitleSnip = (props: Props) => {
+  const { slug, title, variant, className } = props
+  const varClass = cn({
+    [CSS.isSmall]: variant === '-small'
+  })
 
   return (
     <span className={cn(CSS.root, varClass, className)}>

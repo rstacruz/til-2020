@@ -1,6 +1,6 @@
 import * as React from 'react'
-import makeToReact from '../helpers/to_react'
-import { HastNode } from '../types'
+import makeToReact from '../../helpers/to_react'
+import { HastNode } from '../../types'
 import H2Body from './H2Body'
 import H2Section from './H2Section'
 import H3Body from './H3Body'

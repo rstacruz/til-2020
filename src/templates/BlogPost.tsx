@@ -9,6 +9,7 @@ import BlogPostContent from '../components/BlogPostContent'
 import Layout from '../components/Layout'
 import { MainHeading } from '../components/MainHeading'
 import { PostPagination } from '../components/PostPagination'
+import { collapseSlashes } from '../helpers/collapseSlashes'
 import { HastNode, PageNode } from '../types'
 
 export interface Props {
@@ -99,16 +100,6 @@ function transformHtmlAst(ast: HastNode): HastNode {
     }
   })
   return ast
-}
-
-/**
- * @example
- *     collapseSlashes('https://a/b//c/d')
- *     // => 'https://a/b/c/d'
- */
-
-function collapseSlashes(str: string) {
-  return str.replace(/([^:])\/\/+/g, '$1/')
 }
 
 export default BlogPostTemplate
