@@ -18,9 +18,9 @@ export const PostTitleSnip = (props: Props) => {
 
   return (
     <span className={cn(CSS.root, varClass, className)}>
-      <Overdrive id={`post-${slug}`}>
-        <strong className={cn(CSS.title, varClass)}>{title}</strong>
-      </Overdrive>
+      {/* <Overdrive id={`post-${slug}`}> */}
+      <strong className={cn(CSS.title, varClass)}>{title}</strong>
+      {/* </Overdrive> */}
     </span>
   )
 }
