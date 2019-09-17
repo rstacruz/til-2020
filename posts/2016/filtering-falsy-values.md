@@ -1,6 +1,6 @@
 ---
 date: '2016-08-28'
-title: Filtering falsy values
+title: Filtering out falsy values
 tags: [JavaScript]
 description: Check out JavaScript's equivalent of Array.compact.
 ---
