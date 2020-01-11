@@ -14,7 +14,7 @@
 }
 
 .tags {
-  @apply --font-size--1;
+  @apply --ms-font-size--1;
   color: var(--mute-text-color);
   margin-left: 16px;
   display: none;
@@ -26,7 +26,7 @@
 }
 
 .date {
-  @apply --font-size--1;
+  @apply --ms-font-size--1;
   color: var(--mute-text-color);
   @apply --code-font;
 

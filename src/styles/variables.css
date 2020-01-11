@@ -1,5 +1,5 @@
 /* stylelint-disable no-duplicate-selectors */
-@import 'responsive-modular-scale.css';
+@import 'responsive-modular-scale.css/modularscale.apply.css';
 
 /* Color palette */
 :root {
@@ -236,7 +236,7 @@
     }
 
     & > figcaption:global(.-title) {
-      @apply --font-size--1;
+      @apply --ms-font-size--1;
       border-top: solid 1px var(--border-color);
       padding-top: 16px;
     }

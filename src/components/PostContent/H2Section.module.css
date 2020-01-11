@@ -6,7 +6,7 @@
   position: relative;
 
   & > h2 {
-    @apply --font-size-5;
+    @apply --ms-font-size-5;
     @apply --h2-style;
     color: var(--bold-color);
     line-height: 1.2;

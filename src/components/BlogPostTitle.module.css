@@ -17,7 +17,7 @@
 
 .title {
   & {
-    @apply --font-size-7;
+    @apply --ms-font-size-7;
     @apply --h1-style;
     margin: 0;
     padding: 0;
@@ -59,7 +59,7 @@
   text-transform: uppercase;
   @apply --alt-style;
   color: var(--bold-color);
-  @apply --font-size--1;
+  @apply --ms-font-size--1;
 }
 
 /* Vertical pipe separating author and date */
