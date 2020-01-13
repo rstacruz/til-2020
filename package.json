@@ -89,7 +89,8 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-microsoft-contrib": "^6.2.0",
     "typed-css-modules": "^0.6.3",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "typescript-plugin-css-modules": "^2.1.2"
   },
   "repository": {
     "type": "git",
