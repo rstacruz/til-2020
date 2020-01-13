@@ -1,0 +1,19 @@
+.type-body-sans {
+  font-family: 'Public Sans', sans-serif;
+}
+
+.type-thin-heading {
+  @apply type-body-sans font-light;
+  letter-spacing: -0.014em;
+}
+
+.type-bold-heading {
+  @apply type-body-sans font-extrabold;
+  letter-spacing: -0.02rem;
+}
+
+.type-monospace {
+  font-size: 0.9rem;
+  font-family: cousine, monospace;
+  letter-spacing: -0.02rem;
+}

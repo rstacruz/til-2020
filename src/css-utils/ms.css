@@ -1,0 +1,28 @@
+.ms-0 {
+  font-size: 1rem;
+}
+
+.ms-1 {
+  font-size: calc(1rem * 1.2);
+}
+
+.ms-2 {
+  font-size: calc(1rem * 1.2 * 1.2);
+}
+
+.ms-3 {
+  font-size: calc(1rem * 1.2 * 1.2 * 1.2);
+}
+
+.ms-4 {
+  font-size: calc(1rem * 1.2 * 1.2 * 1.2 * 1.2);
+}
+
+.ms-5 {
+  font-size: calc(1rem * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
+}
+
+.ms-6 {
+  font-size: calc(1rem * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
+  line-height: 1.3;
+}

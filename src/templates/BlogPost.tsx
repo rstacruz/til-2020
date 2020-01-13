@@ -85,9 +85,7 @@ const SimpleBlogPostTemplate = (props: Props) => {
   return (
     <>
       <BlogPostHelmet data={data} />
-      <SimplePostContent
-        {...{ title, date, titleBody, body: sections.slice(1) }}
-      />
+      <SimplePostContent {...{ title, date, body: sections }} />
     </>
   )
 }
@@ -103,20 +101,19 @@ const LiterateBlogPostTemplate = (props: Props) => {
   // The first part of the excerpt that will be promoted to the title card
   const titleBody = (sections[0] && sections[0].children) || []
 
-  if (props.data.markdownRemark.frontmatter.layout)
-    return (
-      <Layout location={props.location}>
-        <BlogPostHelmet data={data} />
-        <MainHeading back />
-        <div>
-          <BlogNav />
-          <BlogPostContent
-            {...{ title, date, titleBody, body: sections.slice(1) }}
-          />
-        </div>
-        <PostPagination {...{ previous, next }} />
-      </Layout>
-    )
+  return (
+    <Layout location={props.location}>
+      <BlogPostHelmet data={data} />
+      <MainHeading back />
+      <div>
+        <BlogNav />
+        <BlogPostContent
+          {...{ title, date, titleBody, body: sections.slice(1) }}
+        />
+      </div>
+      <PostPagination {...{ previous, next }} />
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate

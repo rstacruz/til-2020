@@ -2,6 +2,7 @@
 title: State management with React hooks
 tags: [React]
 date: 2019-04-10
+layout: simple
 # https://twitter.com/rstacruz/status/1115989486662381568
 # https://pbs.twimg.com/media/D3zKQEHUYAAsqrn.jpg:large
 ---

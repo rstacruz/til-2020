@@ -4,7 +4,8 @@ module.exports = ctx => {
   return {
     plugins: [
       require('postcss-import')(),
-
+      // Yes, it works with apply https://github.com/tailwindcss/tailwindcss/issues/325
+      require('tailwindcss'),
       // Workaround for https://github.com/zeit/styled-jsx/issues/366
       require('postcss-discard-comments')(),
 
