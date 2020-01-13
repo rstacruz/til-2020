@@ -1,8 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import decorate from 'rehype-decorate'
-import sectionize from 'rehype-sectionize-headings'
 
 import { BlogNav } from '../components/BlogNav'
 import BlogPostContent from '../components/BlogPostContent'
@@ -11,6 +9,8 @@ import { MainHeading } from '../components/MainHeading'
 import { PostPagination } from '../components/PostPagination'
 import { collapseSlashes } from '../helpers/collapseSlashes'
 import { HastNode, PageNode } from '../types'
+import transformHtmlAst from '../helpers/transformHtmlAst'
+import SimplePostContent from '../simple/SimplePostContent'
 
 export interface Props {
   location: string
@@ -29,46 +29,84 @@ export interface Props {
   }
 }
 
-class BlogPostTemplate extends React.Component<Props> {
-  render() {
-    const { data } = this.props
-    const post = data.markdownRemark
-    const { previous, next } = this.props.pageContext
-    const { title, date, description: frontDescription } = post.frontmatter
-    const { pathPrefix } = data.site
-    const { siteUrl } = data.site.siteMetadata
-    const { slug } = post.fields
+const BlogPostHelmet = (props: Pick<Props, 'data'>) => {
+  const { data } = props
+  const post = data.markdownRemark
+  const { title, description: frontDescription } = post.frontmatter
+  const { pathPrefix } = data.site
+  const { siteUrl } = data.site.siteMetadata
+  const { slug } = post.fields
+  const description = frontDescription || post.excerpt
 
-    const htmlAst = transformHtmlAst(post.htmlAst)
-    const sections = htmlAst.children || []
-    const description = frontDescription || post.excerpt
+  // The first part of the excerpt that will be promoted to the title card
+  const siteName = 'Today I Learned'
 
-    // The first part of the excerpt that will be promoted to the title card
-    const titleBody = (sections[0] && sections[0].children) || []
-    const siteName = 'Today I Learned'
+  // Absolute URL of the current article
+  const absurl = collapseSlashes(`${siteUrl}/${pathPrefix}/${slug}`)
+  const image = `${absurl}/twitter-card.jpg`
 
-    // Absolute URL of the current article
-    const absurl = collapseSlashes(`${siteUrl}/${pathPrefix}/${slug}`)
-    const image = `${absurl}/twitter-card.jpg`
+  return (
+    <Helmet>
+      <title>{title}</title>
 
+      <meta name='twitter:card' content='summary_large_image' />
+      <meta name='twitter:image' content={image} />
+      <meta name='twitter:creator' content={'@rstacruz'} />
+
+      <meta property='og:type' content='article' />
+      <meta property='og:title' content={title} />
+      <meta property='og:image' content={image} />
+      <meta property='og:description' content={description} />
+      <meta property='og:site_name' content={siteName} />
+      <meta property='og:url' content={absurl} />
+
+      <meta name='description' content={description} />
+    </Helmet>
+  )
+}
+
+const BlogPostTemplate = (props: Props) => {
+  if (props.data.markdownRemark.frontmatter.layout === 'simple') {
+    return <SimpleBlogPostTemplate {...props} />
+  } else {
+    return <LiterateBlogPostTemplate {...props} />
+  }
+}
+
+const SimpleBlogPostTemplate = (props: Props) => {
+  const { data } = props
+  const post = data.markdownRemark
+  const { title, date } = post.frontmatter
+
+  const htmlAst = transformHtmlAst(post.htmlAst)
+  const sections = htmlAst.children || []
+  const titleBody = (sections[0] && sections[0].children) || []
+
+  return (
+    <>
+      <BlogPostHelmet data={data} />
+      <SimplePostContent
+        {...{ title, date, titleBody, body: sections.slice(1) }}
+      />
+    </>
+  )
+}
+const LiterateBlogPostTemplate = (props: Props) => {
+  const { data } = props
+  const post = data.markdownRemark
+  const { previous, next } = props.pageContext
+  const { title, date } = post.frontmatter
+
+  const htmlAst = transformHtmlAst(post.htmlAst)
+  const sections = htmlAst.children || []
+
+  // The first part of the excerpt that will be promoted to the title card
+  const titleBody = (sections[0] && sections[0].children) || []
+
+  if (props.data.markdownRemark.frontmatter.layout)
     return (
-      <Layout location={this.props.location}>
-        <Helmet>
-          <title>{title}</title>
-
-          <meta name='twitter:card' content='summary_large_image' />
-          <meta name='twitter:image' content={image} />
-          <meta name='twitter:creator' content={'@rstacruz'} />
-
-          <meta property='og:type' content='article' />
-          <meta property='og:title' content={title} />
-          <meta property='og:image' content={image} />
-          <meta property='og:description' content={description} />
-          <meta property='og:site_name' content={siteName} />
-          <meta property='og:url' content={absurl} />
-
-          <meta name='description' content={description} />
-        </Helmet>
+      <Layout location={props.location}>
+        <BlogPostHelmet data={data} />
         <MainHeading back />
         <div>
           <BlogNav />
@@ -76,30 +114,9 @@ class BlogPostTemplate extends React.Component<Props> {
             {...{ title, date, titleBody, body: sections.slice(1) }}
           />
         </div>
-
         <PostPagination {...{ previous, next }} />
       </Layout>
     )
-  }
-}
-
-function transformHtmlAst(ast: HastNode): HastNode {
-  ast = decorate(ast)
-  ast = sectionize(ast, {
-    h2: {
-      bodyClass: [],
-      bodyTag: 'h2-body',
-      sectionClass: [],
-      sectionTag: 'h2-section'
-    },
-    h3: {
-      bodyClass: [],
-      bodyTag: 'h3-body',
-      sectionClass: [],
-      sectionTag: 'h3-section'
-    }
-  })
-  return ast
 }
 
 export default BlogPostTemplate
@@ -124,6 +141,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        layout
         attachments {
           publicURL
         }

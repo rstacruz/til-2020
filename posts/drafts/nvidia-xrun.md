@@ -1,5 +1,6 @@
 ---
 title: Setting up nvidia-xrun
+layout: simple
 ---
 
 ## Installing packages

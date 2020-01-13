@@ -23,10 +23,6 @@ interface Props {
   titleBody: HastNode[]
 }
 
-interface State {
-  activeSection?: number
-}
-
 /**
  * Blog post content.
  *
