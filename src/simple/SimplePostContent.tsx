@@ -63,10 +63,9 @@ const MarkdownStyles = ({ children }: { children: React.ReactNode }) => {
         @import 'src/css-utils/type.css';
 
         .shadow-32 {
-          box-shadow: 0.07px 1px rgba(0, 0, 80, 0.07),
-            0 2px 2px rgba(0, 0, 80, 0.07), 4px 4px 4px rgba(0, 0, 80, 0.07),
-            0 8px 8px rgba(0, 0, 80, 0.07), 0 16px 16px rgba(0, 0, 80, 0.07),
-            0 32px 32px rgba(0, 0, 80, 0.07);
+          box-shadow: 0.05px 1px rgba(0, 0, 80, 0.05),
+            0 2px 2px rgba(0, 0, 80, 0.05), 4px 4px 4px rgba(0, 0, 80, 0.05),
+            0 8px 8px rgba(0, 0, 80, 0.05), 0 16px 16px rgba(0, 0, 80, 0.05);
         }
 
         .pre-background {
@@ -84,7 +83,7 @@ const MarkdownStyles = ({ children }: { children: React.ReactNode }) => {
         }
 
         .root :global(pre) {
-          @apply p-4 px-8 bg-gray-100;
+          @apply p-6 px-8 bg-gray-100;
           @apply type-monospace;
           @apply my-8 -mx-8;
           @apply overflow-x-auto thin-scrollbar;
