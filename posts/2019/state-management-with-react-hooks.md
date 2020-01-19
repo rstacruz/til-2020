@@ -1,5 +1,6 @@
 ---
 title: State management with React hooks
+description: You don't always need Redux. Here's how you may use custom hooks instead
 tags: [React]
 date: 2019-04-10
 layout: simple
@@ -11,13 +12,13 @@ layout: simple
 
 <!-- {.-wider-literate-style} -->
 
-<figure class='-no-pad'>
-<img src='https://source.unsplash.com/Rs5BQj5zbf8/600x300' alt='Unrelated photo'>
-</figure>
-
 React now comes with hooks that can be used to manage state and propagate it throughout your app. In essence - you can do Redux without using Redux!
 
 I've been trying to use [useState][usestate] and [useContext][usecontext] to manage a large block of state in a React app. In think it's a great alternative to Redux.
+
+<figure class='-no-pad'>
+<img src='https://source.unsplash.com/Rs5BQj5zbf8/600x300' alt='Unrelated photo'>
+</figure>
 
 ## Custom state manager
 

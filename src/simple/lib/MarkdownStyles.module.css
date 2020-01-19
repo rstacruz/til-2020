@@ -1,9 +1,15 @@
 @import '../../css-utils/ms.css';
 @import '../../css-utils/container.css';
 @import '../../css-utils/type.css';
+@import '../../css-utils/shadow.css';
 
 .root :global(pre, ol, ul, h1, h2, h3, h4, h5, h6, figure) {
   @apply my-6;
+}
+
+.root :global(em) {
+  @apply type-italic-serif;
+  font-size: 1.12em;
 }
 
 .root :global(hr) {
@@ -14,7 +20,7 @@
 }
 
 .root :global(h2) {
-  @apply ms-4 mb-4 type-thin-heading text-gray-700;
+  @apply ms-5 mb-4 type-thin-heading text-gray-700;
 }
 
 .root :global(h2::after) {
@@ -28,7 +34,7 @@
 }
 
 .root :global(a) {
-  @apply text-gray-500 no-underline;
+  @apply text-gray-600 no-underline;
 }
 
 .root :global(code) {
@@ -45,4 +51,29 @@
 
 .root :global(h3 + div > p) {
   @apply mt-1;
+}
+
+.root :global(blockquote) {
+  @apply type-italic-serif;
+  @apply mx-0 px-0 pl-4;
+  font-size: 1.1em;
+  border-left: solid 2px theme('colors.gray.400');
+}
+
+.root :global(table) {
+  min-width: 100%;
+  @apply my-8;
+}
+
+.root :global(tr) {
+  border-bottom: solid 1px theme('colors.gray.400');
+}
+
+.root :global(table > :last-child > tr:last-child) {
+  border-bottom: 0;
+}
+
+.root :global(td),
+.root :global(th) {
+  @apply p-2;
 }

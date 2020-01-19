@@ -1,4 +1,5 @@
 @import '../../css-utils/ms.css';
+@import '../../css-utils/type.css';
 
 .placeholder {
   @apply block;
@@ -20,9 +21,7 @@
 }
 
 .root a {
-  text-decoration: none;
-  @apply font-bold uppercase text-gray-900;
-  letter-spacing: 0.04em;
+  @apply font-bold uppercase text-gray-900 type-bold-caps no-underline;
 }
 
 .root.isFixed {
