@@ -4,7 +4,7 @@ import CSS from './PreCode.module.css'
 
 const PreCode = ({ children, ...props }) => {
   return (
-    <div className={CSS.PreCode} {...props}>
+    <div className={CSS.root} {...props}>
       <CodeHighlight className={CSS.pre}>{children}</CodeHighlight>
     </div>
   )
