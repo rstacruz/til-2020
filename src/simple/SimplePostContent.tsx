@@ -2,13 +2,14 @@ import React from 'react'
 import { HastNode } from '../types'
 import makeToReact from '../helpers/to_react'
 import 'typeface-public-sans'
+import H2Section from './lib/H2Section'
 
 const Div = ({ children, ...props }) => <div {...props}>{children}</div>
 
 const toReact = makeToReact({
   components: {
     'h2-body': Div,
-    'h2-section': Div,
+    'h2-section': H2Section,
     'h3-body': Div,
     'h3-section': Div,
     'multi-comparison': Div,
@@ -107,7 +108,7 @@ const MarkdownStyles = ({ children }: { children: React.ReactNode }) => {
         }
 
         .root :global(h2) {
-          @apply ms-4 mt-32 mb-4 type-thin-heading text-gray-700;
+          @apply ms-4 mb-4 type-thin-heading text-gray-700;
         }
 
         .root :global(h3) {
