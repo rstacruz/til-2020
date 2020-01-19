@@ -84,13 +84,9 @@ const MarkdownStyles = ({ children }: { children: React.ReactNode }) => {
         }
 
         .root :global(pre) {
-          @apply p-4 px-8 bg-gray-100;
-          @apply type-monospace;
-          @apply my-8 -mx-8;
+          @apply p-4 px-8 my-8 -mx-8 type-monospace;
           @apply overflow-x-auto thin-scrollbar;
-          @apply bg-gray-700;
-          @apply shadow-32;
-          @apply pre-background;
+          @apply shadow-32 pre-background;
           border-radius: 2px;
           position: relative;
         }
