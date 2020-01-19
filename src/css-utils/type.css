@@ -13,7 +13,8 @@
 }
 
 .type-monospace {
-  font-size: 0.9rem;
-  font-family: cousine, monospace;
-  letter-spacing: -0.02rem;
+  font-size: 0.88rem;
+  font-family: 'Roboto Mono', cousine, monospace;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
 }
