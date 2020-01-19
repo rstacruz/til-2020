@@ -24,6 +24,10 @@ const H2Section = ({ children, ...props }) => {
         .inner {
           /* hmm */
         }
+
+        .inner :global(hr:last-child) {
+          display: none;
+        }
       `}</style>
     </section>
   )

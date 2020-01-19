@@ -1,9 +1,11 @@
 import React from 'react'
+import CodeHighlight from './CodeHighlight'
 
 const PreCode = ({ children, ...props }) => {
   return (
-    <pre className='PreCode' {...props}>
-      {children}
+    <div className='PreCode' {...props}>
+      <CodeHighlight className='pre'>{children}</CodeHighlight>
+
       <style jsx>{`
         @import 'src/css-utils/ms.css';
         @import 'src/css-utils/container.css';
@@ -42,8 +44,25 @@ const PreCode = ({ children, ...props }) => {
         .PreCode :global(code) {
           color: #e3e3f5;
         }
+
+        .PreCode :global(.pre) {
+          margin: 0;
+          padding: 0;
+          bodrer: 0;
+        }
+
+        .PreCode :global(.number),
+        .PreCode :global(.string) {
+          font-weight: bold;
+          color: theme('colors.blue.500');
+        }
+
+        .PreCode :global(.operator),
+        .PreCode :global(.punctuation) {
+          opacity: 0.3;
+        }
       `}</style>
-    </pre>
+    </div>
   )
 }
 
