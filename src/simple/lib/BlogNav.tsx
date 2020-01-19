@@ -3,7 +3,6 @@ import CSS from './BlogNav.module.css'
 import { Waypoint } from 'react-waypoint'
 import { Link } from 'gatsby'
 import cn from 'classnames'
-import Overdrive from 'react-overdrive'
 
 interface Props {
   title: string
@@ -26,21 +25,15 @@ const BlogNav = (props: Props) => {
       >
         {isFixed ? (
           <>
-            <Overdrive duration={800} id='navlink' element='span'>
-              <Link to='/'>Today I Learned</Link>
-            </Overdrive>
-            <Overdrive id='nav-title' element='span'>
-              <span>
-                <span className={CSS.separator}>/</span>
-                <span className={CSS.title}>{title}</span>
-              </span>
-            </Overdrive>
+            <Link to='/'>TIL</Link>
+            <span>
+              <span className={CSS.separator}>/</span>
+              <span className={CSS.title}>{title}</span>
+            </span>
           </>
         ) : (
           <>
-            <Overdrive duration={800} id='navlink' element='span'>
-              <Link to='/'>Today I Learned</Link>
-            </Overdrive>
+            <Link to='/'>Today I Learned</Link>
           </>
         )}
       </div>

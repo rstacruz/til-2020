@@ -14970,6 +14970,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-gentium-basic@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-gentium-basic/-/typeface-gentium-basic-0.0.72.tgz#77b74a79e76fe33e612d8f64666b402eb0a107b8"
+  integrity sha512-m4YvQxrEZ/yK3yYPgu/9BOTU9gbduUXRmyAD/t0Ly3Kzm6qWkunA2DKPTgM3dfn/sOyZzs/x24mu41XBPorEaw==
+
 typeface-ibm-plex-mono@^0.0.61:
   version "0.0.61"
   resolved "https://registry.yarnpkg.com/typeface-ibm-plex-mono/-/typeface-ibm-plex-mono-0.0.61.tgz#ee7f12643e2bfee5c5c6915350005d6dfdaa66fd"

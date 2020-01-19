@@ -17,6 +17,12 @@
   @apply ms-4 mb-4 type-thin-heading text-gray-700;
 }
 
+.root :global(h2::after) {
+  content: '';
+  @apply block mt-2 mb-4;
+  border-bottom: solid 1px theme('colors.gray.300');
+}
+
 .root :global(h3) {
   @apply ms-1 mt-8 mb-0 type-bold-heading text-gray-900;
 }

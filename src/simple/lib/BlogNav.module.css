@@ -6,9 +6,9 @@
 }
 
 .root {
-  @apply -ms-1;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-  line-height: 48px;
+  @apply -ms-1 py-1;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  line-height: 40px;
   text-align: center;
   position: fixed;
   top: 0;
@@ -16,7 +16,7 @@
   right: 0;
   background: white;
   z-index: 10;
-  transition: box-shadow 300ms linear;
+  transition: box-shadow 300ms linear, padding 300ms ease-out;
 }
 
 .root a {
@@ -26,7 +26,10 @@
 }
 
 .root.isFixed {
+  @apply py-0;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 150ms linear, padding 150ms ease-out;
+  line-height: 48px;
 }
 
 .separator {

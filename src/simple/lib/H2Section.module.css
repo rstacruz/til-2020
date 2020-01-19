@@ -4,12 +4,14 @@
 
 .separator::after {
   content: '';
-  @apply block mx-auto h-32 bg-gray-400 w-px;
+  @apply block mx-auto h-32 w-px;
+  border-right: solid 1px theme('colors.gray.400');
 }
 
 .separator::before {
   content: '';
-  @apply block w-48 h-px mx-auto bg-gray-400;
+  @apply block w-48 h-px mx-auto;
+  border-bottom: solid 1px theme('colors.gray.400');
 }
 
 .inner {

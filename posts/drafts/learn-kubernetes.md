@@ -3,11 +3,17 @@ title: Learn Kubernetes in X minutes
 layout: simple
 ---
 
-Let's learn Kubernetes in just a few minutes. Here's a quick overview.
+<figure>
+
+<img src='https://source.unsplash.com/random/600x400' />
+
+</figure>
+
+## Introduction
 
 ### Getting a cluster
 
-On a Mac, Use Docker for Mac. On Linux, use Minikube.
+The easiest way to learn Kubernetes is to run your own cluster. The official [Docker for Mac](https://docker.com) and [Docker for Windows](https://docker.com) all come with Kubernetes integration out-of-the-box.
 
 ### Cluster nodes
 

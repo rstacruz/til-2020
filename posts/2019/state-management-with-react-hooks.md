@@ -23,6 +23,8 @@ I've been trying to use [useState][usestate] and [useContext][usecontext] to man
 
 Let's write our state manager as a [custom React hook][custom].
 
+---
+
 ### Defining the hook
 
 <!-- {.-wider-literate-style} -->
@@ -68,6 +70,8 @@ export default useAppState
 ```
 
 </figure>
+
+---
 
 ### Using the hook
 
