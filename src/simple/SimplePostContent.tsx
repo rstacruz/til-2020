@@ -6,6 +6,7 @@ import H2Section from './lib/H2Section'
 import H3Section from './lib/H3Section'
 import PreCode from './lib/PreCode'
 import MarkdownStyles from './lib/MarkdownStyles'
+import BlogNav from './lib/BlogNav'
 
 const Div = ({ children, ...props }) => <div {...props}>{children}</div>
 
@@ -30,28 +31,31 @@ interface Props {
 const SimplePostContent = (props: Props) => {
   const { title, date, body: sections } = props
   return (
-    <div className='SimplePostContent'>
-      <h1 className='title'>{title}</h1>
-      {date ? <h5>{date}</h5> : null}
-      <MarkdownStyles>{sections.map(body => toReact(body))}</MarkdownStyles>
+    <div>
+      <BlogNav title={title} />
+      <div className='SimplePostContent'>
+        <h1 className='title'>{title}</h1>
+        {date ? <h5>{date}</h5> : null}
+        <MarkdownStyles>{sections.map(body => toReact(body))}</MarkdownStyles>
 
-      <style jsx>{`
-        @import 'src/css-utils/ms.css';
-        @import 'src/css-utils/container.css';
-        @import 'src/css-utils/thin-scrollbar.css';
-        @import 'src/css-utils/type.css';
+        <style jsx>{`
+          @import 'src/css-utils/ms.css';
+          @import 'src/css-utils/container.css';
+          @import 'src/css-utils/thin-scrollbar.css';
+          @import 'src/css-utils/type.css';
 
-        .SimplePostContent {
-          @apply container leading-relaxed antialiased;
-          @apply type-body-sans;
-          color: #181818;
-        }
+          .SimplePostContent {
+            @apply container leading-relaxed antialiased;
+            @apply type-body-sans;
+            color: #181818;
+          }
 
-        .title {
-          @apply ms-6 mt-32 mb-4 type-thin-heading text-gray-700;
-          color: #705075;
-        }
-      `}</style>
+          .title {
+            @apply ms-6 mt-32 mb-4 type-thin-heading text-gray-700;
+            color: #705075;
+          }
+        `}</style>
+      </div>
     </div>
   )
 }

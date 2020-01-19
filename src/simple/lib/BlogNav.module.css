@@ -1,0 +1,43 @@
+@import '../../css-utils/ms.css';
+
+.placeholder {
+  @apply block;
+  height: 48px;
+}
+
+.root {
+  @apply -ms-1;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  line-height: 48px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 10;
+  transition: box-shadow 300ms linear;
+}
+
+.root a {
+  text-decoration: none;
+  @apply font-bold uppercase text-gray-900;
+  letter-spacing: 0.04em;
+}
+
+.root.isFixed {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.separator {
+  @apply mx-2;
+  color: theme('colors.gray.500');
+}
+
+.title {
+  color: theme('colors.gray.500');
+}
+
+.root > span {
+  display: inline-block;
+}

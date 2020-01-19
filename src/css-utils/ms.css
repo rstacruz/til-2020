@@ -2,6 +2,10 @@
   font-size: 1rem;
 }
 
+.-ms-1 {
+  font-size: calc(1rem / 1.2);
+}
+
 .ms-1 {
   font-size: calc(1rem * 1.2);
 }
