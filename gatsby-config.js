@@ -50,18 +50,6 @@ module.exports = {
       : []),
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-styled-jsx',
-      options: {
-        vendorPrefixes: false,
-        jsxPlugins: [
-          [
-            'styled-jsx-plugin-postcss',
-            { path: '[PATH_PREFIX]/postcss.config.js' }
-          ]
-        ]
-      }
-    },
-    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-20473929-1'

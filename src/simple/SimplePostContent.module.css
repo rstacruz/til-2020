@@ -1,0 +1,28 @@
+@import '../css-utils/ms.css';
+@import '../css-utils/container.css';
+@import '../css-utils/thin-scrollbar.css';
+@import '../css-utils/type.css';
+
+.root {
+  @apply container leading-relaxed antialiased;
+  @apply type-body-sans;
+  color: #181818;
+}
+
+.title {
+  @apply ms-7 mt-24 mb-4 text-gray-700 type-heading-serif;
+  color: #111;
+
+  @screen md {
+    padding-right: 10%;
+  }
+}
+
+.description {
+  @apply ms-2 type-italic-serif -mt-2;
+  color: #705075;
+}
+
+.date {
+  @apply type-bold-caps;
+}

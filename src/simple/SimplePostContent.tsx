@@ -8,6 +8,7 @@ import PreCode from './lib/PreCode'
 import MarkdownStyles from './lib/MarkdownStyles'
 import BlogNav from './lib/BlogNav'
 import Unorphan from './lib/Unorphan'
+import CSS from './SimplePostContent.module.css'
 
 const Div = ({ children, ...props }) => <div {...props}>{children}</div>
 
@@ -25,41 +26,31 @@ const toReact = makeToReact({
 
 interface Props {
   title: string
+  description: string | null | void
   date: string | void
   body: HastNode[]
 }
 
 const SimplePostContent = (props: Props) => {
-  const { title, date, body: sections } = props
+  const { title, date, description, body: sections } = props
   return (
     <div>
       <BlogNav title={title} />
-      <div className='SimplePostContent'>
-        <h1 className='title'>
+      <div className={CSS.root}>
+        <h1 className={CSS.title}>
           <Unorphan>{title}</Unorphan>
         </h1>
-        {date ? <h5>{date}</h5> : <h5>Unpublished</h5>}
+        {!!description && (
+          <p className={CSS.description}>
+            <Unorphan>{description}</Unorphan>
+          </p>
+        )}
+        {date ? (
+          <h5 className={CSS.date}>{date}</h5>
+        ) : (
+          <h5 className={CSS.date}>Unpublished</h5>
+        )}
         <MarkdownStyles>{sections.map(body => toReact(body))}</MarkdownStyles>
-
-        <style jsx>{`
-          @import 'src/css-utils/ms.css';
-          @import 'src/css-utils/container.css';
-          @import 'src/css-utils/thin-scrollbar.css';
-          @import 'src/css-utils/type.css';
-
-          .SimplePostContent {
-            @apply container leading-relaxed antialiased;
-            @apply type-body-sans;
-            color: #181818;
-          }
-
-          .title {
-            @apply ms-6 mt-32 mb-4 text-gray-700;
-            font-family: 'Gentium Basic', serif;
-            font-weight: 400;
-            color: #705075;
-          }
-        `}</style>
       </div>
     </div>
   )

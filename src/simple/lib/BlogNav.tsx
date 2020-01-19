@@ -23,19 +23,27 @@ const BlogNav = (props: Props) => {
           [CSS.isFixed]: isFixed
         })}
       >
-        {isFixed ? (
-          <>
-            <Link to='/'>TIL</Link>
-            <span>
-              <span className={CSS.separator}>/</span>
-              <span className={CSS.title}>{title}</span>
-            </span>
-          </>
-        ) : (
-          <>
+        <span className={CSS.left}>
+          <Link to='/'>&larr;</Link>
+        </span>
+
+        <span className={CSS.center}>
+          {isFixed ? (
+            <>
+              <Link to='/'>TIL</Link>
+              <span>
+                <span className={CSS.separator}>/</span>
+                <span className={CSS.title}>{title}</span>
+              </span>
+            </>
+          ) : (
             <Link to='/'>Today I Learned</Link>
-          </>
-        )}
+          )}
+        </span>
+
+        <span className={CSS.right}>
+          <Link to='/'>&larr;</Link>
+        </span>
       </div>
     </>
   )

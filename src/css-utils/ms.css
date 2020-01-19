@@ -12,6 +12,7 @@
 
 .ms-2 {
   font-size: calc(1rem * 1.2 * 1.2);
+  line-height: 1.55;
 }
 
 .ms-3 {
@@ -29,4 +30,9 @@
 .ms-6 {
   font-size: calc(1rem * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
   line-height: 1.3;
+}
+
+.ms-7 {
+  font-size: calc(1rem * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2 * 1.2);
+  line-height: 1.2;
 }

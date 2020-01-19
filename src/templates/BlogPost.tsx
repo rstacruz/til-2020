@@ -76,7 +76,7 @@ const BlogPostTemplate = (props: Props) => {
 const SimpleBlogPostTemplate = (props: Props) => {
   const { data } = props
   const post = data.markdownRemark
-  const { title, date } = post.frontmatter
+  const { title, date, description } = post.frontmatter
 
   const htmlAst = transformHtmlAst(post.htmlAst)
   const sections = htmlAst.children || []
@@ -85,7 +85,7 @@ const SimpleBlogPostTemplate = (props: Props) => {
   return (
     <>
       <BlogPostHelmet data={data} />
-      <SimplePostContent {...{ title, date, body: sections }} />
+      <SimplePostContent {...{ title, date, description, body: sections }} />
     </>
   )
 }

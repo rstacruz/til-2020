@@ -1,6 +1,8 @@
 ---
 title: After installing Arch Linux
+description: Just installed Arch? Awesome! Here are some things you can try.
 date: '2018-12-12'
+layout: simple
 tags: [Linux]
 ---
 
@@ -95,11 +97,11 @@ pacman -S \
 
 ## Install drivers
 
-### (Optional) Linux LTS
+### Optional: Linux LTS
 
 <!-- {.-literate-style} -->
 
-_(Optional)_ You can install an older version of the Linux kernel if you feel the latest kernel may be too bleeding-edge for you.
+You can install an older version of the Linux kernel if you feel the latest kernel may be too bleeding-edge for you.
 
 ```sh
 pacman -S linux-lts
@@ -128,6 +130,8 @@ pacman -S xf86-video-intel
 ## Desktop environment
 
 You'll need to install a desktop environment and a display manager. You can choose between `gnome` (default for Ubuntu), `cinnamon` (default for Mint), `deepin`, `xfce4`, `plasma` and many others. I recommend GNOME.
+
+---
 
 ### Install GNOME and GDM
 
@@ -198,11 +202,8 @@ sudo vi /etc/systemd/swap.conf
 Start and enable `systemd-swap.service`.
 
 ```sh
-# Start it now
-sudo systemctl start systemd-swap
-
-# Enable it on every reboot
-sudo systemctl enable systemd-swap
+# Enable it to run on every reboot, and start it now as well
+sudo systemctl enable --now systemd-swap
 ```
 
 ### Mount it on startup
@@ -229,9 +230,9 @@ The [AUR], or Arch User Repository, contains a lot of community-maintained packa
 
 [aur]: https://aur.archlinux.org/packages/
 
-### AUR helper
+---
 
-<!-- {.-literate-style} -->
+### Yay, the AUR helper
 
 You'll need an AUR helper to install packages from the AUR. I recommend [yay](https://github.com/Jguer/yay).
 
@@ -244,10 +245,6 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 ```
-
-### How to use yay
-
-<!-- {.-literate-style} -->
 
 After it's installed, you can use it just like how you would use `pacman`.
 

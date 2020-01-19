@@ -5,16 +5,16 @@
 @import '../../css-utils/shadow.css';
 
 .active-bg {
-  background: linear-gradient(175deg, #755d88, #303048 80%);
+  background: linear-gradient(9deg, #755d88, #303048 80%);
   background-size: 100% 400%;
-  background-position: 0 75%;
+  background-position: 0 85%;
   transition: background-position 150ms linear, box-shadow 150ms ease-out,
     transform 150ms ease-out;
   transform: scale(1) translate3d(0, 0, 0);
 }
 
 .inactive-bg {
-  background-position: 0 50%;
+  background-position: 0 15%;
   transition: background-position 150ms linear, box-shadow 150ms ease-out,
     transform 150ms ease-out;
   transform: scale(0.995) translate3d(0, 0, 0);
@@ -45,7 +45,24 @@
 .pre {
   margin: 0;
   padding: 0;
-  bodrer: 0;
+}
+
+.root :global(.keyword),
+.root :global(.maybe-class-name) {
+  color: theme('colors.blue.300');
+}
+
+.root :global(.maybe-class-name) {
+  font-weight: bold;
+}
+
+.root :global(.function) {
+  color: #5fa;
+}
+
+.root :global(.parameter),
+.root :global(.property-access) {
+  color: #5aa;
 }
 
 .root :global(.number),
@@ -54,11 +71,8 @@
   color: theme('colors.blue.500');
 }
 
+.root :global(.operator),
+.root :global(.punctuation),
 .root :global(.comment) {
   opacity: 0.5;
-}
-
-.root :global(.operator),
-.root :global(.punctuation) {
-  opacity: 0.3;
 }

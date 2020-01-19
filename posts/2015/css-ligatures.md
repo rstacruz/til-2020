@@ -2,14 +2,11 @@
 date: '2015-03-05'
 title: Using ligatures in CSS
 tags: [CSS]
-description: Implement fancy typographic ligatures with just CSS.
+description: Implement fancy typographic ligatures with just CSS... no images required
+layout: simple
 attachments:
   - './css-ligatures/ligatures.png'
 ---
-
-### Enabling ligatures
-
-<!-- {.-literate-style} -->
 
 Headings can benefit from nice ligatures. Use the [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) CSS property to enable these OpenType features. Here's a snippet to start you with:
 
@@ -46,10 +43,6 @@ Fonts from Typekit and Google Web Fonts may be stripped of all these extra OpenT
 
 ## Swashes
 
-### Using font-feature-settings
-
-<!-- {.-literate-style} -->
-
 First letters can look good with swashes (eg, an `R` with an extra long stem). Just be sure to turn this on on a as-needed basis since it may overlap with the rest of the text.
 
 ```css
@@ -59,10 +52,6 @@ First letters can look good with swashes (eg, an `R` with an extra long stem). J
 ```
 
 ## Disabling ligatures
-
-### Using font-feature-settings
-
-<!-- {.-literate-style} -->
 
 You can turn off ligatures using `font-feature-settings`.
 

@@ -1,13 +1,18 @@
 ---
 title: Learn TypeScript jsdoc in X minutes
+description: Strict type checking in JavaScript without having to use TypeScript's syntax
 layout: simple
 ---
 
-## Introduction
+[TypeScript] lets you annotate your JavaScript with type annotations. It can even check these for errors in build-time, so you can catch errors before they get deployed to production. You'll never have to deal with another _undefined is not a function_ error ever again!
 
-<!-- {.-hide} -->
+TypeScript by default requires you to make a few changes to your build setup. You'll need to rename your JavaScript files to `.ts` and `.tsx`, and either use `tsc` (the TypeScript Compiler) or Babel (with _preset-typescript_) to compile them.
 
-### Type checking
+What if you don't have to?
+
+[typescript]: https://www.typescriptlang.org/
+
+## How it works
 
 When you annotate your JavaScript with some jsdoc types, you can use TypeScript to run some type checks. Here's a _.js_ file with a type error.
 
@@ -39,11 +44,11 @@ $ yarn run tsc
                     ~~~~
 ```
 
-## Set up
+> **Next:** Let's set up TypeScript on an existing project.
 
-### Add TypeScript to your project
+## Adding to a project
 
-You'll need the [`typescript`](https://yarn.pm/typescript) package in your project.
+The [`typescript`](https://yarn.pm/typescript) package is best installed as part of the project you're working on.
 
 ```sh
 $ yarn add --dev typescript
@@ -60,6 +65,8 @@ $ yarn add --dev typescript
 
 In TypeScript's config, add `allowJs: true` to parse JavaScript files, and `noEmit: true` to prevent TypeScript from emitting output files.
 
+> (See: [TypeScript configuration](https://www.typescriptlang.org/docs/handbook/compiler-options.html))
+
 ```js
 {
   "compilerOptions": {
@@ -69,13 +76,11 @@ In TypeScript's config, add `allowJs: true` to parse JavaScript files, and `noEm
 }
 ```
 
-> See: [TypeScript configuration](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+> **Next:** Let's add types to functions.
 
-## Types
+## Types in functions
 
-### Parameter types
-
-Use `@param {type} name` to define types for parameters.
+Use `@param` to define types for parameters.
 
 ```js
 /**
@@ -90,7 +95,7 @@ function repeat(text, count) {
 
 ### Object parameters
 
-You can use `options.xxxx` to define an object type.
+You can use `options.xxxx` to define an object type. This is useful for parameters that take in options like in the example, or parameters like React props.
 
 ```js
 /**
@@ -100,7 +105,7 @@ You can use `options.xxxx` to define an object type.
  * @param {string} options.separator
  */
 
-function repeat(text, options) {
+function repeat(text, options = {}) {
   console.log(options.count)
   console.log(options.separator)
   // ...
@@ -111,7 +116,9 @@ function repeat(text, options) {
 repeat('hello', { count: 2, separator: '-' })
 ```
 
-### Variables
+## More types
+
+Use `@type` to annotate variables. Variable declarations aren't usually typed since they can be inferred.
 
 ```js
 /** @type number */
@@ -120,7 +127,7 @@ let timeout = 3000
 
 ### Inline function parameters
 
-For inline functions, annotate their parameters with `/** @type */`.
+`@type` can also be used to annotate parameters in inline functions.
 
 <!-- prettier-ignore -->
 ```js
@@ -132,7 +139,7 @@ list.reduce((
 }, 0)
 ```
 
-### External types
+## External types
 
 Define types in external files.
 
@@ -184,7 +191,7 @@ Define object types with `@typedef` and `@property`.
 /** @param {NumberOrString} count */
 ```
 
-## React
+## Working with React
 
 ### Function components
 

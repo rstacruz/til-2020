@@ -1,4 +1,3 @@
-import cn from 'classnames'
 import React from 'react'
 import refractor from 'refractor'
 import makeToReact from '../../helpers/to_react'
@@ -15,7 +14,11 @@ const CodeHighlight = ({ children, className, ...props }) => {
   // just pass thru to a regular `<pre>`.
   const code = getCode(children)
   if (!code) {
-    return <pre {...props}>{children}</pre>
+    return (
+      <pre {...props} className={className}>
+        {children}
+      </pre>
+    )
   }
 
   // Highlight using prism (via refractor)
@@ -23,7 +26,11 @@ const CodeHighlight = ({ children, className, ...props }) => {
     ast = refractor.highlight(code.content, code.language)
     highlighted = toReact(ast)
   } catch (error) {
-    return <pre {...props}>{children}</pre>
+    return (
+      <pre {...props} className={className}>
+        {children}
+      </pre>
+    )
   }
 
   return (

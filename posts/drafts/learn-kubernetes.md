@@ -1,6 +1,7 @@
 ---
 title: Learn Kubernetes in X minutes
 layout: simple
+description: A crash course into deploying your first app in Kubernetes
 ---
 
 <figure>
@@ -9,13 +10,9 @@ layout: simple
 
 </figure>
 
-## Introduction
-
-### Getting a cluster
+## Getting a cluster
 
 The easiest way to learn Kubernetes is to run your own cluster. The official [Docker for Mac](https://docker.com) and [Docker for Windows](https://docker.com) all come with Kubernetes integration out-of-the-box.
-
-### Cluster nodes
 
 A Kubernetes cluster has many **nodes**, or physical machines.
 
@@ -26,11 +23,7 @@ $ kubectl get nodes
   docker-desktop   Ready    master   48m   v1.14.7
 ```
 
----
-
 ## Deploying an app
-
-### Deployments
 
 Apps start by creating a **deployment**. A deployment can contain Docker images and volumes. Think of it as blueprints for virtual machines that will run your app. Here's a deployment that deploys one Docker image:
 
@@ -72,11 +65,11 @@ $ kubectl describe deployments/bootcamp
        ...
 ```
 
+> **Up next:** Deployments run in pods.
+
 <!-- $ kubectl describe deployment bootcamp # same -->
 
----
-
-### Pods
+## Pods
 
 Deployments will create **pods**. Think of a pod as a virtual machine, each with their own internal IP. Our deployment created one pod with the IP of 172.18.0.2.
 
@@ -120,8 +113,6 @@ $ kubectl exec -it bootcamp-5b48cfdcbd-crkm8 -- bash
 ```
 
 > Docs: [Get shell in a running container](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/)
-
----
 
 ## Exposing your app
 
@@ -176,8 +167,6 @@ $ minikube service bootcamp-lb
 
 > Docs: [Creating a load balancer](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/)
 
----
-
 ## Scaling your app
 
 Our deployment runs in one pod by default. You can use `kubectl get` or `kubectl describe` to verify this.
@@ -209,8 +198,6 @@ $ kubectl get pods
   bootcamp-75bccb7d87-p7fhz   1/1     Running   0          3m15s
 ```
 
----
-
 ## Updating your app
 
 Using `kubectl set image` will initiate a rolling update on a _deployment_.
@@ -227,11 +214,7 @@ $ kubectl rollout status deployments/bootcamp
   deployment "bootcamp" successfully rolled out
 ```
 
----
-
 ## Configuration files
-
-### Yaml format
 
 Kubernetes resources can be defined as YAML files. For example, instead of doing `kubectl create deployment` to create deployments, you can create them as a YAML file:
 
@@ -306,8 +289,6 @@ You can delete resources described in a config file.
 ```sh
 kubectl delete -f nginx-deployment.yml
 ```
-
----
 
 ## Resources
 

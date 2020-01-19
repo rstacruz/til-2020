@@ -1,6 +1,7 @@
 ---
 date: '2013-01-07'
 title: Easily make favicon.ico
+layout: simple
 tags: [Development]
 description: Never look for a favicon generator again.
 ---
