@@ -7,8 +7,8 @@
 }
 
 .root {
-  @apply -ms-1 py-1;
-  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  @apply -ms-1 py-1 flex;
+  box-shadow: 0 1px rgba(0, 0, 0, 0);
   line-height: 40px;
   text-align: center;
   position: fixed;
@@ -18,6 +18,24 @@
   background: white;
   z-index: 10;
   transition: box-shadow 300ms linear, padding 300ms ease-out;
+}
+
+.root::after {
+  content: '';
+  @apply block;
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  transition: opacity 300ms linear, left 300ms ease-out, right 300ms ease-out;
+}
+
+.root.isFixed::after {
+  opacity: 0;
+  left: 0;
+  right: 0;
 }
 
 .root a {
@@ -32,14 +50,26 @@
 }
 
 .separator {
-  @apply mx-2;
-  color: theme('colors.gray.500');
+  @apply mx-2 text-gray-500;
 }
 
 .title {
-  color: theme('colors.gray.500');
+  @apply text-gray-500;
 }
 
 .root > span {
-  display: inline-block;
+  @apply inline-block;
+}
+
+.center {
+  @apply px-8 flex-auto;
+}
+
+.left,
+.right {
+  @apply px-8 flex-initial w-8;
+}
+
+.right {
+  @apply text-right;
 }
