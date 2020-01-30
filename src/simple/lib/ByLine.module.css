@@ -1,0 +1,16 @@
+@import '../../css-utils/type.css';
+@import '../../css-utils/ms.css';
+
+.root {
+  @apply py-4 -ms-1;
+  @apply type-bold-caps;
+  border-bottom: solid 1px theme('colors.gray.400');
+  border-top: solid 1px theme('colors.gray.400');
+}
+
+.sep {
+  @apply inline-block align-middle mx-6;
+  height: 1.5em;
+  width: 1px;
+  border-right: solid 1px theme('colors.gray.400');
+}
