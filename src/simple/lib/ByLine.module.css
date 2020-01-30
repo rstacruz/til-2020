@@ -9,7 +9,7 @@
 }
 
 .sep {
-  @apply inline-block align-middle mx-6;
+  @apply inline-block mx-6 align-middle;
   height: 1.5em;
   width: 1px;
   border-right: solid 1px theme('colors.gray.400');

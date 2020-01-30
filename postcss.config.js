@@ -12,7 +12,7 @@ module.exports = ctx => {
       require('postcss-apply')(),
       require('postcss-preset-env')({
         stage: 0,
-        preserve: true,
+        preserve: false,
         insertBefore: {
           'all-property': require('postcss-color-mod-function')
         }
