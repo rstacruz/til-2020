@@ -37,7 +37,7 @@ const BlogNav = (props: Props) => {
               </span>
             </>
           ) : (
-            <Link to='/'>Today I Learned</Link>
+            <>{/*<Link to='/'>Today I Learned</Link>*/}</>
           )}
         </span>
 

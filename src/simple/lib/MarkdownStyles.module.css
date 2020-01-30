@@ -77,3 +77,42 @@
 .root :global(th) {
   @apply p-2;
 }
+
+.root :global(figure) {
+  @apply relative;
+
+  @screen md {
+    @apply my-8;
+  }
+}
+
+.root :global(figure > img) {
+  @apply block mx-auto;
+}
+
+.root :global(figure.cover) {
+  @apply relative;
+
+  @screen md {
+    @apply my-12 -mx-16;
+  }
+}
+
+.root :global(figure.cover::after) {
+  @apply block absolute bg-blue-100 z-auto;
+  content: '';
+  top: 4rem;
+  bottom: 4rem;
+  left: -12rem;
+  right: -12rem;
+}
+
+.root :global(figure.cover > img) {
+  @apply w-full shadow-32 bg-gray-800 relative z-10 object-cover shadow-32;
+  border-radius: 3px;
+  height: 24rem;
+
+  @screen md {
+    height: 32rem;
+  }
+}

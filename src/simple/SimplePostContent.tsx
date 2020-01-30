@@ -9,6 +9,7 @@ import MarkdownStyles from './lib/MarkdownStyles'
 import BlogNav from './lib/BlogNav'
 import Unorphan from './lib/Unorphan'
 import CSS from './SimplePostContent.module.css'
+import ByLine from './lib/ByLine'
 
 const Div = ({ children, ...props }) => <div {...props}>{children}</div>
 
@@ -45,11 +46,7 @@ const SimplePostContent = (props: Props) => {
             <Unorphan>{description}</Unorphan>
           </p>
         )}
-        {date ? (
-          <h5 className={CSS.date}>{date}</h5>
-        ) : (
-          <h5 className={CSS.date}>Unpublished</h5>
-        )}
+        <ByLine date={date} />
         <MarkdownStyles>{sections.map(body => toReact(body))}</MarkdownStyles>
       </div>
     </div>

@@ -7,16 +7,15 @@
 }
 
 .root {
-  @apply -ms-1 py-1 flex;
+  @apply -ms-1 py-1 flex z-50;
   box-shadow: 0 1px rgba(0, 0, 0, 0);
-  line-height: 40px;
+  line-height: 2.5rem;
   text-align: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: white;
-  z-index: 10;
   transition: box-shadow 300ms linear, padding 300ms ease-out;
 }
 

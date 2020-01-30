@@ -6,17 +6,17 @@ layout: simple
 tags: [Linux]
 ---
 
-These are things I suggest to do after an Arch Linux installation. These are items not covered in the official [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration), but I strongly suggest you do!
+<figure class='cover'>
+<img src='https://source.unsplash.com/3Xd5j9-drDA/600x400' />
+</figure>
 
-<next-block title="Let's get started."></next-block>
+**Here are some useful things I suggest to do after an Arch Linux installation.** These are items not covered in the official [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration), but I strongly suggest you consider them!
 
 ## Go online
 
 For these next steps, we're going to assume that you're logged in as your main user, who has `sudo` permissions enabled.
 
 ### Network connectivity 🌎
-
-<!-- {.-literate-style} -->
 
 Install some networking tools, so we may be able to go online later. [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager) is used by most desktop environments to manage network connections, and can be used in the console as well via `nmtui`.
 
@@ -26,8 +26,6 @@ sudo systemctl enable NetworkManager
 ```
 
 ### Try to go online
-
-<!-- {.-literate-style} -->
 
 Use `nmtui` to go online right now using your wifi.
 
@@ -41,8 +39,6 @@ nmtui
 
 ### Did it work?
 
-<!-- {.-literate-style} -->
-
 This should be enough to get most laptops online. For some others, you may need to install wireless drivers. For instance, MacBooks require [Broadcom wireless](https://wiki.archlinux.org/index.php/Broadcom_wireless) drivers.
 
 <next-block title="Let's install some apps."></next-block>
@@ -50,8 +46,6 @@ This should be enough to get most laptops online. For some others, you may need 
 ## Install packages
 
 ### Developer tools
-
-<!-- {.-literate-style} -->
 
 Install some dev tools. [base-devel] installs a lot of tools you'll need to compile things, and [git] is required to build a lot of things from the AUR.
 
@@ -67,8 +61,6 @@ sudo pacman -S \
 
 ### Web browser 🌎
 
-<!-- {.-literate-style} -->
-
 Install a browser. Choose from any of these options (or all!). Chromium is the open-source version of Google Chrome.
 
 ```sh
@@ -78,8 +70,6 @@ pacman -S \
 ```
 
 ### Fonts 💅
-
-<!-- {.-literate-style} -->
 
 Install some basic fonts. [ttf-croscore] are Chrome OS fonts. You can install more fonts later from the AUR, but we'll get to that later.
 
@@ -99,8 +89,6 @@ pacman -S \
 
 ### Optional: Linux LTS
 
-<!-- {.-literate-style} -->
-
 You can install an older version of the Linux kernel if you feel the latest kernel may be too bleeding-edge for you.
 
 ```sh
@@ -108,8 +96,6 @@ pacman -S linux-lts
 ```
 
 ### Video driver
-
-<!-- {.-literate-style} -->
 
 Depending on your setup, you may also need to install an xf86 driver. See [this search](https://www.archlinux.org/packages/?sort=&q=xf86-video&maintainer=&flagged=) for available drivers.
 
@@ -129,13 +115,9 @@ pacman -S xf86-video-intel
 
 ## Desktop environment
 
-You'll need to install a desktop environment and a display manager. You can choose between `gnome` (default for Ubuntu), `cinnamon` (default for Mint), `deepin`, `xfce4`, `plasma` and many others. I recommend GNOME.
-
----
+We'll need to install a desktop environment and a display manager. You can choose between `gnome` (default for Ubuntu), `cinnamon` (default for Mint), `deepin`, `xfce4`, `plasma` and many others. I recommend GNOME.
 
 ### Install GNOME and GDM
-
-<!-- {.-literate-style} -->
 
 Install a desktop environment and a display manager. **GNOME** is a good first choice; it's the default of the Ubuntu desktop, and is a great desktop environment overall. **GDM** is the GNOME Display Manager.
 
@@ -148,8 +130,6 @@ pacman -S \
 
 ### Try it out
 
-<!-- {.-literate-style} -->
-
 Start the GDM service right now. This should get you to a graphical login screen! You can log in with your user here and get to a desktop environment.
 
 ```sh
@@ -158,8 +138,6 @@ sudo systemctl start gdm
 ```
 
 ### Enable it on startup
-
-<!-- {.-literate-style} -->
 
 If you were able to log into a desktop environment in the previous step, congratulations! Open a terminal and enable the `gdm` service to start it up on every boot up.
 
@@ -174,8 +152,6 @@ sudo systemctl enable gdm
 
 ### Set up your swap
 
-<!-- {.-literate-style} -->
-
 If you skipped creating a swap partition like I recommended, you can use [systemd-swap](https://wiki.archlinux.org/index.php/Swap#systemd-swap) to manage your swap.
 
 ```sh
@@ -183,8 +159,6 @@ sudo pacman -S systemd-swap
 ```
 
 ### Edit the config
-
-<!-- {.-literate-style} -->
 
 Edit the config. I recommend setting `zram_enabled`
 to `1` (compressed RAM) and `swapfc_enabled` to `1`
@@ -197,8 +171,6 @@ sudo vi /etc/systemd/swap.conf
 
 ### Enable it
 
-<!-- {.-literate-style} -->
-
 Start and enable `systemd-swap.service`.
 
 ```sh
@@ -207,8 +179,6 @@ sudo systemctl enable --now systemd-swap
 ```
 
 ### Mount it on startup
-
-<!-- {.-literate-style} -->
 
 Add your swapfile to `/etc/fstab` so it'll be used on every boot.
 
@@ -229,8 +199,6 @@ sudo vim /etc/fstab
 The [AUR], or Arch User Repository, contains a lot of community-maintained packages that you won't find in the official repositories. This ranges from proprietary non-free packages (like NVidia drivers). For most Arch users, the AUR is their reason to use Arch Linux, so I highly recommend installing an AUR helper.
 
 [aur]: https://aur.archlinux.org/packages/
-
----
 
 ### Yay, the AUR helper
 

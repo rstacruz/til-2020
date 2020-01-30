@@ -4,10 +4,8 @@ layout: simple
 description: A crash course into deploying your first app in Kubernetes
 ---
 
-<figure>
-
-<img src='https://source.unsplash.com/random/600x400' />
-
+<figure class='cover'>
+<img src='https://source.unsplash.com/eUMEWE-7Ewg/600x400' />
 </figure>
 
 ## Getting a cluster
