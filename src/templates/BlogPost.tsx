@@ -11,6 +11,7 @@ import { collapseSlashes } from '../helpers/collapseSlashes'
 import { HastNode, PageNode } from '../types'
 import transformHtmlAst from '../helpers/transformHtmlAst'
 import SimplePostContent from '../simple/SimplePostContent'
+import SimplePostNavigation from '../simple/SimplePostNavigation'
 
 export interface Props {
   location: string
@@ -84,11 +85,13 @@ const SimpleBlogPostTemplate = (props: Props) => {
   const htmlAst = transformHtmlAst(post.htmlAst)
   const sections = htmlAst.children || []
   const titleBody = (sections[0] && sections[0].children) || []
+  const { previous, next } = props.pageContext
 
   return (
     <>
       <BlogPostHelmet data={data} layout='simple' />
       <SimplePostContent {...{ title, date, description, body: sections }} />
+      <SimplePostNavigation {...{ previous, next }} />
     </>
   )
 }
