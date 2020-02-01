@@ -103,7 +103,7 @@
   @apply absolute z-auto block;
   content: '';
   top: 4rem;
-  bottom: 4rem;
+  bottom: -2rem;
   left: -12rem;
   right: -12rem;
   background: linear-gradient(
@@ -124,4 +124,8 @@
   @screen md {
     height: 32rem;
   }
+}
+
+.root :global(p) {
+  @apply relative z-0;
 }

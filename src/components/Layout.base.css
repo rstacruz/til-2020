@@ -5,3 +5,7 @@ body {
   overflow-x: hidden;
   @apply --body-font;
 }
+
+body.layout-simple {
+  font-size: 17px;
+}
