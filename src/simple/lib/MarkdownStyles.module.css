@@ -2,6 +2,7 @@
 @import '../../css-utils/container.css';
 @import '../../css-utils/type.css';
 @import '../../css-utils/shadow.css';
+@import '../../css-utils/dotted-background.css';
 
 .root :global(pre, ol, ul, h1, h2, h3, h4, h5, h6, figure) {
   @apply my-6;
@@ -94,26 +95,19 @@
   @apply relative;
 
   @screen md {
-    @apply my-12 -mx-16;
+    @apply my-12 mb-16 -mx-16;
   }
 }
 
 /* Screen thing */
 .root :global(figure.cover::after) {
   @apply absolute z-auto block;
+  @apply dotted-background-12;
   content: '';
   top: 4rem;
   bottom: -2rem;
   left: -12rem;
   right: -12rem;
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      transparent 2px,
-      white 2px
-    ),
-    linear-gradient(to right, transparent, transparent 2px, white 2px), #ccd;
-  background-size: 12px 12px;
 }
 
 .root :global(figure.cover > img) {

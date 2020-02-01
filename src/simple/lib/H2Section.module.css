@@ -1,3 +1,5 @@
+@import '../../css-utils/dotted-background.css';
+
 .root {
   /* hmm */
 }
@@ -8,10 +10,9 @@
 
 /* Horizontal */
 .separator::before {
-  @apply block w-4 h-px mx-auto;
+  @apply block w-32 h-6 mx-auto;
+  @apply dotted-background-12;
   content: '';
-  border-bottom: solid 1px theme('colors.gray.400');
-  /* transform: rotate(-45deg); */
 }
 
 .inner > :global(hr:last-child) {
