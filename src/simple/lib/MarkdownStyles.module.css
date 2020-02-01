@@ -48,7 +48,15 @@
 }
 
 .root :global(figure > figcaption:first-child) {
-  @apply px-4 py-2 m-0 -mb-8 text-sm text-gray-700 bg-gray-100;
+  @apply px-4 py-2 m-0 -mb-8 text-sm font-bold bg-gray-100 text-n-mute;
+  border: solid 2px theme('colors.purple.500');
+  border-bottom: 0;
+  border-image: linear-gradient(
+      110deg,
+      theme('colors.gray.300'),
+      theme('colors.purple.300')
+    )
+    1;
 }
 
 .root :global(h3 + div > p) {
@@ -58,7 +66,6 @@
 .root :global(blockquote) {
   @apply type-italic-serif;
   @apply px-0 pl-4 mx-0;
-  font-size: 1.1em;
   border-left: solid 2px theme('colors.n.line');
 }
 
@@ -112,7 +119,7 @@
 }
 
 .root :global(figure.cover > img) {
-  @apply w-full shadow-32 bg-gray-800 relative z-10 object-cover shadow-32;
+  @apply relative z-10 object-cover w-full bg-gray-800 shadow-32;
   border-radius: 3px;
   height: 24rem;
 

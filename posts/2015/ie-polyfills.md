@@ -2,6 +2,7 @@
 date: '2015-04-17'
 title: Legacy IE polyfills
 tags: [CSS]
+layout: simple
 description: Speed along your legacy IE development with this all-purpose 8-line snippet.
 ---
 

@@ -20,6 +20,6 @@
 }
 
 .description {
-  @apply ms-2 type-italic-serif -mt-2;
+  @apply type-italic-serif ms-2 -mt-2;
   color: theme('colors.a.500');
 }

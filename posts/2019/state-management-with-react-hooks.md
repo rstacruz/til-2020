@@ -21,7 +21,7 @@ layout: simple
 Let's write our state manager as a [custom React hook][custom]. This hook is a thin wrapper around React's `useState` hook. Instead of giving a `setState()` function, it gives a bunch of setState macros (ie, `actions`).
 
 <figure>
-<figcaption class='-title -alt'>useAppState.js</figcaption>
+<figcaption>useAppState.js</figcaption>
 
 ```js
 import { useState } from 'react'
