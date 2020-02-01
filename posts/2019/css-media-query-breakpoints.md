@@ -2,13 +2,10 @@
 title: 'What media query breakpoints should I use?'
 tags: [CSS]
 date: 2019-04-25
+layout: simple
 ---
 
-###
-
-<!-- {.-literate-style} -->
-
-<figure class='-no-pad'>
+<figure class='cover'>
 <img src='https://source.unsplash.com/SO5jpAT2bN8/600x700' alt='Photo unrelated'>
 </figure>
 
@@ -16,23 +13,23 @@ Before we can figure out what media query breakpoints to use, we need to look at
 
 I've dug into some common device resolutions, and most can be grouped into categories. I've listed these categories, along with the resolutions they cater to:
 
-- **Mobile portait** (320px to 414px) <br> For devices with 4" to 6.9" screens.
+- **Mobile portait** (320px to 414px) &mdash; For devices with 4" to 6.9" screens.
 
-- **Mobile landscape** (568px to 812px) <br> Same, but landscape.
+- **Mobile landscape** (568px to 812px) &mdash; Same, but landscape.
 
-- **Tablet portait** (768px to 834px) <br> For devices 7" to 10"
+- **Tablet portait** (768px to 834px) &mdash; For devices 7" to 10"
 
-- **Tablet landscape** (1024px to 1112px) <br> Ditto, but also 12" tablets on portrait
+- **Tablet landscape** (1024px to 1112px) &mdash; Ditto, but also 12" tablets on portrait
 
-- **Laptop & desktop displays** (1200px+) <br> Varies a lot, but is usually 1200px and above
+- **Laptop & desktop displays** (1200px+) &mdash; Varies a lot, but is usually 1200px and above
 
-<next-block title="So how do we make sense of these devices?"></next-block>
+> **Next:** So how do we make sense of these devices?
 
 ## Devices
 
 I mostly looked at iOS devices. While Android devices are important too, they have a lot of variance&mdash;device DPI's are adjustable in most phones. Most Android phones ship with defaults that are comparable to iOS's anyway, so let's look at those:
 
-<figure>
+<figure class='table'>
 
 | Category              | Width    | Device                           |
 | --------------------- | -------- | -------------------------------- |
@@ -56,13 +53,13 @@ I mostly looked at iOS devices. While Android devices are important too, they ha
 
 </figure>
 
-<next-block title="What breakpoints are most common?"></next-block>
+> **Next:** What breakpoints are most common?
 
 ## The most common breakpoints
 
 I took a look at some of the most popular CSS frameworks on 2019 (and some from the past) to see what breakpoints they use. Most of them use the same points, with a small bit of variance.
 
-<figure>
+<figure class='table'>
 
 | Framework       | Small        | Medium                       | Large                          | Exra large                    |
 | --------------- | ------------ | ---------------------------- | ------------------------------ | ----------------------------- |
@@ -94,7 +91,7 @@ Zurb's `640px` breakpoint is an interesting choice. It covers both tablet-portai
 
 This is mostly subjective and may depend on what screens you would design for. I use this set of breakpoints as a starting point, and I can recommend them for most projects.
 
-<figure>
+<figure class='table'>
 
 | Breakpoint          | Purpose                       |
 | ------------------- | ----------------------------- |
@@ -147,9 +144,7 @@ Instead, I propose calling it with more generic names. Most designers are intima
 }
 ```
 
-##
-
-### Thank you!
+## Thank you!
 
 I hope you'll find all these helpful. References:
 

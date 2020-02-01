@@ -1,3 +1,5 @@
+@import '../../css-utils/shadow.css';
+
 .root {
-  @apply block;
+  @apply block my-16 -mx-6 shadow-md p-6 py-2;
 }

@@ -2,6 +2,7 @@
 date: '2016-08-28'
 title: Filtering out falsy values
 tags: [JavaScript]
+layout: simple
 description: Check out JavaScript's equivalent of Array.compact.
 ---
 
@@ -11,7 +12,5 @@ Quickly discard falsy values from an Array using `filter(Boolean)`. This is like
 > ['this', 'has', undefined, false, 0, null, NaN, 'values'].filter(Boolean)
 [ 'this', 'has', 'values' ]
 ```
-
-<!-- {.-wide} -->
 
 This works because `Boolean(val)` is roughly equivalent to `val => !!val`. That is, it's a function that coerces a value into a Boolean.

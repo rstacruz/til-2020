@@ -3,7 +3,14 @@ date: '2016-08-25'
 title: Tools for immutable work
 tags: [JavaScript]
 description: Make writing immutable JavaScript easier with these tools.
+layout: simple
 ---
+
+<blockquote class='notice'>
+
+**Update (Jan 2020):** Many of the things in this article have ES2020 equivalents, such as using [Object.entries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries) for iterating through objects. Also, [immer](https://www.npmjs.com/package/immer) has been great in replacing most of the tools listed here.
+
+</blockquote>
 
 Most people reach for [lodash] for general-purpose JavaScript work. With the recent tides shifting towards functional programming, [Ramda] has become a popular option as well. I don't prefer to use them, let me show you why.
 

@@ -9,7 +9,7 @@ attachments:
   - ./iojs-on-homebrew/iojs-linking.png
 ---
 
-<blockquote>
+<blockquote class='notice'>
 
 **Update (Jan 2019):** io.js has already been merged into Node.js since v4, and is now considered deprecated. Consider using nodejs instead.
 

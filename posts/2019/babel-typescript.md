@@ -124,6 +124,6 @@ You can use `@babel/cli` to compile files. In this example, we'll set up some NP
 
 ## References
 
-Here are some links for further reading:
+This article was written for TypeScript 3.x and Babel 7.x. Here are some links for further reading:
 
 - [TypeScript and Babel 7](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/) _(msdn.microsoft.com)_

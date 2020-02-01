@@ -6,7 +6,11 @@ description: Ever wanted to use some frontend packages but they're not npm-compa
 layout: simple
 ---
 
-> **Update (Jan 2019):** Bower hasn't been maintained for years, and using Bower packages should now be considered a discouraged practice.
+<blockquote class='notice'>
+
+**Update (Jan 2019):** Bower hasn't been maintained for years, and using Bower packages should now be considered a discouraged practice.
+
+</blockquote>
 
 [Napa] is a package that lets you install arbitrary projects (without package.json) into `node_modules`.
 

@@ -6,7 +6,11 @@ description: Keep large libraries sane using Browserify. With ES6 and CoffeeScri
 layout: simple
 ---
 
-> **Update (Jan 2019):** This article was written with an outdated version of Babel (Babel 5). Also, please consider replacing Browserify with something more recent like Rollup.
+<blockquote class='notice'>
+
+**Update (Jan 2019):** This article was written with an outdated version of Babel (Babel 5). Also, please consider replacing Browserify with something more recent like Rollup.
+
+</blockquote>
 
 Remove the hassle in writing npm libraries in a transpiled language ([babeljs], [CoffeeScript], etc) by using browserify.
 

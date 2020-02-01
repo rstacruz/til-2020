@@ -12,11 +12,11 @@ tags: [Linux]
 
 **Here are some useful things I suggest to do after an Arch Linux installation.** These are items not covered in the official [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration), but I strongly suggest you consider them!
 
-## Go online
-
 For these next steps, we're going to assume that you're logged in as your main user, who has `sudo` permissions enabled.
 
-### Network connectivity 🌎
+## Go online
+
+### Network Manager
 
 Install some networking tools, so we may be able to go online later. [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager) is used by most desktop environments to manage network connections, and can be used in the console as well via `nmtui`.
 
@@ -37,11 +37,9 @@ sudo systemctl start NetworkManager
 nmtui
 ```
 
-### Did it work?
-
 This should be enough to get most laptops online. For some others, you may need to install wireless drivers. For instance, MacBooks require [Broadcom wireless](https://wiki.archlinux.org/index.php/Broadcom_wireless) drivers.
 
-<next-block title="Let's install some apps."></next-block>
+> **Next:** Let's install some apps.
 
 ## Install packages
 
@@ -59,7 +57,7 @@ sudo pacman -S \
 [base-devel]: https://www.archlinux.org/groups/x86_64/base-devel/
 [git]: https://www.archlinux.org/packages/extra/x86_64/git/
 
-### Web browser 🌎
+### Web browser
 
 Install a browser. Choose from any of these options (or all!). Chromium is the open-source version of Google Chrome.
 
@@ -69,7 +67,7 @@ pacman -S \
   firefox
 ```
 
-### Fonts 💅
+### Fonts
 
 Install some basic fonts. [ttf-croscore] are Chrome OS fonts. You can install more fonts later from the AUR, but we'll get to that later.
 
@@ -83,17 +81,9 @@ pacman -S \
   ttf-roboto
 ```
 
-<next-block title="Let's install some drivers."></next-block>
+> **Next:** Let's install some drivers.
 
 ## Install drivers
-
-### Optional: Linux LTS
-
-You can install an older version of the Linux kernel if you feel the latest kernel may be too bleeding-edge for you.
-
-```sh
-pacman -S linux-lts
-```
 
 ### Video driver
 
@@ -111,7 +101,15 @@ pacman -S xf86-video-intel
 #   for your setup!
 ```
 
-<next-block title="Let's install a desktop environment."></next-block>
+### Optional: Linux LTS
+
+You can install an older version of the Linux kernel if you feel the latest kernel may be too bleeding-edge for you.
+
+```sh
+pacman -S linux-lts
+```
+
+> **Next:** Let's install a desktop environment.
 
 ## Desktop environment
 
@@ -192,7 +190,7 @@ sudo vim /etc/fstab
 /swapfile none swap defaults 0 0
 ```
 
-<next-block title="What is the Arch User Repository?"></next-block>
+> **Next:** What is the Arch User Repository?
 
 ## AUR (Arch User Repository)
 
@@ -222,11 +220,13 @@ yay -S packagename   # install a package
 yay                  # check system for updates
 ```
 
-<next-block title="What can I install from the AUR?"></next-block>
+> **Next:** What can I install from the AUR?
 
 ## Some AUR packages
 
 Some AUR packages I can recommend to almost any Arch Linux user:
+
+<figure class='table'>
 
 | Package                                                                                    | Description                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------ |
@@ -236,4 +236,4 @@ Some AUR packages I can recommend to almost any Arch Linux user:
 | [ttf-mac-fonts](https://aur.archlinux.org/packages/ttf-mac-fonts/)                         | Fonts from macOS (lucida grande, etc)      |
 | [otf-san-francisco](https://aur.archlinux.org/packages/otf-san-francisco)                  | Fonts from iOS                             |
 
-<!-- {.-wide} -->
+</figure>

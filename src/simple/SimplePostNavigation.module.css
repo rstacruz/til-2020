@@ -3,7 +3,7 @@
 }
 
 .link {
-  @apply flex-initial block w-1/2 p-8 no-underline text-n-mute;
+  @apply flex-initial block w-1/2 p-8 no-underline text-n-mute truncate;
 }
 
 .link:visited {
