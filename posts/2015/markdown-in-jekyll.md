@@ -2,16 +2,9 @@
 date: '2015-05-25'
 title: Markdown in Jekyll
 description: Insert Markdown into any Jekyll document with this simple tag.
+layout: simple
 tags: [Development, Jekyll]
 ---
-
-Here's how you can do inline Markdown blocks in Jekyll.
-
-##
-
-### Using capture
-
-<!-- {.-literate-style} -->
 
 To add Markdown to any HTML file in Jekyll, capture it into a variable and print that variable using _markdownify_. That is:
 
@@ -25,8 +18,6 @@ so and so
 
 ### Using Kramdown
 
-<!-- {.-literate-style} -->
-
 You can also use [kramdown] as your Markdown processor: it supports GitHub-like code fencing and many useful Markdown extensions.
 
 ```yaml
@@ -35,8 +26,6 @@ markdown: kramdown
 kramdown:
   input: GFM
 ```
-
-##
 
 ### Markdown in Kramdown
 

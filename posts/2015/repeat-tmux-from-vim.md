@@ -3,17 +3,16 @@ date: '2015-05-24'
 title: Running tests using Vim and Tmux
 tags: [Vim]
 description: The most intuitive way for me to run tests is to use tmux split panes.
+layout: simple
 attachments:
   - ./repeat-tmux-from-vim/tmux-repeat.gif
 ---
 
-<figure>
-<img src='./repeat-tmux-from-vim/tmux-repeat.gif'>
+<figure class='cover'>
+<img src='./repeat-tmux-from-vim/tmux-repeat.gif' alt='Screencast demo of tmux and vim'>
 </figure>
 
 ### Using split panes
-
-<!-- {.-literate-style} -->
 
 The most intuitive way for me to run tests is to use a tmux split pane. I simply split my screen between my editor and a shell that runs tests (`npm test` in this example). I've then set up a vim hotkey (`,r` for me) to quickly send "up enter" to the last tmux pane used.
 
@@ -28,8 +27,6 @@ endfunction
 ```
 
 ### Save-and-repeat
-
-<!-- {.-literate-style} -->
 
 Even better, I've set up `Ctrl-S` as a "save-and-repeat" key to make it all happen in one keystroke:
 

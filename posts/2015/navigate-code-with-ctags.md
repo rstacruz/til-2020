@@ -2,17 +2,14 @@
 date: '2015-04-22'
 title: Navigate code like a pro with Ctags
 description: Move through code fast. Set up Ctags. Here's how.
+layout: simple
 tags: [Vim]
 attachments:
   - ./images/unite-ctags.png
 outdated: Ctags is not always the best solution to this today. There are Language Server implementations for some modern languages that wpuld offer these features and more. Also, as of 2019, there are other ctags alternatives to consider today, such as Universal Ctags.
 ---
 
-###
-
-<!-- {.-wider-literate-style} -->
-
-<figure>
+<figure class='cover'>
 <img src='./images/unite-ctags.png'>
 </figure>
 
