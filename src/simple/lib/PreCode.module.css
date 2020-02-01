@@ -35,7 +35,7 @@
 }
 
 .root + .root {
-  @apply -mt-8;
+  @apply -mt-6;
 }
 
 .pre.pre > code {
@@ -74,5 +74,5 @@
 .root :global(.operator),
 .root :global(.punctuation),
 .root :global(.comment) {
-  opacity: 0.5;
+  color: theme('colors.gray.500');
 }

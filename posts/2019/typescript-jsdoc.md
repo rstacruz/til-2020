@@ -1,19 +1,16 @@
 ---
 title: Type annotations in JavaScript files
 tags: [TypeScript, JavaScript, Featured]
+layout: simple
+description: Can we get the benefits of full type checking without using TypeScript's syntax? Yes we can!
 date: 2019-04-07
 ---
 
-###
-
-<!-- {.-literate-style} -->
+<figure class='cover'>
+<img src='https://source.unsplash.com/0X7ZNRcBT-k/600x400' alt='Display'>
+</figure>
 
 [TypeScript] lets you annotate your JavaScript with type annotations. It can even check these for errors in build-time, so you can catch errors before they get deployed to production. You'll never have to deal with another _undefined is not a function_ error ever again!
-
-<figure class='-no-pad'>
-<img src='https://source.unsplash.com/0X7ZNRcBT-k/600x300' alt='Display'>
-<figcaption>Numbers are pretty cool.</figcaption>
-</figure>
 
 TypeScript, by default, requires you to make a few changes to your build setup. You'll need to rename your JavaScript files to `.ts` and `.tsx`, and either use `tsc` (the TypeScript Compiler) or Babel (with _preset-typescript_) to compile them.
 
@@ -21,29 +18,30 @@ TypeScript, by default, requires you to make a few changes to your build setup. 
 
 ### TypeScript syntax
 
-Many people don't like how working with TypeScript means having to use a new syntax, even if it's a strict superset of JavaScript.
-If this describes you, then this article is for you.
+Many people don't like how working with TypeScript means having to use a new syntax, even if it's a strict superset of JavaScript. If this describes you, then this article is for you.
 
 <figure>
 
 ```js
+/*
+ * TypeScript syntax allows you to put inline type annotations... but it's not
+ * really JavaScript anymore.
+ */
+
 function repeat(text: string, count: number) {
   return Array(count + 1).join(text)
 }
 ```
 
-<figcaption>TypeScript syntax allows you to put inline type annotations.</figcaption>
 </figure>
 
-<next-block title="Let's learn about an alternative to the TypeScript syntax."></next-block>
+> **Next:** Let's learn about an alternative to the TypeScript syntax.
 
 ## Documenting JavaScript
 
 ### The JSDoc syntax
 
 [jsdoc]: http://usejsdoc.org/
-
-<!-- {.-literate-style} -->
 
 You can document TypeScript with [JSDoc] syntax&mdash;the standard syntax for documenting JavaScript. While JSDoc is primarily used as a means of writing documentation, TypeScript can read JSDoc's type annotations.
 
@@ -64,8 +62,6 @@ This means you can take advantage of TypeScript's type checking in JavaScript, w
 
 ### Why JSDoc?
 
-<!-- {.-literate-style} -->
-
 It's a great idea to use JSDoc whether you use TypeScript or not. It's the de facto standard for documenting JavaScript, and is supported by a lot of tools and editors.
 
 <figure class='-bordered'>
@@ -83,8 +79,6 @@ If you're using JSDoc to document your JavaScript, you might as well let TypeScr
 
 ### Install TypeScript
 
-<!-- {.-literate-style} -->
-
 You'll need TypeScript to do this. Install the [typescript][typescript-npm] npm package in your project to get started.
 
 [typescript-npm]: https://yarn.pm/typescript
@@ -97,13 +91,10 @@ yarn add typescript
 
 ### Enable JSDoc type checking
 
-<!-- {.-literate-style} -->
-
 Configure TypeScript to check your JavaScript files. (By default, TypeScript only checks `.ts` files.) TypeScript is configured using the `tsconfig.json` file. We'll also be using the `noEmit` option, since we're only going to be using TypeScript as a type checker.
 
-```js
-tsconfig.json
-```
+<figure class='code'>
+<figcaption>tsconfig.json</figcaption>
 
 ```js
 {
@@ -114,19 +105,9 @@ tsconfig.json
 }
 ```
 
-### Setting it up
-
-<!-- {.-literate-style} -->
-
-In the `.js` files that you want checked, add a `@ts-check` comment at the top of the file. This tells TypeScript to perform type checking on it.
-
-```js
-// @ts-check
-```
+</figure>
 
 ### Try it
-
-<!-- {.-literate-style} -->
 
 Run `tsc` to check your project's types. It's recommended to add this to your CI, too, so you can automatically enforce it in your project's changes.
 
@@ -136,13 +117,11 @@ Run `tsc` to check your project's types. It's recommended to add this to your CI
 yarn run tsc
 ```
 
-<next-block title="Let's document your code using JSDoc."></next-block>
+> **Next:** Let's document our code with JSDoc.
 
 ## Basic annotations
 
 ### Annotating function parameters
-
-<!-- {.-literate-style} -->
 
 Use `@param` to document types of a function's parameters. You'll need to put these in JSDoc comments, which are block comments that begin with two stars.
 
@@ -158,8 +137,6 @@ function repeat(text, count) {
 ```
 
 ### Documenting code
-
-<!-- {.-literate-style} -->
 
 JSDoc is, first and foremost, a documentation tool. Aside from adding type annotations, you might as well use it to document what your functions do.
 
@@ -184,8 +161,6 @@ Here's the same example, but with some text to describe what it does.
 
 ### Optional types
 
-<!-- {.-literate-style} -->
-
 Add an equal sign at the end of a type to signify that it's optional. In this example, `number=` is the same as `number | null | undefined`. This special syntax ("closure syntax") is only available in JSDoc types.
 
 ```js
@@ -200,8 +175,6 @@ function repeat(text, count = 1) {
 ```
 
 ### Documenting options
-
-<!-- {.-literate-style} -->
 
 You can document properties of params, like `options.count` and `options.separator` in this example. You can use this to document React props in function components, too!
 
@@ -230,8 +203,6 @@ repeat('hello', { count: 2, separator: '-' })
 
 ### Variables
 
-<!-- {.-literate-style} -->
-
 Use `@type` to provide inline type definitions to function arguments. This isn't typically needed for constants, as TypeScript can usually infer types pretty well. It's a great fit for non-constant variables, though (ie, `let`).
 
 ```js
@@ -245,8 +216,6 @@ let timeout = 3000
 
 ### Function parameters
 
-<!-- {.-literate-style} -->
-
 `@type` can also be used to provide inline type definitions to function arguments. Great for anonymous functions.
 
 <!-- prettier-ignore -->
@@ -259,13 +228,11 @@ list.reduce((
 }, 0)
 ```
 
-<next-block title="Let's refactor our type definitions to be in external files."></next-block>
+> **Next:** Let's refactor our type definitions to be in external files.
 
 ## Importing definitions
 
 ### Importing types
-
-<!-- {.-literate-style} -->
 
 Complex, reusable types are better defined in an external TypeScript file. You can then import these TypeScript definitions into your JavaScript files.
 
@@ -287,8 +254,6 @@ Import types using the special `import` syntax. You can then define your types i
 
 ### Defining types externally
 
-<!-- {.-literate-style} -->
-
 Define your types in an ambient definition file (`.d.ts`). Note that these files need to be TypeScript files; there's no way to export type definitions from a `.js` file.
 
 ```js
@@ -306,8 +271,6 @@ Using _import()_, the JSDoc syntax effectively is as feature-rich as the TypeScr
 ## Type definitions in JavaScript
 
 ### Object types
-
-<!-- {.-literate-style} -->
 
 Use `@typedef` to define a type. External `.d.ts` files are preferred to this approach, but this syntax is available should you need it.
 
@@ -335,8 +298,6 @@ const ArticleLink = props => {
 
 ### Union types
 
-<!-- {.-literate-style} -->
-
 Use union types (`|`) to signify types that can be one or another. To simplify things, you can define a _typedef_ for them.
 
 ```js
@@ -348,8 +309,6 @@ Use union types (`|`) to signify types that can be one or another. To simplify t
 ## Using with React
 
 ### Function components
-
-<!-- {.-literate-style} -->
 
 Function components are plain functions. You can document them in any of the ways we previously learned to document functions. In this example, we'll document them using object types.
 
@@ -369,8 +328,6 @@ const ArticleLink = props => {
 ```
 
 ### Class components
-
-<!-- {.-literate-style} -->
 
 Use `@extends` to define the types for your props and state. You can then use `@typedef` (either inline or imports) to define what _Props_ and _State_ are.
 
@@ -407,19 +364,7 @@ Consult the official [JSDoc in TypeScript][jsdoc-in-typescript] documentation fo
 
 ## Recap
 
-### Type-checking JavaScript
-
-<!-- {.-literate-style} -->
-
-Add a `@ts-check` comment to the JavaScript files that you want to type-check.
-
-```js
-// @ts-check
-```
-
 ### Documenting functions
-
-<!-- {.-literate-style} -->
 
 Write your documentations as block comments that begin with a double-star. Document parameters with `@param`.
 
@@ -435,8 +380,6 @@ function square(n) {
 
 ### Importing type definitions
 
-<!-- {.-literate-style} -->
-
 Import type definitions with `@typedef` and `import`. This allows you to write your type definitions in TypeScript ambient definition files (`.d.ts`).
 
 ```js
@@ -445,8 +388,6 @@ Import type definitions with `@typedef` and `import`. This allows you to write y
 
 ### Optionals
 
-<!-- {.-literate-style} -->
-
 Use the equal sign to denote nullable types. This is equivalent to `User | null | undefined`.
 
 ```js
@@ -454,8 +395,6 @@ Use the equal sign to denote nullable types. This is equivalent to `User | null 
 ```
 
 ### Anonymous functions
-
-<!-- {.-literate-style} -->
 
 Use `@type` to document parameters of an anonymous function.
 
@@ -466,8 +405,6 @@ numbers.map((/** @type number */ n) => {
 ```
 
 ###Documenting options
-
-<!-- {.-literate-style} -->
 
 You can document the properties of object parameters.
 

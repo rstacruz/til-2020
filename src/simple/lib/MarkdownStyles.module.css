@@ -118,6 +118,10 @@
   right: -12rem;
 }
 
+.root :global(figure.cover > .gatsby-resp-image-wrapper) {
+  @apply relative z-10;
+}
+
 .root :global(figure.cover > img) {
   @apply relative z-10 object-cover w-full bg-gray-800 shadow-32;
   border-radius: 3px;

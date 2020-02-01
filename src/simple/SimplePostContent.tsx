@@ -1,5 +1,4 @@
 import React from 'react'
-import { HastNode } from '../types'
 import makeToReact from '../helpers/to_react'
 import 'typeface-public-sans'
 import H2Section from './lib/H2Section'
@@ -10,6 +9,7 @@ import BlogNav from './lib/BlogNav'
 import Unorphan from './lib/Unorphan'
 import CSS from './SimplePostContent.module.css'
 import ByLine from './lib/ByLine'
+import SimplePostFooter from './lib/SimplePostFooter'
 
 const Div = ({ children, ...props }) => <div {...props}>{children}</div>
 
@@ -48,6 +48,10 @@ const SimplePostContent = (props: Props) => {
         )}
         <ByLine date={date} />
         <MarkdownStyles>{sections.map(body => toReact(body))}</MarkdownStyles>
+
+        <MarkdownStyles>
+          <SimplePostFooter title={title} date={date} />
+        </MarkdownStyles>
       </div>
     </div>
   )
