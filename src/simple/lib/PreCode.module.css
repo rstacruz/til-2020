@@ -21,7 +21,7 @@
 }
 
 .root {
-  @apply p-6 px-8 my-8 -mx-8 type-monospace;
+  @apply py-6 px-6 my-8 -mx-6 type-monospace;
   @apply type-monospace;
   @apply overflow-x-auto thin-scrollbar;
   @apply shadow-32;

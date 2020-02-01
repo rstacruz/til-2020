@@ -98,13 +98,22 @@
   }
 }
 
+/* Screen thing */
 .root :global(figure.cover::after) {
-  @apply absolute z-auto block bg-blue-100;
+  @apply absolute z-auto block;
   content: '';
   top: 4rem;
   bottom: 4rem;
   left: -12rem;
   right: -12rem;
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      white 2px
+    ),
+    linear-gradient(to right, transparent, transparent 2px, white 2px), #ccd;
+  background-size: 12px 12px;
 }
 
 .root :global(figure.cover > img) {
