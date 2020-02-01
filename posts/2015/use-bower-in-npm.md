@@ -3,8 +3,10 @@ date: '2015-02-23'
 title: Use Bower packages like npm packages
 tags: [JavaScript]
 description: Ever wanted to use some frontend packages but they're not npm-compatible?
-outdated: Bower hasn't been maintained as of 2018. Consider using npm instead.
+layout: simple
 ---
+
+> **Update (Jan 2019):** Bower hasn't been maintained for years, and using Bower packages should now be considered a discouraged practice.
 
 [Napa] is a package that lets you install arbitrary projects (without package.json) into `node_modules`.
 
@@ -20,8 +22,6 @@ Bower packages are repos without package.json manifests. Hence, you can use Napa
     "colorbox": "jackmoore/colorbox#1.5.9"
   }
 ```
-
-<!-- {.-wide} -->
 
 Promising idea, but I'd like to see it developed more. Some caveats as of 1.2.0:
 

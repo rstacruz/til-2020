@@ -3,6 +3,7 @@ date: '2015-02-19'
 title: Use Markdown for documentation
 tags: [Development]
 description: Forget complex documentation schemes... it's really just this easy.
+layout: simple
 ---
 
 The most universal documentation "format" is a bunch of Markdown files inside a project's `doc/` directory. Here are some projects that follow that convention:
@@ -15,13 +16,9 @@ The most universal documentation "format" is a bunch of Markdown files inside a 
 - [npm](https://github.com/npm/npm/tree/master/doc)
 - [composer](https://github.com/composer/composer/tree/master/doc)
 
-<!-- {.-bordered} -->
-
 In my opinion, "a bunch of Markdown files" is good because:
 
 - It's easily viewable in GitHub
 - It can be made into a Jekyll (GitHub pages) site easily
 - It can be made into a Sphinx site easily
 - It's a common documentation format that you can get some tools to generate to
-
-<!-- {.-bordered} -->
