@@ -29,7 +29,9 @@ export interface Props {
   }
 }
 
-const BlogPostHelmet = (props: Pick<Props, 'data'>) => {
+const BlogPostHelmet = (
+  props: Pick<Props, 'data'> & { layout: 'simple' | 'literate' }
+) => {
   const { data } = props
   const post = data.markdownRemark
   const { title, description: frontDescription } = post.frontmatter
@@ -48,6 +50,7 @@ const BlogPostHelmet = (props: Pick<Props, 'data'>) => {
   return (
     <Helmet>
       <title>{title}</title>
+      <body className={`layout-${props.layout}`} />
 
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:image' content={image} />
@@ -84,7 +87,7 @@ const SimpleBlogPostTemplate = (props: Props) => {
 
   return (
     <>
-      <BlogPostHelmet data={data} />
+      <BlogPostHelmet data={data} layout='simple' />
       <SimplePostContent {...{ title, date, description, body: sections }} />
     </>
   )
@@ -103,7 +106,7 @@ const LiterateBlogPostTemplate = (props: Props) => {
 
   return (
     <Layout location={props.location}>
-      <BlogPostHelmet data={data} />
+      <BlogPostHelmet data={data} layout='literate' />
       <MainHeading back />
       <div>
         <BlogNav />

@@ -1,3 +1,7 @@
+.root {
+  /* hmm */
+}
+
 .separator {
   @apply block mt-12 mb-12;
 }
@@ -8,10 +12,6 @@
   content: '';
   border-bottom: solid 1px theme('colors.gray.400');
   /* transform: rotate(-45deg); */
-}
-
-.inner {
-  /* hmm */
 }
 
 .inner > :global(hr:last-child) {
