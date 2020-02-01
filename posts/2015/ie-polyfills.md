@@ -6,6 +6,8 @@ layout: simple
 description: Speed along your legacy IE development with this all-purpose 8-line snippet.
 ---
 
+> **Update (Jan 2019):** This document was written for Internet Explorer 8, which occupies a global share of less than 0.17% today. Please rconsider not supporting IE versions below 11.
+
 Use this convenient snippet in almost any project. It will fill in some basic support for modern CSS features for legacy IE versions.
 
 ```js

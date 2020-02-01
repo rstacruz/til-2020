@@ -3,9 +3,10 @@ date: '2015-02-15'
 title: JavaScript ORM's suck
 tags: [JavaScript]
 description: Database ORM's and JavaScript aren't a good mix. Here's why.
-outdated: |
-  Native async-await support has already landed in Node.js stable and fixes most of these pain points. This article was written with Node.js v0.12 in mind.
+layout: simple
 ---
+
+> **Update (Dec 2019):** Node.js now supports [top-level await](https://v8.dev/features/top-level-await) which would solve the pain point outlined in this article. This article was written in 2015 with Node.js v0.12 in mind.
 
 Consider this scenario: there's a strange bug in production's data that you need to inspect. In Rails, you can tell `rails console`: "show me all project IDs that are active and made by users that never logged in" like so:
 
