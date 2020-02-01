@@ -27,7 +27,7 @@
 .root :global(h2::after) {
   content: '';
   @apply block mt-2 mb-4;
-  border-bottom: solid 1px theme('colors.gray.300');
+  border-bottom: solid 1px theme('colors.n.line');
 }
 
 .root :global(h3) {
@@ -35,11 +35,12 @@
 }
 
 .root :global(a) {
-  @apply text-gray-600 no-underline;
+  @apply no-underline text-n-mute;
 }
 
 .root :global(code) {
-  @apply text-gray-700 type-monospace;
+  @apply text-n-mute type-monospace;
+  font-size: 1em;
 }
 
 .root :global(figure) {
@@ -58,7 +59,7 @@
   @apply type-italic-serif;
   @apply px-0 pl-4 mx-0;
   font-size: 1.1em;
-  border-left: solid 2px theme('colors.gray.400');
+  border-left: solid 2px theme('colors.n.line');
 }
 
 .root :global(table) {
@@ -67,7 +68,7 @@
 }
 
 .root :global(tr) {
-  border-bottom: solid 1px theme('colors.gray.400');
+  border-bottom: solid 1px theme('colors.n.line');
 }
 
 .root :global(table > :last-child > tr:last-child) {

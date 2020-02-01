@@ -4,13 +4,13 @@
 @import '../css-utils/type.css';
 
 .root {
-  @apply container leading-relaxed antialiased;
+  @apply container antialiased leading-relaxed;
   @apply type-body-sans;
   color: #181818;
 }
 
 .title {
-  @apply ms-7 mt-12 mb-4 text-gray-700 type-heading-serif;
+  @apply mt-12 mb-4 text-gray-700 ms-7 type-heading-serif;
   color: #111;
 
   @screen md {
@@ -21,5 +21,5 @@
 
 .description {
   @apply ms-2 type-italic-serif -mt-2;
-  color: #705075;
+  color: theme('colors.a.500');
 }

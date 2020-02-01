@@ -3,17 +3,17 @@
 }
 
 .type-thin-heading {
-  @apply type-body-sans font-thin;
+  @apply font-thin type-body-sans;
   letter-spacing: -0.014em;
 }
 
 .type-bold-heading {
-  @apply type-body-sans font-extrabold;
+  @apply font-extrabold type-body-sans;
   letter-spacing: -0.02rem;
 }
 
 .type-monospace {
-  font-size: 0.88rem;
+  font-size: 0.9em;
   font-family: 'Roboto Mono', cousine, monospace;
   line-height: 1.3;
   letter-spacing: -0.06em;

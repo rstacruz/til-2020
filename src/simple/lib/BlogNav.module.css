@@ -7,7 +7,7 @@
 }
 
 .root {
-  @apply -ms-1 py-1 flex z-50;
+  @apply z-50 flex py-1 -ms-1;
   box-shadow: 0 1px rgba(0, 0, 0, 0);
   line-height: 2.5rem;
   text-align: center;
@@ -38,7 +38,7 @@
 }
 
 .root a {
-  @apply font-bold uppercase text-gray-900 type-bold-caps no-underline;
+  @apply font-bold text-yellow-900 no-underline uppercase type-bold-caps;
 }
 
 .root.isFixed {
@@ -53,7 +53,7 @@
 }
 
 .title {
-  @apply text-gray-500;
+  @apply text-n-mute;
 }
 
 .root > span {
@@ -61,7 +61,7 @@
 }
 
 .center {
-  @apply px-8 flex-auto;
+  @apply flex-auto px-8;
 }
 
 .left,
