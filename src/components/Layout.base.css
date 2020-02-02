@@ -7,5 +7,7 @@ body {
 }
 
 body.layout-simple {
-  font-size: 17px;
+  @screen md {
+    font-size: 17px;
+  }
 }

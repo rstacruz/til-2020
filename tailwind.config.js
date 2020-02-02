@@ -2,6 +2,10 @@
 module.exports = {
   theme: {
     extend: {
+      modscale: {
+        sm: { ratio: 1.14, linebase: 1.6, lineratio: 0.957 },
+        md: { ratio: 1.18, linebase: 1.6, lineratio: 0.957 }
+      },
       colors: {
         a: {
           '500': '#705075'

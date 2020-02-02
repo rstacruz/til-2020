@@ -57,7 +57,7 @@
 }
 
 .root > span {
-  @apply inline-block;
+  @apply inline-block truncate;
 }
 
 .center {
