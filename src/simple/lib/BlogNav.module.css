@@ -72,3 +72,11 @@
 .right {
   @apply text-right;
 }
+
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.backIcon {
+  @apply rotate-270 w-5 h-5;
+}

@@ -3,6 +3,7 @@ import CSS from './BlogNav.module.css'
 import { Waypoint } from 'react-waypoint'
 import { Link } from 'gatsby'
 import cn from 'classnames'
+import BackIcon from '../../components/BackIcon'
 
 interface Props {
   title: string
@@ -24,7 +25,9 @@ const BlogNav = (props: Props) => {
         })}
       >
         <span className={CSS.left}>
-          <Link to='/'>&larr;</Link>
+          <Link to='/'>
+            <BackIcon className={CSS.backIcon} />
+          </Link>
         </span>
 
         <span className={CSS.center}>
