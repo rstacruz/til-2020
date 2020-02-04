@@ -2,7 +2,12 @@ import cn from 'classnames'
 import React from 'react'
 import CSS from './H3Section.module.css'
 
-const H3Section = ({ children, className }) => {
+interface Props {
+  children: React.ReactNode
+  className?: string
+}
+
+const H3Section = ({ children, className }: Props) => {
   return <section className={cn(CSS.root, className)}>{children}</section>
 }
 

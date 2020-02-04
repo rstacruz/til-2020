@@ -23,6 +23,10 @@ interface Props {
   titleBody: HastNode[]
 }
 
+interface State {
+  activeSection: number
+}
+
 /**
  * Blog post content.
  *
@@ -32,7 +36,7 @@ interface Props {
 
 const BlogPostContent = (props: Props) => {
   const { body, titleBody, title, date } = props
-  const [state, setState] = useState({ activeSection: 0 })
+  const [state, setState] = useState<State>({ activeSection: 0 })
   const sections = body
   const count = sections.length + 1
 
@@ -67,7 +71,9 @@ const BlogPostContent = (props: Props) => {
                 (idx === 0 && state.activeSection === 0)
               }
             >
-              <PostContent body={h2section.children} />
+              {h2section.children ? (
+                <PostContent body={h2section.children} />
+              ) : null}
             </H2Section>
           </span>
         </Waypoint>
@@ -78,7 +84,13 @@ const BlogPostContent = (props: Props) => {
   )
 }
 
-const doHandleEnter = ({ setState, idx }) => () => {
+const doHandleEnter = ({
+  setState,
+  idx
+}: {
+  setState: React.Dispatch<React.SetStateAction<State>>
+  idx: number
+}) => () => {
   setState({ activeSection: idx })
 }
 
