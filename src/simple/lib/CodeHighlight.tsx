@@ -2,11 +2,16 @@ import React from 'react'
 import refractor from 'refractor'
 import makeToReact from '../../helpers/to_react'
 
-const LANGUAGES = {
+const LANGUAGES: { [key: string]: string } = {
   sh: 'bash'
 }
 
-const CodeHighlight = ({ children, className, ...props }) => {
+interface Props {
+  children: React.ReactNode
+  className?: string
+}
+
+const CodeHighlight = ({ children, className, ...props }: Props) => {
   let ast
   let highlighted
 
@@ -75,7 +80,7 @@ function getCode(children: any): GetCodeResult | void {
     return
   }
 
-  const language = m[1]
+  const language: string = m[1]
   const textNodes = code.props.children
 
   return {
@@ -89,7 +94,7 @@ function getCode(children: any): GetCodeResult | void {
  * one.
  */
 
-function toReact(nodes) {
+function toReact(nodes: any[]) {
   const root = { type: 'root', children: nodes }
   const element = makeToReact({})(root) as JSX.Element
   return element.props.children

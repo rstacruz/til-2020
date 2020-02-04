@@ -38,7 +38,7 @@ const IndexPage = (props: Props) => {
   )
 }
 
-const Home = ({ pages }) => {
+const Home = ({ pages }: { pages: Array<{ key: string; node: PageNode }> }) => {
   return (
     <>
       <MainHeading />

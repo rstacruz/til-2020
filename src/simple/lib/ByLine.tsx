@@ -2,7 +2,7 @@ import React from 'react'
 import CSS from './ByLine.module.css'
 
 interface Props {
-  date: string
+  date: string | null | void
 }
 
 const ByLine = (props: Props) => {

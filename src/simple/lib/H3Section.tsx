@@ -3,7 +3,12 @@ import React from 'react'
 import CSS from './H3Section.module.css'
 import { useWaypoint } from './useWaypoint'
 
-const H3Section = ({ children, className }) => {
+interface Props {
+  children: React.ReactNode
+  className?: string
+}
+
+const H3Section = ({ children, className }: Props) => {
   const { Wrapper, isActive } = useWaypoint()
   return (
     <Wrapper>

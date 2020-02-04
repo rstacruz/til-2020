@@ -10,8 +10,11 @@ import Unorphan from './lib/Unorphan'
 import CSS from './SimplePostContent.module.css'
 import ByLine from './lib/ByLine'
 import SimplePostFooter from './lib/SimplePostFooter'
+import { HastNode } from '../types'
 
-const Div = ({ children, ...props }) => <div {...props}>{children}</div>
+const Div = ({ children, ...props }: { children: React.ReactNode }) => (
+  <div {...props}>{children}</div>
+)
 
 const toReact = makeToReact({
   components: {
