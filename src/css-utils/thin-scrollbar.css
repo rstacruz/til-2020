@@ -1,4 +1,0 @@
-.thin-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: theme('colors.gray.500') transparent;
-}
