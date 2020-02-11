@@ -1,7 +1,6 @@
 @import '../../css-utils/ms.css';
 @import '../../css-utils/container.css';
 @import '../../css-utils/type.css';
-@import '../../css-utils/shadow.css';
 @import '../../css-utils/dotted-background.css';
 
 .root :global(pre, ol, ul, h1, h2, h3, h4, h5, h6, figure) {
@@ -156,4 +155,12 @@
   @screen md {
     @apply my-8 mb-6 -mx-6 px-6;
   }
+}
+
+.root :global(strong.highlight) {
+  @apply bg-yellow-100;
+}
+
+.root :global(.isActive strong.highlight) {
+  @apply bg-yellow-200;
 }

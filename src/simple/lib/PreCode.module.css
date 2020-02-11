@@ -1,8 +1,6 @@
 @import '../../css-utils/ms.css';
 @import '../../css-utils/container.css';
-@import '../../css-utils/thin-scrollbar.css';
 @import '../../css-utils/type.css';
-@import '../../css-utils/shadow.css';
 
 .active-bg {
   background: linear-gradient(9deg, #755d88, #303048 80%);
