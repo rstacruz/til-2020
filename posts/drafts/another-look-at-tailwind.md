@@ -210,9 +210,11 @@ module.exports = {
 
 Declaring utilities and constants in JavaScript is liberating. <strong class='highlight'>Your CSS to be light-weight and declarative, and the heavy-lifting can be done in JavaScript.</strong>
 
+> **Next:** Let's look at how Tailwind deals with margins and spacing.
+
 ## Spacing grid
 
-Tailwind comes with a suite of CSS utility classes. Since parametric mixins aren't a thing, they often come with preset values. For instance, the `margin` helper can accept values like these.
+Tailwind comes with a suite of CSS utility classes. They often come with preset values. For instance, the `margin` helper can accept values like these below.
 
 | Class  | CSS           |
 | ------ | ------------- |
@@ -223,26 +225,32 @@ Tailwind comes with a suite of CSS utility classes. Since parametric mixins aren
 | `.m-8` | `32px` margin |
 | ...    | ...           |
 
-One curious thing about these values is they seem to be in increments of 4px. This is by design. Tailwind follows the principles of a 4px grid&mdash;something [extensively discussed][4px grid] around the web, and used by UI design frameworks like [Material].
+<!-- One curious thing about these values is they seem to be in increments of 4px. This is by design. Tailwind follows the principles of a 4px grid&mdash;something [extensively discussed][4px grid] around the web, and used by UI design frameworks like [Material]. -->
 
 ### Missing digits
 
-You'll notice that the list above skips a few steps. This is by design: there are no utilities available for `m-5`, `m-7` and some other odd numbers.
+You'll notice that the list above skips a few steps. There are no utilities available for `m-5`, `m-7` and some other odd numbers.
 
-[spacing scale]: https://tailwindcss.com/docs/customizing-spacing/#default-spacing-scale
-[4px grid]: https://uxdesign.cc/the-4px-baseline-grid-89485012dea6
-[material]: https://material.io/design/layout/spacing-methods.html#baseline-grid
+Tailwind is intentionally limiting what values are available to utilities. By having constraints on possible spacing values, it helps effortlessly guide you to a consistent [4px grid].
+
+> **Next:** Let's look at what all this structure enables for us.
 
 ## Its design system guiderails
 
-- Prescribed structure of variables
-- Prescribed structure of colors
-- Prescribed structure of spacing
+One common theme across Tailwind's features is how it establishes a lot of structure for us.
+
+- Variables are in a tree-like structure in _tailwind.config.js_.
+- Colors are under `colors`, dimensions in `spacing`, and so on.
+- Spacing is defined in a [4px grid], with some numbers intentionally omitted.
+
+<strong class='highlight'>Tailwind lays down the foundation for a design system.</strong>
 
 ## You don't need Sass
 
 - but sass already has variables and mixins
 - using tailwind will mean you wont need sass
+
+<!--
 
 ## What about CSS
 
@@ -252,3 +260,10 @@ You'll notice that the list above skips a few steps. This is by design: there ar
 ## Macros
 
 - @apply .truncate
+
+-->
+
+[spacing scale]: https://tailwindcss.com/docs/customizing-spacing/#default-spacing-scale
+[4px grid]: https://uxdesign.cc/the-4px-baseline-grid-89485012dea6
+[material]: https://material.io/design/layout/spacing-methods.html#baseline-grid
+[tailwind config]: https://tailwindcss.com/docs/configuration/
