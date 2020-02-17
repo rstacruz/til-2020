@@ -1,5 +1,5 @@
 import React from 'react'
-import PostLink from '../components/PostLink'
+import PostLink from './PostLink'
 import { PageNode } from '../types'
 import CSS from './PageList.module.css'
 

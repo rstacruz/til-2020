@@ -1,6 +1,6 @@
 import React from 'react'
 import CSS from './BlogPostTitle.module.css'
-import PostContent from './PostContent'
+import PostContent from './PostContent/index'
 
 interface Props {
   title: string
