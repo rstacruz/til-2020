@@ -1,6 +1,6 @@
 ---
 title: A closer look at Tailwind CSS
-description: A deep-dive into Tailwind's philosophies beyond its scary syntax
+description: A deep-dive into Tailwind's surprising ideas hiding behind its unconventional syntax
 layout: simple
 tags: [CSS]
 date: 2020-02-18
@@ -34,7 +34,7 @@ If this doesn't sit right with you, you wouldn't be alone. <strong class='highli
 
 ## It's a CSS preprocessor
 
-Writing the class names out in HTML is only one way to use Tailwind. Here's another way to write the example above, writing CSS this time instead of HTML:
+Writing the class names out in HTML is only one way to use Tailwind. Here's another way to write the example above, writing CSS this time instead of HTML with [PostCSS](https://tailwindcss.com/docs/using-with-preprocessors/#app).
 
 ```css
 .dialog {
