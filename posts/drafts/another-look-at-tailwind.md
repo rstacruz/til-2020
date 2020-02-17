@@ -1,8 +1,9 @@
 ---
-
 title: Another look at Tailwind
 description: A deep-dive into Tailwind's philosophies beyond its scary syntax
----**Tailwind has gotten not only a lot of hype, but a lot of criticisms as well.** Its syntax can easily evoke visceral reactions from experienced developers.
+---
+
+Tailwind has gotten not only a lot of hype, but a lot of criticisms as well. Its syntax can easily evoke visceral reactions from experienced developers.
 
 Let's try to look at Tailwind with fresh eyes. I'll try to dive into its concepts _beyond_ the syntax.
 
@@ -161,6 +162,8 @@ module.exports = {
 
 Placing them in JavaScript seems counter-inuitive at first, considering other solutions would have them in CSS files (eg, variables in CSS or Sass). However, having them written in JavaScript has a few advantages.
 
+### Flexibility without compromises
+
 Writing the values in JavaScript allows us to use any kind of logic we may need. Need to have a shades of a color? We can use [polished] to adjust a color&mdash;no Sass functions or PostCSS plugins required.
 
 ```javascript
@@ -205,9 +208,9 @@ module.exports = {
 };
 ```
 
-Declaring utilities and constants in JavaScript is liberating. By doing the heavy-lifting in JavaScript, <strong class='highlight'>it frees up your CSS to be readable and declarative.</strong>
+Declaring utilities and constants in JavaScript is liberating. <strong class='highlight'>Your CSS to be light-weight and declarative, and the heavy-lifting can be done in JavaScript.</strong>
 
-## Spacing
+## Spacing grid
 
 Tailwind comes with a suite of CSS utility classes. Since parametric mixins aren't a thing, they often come with preset values. For instance, the `margin` helper can accept values like these.
 
@@ -218,8 +221,13 @@ Tailwind comes with a suite of CSS utility classes. Since parametric mixins aren
 | `.m-3` | `12px` margin |
 | `.m-4` | `16px` margin |
 | `.m-8` | `32px` margin |
+| ...    | ...           |
 
 One curious thing about these values is they seem to be in increments of 4px. This is by design. Tailwind follows the principles of a 4px grid&mdash;something [extensively discussed][4px grid] around the web, and used by UI design frameworks like [Material].
+
+### Missing digits
+
+You'll notice that the list above skips a few steps. This is by design: there are no utilities available for `m-5`, `m-7` and some other odd numbers.
 
 [spacing scale]: https://tailwindcss.com/docs/customizing-spacing/#default-spacing-scale
 [4px grid]: https://uxdesign.cc/the-4px-baseline-grid-89485012dea6
