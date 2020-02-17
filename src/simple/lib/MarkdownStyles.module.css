@@ -140,7 +140,7 @@
   @apply border-gray-300 border-solid;
 
   @screen md {
-    @apply my-8 mb-16 -mx-16;
+    @apply my-8 mb-12 -mx-16;
   }
 }
 

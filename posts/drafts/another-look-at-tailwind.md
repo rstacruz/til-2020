@@ -1,11 +1,20 @@
 ---
-title: Another look at Tailwind
+title: A closer look at Tailwind CSS
 description: A deep-dive into Tailwind's philosophies beyond its scary syntax
+layout: simple
 ---
 
-Tailwind has gotten not only a lot of hype, but a lot of criticisms as well. Its syntax can easily evoke visceral reactions from experienced developers.
+<figure class='cover'>
+<img src='https://source.unsplash.com/eUMEWE-7Ewg/600x400' />
+</figure>
 
-Let's try to look at Tailwind with fresh eyes. I'll try to dive into its concepts _beyond_ the syntax.
+Tailwind is perhaps the hottest CSS framework to come out of 2019. It's gotten not only a lot of hype, but a lot of criticisms as well. Its syntax can easily evoke some bad reactions from even the most experienced developers&mdash;including myself, to be honest.
+
+However, I'm not one to dismiss things for simply looking different on a first glance. Remember how we all thought of JSX when it came out?
+
+---
+
+I set out to try to dive into Tailwind. Rather than focus on its eccentric syntax, I tried to find out what made it different... and I'm pretty blown away by what I found.
 
 ## Beyond the class names
 
@@ -16,6 +25,8 @@ You may come across Tailwind examples that have cryptic class names in HTML. I c
 ```
 
 If this doesn't sit right with you, you wouldn't be alone. <strong class='highlight'>Many developers prefer not to use Tailwind in this way.</strong> For now, let's set this aside&mdash;lets look at the other Tailwind features that can help make cleaner markup.
+
+> **Next:** What else does Tailwind have other than a funny syntax?
 
 ## It's a CSS preprocessor
 
@@ -33,7 +44,7 @@ Writing the class names out in HTML is only one way to use Tailwind. Here's anot
 
 <strong class='highlight'>This works because Tailwind is, first and foremost, a PostCSS plugin.</strong> Tailwind can also be used without PostCSS, but that would be missing out on what I think is Tailwind's hallmark feature: `@apply`.
 
-> **Next:** Let's look at the possibilities _@apply_ opens for us.
+> **Next:** What's so special about this feature?
 
 ## Composable CSS
 
@@ -78,7 +89,9 @@ This idea of utilities isn't new. Composable CSS is a concept previously explore
 }
 ```
 
-<strong class='highlight'>Parametric mixins like these aren't a feature in Tailwind, and this is by design.</strong> While the mixin above may let us write `shadow(4px)`, it would also allow any value which potentially can lead to unexpected results. There are no restrictions to what parameters we can pass:
+One key difference here is the Sass mixin is like a function that takes a _depth_ parameter. This can't be done with utilities based on CSS class names.
+
+While parametric Sass mixins can be more liberating, it can also introduce some problems. While the mixin above may let us write `shadow(4px)`, it would also allow any value which potentially can lead to unexpected results. There are no restrictions to what parameters we can pass:
 
 ```scss
 .banner {
@@ -90,6 +103,8 @@ This idea of utilities isn't new. Composable CSS is a concept previously explore
   @include shadow(25%); /* Probably even worse, oh no! */
 }
 ```
+
+Parametric mixins aren't possible with Tailwind, and this is by design.
 
 > **Next:** Let's look at how this might be implemented in Tailwind.
 
@@ -208,47 +223,68 @@ module.exports = {
 };
 ```
 
-Declaring utilities and constants in JavaScript is liberating. <strong class='highlight'>Your CSS to be light-weight and declarative, and the heavy-lifting can be done in JavaScript.</strong>
+Declaring utilities and constants in JavaScript is liberating. <strong class='highlight'>Your CSS will be lightweight and declarative.</strong> The heavy-lifting can be done in JavaScript instead.
 
 > **Next:** Let's look at how Tailwind deals with margins and spacing.
 
-## Spacing grid
+## The spacing scale
 
-Tailwind comes with a suite of CSS utility classes. They often come with preset values. For instance, the `margin` helper can accept values like these below.
+Tailwind comes with a suite of CSS utility classes. They often come with preset values. For instance, the `margin` helper can accept values like these below, which Tailwind calls the [spacing scale](https://tailwindcss.com/docs/customizing-spacing/#default-spacing-scale).
 
-| Class  | CSS           |
-| ------ | ------------- |
-| `.m-1` | `4px` margin  |
-| `.m-2` | `8px` margin  |
-| `.m-3` | `12px` margin |
-| `.m-4` | `16px` margin |
-| `.m-8` | `32px` margin |
-| ...    | ...           |
+<figure class='table'>
 
-<!-- One curious thing about these values is they seem to be in increments of 4px. This is by design. Tailwind follows the principles of a 4px grid&mdash;something [extensively discussed][4px grid] around the web, and used by UI design frameworks like [Material]. -->
+| `.m-0` | `.m-px` | `.m-1` | `.m-2` | `.m-3` | `.m-4` | `.m-6` | `.m-8` | ... |
+| :----- | :------ | :----- | :----- | :----- | :----- | :----- | :----- | :-- |
+| `0`    | `1px`   | `4px`  | `8px`  | `12px` | `16px` | `24px` | `32px` | ... |
 
-### Missing digits
+</figure>
 
-You'll notice that the list above skips a few steps. There are no utilities available for `m-5`, `m-7` and some other odd numbers.
+### Case of the missing digits
 
-Tailwind is intentionally limiting what values are available to utilities. By having constraints on possible spacing values, it helps effortlessly guide you to a consistent [4px grid].
+You'll notice that the list above skips a few steps. There are no utilities available for `m-7` and some other odd numbers. Tailwind is intentionally limiting what values are available to utilities. By having constraints on possible spacing values, <strong class='highlight'>we are guided to an effortless [4px grid].</strong>
 
 > **Next:** Let's look at what all this structure enables for us.
 
-## Its design system guiderails
+## Design system guiderails
 
 One common theme across Tailwind's features is how it establishes a lot of structure for us.
 
-- Variables are in a tree-like structure in _tailwind.config.js_.
+- Variables are in a tree-like structure in _tailwind.config.js_. (See: [Nested object syntax](https://tailwindcss.com/docs/customizing-colors/#nested-object-syntax))
 - Colors are under `colors`, dimensions in `spacing`, and so on.
 - Spacing is defined in a [4px grid], with some numbers intentionally omitted.
 
-<strong class='highlight'>Tailwind lays down the foundation for a design system.</strong>
+<strong class='highlight'>Tailwind lays down the foundation for a design system.</strong> While it comes with reasonable defaults (the default [color palette] is far from atrocious), it also enables you to extend it as you wish.
 
-## You don't need Sass
+> **Next:** What about preprocessors like Sass?
 
-- but sass already has variables and mixins
-- using tailwind will mean you wont need sass
+## Do we even need Sass?
+
+Tailwind can be used alongside Sass, Less, Stylus, and just about any CSS processor you can choose. Though it may be possible, it's probably a good idea to ask _why_ you would want to. What are the benefits that Sass can introduce? More often than not, it would boil down to these features:
+
+1. Shared uilities & components via mixins
+2. Defining colors and dimensions via variables
+3. Nesting media queries inside selectors
+
+Most of these problems can be solved by Tailwind's PostCSS plugin&mdash;no other preprocessor required.
+
+<figure class='table'>
+
+| Problem              | Sass's solution | Tailwind's solution |
+| :------------------- | :-------------: | :-----------------: |
+| **Color palette**    |    Variables    |   Theme constants   |
+| **Spacing**          |    Variables    |   Theme constants   |
+| **Components**       |     Mixins      |      Utilities      |
+| **Shared utilities** |     Mixins      |      Utilities      |
+
+</figure>
+
+<strong class='highlight'>Tailwind makes Sass redundant,</strong> for many cases.
+
+## Recap
+
+- Tailwind gives you the foundation to implement a design system.
+- Tailwind encourages you to define more complex CSS as reusable utilities.
+- Tailwind solves many of the same problems that Sass solves.
 
 <!--
 
@@ -267,3 +303,4 @@ One common theme across Tailwind's features is how it establishes a lot of struc
 [4px grid]: https://uxdesign.cc/the-4px-baseline-grid-89485012dea6
 [material]: https://material.io/design/layout/spacing-methods.html#baseline-grid
 [tailwind config]: https://tailwindcss.com/docs/configuration/
+[color palette]: https://tailwindcss.com/docs/customizing-colors#default-color-palette
