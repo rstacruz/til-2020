@@ -158,9 +158,25 @@
 }
 
 .root :global(strong.highlight) {
-  @apply bg-yellow-100;
+  @apply bg-yellow-100 font-semibold;
 }
 
 .root :global(.isActive strong.highlight) {
   @apply bg-yellow-200;
+}
+
+/*
+ * Blockquote: next
+ */
+
+.root :global(blockquote.next) {
+  @apply px-4 py-4 pl-0 mx-0 my-6 bg-gray-100 type-body-sans text-base not-italic;
+  border-left: 0;
+  @apply bg-white;
+}
+
+.root :global(blockquote.next strong) {
+  @apply bg-white font-semibold px-3 py-2 ml-2 mr-4 shadow-8;
+  @apply type-monospace font-bold not-italic uppercase;
+  @apply bg-purple-100;
 }

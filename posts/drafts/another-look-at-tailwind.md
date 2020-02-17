@@ -2,10 +2,12 @@
 title: A closer look at Tailwind CSS
 description: A deep-dive into Tailwind's philosophies beyond its scary syntax
 layout: simple
+tags: [CSS]
+date: 2020-02-18
 ---
 
 <figure class='cover'>
-<img src='https://source.unsplash.com/eUMEWE-7Ewg/600x400' />
+<img src='https://source.unsplash.com/9APFPoNb9iw/600x300' />
 </figure>
 
 Tailwind is perhaps the hottest CSS framework to come out of 2019. It's gotten not only a lot of hype, but a lot of criticisms as well. Its syntax can easily evoke some bad reactions from even the most experienced developers&mdash;including myself, to be honest.
@@ -26,7 +28,9 @@ You may come across Tailwind examples that have cryptic class names in HTML. I c
 
 If this doesn't sit right with you, you wouldn't be alone. <strong class='highlight'>Many developers prefer not to use Tailwind in this way.</strong> For now, let's set this aside&mdash;lets look at the other Tailwind features that can help make cleaner markup.
 
-> **Next:** What else does Tailwind have other than a funny syntax?
+<blockquote class='next'>
+<strong>Next:</strong> What else does Tailwind have other than a funny syntax?
+</blockquote>
 
 ## It's a CSS preprocessor
 
@@ -44,7 +48,9 @@ Writing the class names out in HTML is only one way to use Tailwind. Here's anot
 
 <strong class='highlight'>This works because Tailwind is, first and foremost, a PostCSS plugin.</strong> Tailwind can also be used without PostCSS, but that would be missing out on what I think is Tailwind's hallmark feature: `@apply`.
 
-> **Next:** What's so special about this feature?
+<blockquote class='next'>
+<strong>Next:</strong> What's so special about this feature?
+</blockquote>
 
 ## Composable CSS
 
@@ -77,7 +83,9 @@ One way to make this easier to understand is to separate them into manageable ch
 
 <strong class='highlight'>Tailwind lets you build components from smaller pieces.</strong> They don't need to by Tailwind's utilities&mdash;`@apply` will work on any class name. These pieces are called "utilities."
 
-> **Next:** Aren't utilities just mixins in disguise?
+<blockquote class='next'>
+<strong>Next:</strong> Aren't utilities just mixins in disguise?
+</blockquote>
 
 ## Utilities vs. mixins
 
@@ -90,6 +98,8 @@ This idea of utilities isn't new. Composable CSS is a concept previously explore
 ```
 
 One key difference here is the Sass mixin is like a function that takes a _depth_ parameter. This can't be done with utilities based on CSS class names.
+
+### The pitfalls of parameters
 
 While parametric Sass mixins can be more liberating, it can also introduce some problems. While the mixin above may let us write `shadow(4px)`, it would also allow any value which potentially can lead to unexpected results. There are no restrictions to what parameters we can pass:
 
@@ -104,13 +114,15 @@ While parametric Sass mixins can be more liberating, it can also introduce some 
 }
 ```
 
-Parametric mixins aren't possible with Tailwind, and this is by design.
+<strong class='highlight'>Tailwind doesn't have parametric mixins&mdash;it has something better.</strong> We'll see how this restriction makes sense when we try to write the snippet above in Tailwind.
 
-> **Next:** Let's look at how this might be implemented in Tailwind.
+<blockquote class='next'>
+<strong>Next:</strong> Let's see how this might look like as Tailwind utilties.
+</blockquote>
 
 ## No parameters needed
 
-Utilities in Tailwind are often written with a predetermined set of values. This is less flexible than Sass's parametric mixins, and this rigidness is intentional. By hand-picking what values are allowed, designers can define the constraints of a design system.
+Utilities in Tailwind are often written with a fixed set of values. This isn't as flexible as Sass's parametric mixins, and this rigidness is intentional. By hand-picking what values are allowed, designers can define the constraints of a design system.
 
 <strong class='highlight'>Parameter-less utilities allow us to build design systems.</strong> The shadow mixin above may be expressed in a Tailwind utility like this:
 
@@ -128,7 +140,9 @@ Utilities in Tailwind are often written with a predetermined set of values. This
 }
 ```
 
-> **Next:** Let's look at other features of the Tailwind CSS plugin.
+<blockquote class='next'>
+<strong>Next:</strong> Let's look at other features of the Tailwind CSS plugin.
+</blockquote>
 
 ## Theme constants
 
@@ -157,7 +171,9 @@ Tailwind itself has a solution to make this easier. Values can be defined as _th
 }
 ```
 
-> **Next:** Let's look at where these constants are defined.
+<blockquote class='next'>
+<strong>Next:</strong> Let's look at where these constants are defined.
+</blockquote>
 
 ## Tailwind config file
 
@@ -225,11 +241,13 @@ module.exports = {
 
 Declaring utilities and constants in JavaScript is liberating. <strong class='highlight'>Your CSS will be lightweight and declarative.</strong> The heavy-lifting can be done in JavaScript instead.
 
-> **Next:** Let's look at how Tailwind deals with margins and spacing.
+<blockquote class='next'>
+<strong>Next:</strong> Let's look at how Tailwind deals with margins and spacing.
+</blockquote>
 
 ## The spacing scale
 
-Tailwind comes with a suite of CSS utility classes. They often come with preset values. For instance, the `margin` helper can accept values like these below, which Tailwind calls the [spacing scale](https://tailwindcss.com/docs/customizing-spacing/#default-spacing-scale).
+Tailwind comes with a suite of CSS utility classes. They often come with preset values. For instance, the `margin` helper can accept values like these below, which Tailwind calls this the [spacing scale](https://tailwindcss.com/docs/customizing-spacing/#default-spacing-scale).
 
 <figure class='table'>
 
@@ -241,9 +259,13 @@ Tailwind comes with a suite of CSS utility classes. They often come with preset 
 
 ### Case of the missing digits
 
-You'll notice that the list above skips a few steps. There are no utilities available for `m-7` and some other odd numbers. Tailwind is intentionally limiting what values are available to utilities. By having constraints on possible spacing values, <strong class='highlight'>we are guided to an effortless [4px grid].</strong>
+You'll notice that the list above skips a few steps. There are no utilities available for `m-7` and some other odd numbers. Tailwind is intentionally limiting what values are available to utilities.
 
-> **Next:** Let's look at what all this structure enables for us.
+By having constraints on possible spacing values, we are guided to a regular grid [4px grid]. <strong class='highlight'>Tailwind makes consistency effortless.</strong>
+
+<blockquote class='next'>
+<strong>Next:</strong> Let's look at what all this structure enables for us.
+</blockquote>
 
 ## Design system guiderails
 
@@ -255,7 +277,9 @@ One common theme across Tailwind's features is how it establishes a lot of struc
 
 <strong class='highlight'>Tailwind lays down the foundation for a design system.</strong> While it comes with reasonable defaults (the default [color palette] is far from atrocious), it also enables you to extend it as you wish.
 
-> **Next:** What about preprocessors like Sass?
+<blockquote class='next'>
+<strong>Next:</strong> What about preprocessors like Sass?
+</blockquote>
 
 ## Do we even need Sass?
 
@@ -265,7 +289,7 @@ Tailwind can be used alongside Sass, Less, Stylus, and just about any CSS proces
 2. Defining colors and dimensions via variables
 3. Nesting media queries inside selectors
 
-Most of these problems can be solved by Tailwind's PostCSS plugin&mdash;no other preprocessor required.
+Most of these problems can be solved by Tailwind's PostCSS plugin&mdash;no other preprocessor required. <strong class='highlight'>Tailwind can make Sass redundant.</strong>
 
 <figure class='table'>
 
@@ -278,13 +302,15 @@ Most of these problems can be solved by Tailwind's PostCSS plugin&mdash;no other
 
 </figure>
 
-<strong class='highlight'>Tailwind makes Sass redundant,</strong> for many cases.
-
 ## Recap
+
+Tailwind is much more than its syntax may lead you to believe. It's a utility-first philosophy, a foundation for a design system, and overall a modern way to write CSS in the age of React and dynamic frontends.
 
 - Tailwind gives you the foundation to implement a design system.
 - Tailwind encourages you to define more complex CSS as reusable utilities.
 - Tailwind solves many of the same problems that Sass solves.
+
+[Do give Tailwind a try.](https://tailwindcss.com/) If you end up using it, then that's wonderful. Otherwise, I hope its ideas would help influence the way you look at CSS.
 
 <!--
 
