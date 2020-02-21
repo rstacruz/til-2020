@@ -2,6 +2,7 @@
 date: '2016-12-28'
 title: GraphQL on JavaScript
 tags: [JavaScript, GraphQL]
+layout: simple
 description: Use graphql.js's buildSchema to write schemas in GraphQL's schema language.
 ---
 
@@ -31,9 +32,7 @@ graphql(schema, '{ hello }', root).then(res => {
 // => { data: { hello: 'world' } }
 ```
 
-<!-- {.-wide} -->
-
-<next-block title="Why use buildSchema?"></next-block>
+> **Next:** Why use buildSchema?
 
 ## Why use buildSchema?
 
@@ -66,7 +65,5 @@ graphql(schema, '{ hello }').then(res => {
 })
 // => { data: { hello: 'world' } }
 ```
-
-<!-- {.-wide} -->
 
 You can see an example in the graphql.js documentation's [home page](http://graphql.org/graphql-js/#writing-code).

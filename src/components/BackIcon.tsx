@@ -1,7 +1,12 @@
 import React from 'react'
 
-const BackIcon = () => (
+interface Props {
+  className?: string
+}
+
+const BackIcon = ({ className }: Props) => (
   <svg
+    className={className || ''}
     version='1.1'
     width='36'
     height='36'

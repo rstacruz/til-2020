@@ -4,11 +4,16 @@ import refractor from 'refractor'
 import makeToReact from '../../helpers/to_react'
 import CSS from './PreCode.module.css'
 
-const LANGUAGES = {
+const LANGUAGES: { [key: string]: string } = {
   sh: 'bash'
 }
 
-const PreCode = ({ children, className, ...props }) => {
+interface Props {
+  children: React.ReactNode
+  className?: string
+}
+
+const PreCode = ({ children, className, ...props }: Props) => {
   let ast
   let highlighted
 
@@ -83,7 +88,7 @@ function getCode(children: any): GetCodeResult | void {
  * one.
  */
 
-function toReact(nodes) {
+function toReact(nodes: refractor.RefractorNode[]) {
   const root = { type: 'root', children: nodes }
   const element = makeToReact({})(root) as JSX.Element
   return element.props.children

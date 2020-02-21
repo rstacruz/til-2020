@@ -1,5 +1,13 @@
 {
   "semi": false,
   "singleQuote": true,
-  "jsxSingleQuote": true
+  "jsxSingleQuote": true,
+  "overrides": [
+    {
+      "files": "**/ms.css",
+      "options": {
+        "printWidth": 80
+      }
+    }
+  ]
 }

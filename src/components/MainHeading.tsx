@@ -53,10 +53,18 @@ export const MainHeading = ({ back }: Props) => {
  * visible.
  */
 
-const doHandleEnter = ({ setState }) => () => {
+const doHandleEnter = ({
+  setState
+}: {
+  setState: React.Dispatch<React.SetStateAction<State>>
+}) => () => {
   setState({ visible: true })
 }
 
-const doHandleLeave = ({ setState }) => () => {
+const doHandleLeave = ({
+  setState
+}: {
+  setState: (state: State) => any
+}) => () => {
   setState({ visible: false })
 }

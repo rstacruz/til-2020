@@ -26,11 +26,7 @@ const onCreateNode = (ctx /*: any */, { node, actions, getNode }) => {
       trailingSlash: false
     })
 
-    createNodeField({
-      name: 'slug',
-      node,
-      value
-    })
+    createNodeField({ name: 'slug', node, value })
   }
 }
 
@@ -86,6 +82,7 @@ function buildPage(
     previous,
     slug: node.fields.slug,
     title: node.frontmatter.title,
+    layout: node.frontmatter.layout,
     ...(extraContext || {})
   }
 
@@ -116,6 +113,7 @@ function buildQuery() {
           }
           frontmatter {
             title
+            layout
           }
         }
       }
@@ -133,6 +131,7 @@ function buildQuery() {
           }
           frontmatter {
             title
+            layout
           }
         }
       }

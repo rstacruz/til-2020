@@ -1,35 +1,27 @@
 ---
 title: State management with React hooks
+description: You don't always need Redux. Here's how you may use custom hooks instead
 tags: [React]
 date: 2019-04-10
+layout: simple
 # https://twitter.com/rstacruz/status/1115989486662381568
 # https://pbs.twimg.com/media/D3zKQEHUYAAsqrn.jpg:large
 ---
 
-###
-
-<!-- {.-wider-literate-style} -->
-
-<figure class='-no-pad'>
+<figure class='cover'>
 <img src='https://source.unsplash.com/Rs5BQj5zbf8/600x300' alt='Unrelated photo'>
 </figure>
 
-React now comes with hooks that can be used to manage state and propagate it throughout your app. In essence - you can do Redux without using Redux!
-
-I've been trying to use [useState][usestate] and [useContext][usecontext] to manage a large block of state in a React app. In think it's a great alternative to Redux.
+**React now comes with hooks that can be used to manage state and propagate it throughout your app.** In essence&mdash;you can do Redux without using Redux! I've been trying to use [useState][usestate] and [useContext][usecontext] to manage a large block of state in a React app. In think it's a great alternative to Redux.
 
 ## Custom state manager
 
-Let's write our state manager as a [custom React hook][custom].
-
 ### Defining the hook
 
-<!-- {.-wider-literate-style} -->
-
-This hook is a thin wrapper around React's `useState` hook. Instead of giving a `setState()` function, it gives a bunch of setState macros (ie, `actions`).
+Let's write our state manager as a [custom React hook][custom]. This hook is a thin wrapper around React's `useState` hook. Instead of giving a `setState()` function, it gives a bunch of setState macros (ie, `actions`).
 
 <figure>
-<figcaption class='-title -alt'>useAppState.js</figcaption>
+<figcaption>useAppState.js</figcaption>
 
 ```js
 import { useState } from 'react'
@@ -67,6 +59,8 @@ export default useAppState
 ```
 
 </figure>
+
+---
 
 ### Using the hook
 

@@ -11,7 +11,7 @@ import { Waypoint } from 'react-waypoint'
 import { HastNode } from '../types'
 import CSS from './BlogPostContent.module.css'
 import BlogPostTitle from './BlogPostTitle'
-import PostContent from './PostContent'
+import PostContent from './PostContent/index'
 import H2Section from './PostContent/H2Section'
 import PostFooter from './PostFooter'
 import ScrollIndicator from './ScrollIndicator'
@@ -24,7 +24,7 @@ interface Props {
 }
 
 interface State {
-  activeSection?: number
+  activeSection: number
 }
 
 /**
@@ -36,7 +36,7 @@ interface State {
 
 const BlogPostContent = (props: Props) => {
   const { body, titleBody, title, date } = props
-  const [state, setState] = useState({ activeSection: 0 })
+  const [state, setState] = useState<State>({ activeSection: 0 })
   const sections = body
   const count = sections.length + 1
 
@@ -71,7 +71,9 @@ const BlogPostContent = (props: Props) => {
                 (idx === 0 && state.activeSection === 0)
               }
             >
-              <PostContent body={h2section.children} />
+              {h2section.children ? (
+                <PostContent body={h2section.children} />
+              ) : null}
             </H2Section>
           </span>
         </Waypoint>
@@ -82,7 +84,13 @@ const BlogPostContent = (props: Props) => {
   )
 }
 
-const doHandleEnter = ({ setState, idx }) => () => {
+const doHandleEnter = ({
+  setState,
+  idx
+}: {
+  setState: React.Dispatch<React.SetStateAction<State>>
+  idx: number
+}) => () => {
   setState({ activeSection: idx })
 }
 

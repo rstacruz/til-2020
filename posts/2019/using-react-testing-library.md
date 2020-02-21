@@ -1,7 +1,13 @@
 ---
 title: 'Using React testing library'
+description: Testing your React components don't need to be difficult
+layout: simple
 tags: [React]
 ---
+
+<figure class='cover'>
+<img src='https://source.unsplash.com/DErxVSSQNdM/600x400' />
+</figure>
 
 [react-testing-library](https://github.com/testing-library/react-testing-library) is a very light-weight tool for testing React components. Here's a few tips on how to get started with it.
 

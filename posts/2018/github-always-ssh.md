@@ -1,6 +1,7 @@
 ---
 title: Force git to use SSH on GitHub
 date: '2018-06-09'
+layout: simple
 # description: |
 #   Make Git always use SSH: `git config --global url."git@github.com:".insteadOf "https://github.com/"`
 tags: [Git]
@@ -12,24 +13,17 @@ This forces GitHub to always use SSH, even for HTTPS URL's! This way, you can us
 git config --global url."git@github.com:".insteadOf "https://github.com/"
 ```
 
-<!-- {.-terminal.-wide} -->
-
 ## How it works
 
 When you clone an HTTPS URL, it now gets rewritten as an SSH URL.
-
-###
-
-<!-- {.-captioned-style} -->
 
 ```bash
 git clone https://github.com/rstacruz/vimfiles.git
 ```
 
-> **This URL will get rewritten** to access via SSH instead of HTTPS.
-> It will instead be: `git@github.com:rstacruz/vimfiles.git`
+This URL will get rewritten to access via SSH instead of HTTPS. It will instead be fetching from _git@github.com_ via SSH.
 
-## The inverse: <br> Use HTTPS instead of SSH
+## The inverse: Use HTTPS instead of SSH
 
 Alternatively, this forces GitHub to always use HTTPS. Great for macOS, where you can use [git-credential-osxkeychain](https://help.github.com/articles/updating-credentials-from-the-osx-keychain/) to store your GitHub token.
 
@@ -38,8 +32,6 @@ This will _not_ rewrite `git@github.com:user/repo.git` URL's, though, so I don't
 ```bash
 git config --global url."https://github".insteadOf git://github
 ```
-
-<!-- {.-wide} -->
 
 ## References
 

@@ -1,9 +1,10 @@
 ---
-title: Rails mailer conventions are silly
+title: Pitfalls of Rails mailer conventions
 date: '2017-06-06'
 # tags: [Ruby]
-# description: Typical Rails convention will tell you to send email like using the ActiveMailer API like so. This is not a very good idea, and let me tell you why.
+description: Typical Rails convention will tell you to send email like using the ActiveMailer API like so. This is not a very good idea, and let me tell you why.
 tags: [Ruby, Rails]
+layout: simple
 ---
 
 Typical Rails convention will tell you to send email like using the ActiveMailer API using `#deliver_later`. This is not a very good idea, and let me tell you why.

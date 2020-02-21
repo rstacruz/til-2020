@@ -2,25 +2,16 @@
 title: Inspecting JSON output in the command line
 date: 2019-03-24
 tags: [Development, CLI]
+layout: simple
 ---
 
-###
-
-<!-- {.-wider-literate-style} -->
-
-<figure class='-no-pad'>
-
-![Example image](./images/json-curl.png)
-
+<figure class='cover'>
+<img src='./images/json-curl.png' alt='Code screenshot'>
 </figure>
 
 View JSON output in the command line using [jq] together with _less_. This makes JSON output more readable.
 
 ## Setting it up
-
-###
-
-<!-- {.-literate-style} -->
 
 Use [jq] with _less_ to make view JSON output better. Using `-C` with _jq_ will force colors, and `-R` with _less_ will print colors.
 
@@ -33,10 +24,6 @@ alias jless='jq -C . | less -R"
 # For fish shell
 abbr jless 'jq -C . | less -R"
 ```
-
-### Usage example
-
-<!-- {.-literate-style} -->
 
 Use this `jless` alias to make better sense of Docker's output:
 

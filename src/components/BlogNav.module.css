@@ -37,7 +37,7 @@
 
 .bar {
   padding-bottom: 16px;
-  @apply --font-size--1;
+  @apply --ms-font-size--1;
   @apply --ui-font;
   text-align: left;
   color: #7898;

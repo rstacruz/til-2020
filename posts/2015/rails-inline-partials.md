@@ -1,13 +1,10 @@
 ---
 date: '2015-02-18'
-title: Inline partials
+title: Inline partials in Rails
 tags: [Ruby]
 description: Organize long views into smaller sub-views with this tip.
+layout: simple
 ---
-
-###
-
-<!-- {.literate-style} -->
 
 Ever find it annoying to have really long blocks of code being hard to parse in your head?
 
@@ -21,10 +18,6 @@ Ever find it annoying to have really long blocks of code being hard to parse in 
   - # also long code
   - # ...
 ```
-
-###
-
-<!-- {.literate-style} -->
 
 You can break them into partials, or like so:
 

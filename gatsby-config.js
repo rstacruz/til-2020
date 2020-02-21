@@ -1,22 +1,3 @@
-function supportsManifest() {
-  try {
-    return require.resolve('gatsby-plugin-manifest')
-  } catch (e) {
-    return false
-  }
-}
-
-function fs({ name, path }) {
-  return {
-    resolve: 'gatsby-source-filesystem',
-    options: { name, path }
-  }
-}
-
-function isProduction() {
-  return process.env.NODE_ENV === 'production'
-}
-
 module.exports = {
   pathPrefix: '/til',
   siteMetadata: {
@@ -35,7 +16,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-feed',
-    'gatsby-plugin-sharp',
+    ...(supports('sharp') ? ['gatsby-plugin-sharp'] : []),
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     ...(isProduction()
@@ -102,7 +83,7 @@ module.exports = {
         ]
       }
     },
-    ...(supportsManifest()
+    ...(supports('gatsby-plugin-manifest')
       ? [
           {
             resolve: `gatsby-plugin-manifest`,
@@ -120,3 +101,27 @@ module.exports = {
       : [])
   ]
 }
+
+/**
+ * @param {string} name
+ */
+
+function supports(name) {
+  try {
+    return require.resolve(name)
+  } catch (e) {
+    return false
+  }
+}
+
+function fs({ name, path }) {
+  return {
+    resolve: 'gatsby-source-filesystem',
+    options: { name, path }
+  }
+}
+
+function isProduction() {
+  return process.env.NODE_ENV === 'production'
+}
+

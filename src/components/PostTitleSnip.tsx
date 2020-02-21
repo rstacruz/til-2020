@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import React from 'react'
-import Overdrive from 'react-overdrive'
 import CSS from './PostTitleSnip.module.css'
 
 export interface Props {
@@ -11,7 +10,7 @@ export interface Props {
 }
 
 export const PostTitleSnip = (props: Props) => {
-  const { slug, title, variant, className } = props
+  const { title, variant, className } = props
   const varClass = cn({
     [CSS.isSmall]: variant === '-small'
   })

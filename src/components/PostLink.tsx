@@ -26,7 +26,7 @@ const PostLink = ({ node }: Props) => {
   )
 }
 
-const Tag = ({ tag }) => {
+const Tag = ({ tag }: { tag: string }) => {
   if (tag === 'Featured') {
     return <>★</>
   }

@@ -13,7 +13,7 @@ export interface Groups {
 }
 
 const GroupedPageList = ({ pages, recentCount }: Props) => {
-  const groups = groupBy(pages, ({ node }) => getFirstTag(node))
+  const groups = groupBy(pages, ({ node }) => getFirstTag(node) || '')
   const categories = getCategoryNames(groups)
 
   const topPages = pages.slice(0, recentCount)

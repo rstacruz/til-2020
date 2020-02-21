@@ -1,7 +1,3 @@
-/*
- * Home page
- */
-
 import { graphql } from 'gatsby'
 import IndexPage from './all'
 

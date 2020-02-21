@@ -1,12 +1,9 @@
 ---
 title: Managing Wi-Fi connections in Arch Linux with netctl
 tags: [Linux]
+layout: simple
 date: 2019-04-11
 ---
-
-###
-
-<!-- {.-literate-style} -->
 
 Many desktop systems rely on [NetworkManager], but this isn't the only way to get a Linux system online. Arch Linux comes with [netctl]&mdash;a systemd-native way of managing physical network connections.
 
@@ -70,14 +67,7 @@ sudo systemctl enable netctl-auto@wlp3s0.service
 After creating a profile, you can connect to it using `netctl switch-to <name>`. The _name_ is the name you provided in wifi-menu.
 
 ```bash
-
 sudo netctl-auto switch-to wlp3s0-PrettyFly
-```
-
-<!-- {.-command} -->
-
-```
-(no output)
 ```
 
 ### Listing profiles
@@ -87,39 +77,27 @@ sudo netctl-auto switch-to wlp3s0-PrettyFly
 Use `netctl-auto list` to show what profiles have been created before.
 
 ```bash
-sudo netctl-auto list
-```
+$ sudo netctl-auto list
 
-<!-- {.-command} -->
-
-```sh
-wlp3s0-PrettyFly
-wlp3s0-Mashup Garage 2.4Ghz
-wlp3s0-Mashup Garage 5Ghz
+	wlp3s0-PrettyFly
+	wlp3s0-Mashup Garage 2.4Ghz
+	wlp3s0-Mashup Garage 5Ghz
 ```
 
 ## Managing connections
 
-###
-
-<!-- {.-literate-style} -->
-
 Check for the status using `iw dev`&mdash;this will list of your physical devices. This should show you what SSID you're connected to, if any.
 
 ```sh
-iw dev
-```
+$ iw dev
 
-<!-- {.-command} -->
-
-```nohighlight
-phy#0
-	Interface wlp3s0
-		ifindex 2
-		wdev 0x1
-		addr e0:ac:ab:3f:db:ee
-		ssid PrettyFly
-		type managed
+	phy#0
+		Interface wlp3s0
+			ifindex 2
+			wdev 0x1
+			addr e0:ac:ab:3f:db:ee
+			ssid PrettyFly
+			type managed
 ```
 
 ### Auto-connecting a profile
@@ -129,14 +107,10 @@ phy#0
 Use `netctl enable` to "enable" a profile. This creates and enables a systemd service, which is invoked on every bootup.
 
 ```sh
-sudo netctl enable wlp3s0-PrettyFly
-```
+$ sudo netctl enable wlp3s0-PrettyFly
 
-<!-- {.-command} -->
-
-```
-'/etc/systemd/systemd/multi-user.target.wants/netctl@wlp3s0\x2dPrettyFly.service' -> /usr/bin/systemd/netctl@service
-generated '/etc/sstemd/systemd/multi-user.target.wants/netctl@wlp3s0\x2dPrettyFly.service.d/profile.cnof'
+	'/etc/systemd/systemd/multi-user.target.wants/netctl@wlp3s0\x2dPrettyFly.service' -> /usr/bin/systemd/netctl@service
+	generated '/etc/sstemd/systemd/multi-user.target.wants/netctl@wlp3s0\x2dPrettyFly.service.d/profile.cnof'
 ```
 
 ## Why use netctl?

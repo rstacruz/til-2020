@@ -2,12 +2,9 @@
 date: '2017-03-14'
 title: Managing side effects in Redux
 tags: [React]
+layout: simple
 description: Learn to manage impure side effects in a Redux store with middleware.
 ---
-
-###
-
-<!-- {.-wider-literate-style} -->
 
 [Redux] is the preferred state management pattern for React apps today. Being a very "functional" library, it doesn't like side effects much. This means doing asynchronous actions in a Redux reducer is not just a bad idea, it simply won't work.
 
@@ -35,8 +32,6 @@ You can't modify state here in an async callback. In fact, you can't even `dispa
 ## Using Middleware
 
 ### Middleware for side effects
-
-<!-- {.-wider-literate-style} -->
 
 Fortunately, Redux has built-in provisions for managing side effects: [Middleware](http://redux.js.org/docs/advanced/Middleware.html)! You can write your own middleware with business logic. You don't need to use 3rd-party packages other than Redux itself.
 
@@ -69,8 +64,6 @@ Redux middleware is simply a decorator for `dispatch()`. Here's an example where
 
 ### Using redux-thunk
 
-<!-- {.-wider-literate-style} -->
-
 Perhaps the most well-known solution to this is [redux-thunk](https://www.npmjs.com/package/redux-thunk), which allows you to dispatch functions ("thunks").
 
 ```js
@@ -83,21 +76,13 @@ store.dispatch(dispatch => {
 })
 ```
 
-### Why not use redux-thunk?
+However, I personally advise against this approach for a number of reasons:
 
-<!-- {.-wider-literate-style} -->
+- It moves logic to your action creators, which were supposed to be very simple pieces of code.
 
-I personally advise against this approach for a number of reasons:
+- It makes actions complicated, when they can just be simple JSON instructions (eg, `{ type: 'profile:load' }`).
 
-<figure class='-bordered'>
-
-⚠ It moves logic to your action creators, which were supposed to be very simple pieces of code.
-
-⚠ It makes actions complicated, when they can just be simple JSON instructions (eg, `{ type: 'profile:load' }`).
-
-⚠ It can't interact with other side effects. For instance, you can't make a side effect to send `profile:error`s to an error tracking service. Middleware can do this.
-
-</Figure>
+- It can't interact with other side effects. For instance, you can't make a side effect to send `profile:error`s to an error tracking service. Middleware can do this.
 
 ## Naming convention
 
@@ -106,8 +91,6 @@ You may have noticed I named my action `profile:load!`. This is my preferred con
 ## Other examples
 
 ### Error tracker
-
-<!-- {.-wider-literate-style} -->
 
 How about a middleware that tracks errors as they come in?
 
@@ -127,8 +110,6 @@ function ErrorTracker () {
 ```
 
 ### Ticker
-
-<!-- {.-wider-literate-style} -->
 
 Or a middleware that sends `tick` events every second? Great for timers or for RPG's.
 
@@ -156,8 +137,6 @@ function Ticker (options) {
 ```
 
 ### Combining them
-
-<!-- {.-wider-literate-style} -->
 
 And to put them all together:
 

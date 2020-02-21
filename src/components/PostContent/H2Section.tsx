@@ -20,7 +20,10 @@ const H2Section = (props: Props) => {
   const id = title ? slugger().slug(title) : null
 
   return (
-    <section className={cn(CSS.root, className, activeClass)} id={id}>
+    <section
+      className={cn(CSS.root, className, activeClass)}
+      {...(id ? { id } : null)}
+    >
       {children}
     </section>
   )

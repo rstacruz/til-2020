@@ -5,8 +5,9 @@ export interface PageNode {
   }
   frontmatter: {
     title: string
+    layout: string
     date: string | void
-    tags: (string[]) | void
+    tags: string[] | void
     description: string | void
     attachments: Array<{ publicURL: string | void }> | void
   }

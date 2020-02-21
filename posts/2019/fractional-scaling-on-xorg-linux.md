@@ -1,15 +1,12 @@
 ---
 title: Fractional scaling on Linux Xorg
 tags: [Linux, Featured]
+layout: simple
 date: 2019-04-08
 ---
 
-###
-
-<!-- {.-literate-style} -->
-
-<figure class='-no-pad'>
-<img src='https://source.unsplash.com/NpZmRfdgNT8/600x600' alt='Display'>
+<figure class='cover'>
+<img src='https://source.unsplash.com/NpZmRfdgNT8/600x400' alt='Display'>
 </figure>
 
 Getting fractional scaling right in Xorg is tricky, but possible. The solution
@@ -40,8 +37,6 @@ in margins and paddings).
 | Regular Xorg apps (eg, urxvt) | Text       |              |             |
 | QT apps (eg, Dolphin, Krita)  | Text       |              | UI & Text   |
 
-<!-- {.-wide} -->
-
 We'll update the Xresources config file to tackle `Xresources`,
 and we'll set some environment variables to tackle `GDK` and `QT` scaling.
 
@@ -57,16 +52,12 @@ export QT_SCALE_FACTOR=2
 export QT_FONT_DPI=96
 ```
 
-<!-- {.-wide} -->
-
 Place this in `~/.Xresources`. These will take effect on your next log in.
 
 ```sh
 Xft.dpi: 192
 Xcursor.size: 32
 ```
-
-<!-- {.-wide} -->
 
 These two things combined will make all your apps display 2x as large. If you want to have a scaling of 200%, then congrats—you're done! If you'd like to have fractional scaling (eg, 150% or 175%), then move onto the next section.
 
@@ -134,15 +125,23 @@ export QT_FONT_DPI=96
 
 ## Part 2: Scaling the display down
 
-After enlarging your UI by 2x, yAou can use `xrandr` to scale it down to your desired size. The tool [x11-fractional-display-scaling](https://github.com/burntcustard/x11-fractional-display-scaling) will automate this for you.
+After enlarging your UI by 2x, you can use `xrandr` to scale it down to your desired size. This example below gets you an effective scale of 175%. (2 / 1.75 = ~1.14)
+
+```sh
+xrandr --scale '1.14x1.14'
+```
+
+Note that not all versions of Xorg might support this. For older versions, the tool [x11-fractional-display-scaling](https://github.com/burntcustard/x11-fractional-display-scaling) can help.
+
+<!--
+
+After enlarging your UI by 2x, you can use `xrandr` to scale it down to your desired size. The tool [x11-fractional-display-scaling](https://github.com/burntcustard/x11-fractional-display-scaling) will automate this for you.
 
 This example below gets you an effective scale of 175%. (2 / 1.75 = ~1.14)
 
 ```sh
 bash display_scale.sh 1.14
 ```
-
-<!-- {.-wide} -->
 
 ### Manually
 
@@ -182,9 +181,9 @@ xrandr --output eDP1 --scale 2x2 --panning 2732x1536
 
 </details>
 
-##
+-->
 
-### Resources
+## Resources
 
 - https://wiki.archlinux.org/index.php/HiDPI
 - https://github.com/burntcustard/x11-fractional-display-scaling

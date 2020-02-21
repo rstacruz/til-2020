@@ -2,8 +2,15 @@
 date: '2015-04-17'
 title: Legacy IE polyfills
 tags: [CSS]
+layout: simple
 description: Speed along your legacy IE development with this all-purpose 8-line snippet.
 ---
+
+<blockquote class='notice'>
+
+**Update (Jan 2019):** This document was written for Internet Explorer 8. IE9 and below occupies a global share of less than 0.17% today. Please rconsider not supporting IE versions below 11.
+
+</blockquote>
 
 Use this convenient snippet in almost any project. It will fill in some basic support for modern CSS features for legacy IE versions.
 
