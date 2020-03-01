@@ -8,7 +8,6 @@
     "esModuleInterop": true,
     "jsx": "react",
     "plugins": [
-      { "name": "typescript-tslint-plugin" },
       { "name": "typescript-plugin-css-modules" }
     ],
     "typeRoots": [
