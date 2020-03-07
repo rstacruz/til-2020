@@ -7,7 +7,7 @@
 }
 
 .root {
-  @apply z-50 flex py-1 -ms-1;
+  @apply z-50 flex py-1 small-font;
   box-shadow: 0 1px rgba(0, 0, 0, 0);
   line-height: 2.5rem;
   text-align: center;
@@ -78,5 +78,5 @@
 }
 
 .backIcon {
-  @apply rotate-270 w-5 h-5;
+  @apply w-5 h-5 rotate-270;
 }
