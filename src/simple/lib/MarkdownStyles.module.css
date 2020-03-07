@@ -99,10 +99,10 @@
 }
 
 .root :global(figure.cover) {
-  @apply relative;
+  @apply relative my-12;
 
   @screen md {
-    @apply my-12 mb-16 -mx-16;
+    @apply mb-16 -mx-16;
   }
 }
 
