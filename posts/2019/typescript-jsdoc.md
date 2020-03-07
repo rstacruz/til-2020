@@ -35,7 +35,7 @@ function repeat(text: string, count: number) {
 
 </figure>
 
-> **Next:** Let's learn about an alternative to the TypeScript syntax.
+<div><next-block title="Let's learn about an alternative to the TypeScript syntax." /></div>
 
 ## Documenting JavaScript
 
@@ -73,7 +73,7 @@ It's a great idea to use JSDoc whether you use TypeScript or not. It's the de fa
 
 If you're using JSDoc to document your JavaScript, you might as well let TypeScript enforce the integrity of your types in your code.
 
-<next-block title="Let's set up TypeScript to use JSDoc."></next-block>
+<div><next-block title="Let's set up TypeScript to use JSDoc." /></div>
 
 ## TypeScript setup
 
@@ -117,7 +117,7 @@ Run `tsc` to check your project's types. It's recommended to add this to your CI
 yarn run tsc
 ```
 
-> **Next:** Let's document our code with JSDoc.
+<div><next-block title="Let's document our code with JSDoc." /></div>
 
 ## Basic annotations
 
@@ -155,7 +155,7 @@ function repeat(text, count) {
 
 Here's the same example, but with some text to describe what it does.
 
-<next-block title="Let's write some more annotations."></next-block>
+<div><next-block title="Let's write some more annotations." /></div>
 
 ## Documenting parameters
 
@@ -197,7 +197,7 @@ function repeat(text, options) {
 repeat('hello', { count: 2, separator: '-' })
 ```
 
-<next-block title="Let's write some more annotations."></next-block>
+<div><next-block title="Let's write some more annotations." /></div>
 
 ## Type assertions
 
@@ -228,7 +228,7 @@ list.reduce((
 }, 0)
 ```
 
-> **Next:** Let's refactor our type definitions to be in external files.
+<div><next-block title="Let's refactor our type definitions to be in external files." /></div>
 
 ## Importing definitions
 
@@ -360,7 +360,7 @@ Consult the official [JSDoc in TypeScript][jsdoc-in-typescript] documentation fo
 
 [jsdoc-in-typescript]: https://github.com/Microsoft/TypeScript/wiki/JSDoc-support-in-TypeScript
 
-<next-block title="Let's recap what we've learned."></next-block>
+<div><next-block title="Let's recap what we've learned." /></div>
 
 ## Recap
 
