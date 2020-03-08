@@ -24,8 +24,8 @@ const toReact = makeToReact({
     'h2-section': H2Section,
     'h3-body': Div,
     'h3-section': H3Section,
-    'multi-comparison': Div,
     'next-block': NextBlock,
+    NextBlock,
     pre: PreCode
   }
 })

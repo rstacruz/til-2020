@@ -180,3 +180,9 @@
   @apply type-monospace font-bold not-italic uppercase;
   @apply bg-purple-100;
 }
+
+.root :global(figure.code-compare) {
+  @screen lg {
+    @apply -mx-32;
+  }
+}
