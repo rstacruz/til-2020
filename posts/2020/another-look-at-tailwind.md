@@ -3,7 +3,7 @@ title: A closer look at Tailwind CSS
 description: A deep-dive into Tailwind's surprising ideas hiding behind its unconventional syntax
 layout: simple
 tags: [CSS]
-# date: 2020-02-18
+date: 2020-03-20
 ---
 
 <figure class='cover'>

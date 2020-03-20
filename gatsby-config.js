@@ -50,6 +50,7 @@ module.exports = {
       }
     },
     fs({ name: `posts`, path: `${__dirname}/posts/drafts` }),
+    fs({ name: `posts`, path: `${__dirname}/posts/2020` }),
     fs({ name: `posts`, path: `${__dirname}/posts/2019` }),
     fs({ name: `posts`, path: `${__dirname}/posts/2018` }),
     fs({ name: `posts`, path: `${__dirname}/posts/2017` }),
