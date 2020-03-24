@@ -70,6 +70,10 @@ module.exports = {
           fontWeight: '400',
           fontStyle: 'italic',
           fontSize: '1.1em'
+        },
+
+        '.small-font': {
+          fontSize: '0.82em'
         }
       })
     })

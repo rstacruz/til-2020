@@ -99,10 +99,10 @@
 }
 
 .root :global(figure.cover) {
-  @apply relative;
+  @apply relative my-12;
 
   @screen md {
-    @apply my-12 mb-16 -mx-16;
+    @apply mb-16 -mx-16;
   }
 }
 
@@ -153,12 +153,12 @@
   @apply border-purple-300 border-solid;
 
   @screen md {
-    @apply my-8 mb-6 -mx-6 px-6;
+    @apply px-6 my-8 mb-6 -mx-6;
   }
 }
 
 .root :global(strong.highlight) {
-  @apply bg-yellow-100 font-semibold;
+  @apply font-semibold bg-yellow-100;
 }
 
 .root :global(.isActive strong.highlight) {
@@ -170,13 +170,19 @@
  */
 
 .root :global(blockquote.next) {
-  @apply px-4 py-4 pl-0 mx-0 my-6 bg-gray-100 type-body-sans text-base not-italic;
+  @apply px-4 py-4 pl-0 mx-0 my-6 text-base not-italic bg-gray-100 type-body-sans;
   border-left: 0;
   @apply bg-white;
 }
 
 .root :global(blockquote.next strong) {
-  @apply bg-white font-semibold px-3 py-2 ml-2 mr-4 shadow-8;
+  @apply px-3 py-2 ml-2 mr-4 font-semibold bg-white shadow-8;
   @apply type-monospace font-bold not-italic uppercase;
   @apply bg-purple-100;
+}
+
+.root :global(figure.code-compare) {
+  @screen lg {
+    @apply -mx-32;
+  }
 }

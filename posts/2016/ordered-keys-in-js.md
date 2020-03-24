@@ -28,7 +28,7 @@ You can add more keys to an object, and it'll always end up in the end.
 { zulu: 1, yankee: 1, xray: 1, bravo: 1, alpha: 1 }
 ```
 
-> **Next:** Is that really what always happens?
+<div><NextBlock title="Is that really what always happens?" /></div>
 
 ## Not really
 
@@ -50,7 +50,7 @@ This is only true for numbers-as-strings. Strings that begin with numbers aren't
 { '5': 1, zulu: 1, yankee: 1, xray: 1, bravo: 1, alpha: 1, '5X': 1 }
 ```
 
-<next-block title="Let's take a look at how it's sorted."></next-block>
+<div><NextBlock title="Let's take a look at how it's sorted." /></div>
 
 ## Sorting behavior
 

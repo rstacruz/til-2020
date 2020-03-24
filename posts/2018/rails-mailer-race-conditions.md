@@ -29,7 +29,7 @@ class NotificationMailer < ApplicationMailer
 end
 ```
 
-<next-block title="Let's look at how this can cause problems."></next-block>
+<div><NextBlock title="Let's look at how this can cause problems." /></div>
 
 ## Race condition!
 
@@ -40,7 +40,7 @@ If you follow Rails best practices, you'd be using `#deliver_later` to send emai
 - Before an email could be sent, the `Post` is deleted.
 - The mailer now fails because `@post` is nil.
 
-<next-block title="So how can we fix this?"></next-block>
+<div><NextBlock title="So how can we fix this?" /></div>
 
 ## Think asynchronously
 

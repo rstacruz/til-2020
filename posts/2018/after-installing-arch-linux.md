@@ -39,7 +39,7 @@ nmtui
 
 This should be enough to get most laptops online. For some others, you may need to install wireless drivers. For instance, MacBooks require [Broadcom wireless](https://wiki.archlinux.org/index.php/Broadcom_wireless) drivers.
 
-> **Next:** Let's install some apps.
+<div><NextBlock title="Let's install some apps." /></div>
 
 ## Install packages
 
@@ -81,7 +81,7 @@ pacman -S \
   ttf-roboto
 ```
 
-> **Next:** Let's install some drivers.
+<div><NextBlock title="Let's install some drivers." /></div>
 
 ## Install drivers
 
@@ -109,7 +109,7 @@ You can install an older version of the Linux kernel if you feel the latest kern
 pacman -S linux-lts
 ```
 
-> **Next:** Let's install a desktop environment.
+<div><NextBlock title="Let's install a desktop environment." /></div>
 
 ## Desktop environment
 
@@ -144,7 +144,7 @@ If you were able to log into a desktop environment in the previous step, congrat
 sudo systemctl enable gdm
 ```
 
-<next-block title="Let's set up your swap file."></next-block>
+<div><NextBlock title="Let's set up your swap file." /></div>
 
 ## Creating swap
 
@@ -190,7 +190,7 @@ sudo vim /etc/fstab
 /swapfile none swap defaults 0 0
 ```
 
-> **Next:** What is the Arch User Repository?
+<div><NextBlock title="What is the Arch User Repository?" /></div>
 
 ## AUR (Arch User Repository)
 
@@ -220,7 +220,7 @@ yay -S packagename   # install a package
 yay                  # check system for updates
 ```
 
-> **Next:** What can I install from the AUR?
+<div><NextBlock title="What can I install from the AUR?" /></div>
 
 ## Some AUR packages
 

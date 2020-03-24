@@ -33,9 +33,6 @@ jobs:
     - name: Check TypeScript types
       run: yarn tsc
 
-    # - name: Check for lint warnings
-    #   run: yarn tslint
-
     - name: Check Prettier formatting
       run: yarn prettier:check
 

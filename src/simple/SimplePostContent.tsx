@@ -11,6 +11,8 @@ import CSS from './SimplePostContent.module.css'
 import ByLine from './lib/ByLine'
 import SimplePostFooter from './lib/SimplePostFooter'
 import { HastNode } from '../types'
+import cn from 'classnames'
+import NextBlock from './lib/NextBlock'
 
 const Div = ({ children, ...props }: { children: React.ReactNode }) => (
   <div {...props}>{children}</div>
@@ -22,8 +24,8 @@ const toReact = makeToReact({
     'h2-section': H2Section,
     'h3-body': Div,
     'h3-section': H3Section,
-    'multi-comparison': Div,
-    'next-block': Div,
+    'next-block': NextBlock,
+    NextBlock,
     pre: PreCode
   }
 })

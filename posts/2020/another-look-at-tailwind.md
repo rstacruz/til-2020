@@ -3,7 +3,7 @@ title: A closer look at Tailwind CSS
 description: A deep-dive into Tailwind's surprising ideas hiding behind its unconventional syntax
 layout: simple
 tags: [CSS]
-# date: 2020-02-18
+date: 2020-03-20
 ---
 
 <figure class='cover'>
@@ -28,9 +28,7 @@ You may come across Tailwind examples that have cryptic class names in HTML. I c
 
 If this doesn't sit right with you, you wouldn't be alone. <strong class='highlight'>Many developers prefer not to use Tailwind in this way.</strong> For now, let's set this aside&mdash;lets look at the other Tailwind features that can help make cleaner markup.
 
-<blockquote class='next'>
-<strong>Next:</strong> What else does Tailwind have other than a funny syntax?
-</blockquote>
+<div><NextBlock title="What else does Tailwind have other than a funny syntax?" /></div>
 
 ## It's a CSS preprocessor
 
@@ -48,9 +46,7 @@ Writing the class names out in HTML is only one way to use Tailwind. Here's anot
 
 <strong class='highlight'>This works because Tailwind is, first and foremost, a PostCSS plugin.</strong> Tailwind can also be used without PostCSS, but that would be missing out on what I think is Tailwind's hallmark feature: `@apply`.
 
-<blockquote class='next'>
-<strong>Next:</strong> What's so special about this feature?
-</blockquote>
+<div><NextBlock title="What's so special about this feature?" /></div>
 
 ## Composable CSS
 
@@ -83,9 +79,7 @@ One way to make this easier to understand is to separate them into manageable ch
 
 <strong class='highlight'>Tailwind lets you build components from smaller pieces.</strong> They don't need to by Tailwind's utilities&mdash;`@apply` will work on any class name. These pieces are called "utilities."
 
-<blockquote class='next'>
-<strong>Next:</strong> Aren't utilities just mixins in disguise?
-</blockquote>
+<div><NextBlock title="Aren't utilities just mixins in disguise?" /></div>
 
 ## Utilities vs. mixins
 
@@ -116,9 +110,7 @@ While parametric Sass mixins can be more liberating, it can also introduce some 
 
 <strong class='highlight'>Tailwind doesn't have parametric mixins&mdash;it has something better.</strong> We'll see how this restriction makes sense when we try to write the snippet above in Tailwind.
 
-<blockquote class='next'>
-<strong>Next:</strong> Let's see how this might look like as Tailwind utilties.
-</blockquote>
+<div><NextBlock title="Let's see how this might look like as Tailwind utilties." /></div>
 
 ## No parameters needed
 
@@ -171,9 +163,7 @@ Tailwind itself has a solution to make this easier. Values can be defined as _th
 }
 ```
 
-<blockquote class='next'>
-<strong>Next:</strong> Let's look at where these constants are defined.
-</blockquote>
+<div><NextBlock title="Let's look at where these constants are defined." /></div>
 
 ## Tailwind config file
 
@@ -241,9 +231,7 @@ module.exports = {
 
 Declaring utilities and constants in JavaScript is liberating. <strong class='highlight'>Your CSS will be lightweight and declarative.</strong> The heavy-lifting can be done in JavaScript instead.
 
-<blockquote class='next'>
-<strong>Next:</strong> Let's look at how Tailwind deals with margins and spacing.
-</blockquote>
+<div><NextBlock title="Let's look at how Tailwind deals with margins and spacing." /></div>
 
 ## The spacing scale
 
@@ -263,9 +251,7 @@ You'll notice that the list above skips a few steps. There are no utilities avai
 
 By having constraints on possible spacing values, we are guided to a regular grid [4px grid]. <strong class='highlight'>Tailwind makes consistency effortless.</strong>
 
-<blockquote class='next'>
-<strong>Next:</strong> Let's look at what all this structure enables for us.
-</blockquote>
+<div><NextBlock title="Let's look at what all this structure enables for us." /></div>
 
 ## Design system guiderails
 
@@ -277,9 +263,7 @@ One common theme across Tailwind's features is how it establishes a lot of struc
 
 <strong class='highlight'>Tailwind lays down the foundation for a design system.</strong> While it comes with reasonable defaults (the default [color palette] is far from atrocious), it also enables you to extend it as you wish.
 
-<blockquote class='next'>
-<strong>Next:</strong> What about preprocessors like Sass?
-</blockquote>
+<div><NextBlock title="What about preprocessors like Sass?" /></div>
 
 ## Do we even need Sass?
 

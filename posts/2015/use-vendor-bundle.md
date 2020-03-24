@@ -2,6 +2,7 @@
 date: '2015-06-22'
 title: Bundle your gems inside your project
 description: Here's a tip to get the most out of your Ruby development experience.
+layout: simple
 tags: [Ruby]
 ---
 
@@ -11,11 +12,9 @@ When working on a Ruby project, I always put the files in `vendor/bundle/`. This
 bundle install -j3 --path=vendor/bundle
 ```
 
-<!-- {.-wide} -->
-
 You only need to do this once in your project. The `--path` setting will be persisted in your project's Bundler configuration (`.bundle/config`).
 
-<next-block title="Why would we want to do this?"></next-block>
+<div><NextBlock title="Why would we want to do this?" /></div>
 
 ## Inspecting your gems
 
@@ -29,7 +28,7 @@ $ ag all_application_helpers
   106:   def all_application_helpers
 ```
 
-<next-block title="How do we ignore this from all repos?"></next-block>
+<div><NextBlock title="How do we ignore this from all repos?" /></div>
 
 ## Globally ignoring
 
@@ -46,7 +45,7 @@ This removes the need for managing gemsets via [rvm]. In fact, if your project a
 
 Even if you don't use this tip, you actually don't need rvm gemsets at all. Bundler solves the same problem.
 
-<next-block title="Bonus: let's speed up our installations!"></next-block>
+<div><NextBlock title="Bonus: let's speed up our installations!" /></div>
 
 ## Parallel installs
 
