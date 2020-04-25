@@ -17,6 +17,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-feed',
     ...(supports('sharp') ? ['gatsby-plugin-sharp'] : []),
+    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     ...(isProduction()
