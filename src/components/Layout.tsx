@@ -17,7 +17,11 @@ const useSiteMetadata = () => {
   return useStaticQuery(query).site.siteMetadata
 }
 
-const Layout = ({ children }) => {
+interface Props {
+  children: React.ReactNode
+}
+
+const Layout = ({ children }: Props) => {
   const siteMetadata = useSiteMetadata()
 
   return (

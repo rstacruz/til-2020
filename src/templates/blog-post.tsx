@@ -2,12 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-// interface Props {
-//   data: any;
+interface Props {
+  data: any
 
-//   /** eg, "/post-name-here" */
-//   uri: string;
-// }
+  /** eg, "/post-name-here" */
+  uri: string
+}
 
 const BlogPost = (props: Props) => {
   const { data } = props
