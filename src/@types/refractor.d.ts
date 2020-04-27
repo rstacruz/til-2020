@@ -1,0 +1,5 @@
+declare module 'refractor/lang/javascript'
+declare module 'refractor/lang/bash'
+declare module 'refractor/lang/css'
+declare module 'refractor/lang/scss'
+declare module 'react-refractor'

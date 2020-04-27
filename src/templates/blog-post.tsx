@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import PostLayout from './blog-post/PostLayout'
+import MyMDXProvider from './blog-post/MyMDXProvider'
 
 interface Props {
   data: {
@@ -23,7 +24,9 @@ const BlogPost = (props: Props) => {
   return (
     <div>
       <PostLayout>
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <MyMDXProvider>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </MyMDXProvider>
       </PostLayout>
     </div>
   )
