@@ -4,7 +4,7 @@ const THEME_COLOR = '#101018'
 
 module.exports = {
   siteMetadata: {
-    title: TITLE
+    title: TITLE,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -12,20 +12,35 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
+    fs({ name: 'posts', path: `${__dirname}/posts/2020` }),
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        name: TITLE,
-        short_name: SHORT_TITLE,
-        start_url: '/',
-        background_color: THEME_COLOR,
-        theme_color: THEME_COLOR,
-        display: 'minimal-ui',
-        icon: 'src/images/icon.png'
-      }
-    }
-  ]
+        extensions: ['.md', '.mdx'],
+      },
+    },
+    manifest(),
+  ],
+}
+
+function fs(options) {
+  return { resolve: 'gatsby-source-filesystem', options }
+}
+
+function manifest() {
+  return {
+    resolve: 'gatsby-plugin-manifest',
+    options: {
+      name: TITLE,
+      short_name: SHORT_TITLE,
+      start_url: '/',
+      background_color: THEME_COLOR,
+      theme_color: THEME_COLOR,
+      display: 'minimal-ui',
+      icon: 'src/images/icon.png',
+    },
+  }
 }

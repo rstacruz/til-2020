@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import 'sanitize.css'
@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
         title={siteMetadata.title}
         meta={[
           { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
+          { name: 'keywords', content: 'sample, something' },
         ]}
       >
         <html lang='en' />
