@@ -9,7 +9,7 @@ description: Chances are you've downloaded a few Google fonts to your computer. 
 ---
 
 <figure class='cover'>
-<img src='local-google-fonts/skyfonts.png'>
+<img src='local-google-fonts/skyfonts.png' />
 </figure>
 
 If you're doing any work creating UI mockups, chances are you've downloaded a few [Google fonts] to your computer. Doing this manually is tedious, and you wouldn't be up to date when the fonts get updated.

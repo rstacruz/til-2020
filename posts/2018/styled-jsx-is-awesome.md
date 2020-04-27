@@ -9,7 +9,7 @@ tags: [React]
 <!-- {.-wider-literate-style} -->
 
 <figure class='-no-pad'>
-<img src='https://source.unsplash.com/Xf7o2W7qgP0/600x250' alt='Unrelated photo'>
+<img src='https://source.unsplash.com/Xf7o2W7qgP0/600x250' alt='Unrelated photo' />
 <figcaption>CSS-in-JS developers are obsessed with this emoji. Please explain it to me.</figcaption>
 </figure>
 

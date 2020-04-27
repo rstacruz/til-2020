@@ -7,7 +7,7 @@ date: 2019-04-07
 ---
 
 <figure class='cover'>
-<img src='https://source.unsplash.com/0X7ZNRcBT-k/600x400' alt='Display'>
+<img src='https://source.unsplash.com/0X7ZNRcBT-k/600x400' alt='Display' />
 </figure>
 
 [TypeScript] lets you annotate your JavaScript with type annotations. It can even check these for errors in build-time, so you can catch errors before they get deployed to production. You'll never have to deal with another _undefined is not a function_ error ever again!

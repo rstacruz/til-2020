@@ -7,7 +7,7 @@ date: 2019-04-10
 ---
 
 <figure class='cover'>
-<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Display'>
+<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Display' />
 </figure>
 
 **You can use Babel as a TypeScript compiler.** This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!

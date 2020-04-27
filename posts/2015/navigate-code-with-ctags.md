@@ -10,7 +10,7 @@ outdated: Ctags is not always the best solution to this today. There are Languag
 ---
 
 <figure class='cover'>
-<img src='./images/unite-ctags.png'>
+<img src='./images/unite-ctags.png' />
 </figure>
 
 [Ctags] lets you navigate code fast, and is perhaps the single most useful productivity boosting tool in any developer's arsenal. If you're not using Ctags yet, let's get you started.

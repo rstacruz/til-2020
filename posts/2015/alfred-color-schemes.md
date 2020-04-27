@@ -8,7 +8,7 @@ attachments:
 ---
 
 <figure class='-panorama'>
-<img src='./alfred-color-schemes/alfred-dark.png'>
+<img src='./alfred-color-schemes/alfred-dark.png' />
 </figure>
 
 Today I learned you can change colors in [Alfred]. [Here's mine.][color]

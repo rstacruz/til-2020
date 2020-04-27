@@ -9,7 +9,7 @@ attachments:
 ---
 
 <figure class='cover'>
-<img src='./repeat-tmux-from-vim/tmux-repeat.gif' alt='Screencast demo of tmux and vim'>
+<img src='./repeat-tmux-from-vim/tmux-repeat.gif' alt='Screencast demo of tmux and vim' />
 </figure>
 
 ### Using split panes

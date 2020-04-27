@@ -16,7 +16,7 @@ attachments:
 </blockquote>
 
 <figure class='cover'>
-<img src='./iojs-on-homebrew/iojs-linking.png'>
+<img src='./iojs-on-homebrew/iojs-linking.png' />
 </figure>
 
 ### Homebrew formula

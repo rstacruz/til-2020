@@ -6,7 +6,7 @@ layout: simple
 ---
 
 <figure class='cover'>
-<img src='./images/json-curl.png' alt='Code screenshot'>
+<img src='./images/json-curl.png' alt='Code screenshot' />
 </figure>
 
 View JSON output in the command line using [jq] together with _less_. This makes JSON output more readable.
