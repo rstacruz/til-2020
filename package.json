@@ -9,12 +9,16 @@
     "gatsby": "^2.21.0",
     "gatsby-plugin-manifest": "^2.4.0",
     "gatsby-plugin-mdx": "^1.2.0",
+    "gatsby-plugin-postcss": "^2.3.0",
     "gatsby-plugin-react-helmet": "^3.3.0",
     "gatsby-source-filesystem": "^2.3.0",
+    "postcss-preset-env": "^6.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
-    "sanitize.css": "^11.0.0"
+    "sanitize.css": "^11.0.0",
+    "tailwindcss": "^1.3.5",
+    "typeface-gentium-basic": "^0.0.72"
   },
   "keywords": [
     "gatsby"

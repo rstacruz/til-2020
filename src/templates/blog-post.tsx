@@ -1,10 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import PostLayout from './blog-post/PostLayout'
 
 interface Props {
-  data: any
-
+  data: {
+    mdx: any
+    site: any
+  }
+  pageContext: {
+    previous: any
+    next: any
+  }
   /** eg, "/post-name-here" */
   uri: string
 }
@@ -15,8 +22,9 @@ const BlogPost = (props: Props) => {
 
   return (
     <div>
-      <MDXRenderer>{post.body}</MDXRenderer>
-      <pre>{JSON.stringify(props, null, 2)}</pre>
+      <PostLayout>
+        <MDXRenderer>{post.body}</MDXRenderer>
+      </PostLayout>
     </div>
   )
 }

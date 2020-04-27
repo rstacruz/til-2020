@@ -9,6 +9,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
+    { resolve: 'gatsby-plugin-postcss' },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -1,21 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
-
+import useSiteMetadata from '../hooks/useSiteMetadata'
 import 'sanitize.css'
-
-const useSiteMetadata = () => {
-  const query = graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `
-  return useStaticQuery(query).site.siteMetadata
-}
+import 'typeface-gentium-basic'
 
 interface Props {
   children: React.ReactNode
