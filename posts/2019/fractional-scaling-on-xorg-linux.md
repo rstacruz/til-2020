@@ -6,7 +6,7 @@ date: 2019-04-08
 ---
 
 <figure class='cover'>
-<img src='https://source.unsplash.com/NpZmRfdgNT8/600x400' alt='Display'>
+<img src='https://source.unsplash.com/NpZmRfdgNT8/600x400' alt='Display' />
 </figure>
 
 Getting fractional scaling right in Xorg is tricky, but possible. The solution

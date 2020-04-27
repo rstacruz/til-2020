@@ -44,7 +44,7 @@ The novella has been widely discussed among literary critics, with differing int
 One day, Gregor Samsa, a traveling salesman, wakes up to find himself transformed into a giant insect (the most common translation of the German description ungeheures Ungeziefer, literally "monstrous vermin"). He reflects on how dreary life as a traveling salesman is. As he looks at the wall clock, he notices that he has overslept and missed his train for work. He ponders the consequences of this delay.
 
 <figure class='-panorama'>
-<img src='https://source.unsplash.com/NpZmRfdgNT8/1400x300' alt='Panoramic picture'>
+<img src='https://source.unsplash.com/NpZmRfdgNT8/1400x300' alt='Panoramic picture' />
 </figure>
 
 ### Another part
@@ -60,7 +60,7 @@ Gregor becomes annoyed at how his boss never accepts excuses or explanations fro
 <!-- {.-literate-style} -->
 
 <figure class='-no-pad'>
-<img src='https://source.unsplash.com/NpZmRfdgNT8/600x600' alt='Display'>
+<img src='https://source.unsplash.com/NpZmRfdgNT8/600x600' alt='Display' />
 </figure>
 
 Getting fractional scaling right in Xorg is tricky, but possible. The solution

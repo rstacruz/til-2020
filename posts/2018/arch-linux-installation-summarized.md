@@ -11,7 +11,7 @@ tags: [Linux, Featured]
 Arch Linux's wiki has a great [installation guide](https://wiki.archlinux.org/index.php/Installation_guide), but some find it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.
 
 <figure class='-no-pad'>
-<img src='https://source.unsplash.com/666lawaMlFA/600x300' alt='Display'>
+<img src='https://source.unsplash.com/666lawaMlFA/600x300' alt='Display' />
 <figcaption>This photo isn't related to Arch Linux in any way.</figcaption>
 </figure>
 

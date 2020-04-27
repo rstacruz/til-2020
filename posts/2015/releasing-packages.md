@@ -16,7 +16,7 @@ Releasing packages involves the same repetitive tasks: updating the change log, 
 This utility allows you to increment versions of files through the command line. For JavaScript packages, this simply means bumping your `.json` files. This works with any file type with [semver](http://semver.org/) tags.
 
 <figure class='-transparent'>
-<img src='https://camo.githubusercontent.com/b35364114a530e5b4066d719c150d7abaaf4e95f/687474703a2f2f63646e2e7261776769742e636f6d2f727374616372757a2f62756d702d636c692f613235316336332f62756d702e706e67'>
+<img src='https://camo.githubusercontent.com/b35364114a530e5b4066d719c150d7abaaf4e95f/687474703a2f2f63646e2e7261776769742e636f6d2f727374616372757a2f62756d702d636c692f613235316336332f62756d702e706e67' />
 </figure>
 
 ### 2. Continuously maintain the change log

@@ -9,7 +9,7 @@ attachments:
 ---
 
 <figure class='-wide'>
-<img src='./mocha-istanbul-coverage/screenshot.png'>
+<img src='./mocha-istanbul-coverage/screenshot.png' />
 </figure>
 
 ###

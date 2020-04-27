@@ -6,7 +6,7 @@ layout: simple
 ---
 
 <figure class='cover'>
-<img src='https://source.unsplash.com/SO5jpAT2bN8/600x700' alt='Photo unrelated'>
+<img src='https://source.unsplash.com/SO5jpAT2bN8/600x700' alt='Photo unrelated' />
 </figure>
 
 Before we can figure out what media query breakpoints to use, we need to look at what devices we're designing for.

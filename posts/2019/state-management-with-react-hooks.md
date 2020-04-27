@@ -9,7 +9,7 @@ layout: simple
 ---
 
 <figure class='cover'>
-<img src='https://source.unsplash.com/Rs5BQj5zbf8/600x300' alt='Unrelated photo'>
+<img src='https://source.unsplash.com/Rs5BQj5zbf8/600x300' alt='Unrelated photo' />
 </figure>
 
 **React now comes with hooks that can be used to manage state and propagate it throughout your app.** In essence&mdash;you can do Redux without using Redux! I've been trying to use [useState][usestate] and [useContext][usecontext] to manage a large block of state in a React app. In think it's a great alternative to Redux.

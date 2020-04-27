@@ -11,7 +11,7 @@ tags: [Linux, Featured]
 I do a lot of my day-to-day development work on a Linux VPS in the cloud. This lets me, say, run very taxing Rails projects without thrashing my laptop.
 
 <figure class='-no-pad'>
-<img src='https://source.unsplash.com/0juC5JIhPks/600x300' alt='Display'>
+<img src='https://source.unsplash.com/0juC5JIhPks/600x300' alt='Display' />
 <figcaption>Believe it or not, Arch Linux can run on these.</figcaption>
 </figure>
 

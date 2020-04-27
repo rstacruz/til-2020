@@ -85,7 +85,7 @@ I prefix each mission with a projected date of completion (`1702` is 2017, Febru
 This system is so simple, you can use anything to keep track of it. As an Android user, I prefer using [Google Keep](https://keep.google.com). It lets me view all my missions at a glance, both ongoing and completed.
 
 <figure class='-transparent'>
-<img src='./life-in-side-quests/keep-missions.png'>
+<img src='./life-in-side-quests/keep-missions.png' />
 </figure>
 
 There are a variety of other ways to keep track of your missions, including using plain notebooks and pens. What's important is you break your goals into manageable pieces, and give yourself a way to look back on your progress.

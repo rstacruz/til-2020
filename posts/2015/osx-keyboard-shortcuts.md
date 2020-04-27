@@ -9,7 +9,7 @@ attachments:
 ---
 
 <figure class='cover'>
-<img src='./osx-keyboard-shortcuts/keyboard.png' alt='Keyboard shortcuts dialog'>
+<img src='./osx-keyboard-shortcuts/keyboard.png' alt='Keyboard shortcuts dialog' />
 </figure>
 
 After switching to OS X, one thing I've always missed in Windows and Linux is the ability to spawn menus using `Alt` `F`. Today I realized that OS X has two ways to accomplish this.
