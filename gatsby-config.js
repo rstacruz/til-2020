@@ -6,14 +6,7 @@ const config = () => ({
 const plugins = () => [
   'gatsby-plugin-typescript',
   'gatsby-plugin-react-helmet',
-  { resolve: 'gatsby-plugin-postcss' },
-  {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      name: 'images',
-      path: `${__dirname}/src/images`,
-    },
-  },
+  'gatsby-plugin-postcss',
   fs({ name: 'posts', path: `${__dirname}/posts/2020` }),
   {
     resolve: 'gatsby-plugin-mdx',

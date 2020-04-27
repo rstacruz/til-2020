@@ -1,0 +1,142 @@
+.ms-0 {
+  font-size: 1em;
+}
+
+.-ms-1 {
+  font-size: calc(1em / theme('modscale.sm.ratio'));
+
+  @screen md {
+    font-size: calc(1em / theme('modscale.md.ratio'));
+  }
+}
+
+.ms-1 {
+  font-size: calc(1em * theme('modscale.sm.ratio'));
+  line-height: calc(
+    theme('modscale.sm.linebase') * theme('modscale.sm.lineratio')
+  );
+
+  @screen md {
+    font-size: calc(1em * theme('modscale.md.ratio'));
+  }
+}
+
+.ms-2 {
+  font-size: calc(
+    1em * theme('modscale.sm.ratio') * theme('modscale.sm.ratio')
+  );
+  line-height: calc(
+    theme('modscale.sm.linebase') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio')
+  );
+
+  @screen md {
+    font-size: calc(
+      1em * theme('modscale.md.ratio') * theme('modscale.md.ratio')
+    );
+  }
+}
+
+.ms-3 {
+  font-size: calc(
+    1em * theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio')
+  );
+  line-height: calc(
+    theme('modscale.sm.linebase') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio')
+  );
+
+  @screen md {
+    font-size: calc(
+      1em * theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio')
+    );
+  }
+}
+
+.ms-4 {
+  font-size: calc(
+    1em * theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio') * theme('modscale.sm.ratio')
+  );
+  line-height: calc(
+    theme('modscale.sm.linebase') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio')
+  );
+
+  @screen md {
+    font-size: calc(
+      1em * theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio') * theme('modscale.md.ratio')
+    );
+  }
+}
+
+.ms-5 {
+  font-size: calc(
+    1em * theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio')
+  );
+  line-height: calc(
+    theme('modscale.sm.linebase') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio')
+  );
+
+  @screen md {
+    font-size: calc(
+      1em * theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio')
+    );
+  }
+}
+
+.ms-6 {
+  font-size: calc(
+    1em * theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio') * theme('modscale.sm.ratio')
+  );
+  line-height: calc(
+    theme('modscale.sm.linebase') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio')
+  );
+
+  @screen md {
+    font-size: calc(
+      1em * theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio') * theme('modscale.md.ratio')
+    );
+  }
+}
+
+.ms-7 {
+  font-size: calc(
+    1em * theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio') * theme('modscale.sm.ratio') *
+      theme('modscale.sm.ratio')
+  );
+  line-height: calc(
+    theme('modscale.sm.linebase') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio') *
+      theme('modscale.sm.lineratio') * theme('modscale.sm.lineratio')
+  );
+
+  @screen md {
+    font-size: calc(
+      1em * theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio') * theme('modscale.md.ratio') *
+        theme('modscale.md.ratio')
+    );
+  }
+}

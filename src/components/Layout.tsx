@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 import 'sanitize.css'
 import 'typeface-gentium-basic'
+import 'typeface-public-sans'
 
 interface Props {
   children: React.ReactNode

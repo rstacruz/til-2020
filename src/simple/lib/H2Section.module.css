@@ -1,0 +1,20 @@
+@import '../../css-utils/dotted-background.css';
+
+.root {
+  /* hmm */
+}
+
+.separator {
+  @apply block mt-12 mb-12;
+}
+
+/* Horizontal */
+.separator::before {
+  @apply block w-32 h-6 mx-auto;
+  @apply dotted-background-12;
+  content: '';
+}
+
+.inner > :global(hr:last-child) {
+  display: none;
+}

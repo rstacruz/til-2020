@@ -1,0 +1,24 @@
+@import '../css-utils/ms.css';
+@import '../css-utils/container.css';
+@import '../css-utils/type.css';
+
+.root {
+  @apply container antialiased leading-relaxed;
+  @apply type-body-sans;
+  color: #181818;
+}
+
+.title {
+  @apply mt-12 mb-4 text-gray-700 ms-7 type-heading-serif;
+  color: #111;
+
+  @screen md {
+    @apply mt-32;
+    padding-right: 10%;
+  }
+}
+
+.description {
+  @apply type-italic-serif ms-2 -mt-2;
+  color: theme('colors.a.500');
+}

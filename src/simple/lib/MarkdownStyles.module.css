@@ -1,0 +1,188 @@
+@import '../../css-utils/ms.css';
+@import '../../css-utils/container.css';
+@import '../../css-utils/type.css';
+@import '../../css-utils/dotted-background.css';
+
+.root :global(pre, ol, ul, h1, h2, h3, h4, h5, h6, figure) {
+  @apply my-6;
+}
+
+.root :global(em) {
+  @apply type-italic-serif;
+  font-size: 1.12em;
+}
+
+.root :global(hr) {
+  @apply block w-64 h-px my-4 my-8 bg-gray-300 border-0;
+  @screen md {
+    @apply my-10;
+  }
+}
+
+.root :global(h2) {
+  @apply mb-4 text-gray-700 ms-4 type-thin-heading;
+}
+
+.root :global(h2::after) {
+  content: '';
+  @apply block mt-2 mb-4;
+  border-bottom: solid 1px theme('colors.n.line');
+}
+
+.root :global(h3) {
+  @apply mt-8 mb-0 text-gray-900 ms-1 type-bold-heading;
+}
+
+.root :global(a) {
+  @apply no-underline text-n-mute;
+}
+
+.root :global(code) {
+  @apply text-n-mute type-monospace;
+  font-size: 1em;
+}
+
+.root :global(figure) {
+  @apply mx-0;
+}
+
+.root :global(figure > figcaption:first-child) {
+  @apply px-4 py-2 m-0 -mb-8 text-sm font-bold bg-gray-100 text-n-mute;
+  border: solid 2px theme('colors.purple.500');
+  border-bottom: 0;
+  border-image: linear-gradient(
+      110deg,
+      theme('colors.gray.300'),
+      theme('colors.purple.300')
+    )
+    1;
+}
+
+.root :global(h3 + div > p) {
+  @apply mt-1;
+}
+
+.root :global(blockquote) {
+  @apply type-italic-serif;
+  @apply px-0 pl-4 mx-0;
+  border-left: solid 2px theme('colors.n.line');
+}
+
+.root :global(table) {
+  min-width: 100%;
+  @apply my-8;
+}
+
+.root :global(tr) {
+  border-bottom: solid 1px theme('colors.n.line');
+}
+
+.root :global(table > :last-child > tr:last-child) {
+  border-bottom: 0;
+}
+
+.root :global(td),
+.root :global(th) {
+  @apply p-2;
+}
+
+.root :global(figure) {
+  @apply relative;
+
+  @screen md {
+    @apply my-8;
+  }
+}
+
+.root :global(figure > img) {
+  @apply block mx-auto;
+}
+
+.root :global(figure.cover) {
+  @apply relative my-12;
+
+  @screen md {
+    @apply mb-16 -mx-16;
+  }
+}
+
+/* Screen thing */
+.root :global(figure.cover::after) {
+  @apply absolute z-auto block;
+  @apply dotted-background-12;
+  content: '';
+  top: 4rem;
+  bottom: -2rem;
+  left: -12rem;
+  right: -12rem;
+}
+
+.root :global(figure.cover > .gatsby-resp-image-wrapper) {
+  @apply relative z-10;
+}
+
+.root :global(figure.cover > img) {
+  @apply relative z-10 object-cover w-full bg-gray-800 shadow-32;
+  border-radius: 3px;
+  height: 24rem;
+
+  @screen md {
+    height: 32rem;
+  }
+}
+
+.root :global(p) {
+  @apply relative z-0;
+}
+
+.root :global(figure.table) {
+  @apply relative shadow-8;
+  @apply border-gray-300 border-solid;
+
+  @screen md {
+    @apply my-8 mb-12 -mx-16;
+  }
+}
+
+.root :global(figure.table > table) {
+  @apply m-0;
+}
+
+.root :global(blockquote.notice) {
+  @apply relative shadow-8;
+  @apply border-purple-300 border-solid;
+
+  @screen md {
+    @apply px-6 my-8 mb-6 -mx-6;
+  }
+}
+
+.root :global(strong.highlight) {
+  @apply font-semibold bg-yellow-100;
+}
+
+.root :global(.isActive strong.highlight) {
+  @apply bg-yellow-200;
+}
+
+/*
+ * Blockquote: next
+ */
+
+.root :global(blockquote.next) {
+  @apply px-4 py-4 pl-0 mx-0 my-6 text-base not-italic bg-gray-100 type-body-sans;
+  border-left: 0;
+  @apply bg-white;
+}
+
+.root :global(blockquote.next strong) {
+  @apply px-3 py-2 ml-2 mr-4 font-semibold bg-white shadow-8;
+  @apply type-monospace font-bold not-italic uppercase;
+  @apply bg-purple-100;
+}
+
+.root :global(figure.code-compare) {
+  @screen lg {
+    @apply -mx-32;
+  }
+}
