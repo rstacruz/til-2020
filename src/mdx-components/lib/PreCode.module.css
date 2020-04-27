@@ -1,0 +1,57 @@
+@import '../../css-utils/all.css';
+
+.root {
+  @apply p-5 mx-0 rounded-sm my-lg type-monospace;
+  @apply type-monospace;
+  @apply overflow-x-auto thin-scrollbar;
+  @apply shadow-32;
+  transition: box-shadow 300ms linear;
+  background: #f4fbff;
+}
+
+:global(.isInactive) .root {
+  @apply shadow-8;
+}
+
+.root + .root {
+  @apply -mt-8;
+}
+
+.pre.pre > code {
+  color: theme('colors.gray.800');
+}
+
+.pre {
+  margin: 0;
+  padding: 0;
+}
+
+.root :global(.keyword),
+.root :global(.maybe-class-name) {
+  color: theme('colors.blue.800');
+}
+
+.root :global(.maybe-class-name) {
+  font-weight: bold;
+}
+
+.root :global(.function) {
+  color: theme('colors.teal.600');
+}
+
+.root :global(.parameter),
+.root :global(.property-access) {
+  color: theme('colors.teal.800');
+}
+
+.root :global(.number),
+.root :global(.string) {
+  font-weight: bold;
+  color: theme('colors.blue.800');
+}
+
+.root :global(.operator),
+.root :global(.punctuation),
+.root :global(.comment) {
+  color: theme('colors.gray.700');
+}

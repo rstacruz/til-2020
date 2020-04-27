@@ -1,23 +1,21 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 
+// Typefaces
+import 'typeface-gentium-basic'
+import 'typeface-public-sans'
+import 'typeface-roboto-mono'
+
+// Global CSS
 import 'sanitize.css'
+import './Layout.base.css'
 
-const useSiteMetadata = () => {
-  const query = graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `
-  return useStaticQuery(query).site.siteMetadata
+interface Props {
+  children: React.ReactNode
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: Props) => {
   const siteMetadata = useSiteMetadata()
 
   return (
@@ -26,7 +24,7 @@ const Layout = ({ children }) => {
         title={siteMetadata.title}
         meta={[
           { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
+          { name: 'keywords', content: 'sample, something' },
         ]}
       >
         <html lang='en' />
