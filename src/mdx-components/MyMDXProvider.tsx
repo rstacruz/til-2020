@@ -1,7 +1,7 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import PreCode from '../../simple/lib/PreCode'
-import H2Section from '../../simple/lib/H2Section'
+import PreCode from './lib/PreCode'
+import H2Section from './lib/H2Section'
 
 const components = {
   pre: PreCode,
