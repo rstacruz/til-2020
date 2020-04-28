@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import ListingPage from '../simple/ListingPage'
+import ListingPage from '../src/simple/ListingPage'
 
 const Home = (props: any) => {
   const { data } = props
