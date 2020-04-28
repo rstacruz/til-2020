@@ -1,19 +1,15 @@
+/* import H2Section from './lib/H2Section' */
+/* import H3Section from './lib/H3Section' */
+/* import PreCode from './lib/PreCode' */
+/* import NextBlock from './lib/NextBlock' */
+
 import React from 'react'
-import H2Section from './lib/H2Section'
-import H3Section from './lib/H3Section'
-import PreCode from './lib/PreCode'
 import MarkdownStyles from './lib/MarkdownStyles'
 import BlogNav from './lib/BlogNav'
 import Unorphan from './lib/Unorphan'
 import CSS from './SimplePostContent.module.css'
 import ByLine from './lib/ByLine'
 import SimplePostFooter from './lib/SimplePostFooter'
-import cn from 'classnames'
-import NextBlock from './lib/NextBlock'
-
-const Div = ({ children, ...props }: { children: React.ReactNode }) => (
-  <div {...props}>{children}</div>
-)
 
 interface Props {
   title: string

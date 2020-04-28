@@ -11,13 +11,13 @@ const ALIASES: { [key: string]: string } = {
   sh: 'bash',
 }
 
-const CodeHighlight = ({ children, className, ...props }: Props) => {
+const CodeHighlight = ({ children, className }: Props) => {
   const node = children as { props: { children: string; className: string } }
   const code = node.props.children
   const lang = node.props.className.replace(/^language-/, '')
   const language = ALIASES[lang] || lang
 
-  return <Refractor language={lang} value={code} />
+  return <Refractor language={language} value={code} className={className} />
 }
 
 /*
