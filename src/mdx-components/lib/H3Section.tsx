@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 import CSS from './H3Section.module.css'
-import { useWaypoint } from './useWaypoint'
+import { useWaypoint } from '../../simple/lib/useWaypoint'
 
 interface Props {
   children: React.ReactNode
@@ -15,7 +15,7 @@ const H3Section = ({ children, className }: Props) => {
       <section
         className={cn(CSS.root, className, {
           isActive: isActive,
-          isInactive: !isActive
+          isInactive: !isActive,
         })}
       >
         {children}

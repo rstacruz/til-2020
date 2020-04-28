@@ -11,10 +11,10 @@ const plugins = () => [
     resolve: 'gatsby-plugin-page-creator',
     options: { path: `${__dirname}/pages` },
   },
-  {
+  ...['2020'].map((year) => ({
     resolve: 'gatsby-source-filesystem',
-    options: { name: 'posts', path: `${__dirname}/posts/2020` },
-  },
+    options: { name: 'posts', path: `${__dirname}/posts/${year}` },
+  })),
   {
     resolve: 'gatsby-plugin-mdx',
     options: {

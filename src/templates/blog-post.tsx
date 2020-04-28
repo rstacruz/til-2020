@@ -18,14 +18,19 @@ interface Props {
 }
 
 const BlogPost = (props: Props) => {
-  const { data } = props
-  const post = data.mdx
+  const mdx = props.data.mdx
+
+  const post = {
+    title: mdx.frontmatter.title,
+    date: mdx.frontmatter.date,
+    description: mdx.frontmatter.description,
+  }
 
   return (
     <div>
-      <PostLayout>
+      <PostLayout post={post}>
         <MyMDXProvider>
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
         </MyMDXProvider>
       </PostLayout>
     </div>
@@ -46,6 +51,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        description
       }
       body
     }
