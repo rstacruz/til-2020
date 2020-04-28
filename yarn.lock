@@ -1114,6 +1114,13 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@rstacruz/rehype-sectionize@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@rstacruz/rehype-sectionize/-/rehype-sectionize-0.1.0.tgz#bb4f23c4b5eb6159f70199c98be0b6eadbc059b4"
+  integrity sha512-xMTDFjWpzy9zJpM+nXTnn5UVcE3vKNo1BhjfNyzj+edC2/O8C73fieZ38fUwHX+Nix+fb55NrOEJTDDTmMS/XQ==
+  dependencies:
+    unist-util-visit "^2.0.2"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"

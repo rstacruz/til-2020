@@ -6,6 +6,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.9",
     "@mdx-js/react": "^1.5.9",
+    "@rstacruz/rehype-sectionize": "^0.1.0",
     "classnames": "^2.2.6",
     "gatsby": "^2.21.0",
     "gatsby-plugin-manifest": "^2.4.0",
