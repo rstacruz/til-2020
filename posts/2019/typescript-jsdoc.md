@@ -289,7 +289,7 @@ Use `@typedef` to define a type. External `.d.ts` files are preferred to this ap
  * @param {Props} props
  */
 
-const ArticleLink = props => {
+const ArticleLink = (props) => {
   console.log(props.title)
   console.log(props.updatedAt)
   // ...
@@ -322,7 +322,7 @@ Function components are plain functions. You can document them in any of the way
  * @param {string} props.image
  */
 
-const ArticleLink = props => {
+const ArticleLink = (props) => {
   // ...
 }
 ```
@@ -404,7 +404,7 @@ numbers.map((/** @type number */ n) => {
 })
 ```
 
-###Documenting options
+### Documenting options
 
 You can document the properties of object parameters.
 

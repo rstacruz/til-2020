@@ -1,9 +1,9 @@
-import { graphql } from 'gatsby'
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import ListingPage from '../src/simple/ListingPage'
 
 const Home = (props: any) => {
-  const { data } = props
+  const data = useStaticQuery(props.query || query)
 
   const pages = data.allMdx.edges.map(({ node }: any) => ({
     slug: node.fields.slug,
@@ -15,7 +15,7 @@ const Home = (props: any) => {
   return <ListingPage pages={pages} />
 }
 
-export const pageQuery = graphql`
+const query = graphql`
   query {
     site {
       siteMetadata {

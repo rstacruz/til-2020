@@ -1,12 +1,31 @@
 import React from 'react'
-import Layout from '../src/components/Layout'
+import PageListing from './all'
+import { graphql } from 'gatsby'
 
-const IndexPage = () => (
-  <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-  </Layout>
-)
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "YYYY-MM-DD")
+            title
+            tags
+          }
+        }
+      }
+    }
+  }
+`
+const Home = () => <PageListing query={query} />
 
-export default IndexPage
+export default Home

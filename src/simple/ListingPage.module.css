@@ -1,0 +1,9 @@
+@import '../css-utils/type.css';
+
+.link {
+  @apply block p-2 px-4 no-underline;
+}
+
+.date {
+  @apply inline-block mr-2 type-monospace;
+}
