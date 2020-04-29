@@ -13,6 +13,8 @@
     "gatsby-plugin-mdx": "^1.2.0",
     "gatsby-plugin-postcss": "^2.3.0",
     "gatsby-plugin-react-helmet": "^3.3.0",
+    "gatsby-plugin-sharp": "^2.6.0",
+    "gatsby-remark-images": "^3.3.0",
     "gatsby-source-filesystem": "^2.3.0",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
@@ -25,7 +27,8 @@
     "sanitize.css": "^11.0.0",
     "tailwindcss": "^1.3.5",
     "typeface-gentium-basic": "^0.0.72",
-    "typeface-public-sans": "^1.1.4"
+    "typeface-public-sans": "^1.1.4",
+    "typeface-roboto-mono": "^0.0.75"
   },
   "keywords": [
     "gatsby"

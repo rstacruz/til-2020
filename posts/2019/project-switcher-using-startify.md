@@ -4,11 +4,7 @@ date: 2019-01-29
 tags: [Vim]
 ---
 
-###
-
-<!-- {.-wider-literate-style} -->
-
-<figure class='-no-pad'>
+<figure class='cover'>
 <img src='https://source.unsplash.com/lCYoIM-fbuU/600x200' alt='Unrelated picture' />
 </figure>
 
@@ -19,8 +15,6 @@ I like using [Startify] not just as a pretty splash screen, but also as a sessio
 ## Getting started
 
 ### Installing Startify
-
-<!-- {.-wider-literate-style} -->
 
 Install Startify in your vim configuration. Here's how you would do it with vim-plug.
 
@@ -33,7 +27,7 @@ Plug 'mhinz/vim-startify'
 Save your current session using `:SSave`.
 
 <figure class='-wide'>
-<img src='project-switcher-using-startify/startify-ssave.gif' />
+<img src='./project-switcher-using-startify/startify-ssave.gif' />
 </figure>
 
 ## Loading sessions

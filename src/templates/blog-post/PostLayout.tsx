@@ -1,5 +1,4 @@
 import React from 'react'
-import CSS from './PostLayout.module.css'
 import SimplePostContent from '../../simple/SimplePostContent'
 
 type Props = {
@@ -13,12 +12,7 @@ type Props = {
 
 const PostLayout = (props: Props) => {
   const { post } = props
-
-  return (
-    <div className={CSS.root}>
-      <SimplePostContent {...post}>{props.children}</SimplePostContent>
-    </div>
-  )
+  return <SimplePostContent {...post}>{props.children}</SimplePostContent>
 }
 
 export default PostLayout

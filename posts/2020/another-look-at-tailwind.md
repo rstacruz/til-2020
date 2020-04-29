@@ -13,16 +13,16 @@ Tailwind is perhaps the hottest CSS framework to come out of 2019. It's gotten n
 
 However, I'm not one to dismiss things for simply looking different on a first glance. Remember how we all thought of JSX when it came out?
 
----
-
 I set out to try to dive into Tailwind. Rather than focus on its eccentric syntax, I tried to find out what made it different... and I'm pretty blown away by what I found.
+
+---
 
 ## Beyond the class names
 
 You may come across Tailwind examples that have cryptic class names in HTML. I can't blame you if snippets like these would seem wrong:
 
 ```html
-<div class="md:p-2 mx-auto my-4"></div>
+<div class="mx-auto my-4 md:p-2"></div>
 ```
 
 If this doesn't sit right with you, you wouldn't be alone. <strong class='highlight'>Many developers prefer not to use Tailwind in this way.</strong> For now, let's set this aside&mdash;lets look at the other Tailwind features that can help make cleaner markup.

@@ -1,9 +1,15 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import useSiteMetadata from '../hooks/useSiteMetadata'
-import 'sanitize.css'
+
+// Typefaces
 import 'typeface-gentium-basic'
 import 'typeface-public-sans'
+import 'typeface-roboto-mono'
+
+// Global CSS
+import 'sanitize.css'
+import './Layout.base.css'
 
 interface Props {
   children: React.ReactNode

@@ -1,20 +1,21 @@
 @import '../../css-utils/dotted-background.css';
 
 .root {
-  /* hmm */
+  @apply block mb-16;
 }
 
-.separator {
-  @apply block mt-12 mb-12;
-}
+/* .separator { */
+/* @apply block mt-8 mb-10; */
+/* opacity: 0.5; */
+/* } */
 
 /* Horizontal */
-.separator::before {
-  @apply block w-32 h-6 mx-auto;
-  @apply dotted-background-12;
-  content: '';
-}
+/* .separator::before { */
+/*   @apply block w-32 h-6 mx-auto; */
+/*   @apply dotted-background-12; */
+/*   content: ''; */
+/* } */
 
-.inner > :global(hr:last-child) {
-  display: none;
-}
+/* .inner > :global(hr:last-child) { */
+/*   display: none; */
+/* } */

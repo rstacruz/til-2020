@@ -13,14 +13,12 @@
 }
 
 .root :global(hr) {
-  @apply block w-64 h-px my-4 my-8 bg-gray-300 border-0;
-  @screen md {
-    @apply my-10;
-  }
+  @apply block w-32 h-3 mt-8 mb-8 bg-gray-300 border-0;
+  @apply dotted-background-12;
 }
 
 .root :global(h2) {
-  @apply mb-4 text-gray-700 ms-4 type-thin-heading;
+  @apply mb-6 text-gray-700 ms-4 type-thin-heading;
 }
 
 .root :global(h2::after) {
@@ -58,7 +56,8 @@
     1;
 }
 
-.root :global(h3 + div > p) {
+.root :global(h3 + div > p),
+.root :global(h3 + p) {
   @apply mt-1;
 }
 
@@ -102,7 +101,7 @@
   @apply relative my-12;
 
   @screen md {
-    @apply mb-16 -mx-16;
+    @apply mb-20 -mx-16;
   }
 }
 
@@ -177,7 +176,7 @@
 
 .root :global(blockquote.next strong) {
   @apply px-3 py-2 ml-2 mr-4 font-semibold bg-white shadow-8;
-  @apply type-monospace font-bold not-italic uppercase;
+  @apply not-italic font-bold uppercase type-monospace;
   @apply bg-purple-100;
 }
 
