@@ -7,6 +7,8 @@ const plugins = () => [
   'gatsby-plugin-typescript',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-postcss',
+
+  // Remove unused selectors
   {
     resolve: 'gatsby-plugin-purgecss',
     options: {
@@ -20,7 +22,7 @@ const plugins = () => [
   'gatsby-plugin-sharp',
   'gatsby-remark-images',
 
-  // Pages
+  // Allow pages in /pages instead of /src/pages
   {
     resolve: 'gatsby-plugin-page-creator',
     options: { path: `${__dirname}/pages` },
@@ -38,10 +40,15 @@ const plugins = () => [
     options: {
       extensions: ['.md', '.mdx'],
       gatsbyRemarkPlugins: [
+        // Put images ina  responsive container
         {
           resolve: 'gatsby-remark-images',
           options: { maxWidth: 1400 },
         },
+
+        // Support animated GIF's
+        // See: https://www.gatsbyjs.org/packages/gatsby-remark-images/#supported-formats
+        'gatsby-remark-copy-linked-files',
       ],
       rehypePlugins: [require('@rstacruz/rehype-sectionize').plugin],
     },
