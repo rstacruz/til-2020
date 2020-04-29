@@ -2,17 +2,19 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import ListingPage from '../src/simple/ListingPage'
 
-const Home = (props: any) => {
-  const data = useStaticQuery(props.query || query)
+const Home = () => {
+  const data = useStaticQuery(query)
+  const pages = usePages(data)
+  return <ListingPage pages={pages} />
+}
 
-  const pages = data.allMdx.edges.map(({ node }: any) => ({
+export const usePages = (data: any) => {
+  return data.allMdx.edges.map(({ node }: any) => ({
     slug: node.fields.slug,
     date: node.frontmatter.date,
     title: node.frontmatter.title,
     tags: node.frontmatter.tags,
   }))
-
-  return <ListingPage pages={pages} />
 }
 
 const query = graphql`

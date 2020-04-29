@@ -74,3 +74,4 @@
 .root :global(.comment) {
   color: theme('colors.gray.500');
 }
+

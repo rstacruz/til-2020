@@ -1,6 +1,13 @@
 import React from 'react'
-import PageListing from './all'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
+import { usePages } from './all'
+import ListingPage from '../src/simple/ListingPage'
+
+const Home = () => {
+  const data = useStaticQuery(query)
+  const pages = usePages(data)
+  return <ListingPage pages={pages} />
+}
 
 const query = graphql`
   query {
@@ -26,6 +33,5 @@ const query = graphql`
     }
   }
 `
-const Home = () => <PageListing query={query} />
 
 export default Home
