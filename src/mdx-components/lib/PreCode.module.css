@@ -19,12 +19,11 @@
 }
 
 .root {
-  @apply p-5 my-8 -mx-5 type-monospace;
+  @apply p-5 mx-0 my-lg type-monospace;
   @apply type-monospace;
   @apply overflow-x-auto thin-scrollbar;
   @apply shadow-32;
   @apply active-bg;
-  border-radius: 2px;
 }
 
 :global(.isInactive) .root {
@@ -74,4 +73,3 @@
 .root :global(.comment) {
   color: theme('colors.gray.500');
 }
-

@@ -28,6 +28,8 @@ sudo netctl-auto switch-to wlp3s0-WifiNameHere
 
 </figure>
 
+---
+
 ## Connecting to Wi-Fi
 
 ###

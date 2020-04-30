@@ -4,14 +4,22 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
   theme: {
     extend: {
+      spacing: {
+        md: '1.25rem', // margin between p's
+        lg: '2rem', // between figures
+        xl: '3rem', // dunno
+        xxl: '4rem', // between H2sections
+      },
       modscale: {
         sm: { ratio: 1.14, linebase: 1.6, lineratio: 0.957 },
         md: { ratio: 1.18, linebase: 1.6, lineratio: 0.957 },
       },
       colors: {
+        //  Brand A
         a: {
           '500': '#705075',
         },
+        // Neutral
         n: {
           mute: '#5b687a',
           faded: '#718096',

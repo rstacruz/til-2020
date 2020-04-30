@@ -20,8 +20,6 @@ TypeScript, by default, requires you to make a few changes to your build setup. 
 
 Many people don't like how working with TypeScript means having to use a new syntax, even if it's a strict superset of JavaScript. If this describes you, then this article is for you.
 
-<figure>
-
 ```js
 /*
  * TypeScript syntax allows you to put inline type annotations... but it's not
@@ -32,8 +30,6 @@ function repeat(text: string, count: number) {
   return Array(count + 1).join(text)
 }
 ```
-
-</figure>
 
 <div><NextBlock title="Let's learn about an alternative to the TypeScript syntax." /></div>
 
@@ -64,12 +60,8 @@ This means you can take advantage of TypeScript's type checking in JavaScript, w
 
 It's a great idea to use JSDoc whether you use TypeScript or not. It's the de facto standard for documenting JavaScript, and is supported by a lot of tools and editors.
 
-<figure class='-bordered'>
-
 - [**Use JSDoc: Home**][jsdoc] _(usejsdoc.org)_
 - [**JSDoc**](https://en.wikipedia.org/wiki/JSDoc) _(en.wikipedia.org)_
-
-</figure>
 
 If you're using JSDoc to document your JavaScript, you might as well let TypeScript enforce the integrity of your types in your code.
 

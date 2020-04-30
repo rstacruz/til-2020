@@ -8,7 +8,7 @@
 }
 
 .type-bold-heading {
-  @apply font-extrabold type-body-sans;
+  @apply font-bold type-body-sans;
   letter-spacing: -0.02rem;
 }
 

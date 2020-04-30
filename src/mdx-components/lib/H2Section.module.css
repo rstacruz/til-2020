@@ -1,7 +1,7 @@
 @import '../../css-utils/dotted-background.css';
 
 .root {
-  @apply block mb-16;
+  @apply block mb-xxl;
 }
 
 /* .separator { */

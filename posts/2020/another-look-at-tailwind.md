@@ -78,7 +78,7 @@ One way to make this easier to understand is to separate them into manageable ch
 
 <strong class='highlight'>Tailwind lets you build components from smaller pieces.</strong> They don't need to by Tailwind's utilities&mdash;`@apply` will work on any class name. These pieces are called "utilities."
 
-<div><NextBlock title="Aren't utilities just mixins in disguise?" /></div>
+<NextBlock title="Aren't utilities just mixins in disguise?" />
 
 ## Utilities vs. mixins
 

@@ -23,8 +23,6 @@ Install Babel and its required packages. We'll be using [@babel/preset-typescrip
 [@babel/preset-typescript]: https://yarn.pm/@babel/preset-typescript
 [typescript]: https://yarn.pm/typescript
 
-<figure>
-
 ```sh
 yarn add --dev \
   @babel/core \
@@ -34,8 +32,7 @@ yarn add --dev \
   typescript
 ```
 
-<figcaption>Note: If you're already using a bundler like Webpack or Rollup, you may not need <code>@babel/cli</code>.</figcaption>
-</figure>
+> Note: If you're already using a bundler like Webpack or Rollup, you may not need <code>@babel/cli</code>.
 
 ## Configuration
 
@@ -85,7 +82,7 @@ Configure TypeScript by creating a file called `tsconfig.json`. Of particular in
 
 <!-- {.-literate-style} -->
 
-Just run `tsc` to check types. This should print a few errors if you have any.
+Run `tsc` to check types. This should print a few errors if you have any.
 
 ```sh
 yarn run tsc

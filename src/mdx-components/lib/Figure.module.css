@@ -1,0 +1,69 @@
+@import '../../css-utils/dotted-background.css';
+
+.root {
+  @apply relative mx-0 my-lg;
+  background: linear-gradient(
+    to bottom,
+    transparent 15%,
+    theme('colors.gray.200') 15%,
+    theme('colors.gray.200') 85%,
+    transparent 85%
+  );
+}
+
+.root > img {
+  /* /project-switcher-using-startify has a big image */
+  /* /arch-linux-wifi-using-netctl has a partial image */
+  @apply block max-w-full mx-auto rounded-sm;
+}
+
+.isWide {
+  @screen md {
+    @apply -mx-4;
+  }
+}
+
+/* Filename heading */
+.root > :global(figcaption:first-child) {
+  @apply px-4 py-2 m-0 -mb-8 text-sm font-bold text-gray-500 text-center rounded-t-md;
+  background: linear-gradient(9deg, #303048, #303048 80%);
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  & {
+    @apply relative my-12;
+
+    @screen md {
+      @apply mb-20 -mx-16;
+    }
+  }
+
+  /* Screen thing */
+  &::after {
+    @apply absolute z-auto block;
+    @apply dotted-background-12;
+    content: '';
+    top: 4rem;
+    bottom: -2rem;
+    left: -12rem;
+    right: -12rem;
+  }
+
+  & .gatsby-resp-image-wrapper {
+    @apply relative z-10;
+  }
+
+  & > img {
+    @apply relative z-10 object-cover w-full bg-gray-800 shadow-32;
+    border-radius: 3px;
+    height: 16rem;
+
+    @screen md {
+      height: 24rem;
+    }
+  }
+}

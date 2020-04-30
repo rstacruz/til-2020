@@ -7,12 +7,17 @@ interface Props {
 
 const ByLine = (props: Props) => {
   const { date } = props
+  const author = 'Rico Sta. Cruz'
 
   return (
     <div className={CSS.root}>
-      Rico Sta. Cruz
+      <span className={CSS.author}>{author}</span>
       <span className={CSS.sep} />
-      {date ? <span>{date}</span> : <span>Unpublished</span>}
+      {date ? (
+        <span className={CSS.date}>{date}</span>
+      ) : (
+        <span className={CSS.draft}>Unpublished</span>
+      )}
     </div>
   )
 }
