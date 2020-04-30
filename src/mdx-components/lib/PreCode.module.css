@@ -1,34 +1,16 @@
-@import '../../css-utils/ms.css';
-@import '../../css-utils/container.css';
-@import '../../css-utils/type.css';
-
-.active-bg {
-  background: linear-gradient(9deg, #755d88, #303048 80%);
-  background-size: 100% 400%;
-  background-position: 0 0%;
-  transition: background-position 150ms linear, box-shadow 150ms ease-out,
-    transform 150ms ease-out;
-  /* transform: scale(1) translate3d(0, 0, 0); */
-}
-
-.inactive-bg {
-  background-position: 0 15%;
-  transition: background-position 150ms linear, box-shadow 150ms ease-out,
-    transform 150ms ease-out;
-  /* transform: scale(0.995) translate3d(0, 0, 0); */
-}
+@import '../../css-utils/all.css';
 
 .root {
-  @apply p-5 mx-0 my-lg type-monospace;
+  @apply p-5 mx-0 my-lg rounded-sm type-monospace;
   @apply type-monospace;
   @apply overflow-x-auto thin-scrollbar;
   @apply shadow-32;
-  @apply active-bg;
+  @apply code-bg-active;
 }
 
 :global(.isInactive) .root {
   @apply shadow-8;
-  @apply inactive-bg;
+  @apply code-bg-inactive;
 }
 
 .root + .root {

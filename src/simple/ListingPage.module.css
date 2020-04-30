@@ -1,9 +1,28 @@
-@import '../css-utils/type.css';
+@import '../css-utils/all.css';
+
+.root {
+  @apply container;
+}
+
+.list {
+  @apply my-md;
+}
 
 .link {
-  @apply block p-2 px-4 no-underline;
+  @apply flex p-2 px-4 no-underline;
+}
+
+.date,
+.title {
+  @apply block no-underline;
 }
 
 .date {
-  @apply inline-block mr-2 type-monospace;
+  @apply flex-none w-24 mr-2 text-n-mute;
+  @apply type-monospace;
+  padding-top: 0.125rem;
+}
+
+.title {
+  @apply flex-1 text-gray-900;
 }

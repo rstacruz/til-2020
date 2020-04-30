@@ -16,17 +16,15 @@ type Props = {
 const ListingPage = (props: Props) => {
   const { pages } = props
   return (
-    <div>
-      {pages.map((page) => (
-        <div>
-          <Link to={page.slug}>
-            <div className={CSS.link}>
-              <span className={CSS.date}>{page.date}</span>
-              <span className={CSS.title}>{page.title}</span>
-            </div>
+    <div class={CSS.root}>
+      <div class={CSS.list}>
+        {pages.map((page) => (
+          <Link to={page.slug} className={CSS.link}>
+            <span className={CSS.date}>{page.date || 'Draft'}</span>
+            <span className={CSS.title}>{page.title}</span>
           </Link>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }

@@ -14,7 +14,10 @@ const plugins = () => [
     options: {
       printRejected: true,
       tailwind: true,
-      whitelist: [],
+      whitelistPatterns: [/:global/],
+      // It strips out 'dl dl', 'hr', 'nav ul', and other legit selectors
+      // from sanitize.css
+      ignore: ['sanitize.css'],
     },
   },
 

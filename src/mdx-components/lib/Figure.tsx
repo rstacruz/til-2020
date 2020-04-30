@@ -6,14 +6,17 @@ type Props = {
   children: React.ReactNode
   className?: string
   wide?: boolean
+  cover?: boolean
 }
 
 const Figure = (props: Props) => {
-  const classes = (props.className || '').split(' ')
+  const cssClasses = (props.className || '').split(' ')
+  const classes = [...cssClasses, ...Object.keys(props)]
 
-  const figureClass = cn(CSS.root, props.className, {
-    [CSS.isWide]: props.wide || classes.includes('-wide'),
+  const figureClass = cn(CSS.root, {
+    [CSS.isWide]: classes.includes('-wide'),
     [CSS.cover]: classes.includes('cover'),
+    [CSS.table]: classes.includes('table'),
   })
 
   return <figure className={figureClass}>{props.children}</figure>

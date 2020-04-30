@@ -78,19 +78,6 @@
   @apply relative z-0;
 }
 
-.root :global(figure.table) {
-  @apply relative shadow-8;
-  @apply border-gray-300 border-solid;
-
-  @screen md {
-    @apply my-lg mb-12 -mx-16;
-  }
-}
-
-.root :global(figure.table > table) {
-  @apply m-0 bg-white;
-}
-
 .root :global(blockquote.notice) {
   @apply relative shadow-8;
   @apply border-purple-300 border-solid;

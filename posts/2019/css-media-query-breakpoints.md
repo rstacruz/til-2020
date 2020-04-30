@@ -5,7 +5,7 @@ date: 2019-04-25
 layout: simple
 ---
 
-<figure class='cover'>
+<figure cover>
 <img src='https://source.unsplash.com/SO5jpAT2bN8/600x700' alt='Photo unrelated' />
 </figure>
 
