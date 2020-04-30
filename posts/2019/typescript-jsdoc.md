@@ -85,8 +85,7 @@ yarn add typescript
 
 Configure TypeScript to check your JavaScript files. (By default, TypeScript only checks `.ts` files.) TypeScript is configured using the `tsconfig.json` file. We'll also be using the `noEmit` option, since we're only going to be using TypeScript as a type checker.
 
-<figure class='code'>
-<figcaption>tsconfig.json</figcaption>
+<figure class='code' title='tsconfig.json'>
 
 ```js
 {

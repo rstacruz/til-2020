@@ -33,6 +33,6 @@
 
 .type-bold-caps {
   font-family: 'Public Sans', sans-serif;
-  @apply font-extrabold uppercase text-gray-900;
+  @apply font-extrabold text-gray-900 uppercase;
   letter-spacing: 0.08em;
 }

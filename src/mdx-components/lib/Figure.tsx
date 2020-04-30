@@ -5,11 +5,14 @@ import cn from 'classnames'
 type Props = {
   children: React.ReactNode
   className?: string
+  caption?: string
   wide?: boolean
   cover?: boolean
 }
 
 const Figure = (props: Props) => {
+  const { caption } = props
+
   const cssClasses = (props.className || '').split(' ')
   const classes = [...cssClasses, ...Object.keys(props)]
 
@@ -19,7 +22,12 @@ const Figure = (props: Props) => {
     [CSS.table]: classes.includes('table'),
   })
 
-  return <figure className={figureClass}>{props.children}</figure>
+  return (
+    <figure className={figureClass}>
+      {caption ? <figcaption>{caption}</figcaption> : null}
+      {props.children}
+    </figure>
+  )
 }
 
 export default Figure
