@@ -12,10 +12,18 @@ const ALIASES: { [key: string]: string } = {
 }
 
 const CodeHighlight = ({ children, className }: Props) => {
-  const node = children as { props: { children: string; className: string } }
+  const node = children as { props: { children: string; className?: string } }
   const code = node.props.children
-  const lang = node.props.className.replace(/^language-/, '')
+  const lang = (node.props.className || '').replace(/^language-/, '')
   const language = ALIASES[lang] || lang
+
+  if (!lang) {
+    return (
+      <pre className={className}>
+        <code>{code}</code>
+      </pre>
+    )
+  }
 
   return <Refractor language={language} value={code} className={className} />
 }

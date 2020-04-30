@@ -2,11 +2,11 @@
 @import '../../css-utils/ms.css';
 
 .root {
-  @apply my-6 small-font;
+  @apply my-6;
 }
 
 .author {
-  @apply type-bold-caps;
+  @apply type-bold-caps small-font;
 }
 
 .sep {
