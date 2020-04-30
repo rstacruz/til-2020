@@ -1,0 +1,64 @@
+{
+  "name": "til2020",
+  "description": "TIL",
+  "version": "1.0.0",
+  "author": "Rico Sta. Cruz <rstacruz@users.noreply.github.com>",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.5.9",
+    "@mdx-js/react": "^1.5.9",
+    "@rstacruz/rehype-sectionize": "^0.1.1",
+    "classnames": "^2.2.6",
+    "gatsby": "^2.21.0",
+    "gatsby-plugin-manifest": "^2.4.0",
+    "gatsby-plugin-mdx": "^1.2.0",
+    "gatsby-plugin-postcss": "^2.3.0",
+    "gatsby-plugin-purgecss": "^5.0.0",
+    "gatsby-plugin-react-helmet": "^3.3.0",
+    "gatsby-plugin-sharp": "^2.6.0",
+    "gatsby-remark-copy-linked-files": "^2.3.1",
+    "gatsby-remark-images": "^3.3.0",
+    "gatsby-source-filesystem": "^2.3.0",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
+    "react-refractor": "^1.0.1",
+    "react-waypoint": "^9.0.2",
+    "refractor": "^3.0.0",
+    "sanitize.css": "^11.0.0",
+    "svg-react-loader": "^0.4.6",
+    "tabler-icons": "^1.6.0",
+    "tailwindcss": "^1.3.5",
+    "typeface-gentium-basic": "^0.0.72",
+    "typeface-public-sans": "^1.1.4",
+    "typeface-roboto-mono": "^0.0.75"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/mdx-js__react": "^1.5.1",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-helmet": "^5.0.15",
+    "gatsby-plugin-page-creator": "^2.3.0",
+    "gatsby-plugin-typescript": "^2.4.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3",
+    "typescript-plugin-css-modules": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../css-utils/type.css';
+@import '../../css-utils/ms.css';
+
+.root {
+  @apply my-6 small-font;
+}
+
+.author {
+  @apply type-bold-caps;
+}
+
+.sep {
+  @apply inline-block w-px h-6 mx-6 align-middle;
+  border-right: solid 1px theme('colors.gray.400');
+}
