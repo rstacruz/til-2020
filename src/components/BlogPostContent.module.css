@@ -1,5 +1,0 @@
-@import '../styles/variables.css';
-
-.root {
-  composes: context from './MarkdownBody.module.css';
-}
