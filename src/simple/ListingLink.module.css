@@ -5,7 +5,7 @@
 }
 
 .title {
-  @apply m-0 ms-1;
+  @apply m-0 font-normal ms-1 text-n-bold;
 }
 
 .title,
@@ -24,6 +24,9 @@
 
 .toRead::before {
   content: '·';
-  @apply mx-2;
+  @apply mx-2 text-n-mute;
 }
 
+.toRead {
+  @apply text-n-mute;
+}

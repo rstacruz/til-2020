@@ -6,7 +6,7 @@
   @apply overflow-x-auto thin-scrollbar;
   @apply shadow-32;
   transition: box-shadow 300ms linear;
-  background: #f4fbff;
+  background: #30304b;
 }
 
 :global(.isInactive) .root {
@@ -18,7 +18,7 @@
 }
 
 .pre.pre > code {
-  color: theme('colors.gray.800');
+  color: theme('colors.gray.300');
 }
 
 .pre {
@@ -28,7 +28,7 @@
 
 .root :global(.keyword),
 .root :global(.maybe-class-name) {
-  color: theme('colors.blue.800');
+  color: theme('colors.blue.600');
 }
 
 .root :global(.maybe-class-name) {
@@ -36,7 +36,7 @@
 }
 
 .root :global(.function) {
-  color: theme('colors.teal.600');
+  color: theme('colors.teal.400');
 }
 
 .root :global(.parameter),
@@ -47,11 +47,11 @@
 .root :global(.number),
 .root :global(.string) {
   font-weight: bold;
-  color: theme('colors.blue.800');
+  color: theme('colors.blue.600');
 }
 
 .root :global(.operator),
 .root :global(.punctuation),
 .root :global(.comment) {
-  color: theme('colors.gray.700');
+  color: theme('colors.gray.500');
 }

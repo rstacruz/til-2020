@@ -21,6 +21,7 @@ module.exports = {
         },
         // Neutral
         n: {
+          bold: '#111111',
           mute: '#5b687a',
           faded: '#718096',
           line: '#cbd5e0',

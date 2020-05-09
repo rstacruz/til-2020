@@ -10,6 +10,13 @@ type Props = {
   cover?: boolean
 }
 
+/**
+ * @example
+ *     <Figure>...</Figure>
+ *     <Figure cover>...</Figure>
+ *     <Figure table>...</Figure>
+ *     <Figure code caption='hello'>...</Figure>
+ */
 const Figure = (props: Props) => {
   const { caption } = props
 

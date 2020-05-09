@@ -106,8 +106,7 @@ You can use Babel without Webpack or Rollup. If you're using already Webpack or 
 
 You can use `@babel/cli` to compile files. In this example, we'll set up some NPM scripts to convert every TypeScript file in `src/` to JavaScript files into `lib/`.
 
-<figure class='code'>
-<figcaption>package.json</figcaption>
+<Figure caption='package.json'>
 
 ```sh
 "scripts": {
@@ -117,7 +116,7 @@ You can use `@babel/cli` to compile files. In this example, we'll set up some NP
 }
 ```
 
-</figure>
+</Figure>
 
 ## References
 

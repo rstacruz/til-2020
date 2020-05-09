@@ -30,12 +30,16 @@ things, so we'll need to combine them appropriately. These things can either
 scale text (ie, increase font sizes) or scale UI elements (ie, increase "pixels"
 in margins and paddings).
 
+<Figure table>
+
 | Apps                          | Xresources | GDK env vars | QT env vars |
 | ----------------------------- | ---------- | ------------ | ----------- |
 | Firefox & Chrome              | UI & Text  | UI & Text    |             |
 | GTK apps (eg, Thunar)         | Text       | UI & Text    |             |
 | Regular Xorg apps (eg, urxvt) | Text       |              |             |
 | QT apps (eg, Dolphin, Krita)  | Text       |              | UI & Text   |
+
+</Figure>
 
 We'll update the Xresources config file to tackle `Xresources`,
 and we'll set some environment variables to tackle `GDK` and `QT` scaling.
@@ -182,6 +186,8 @@ xrandr --output eDP1 --scale 2x2 --panning 2732x1536
 </details>
 
 -->
+
+---
 
 ## Resources
 
