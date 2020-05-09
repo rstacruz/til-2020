@@ -65,7 +65,7 @@
     @apply relative my-12;
 
     @screen md {
-      @apply mb-20 -mx-16;
+      @apply mb-20 -mx-32;
     }
   }
 
@@ -76,8 +76,8 @@
     content: '';
     top: 4rem;
     bottom: -2rem;
-    left: -12rem;
-    right: -12rem;
+    left: -18rem;
+    right: -18rem;
   }
 
   & :global(.gatsby-resp-image-wrapper) {
