@@ -6,11 +6,11 @@ tags: [TypeScript, JavaScript, Featured]
 date: 2019-04-10
 ---
 
-<figure class='cover'>
-<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Display' />
-</figure>
+You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!
 
-**You can use Babel as a TypeScript compiler.** This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!
+<Figure cover>
+<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Display' />
+</Figure>
 
 To do this, we'll configure `tsc` (the TypeScript compiler) only check types, but not emit files. We'll use Babel to do the actual compilation.
 

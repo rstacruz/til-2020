@@ -7,7 +7,7 @@ tags: [Linux]
 ---
 
 <Figure cover>
-<img src='https://source.unsplash.com/3Xd5j9-drDA/600x400' />
+<img src='https://source.unsplash.com/3Xd5j9-drDA/900x450' />
 </Figure>
 
 **Here are some useful things I suggest to do after an Arch Linux installation.** These are items not covered in the official [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration), but I strongly suggest you consider them!
@@ -22,14 +22,20 @@ For these next steps, we're going to assume that you're logged in as your main u
 
 Install some networking tools, so we may be able to go online later. [NetworkManager](https://wiki.archlinux.org/index.php/NetworkManager) is used by most desktop environments to manage network connections, and can be used in the console as well via `nmtui`.
 
+<Figure title='~'>
+
 ```sh
 sudo pacman -S networkmanager
 sudo systemctl enable NetworkManager
 ```
 
+</Figure>
+
 ### Try to go online
 
 Use `nmtui` to go online right now using your wifi.
+
+<Figure title='~'>
 
 ```sh
 # Try it out
@@ -38,6 +44,8 @@ sudo systemctl start NetworkManager
 # Connect to a wifi
 nmtui
 ```
+
+</Figure>
 
 This should be enough to get most laptops online. For some others, you may need to install wireless drivers. For instance, MacBooks require [Broadcom wireless](https://wiki.archlinux.org/index.php/Broadcom_wireless) drivers.
 
