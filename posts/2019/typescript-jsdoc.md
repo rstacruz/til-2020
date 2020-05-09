@@ -6,9 +6,9 @@ description: Can we get the benefits of full type checking without using TypeScr
 date: 2019-04-07
 ---
 
-<figure class='cover'>
-<img src='https://source.unsplash.com/0X7ZNRcBT-k/600x400' alt='Display' />
-</figure>
+<Figure cover>
+<img src='https://source.unsplash.com/L5HG3CH_pgc/900x600' alt='Display' />
+</Figure>
 
 [TypeScript] lets you annotate your JavaScript with type annotations. It can even check these for errors in build-time, so you can catch errors before they get deployed to production. You'll never have to deal with another _undefined is not a function_ error ever again!
 
@@ -69,9 +69,7 @@ If you're using JSDoc to document your JavaScript, you might as well let TypeScr
 
 ## TypeScript setup
 
-### Install TypeScript
-
-You'll need TypeScript to do this. Install the [typescript][typescript-npm] npm package in your project to get started.
+We'll need TypeScript to get started. Install the [typescript][typescript-npm] npm package in your project to get started.
 
 [typescript-npm]: https://yarn.pm/typescript
 
@@ -85,7 +83,7 @@ yarn add typescript
 
 Configure TypeScript to check your JavaScript files. (By default, TypeScript only checks `.ts` files.) TypeScript is configured using the `tsconfig.json` file. We'll also be using the `noEmit` option, since we're only going to be using TypeScript as a type checker.
 
-<figure class='code' title='tsconfig.json'>
+<figure title='tsconfig.json'>
 
 ```js
 {

@@ -5,7 +5,7 @@ tags: [React]
 ---
 
 <figure cover>
-<img src='https://source.unsplash.com/DErxVSSQNdM/600x400' />
+<img src='https://source.unsplash.com/TW2bfT_tWDI/900x600' />
 </figure>
 
 [react-testing-library](https://github.com/testing-library/react-testing-library) is a very light-weight tool for testing React components. Here's a few tips on how to get started with it.

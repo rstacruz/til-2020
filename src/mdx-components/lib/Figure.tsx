@@ -6,6 +6,7 @@ type Props = {
   children: React.ReactNode
   className?: string
   caption?: string
+  title?: string
   wide?: boolean
   cover?: boolean
 }
@@ -15,10 +16,10 @@ type Props = {
  *     <Figure>...</Figure>
  *     <Figure cover>...</Figure>
  *     <Figure table>...</Figure>
- *     <Figure code caption='hello'>...</Figure>
+ *     <Figure code title='hello'>...</Figure>
  */
 const Figure = (props: Props) => {
-  const { caption } = props
+  const { title } = props
 
   const cssClasses = (props.className || '').split(' ')
   const classes = [...cssClasses, ...Object.keys(props)]
@@ -31,7 +32,7 @@ const Figure = (props: Props) => {
 
   return (
     <figure className={figureClass}>
-      {caption ? <figcaption>{caption}</figcaption> : null}
+      {title ? <figcaption>{title}</figcaption> : null}
       {props.children}
     </figure>
   )

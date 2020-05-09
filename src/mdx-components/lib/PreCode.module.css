@@ -41,7 +41,7 @@
 
 .root :global(.parameter),
 .root :global(.property-access) {
-  color: theme('colors.teal.800');
+  color: theme('colors.teal.600');
 }
 
 .root :global(.number),
