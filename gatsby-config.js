@@ -22,7 +22,7 @@ const plugins = () => [
   },
 
   // Images
-  'gatsby-plugin-sharp',
+  ...(hasSharp() ? ['gatsby-plugin-sharp'] : []),
   'gatsby-remark-images',
 
   // Allow pages in /pages instead of /src/pages
@@ -43,10 +43,23 @@ const plugins = () => [
     options: {
       extensions: ['.md', '.mdx'],
       gatsbyRemarkPlugins: [
-        // Put images ina  responsive container
+        // Put images in a responsive container
+        ...(hasSharp()
+          ? [
+              {
+                resolve: 'gatsby-remark-images',
+                options: { maxWidth: 1400 },
+              },
+            ]
+          : []),
+
         {
-          resolve: 'gatsby-remark-images',
-          options: { maxWidth: 1400 },
+          resolve: 'gatsby-remark-prismjs',
+          options: {
+            aliases: {
+              sh: 'bash',
+            },
+          },
         },
 
         // Support animated GIF's
@@ -59,5 +72,14 @@ const plugins = () => [
 ]
 
 const metadata = () => ({ title: 'TIL' })
+
+function hasSharp() {
+  try {
+    require.resolve('sharp')
+    return true
+  } catch (e) {
+    return false
+  }
+}
 
 module.exports = config()

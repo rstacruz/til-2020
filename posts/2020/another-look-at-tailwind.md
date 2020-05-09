@@ -5,9 +5,9 @@ tags: [CSS]
 date: 2020-03-20
 ---
 
-<figure class='cover'>
+<Figure cover>
 <img src='https://source.unsplash.com/9APFPoNb9iw/600x300' />
-</figure>
+</Figure>
 
 Tailwind is perhaps the hottest CSS framework to come out of 2019. It's gotten not only a lot of hype, but a lot of criticisms as well. Its syntax can easily evoke some bad reactions from even the most experienced developers&mdash;including myself, to be honest.
 
@@ -25,13 +25,15 @@ You may come across Tailwind examples that have cryptic class names in HTML. I c
 <div class="mx-auto my-4 md:p-2"></div>
 ```
 
-If this doesn't sit right with you, you wouldn't be alone. <strong class='highlight'>Many developers prefer not to use Tailwind in this way.</strong> For now, let's set this aside&mdash;lets look at the other Tailwind features that can help make cleaner markup.
+If this doesn't sit right with you, you wouldn't be alone. <strong class='highlight'>Not all developers prefer not to use Tailwind in this way.</strong> For now, let's set this aside&mdash;lets look at the other Tailwind features that can help make cleaner markup.
 
 <div><NextBlock title="What else does Tailwind have other than a funny syntax?" /></div>
 
 ## It's a CSS preprocessor
 
 Writing the class names out in HTML is only one way to use Tailwind. Here's another way to write the example above, writing CSS this time instead of HTML with [PostCSS](https://tailwindcss.com/docs/using-with-preprocessors/#app).
+
+<Figure code>
 
 ```css
 .dialog {
@@ -43,7 +45,9 @@ Writing the class names out in HTML is only one way to use Tailwind. Here's anot
 <div class="dialog"></div>
 ```
 
-<strong class='highlight'>This works because Tailwind is, first and foremost, a PostCSS plugin.</strong> Tailwind can also be used without PostCSS, but that would be missing out on what I think is Tailwind's hallmark feature: `@apply`.
+</Figure>
+
+<strong class='highlight'>This works because Tailwind is, first and foremost, a PostCSS plugin.</strong> Tailwind can also be used without PostCSS, but that would be missing out on what I think is Tailwind's hallmark feature: <code>@apply</code>.
 
 <div><NextBlock title="What's so special about this feature?" /></div>
 
@@ -76,7 +80,7 @@ One way to make this easier to understand is to separate them into manageable ch
 }
 ```
 
-<strong class='highlight'>Tailwind lets you build components from smaller pieces.</strong> They don't need to by Tailwind's utilities&mdash;`@apply` will work on any class name. These pieces are called "utilities."
+<strong class='highlight'>Tailwind lets you build components from smaller pieces.</strong> They don't need to by Tailwind's utilities&mdash;<code>@apply</code> will work on any class name. These pieces are called "utilities."
 
 <NextBlock title="Aren't utilities just mixins in disguise?" />
 
@@ -168,8 +172,9 @@ Tailwind itself has a solution to make this easier. Values can be defined as _th
 
 The values for theme constants are stored in a Tailwind's JavaScript configuration file, `tailwind.config.js`.
 
+<Figure code title='tailwind.config.js'>
+
 ```javascript
-// tailwind.config.js
 module.exports = {
   colors: {
     // Can be accessed in CSS via theme("colors.primary")
@@ -178,6 +183,8 @@ module.exports = {
 }
 ```
 
+</Figure>
+
 [polished]: https://polished.js.org/
 
 Placing them in JavaScript seems counter-inuitive at first, considering other solutions would have them in CSS files (eg, variables in CSS or Sass). However, having them written in JavaScript has a few advantages.
@@ -185,6 +192,8 @@ Placing them in JavaScript seems counter-inuitive at first, considering other so
 ### Flexibility without compromises
 
 Writing the values in JavaScript allows us to use any kind of logic we may need. Need to have a shades of a color? We can use [polished] to adjust a color&mdash;no Sass functions or PostCSS plugins required.
+
+<Figure code title='tailwind.config.js'>
 
 ```javascript
 import { darken, lighten } from 'polished'
@@ -203,14 +212,18 @@ module.exports = {
 }
 ```
 
+</Figure>
+
 Utility classes can be written in either CSS or JavaScript. Complicated logic doesn't have to be written with Sass loops or complicated _calc()_ expressions&mdash;they can be written in JavaScript. For example, here's a rudimentary implementation of [modular scale] in Tailwind:
 
 [modular scale]: https://www.modularscale.com/
 
+<Figure code title='tailwind.config.js'>
+
 ```javascript
 module.exports = {
   themes: {
-    modularscale: { ratio: 1.2 }
+    modularscale: { ratio: 1.2 },
   },
   plugins: [
     plugin(({ addUtilities, theme }) => {
@@ -220,13 +233,14 @@ module.exports = {
         '.ms-1': { fontSize: `${ratio ** 1}em` },
         '.ms-2': { fontSize: `${ratio ** 2}em` },
         '.ms-3': { fontSize: `${ratio ** 3}em` },
-        '.ms-4': { fontSize: `${ratio ** 4}em` }
+        '.ms-4': { fontSize: `${ratio ** 4}em` },
       })
-    })
-  ]
+    }),
+  ],
 }
-};
 ```
+
+</Figure>
 
 Declaring utilities and constants in JavaScript is liberating. <strong class='highlight'>Your CSS will be lightweight and declarative.</strong> The heavy-lifting can be done in JavaScript instead.
 
@@ -236,13 +250,13 @@ Declaring utilities and constants in JavaScript is liberating. <strong class='hi
 
 Tailwind comes with a suite of CSS utility classes. They often come with preset values. For instance, the `margin` helper can accept values like these below, which Tailwind calls this the [spacing scale](https://tailwindcss.com/docs/customizing-spacing/#default-spacing-scale).
 
-<figure class='table'>
+<Figure table>
 
 | `.m-0` | `.m-px` | `.m-1` | `.m-2` | `.m-3` | `.m-4` | `.m-6` | `.m-8` | ... |
 | :----- | :------ | :----- | :----- | :----- | :----- | :----- | :----- | :-- |
 | `0`    | `1px`   | `4px`  | `8px`  | `12px` | `16px` | `24px` | `32px` | ... |
 
-</figure>
+</Figure>
 
 ### Case of the missing digits
 
@@ -260,7 +274,7 @@ One common theme across Tailwind's features is how it establishes a lot of struc
 - Colors are under `colors`, dimensions in `spacing`, and so on.
 - Spacing is defined in a [4px grid], with some numbers intentionally omitted.
 
-<strong class='highlight'>Tailwind lays down the foundation for a design system.</strong> While it comes with reasonable defaults (the default [color palette] is far from atrocious), it also enables you to extend it as you wish.
+<strong class='highlight'>Tailwind lays down the foundation for a design system.</strong> While it comes with reasonable defaults (the default color palette looks great), it also enables you to extend it as you wish.
 
 <div><NextBlock title="What about preprocessors like Sass?" /></div>
 
@@ -274,7 +288,7 @@ Tailwind can be used alongside Sass, Less, Stylus, and just about any CSS proces
 
 Most of these problems can be solved by Tailwind's PostCSS plugin&mdash;no other preprocessor required. <strong class='highlight'>Tailwind can make Sass redundant.</strong>
 
-<figure class='table'>
+<Figure table>
 
 | Problem              | Sass's solution | Tailwind's solution |
 | :------------------- | :-------------: | :-----------------: |
@@ -283,7 +297,7 @@ Most of these problems can be solved by Tailwind's PostCSS plugin&mdash;no other
 | **Components**       |     Mixins      |      Utilities      |
 | **Shared utilities** |     Mixins      |      Utilities      |
 
-</figure>
+</Figure>
 
 ## Recap
 

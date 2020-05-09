@@ -2,6 +2,7 @@
 title: Fractional scaling on Linux Xorg
 tags: [Linux, Featured]
 layout: simple
+description: Getting 1.5x scaling on Xorg isn't always very straight-forward. Here's how I got it working
 date: 2019-04-08
 ---
 
@@ -30,6 +31,8 @@ things, so we'll need to combine them appropriately. These things can either
 scale text (ie, increase font sizes) or scale UI elements (ie, increase "pixels"
 in margins and paddings).
 
+<Figure table>
+
 | Apps                          | Xresources | GDK env vars | QT env vars |
 | ----------------------------- | ---------- | ------------ | ----------- |
 | Firefox & Chrome              | UI & Text  | UI & Text    |             |
@@ -37,12 +40,16 @@ in margins and paddings).
 | Regular Xorg apps (eg, urxvt) | Text       |              |             |
 | QT apps (eg, Dolphin, Krita)  | Text       |              | UI & Text   |
 
+</Figure>
+
 We'll update the Xresources config file to tackle `Xresources`,
 and we'll set some environment variables to tackle `GDK` and `QT` scaling.
 
 ## Part 1: Enlarging UI and text
 
 Place this in `~/.profile`. These variables will take effect when you log in.
+
+<Figure code title='~/.profile'>
 
 ```sh
 export GDK_SCALE=2
@@ -52,12 +59,18 @@ export QT_SCALE_FACTOR=2
 export QT_FONT_DPI=96
 ```
 
+</Figure>
+
 Place this in `~/.Xresources`. These will take effect on your next log in.
+
+<Figure code title='~/.Xresources'>
 
 ```sh
 Xft.dpi: 192
 Xcursor.size: 32
 ```
+
+</Figure>
 
 These two things combined will make all your apps display 2x as large. If you want to have a scaling of 200%, then congrats—you're done! If you'd like to have fractional scaling (eg, 150% or 175%), then move onto the next section.
 
@@ -127,9 +140,13 @@ export QT_FONT_DPI=96
 
 After enlarging your UI by 2x, you can use `xrandr` to scale it down to your desired size. This example below gets you an effective scale of 175%. (2 / 1.75 = ~1.14)
 
+<Figure code title='~'>
+
 ```sh
 xrandr --scale '1.14x1.14'
 ```
+
+</Figure>
 
 Note that not all versions of Xorg might support this. For older versions, the tool [x11-fractional-display-scaling](https://github.com/burntcustard/x11-fractional-display-scaling) can help.
 
@@ -182,6 +199,8 @@ xrandr --output eDP1 --scale 2x2 --panning 2732x1536
 </details>
 
 -->
+
+---
 
 ## Resources
 

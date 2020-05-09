@@ -7,7 +7,7 @@ tags: [Linux, Featured]
 Arch Linux's wiki has a great [installation guide](https://wiki.archlinux.org/index.php/Installation_guide), but some find it very daunting and hard-to-read. This article is a summary of all the commands in that wiki page, as of time of writing.
 
 <Figure cover>
-<img src='https://source.unsplash.com/666lawaMlFA/600x300' alt='Display' />
+<img src='https://source.unsplash.com/666lawaMlFA/900x450' alt='Photo unrelated' />
 </Figure>
 
 **This is not a replacement for the the official [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide).** Consider this more like a refresher course!
@@ -68,10 +68,15 @@ You will be installing packages from the Arch package repository over the Intern
 
 Try going online by typing `wifi-menu`. (If this didn't work, have a look at [other ways](https://github.com/rstacruz/arch-installer/blob/master/docs/getting_online.md) of getting online.)
 
+<Figure code>
+
+Connect to the Internet via Wi-Fi.
+
 ```sh
-# Connect to the Internet via Wi-Fi
 wifi-menu
 ```
+
+</Figure>
 
 ### Are we online yet?
 
@@ -207,9 +212,9 @@ arch-chroot /mnt
 
 ### Set your timezone
 
-<!-- {.-literate-style} -->
-
 See [tzdata](https://www.archlinux.org/packages/core/x86_64/tzdata/) for a list of available timezones.
+
+<Figure code>
 
 ```bash
 # Set your timezone (eg, Asia/Manila)
@@ -222,9 +227,9 @@ ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 hwclock --systohc
 ```
 
-### Set up locales
+</Figure>
 
-<!-- {.-literate-style} -->
+### Set up locales
 
 Set your default locale. For most of us, that would be `en_US.UTF-8`, but feel free to change that.
 
@@ -235,9 +240,9 @@ vi /etc/locale.gen
 
 ### Set up locales, part 2
 
-<!-- {.-literate-style} -->
-
 Edit the `/etc/locale.conf` file and add the locale as `LANG=<the locale>`. After this, type, `locale-gen`.
+
+<Figure code>
 
 ```bash
 vi /etc/locale.conf
@@ -251,6 +256,8 @@ LANG=en_US.UTF-8
 # Generate locale config (/etc/locale.gen)
 locale-gen
 ```
+
+</Figure>
 
 ### Set keyboard layout
 
@@ -268,10 +275,6 @@ echo "KEYMAP=dvorak" > /etc/vconsole.conf
 
 ## Hostname
 
-###
-
-<!-- {.-literate-style} -->
-
 It's time to pick a name for your machine. Pick a hostname and update `/etc/hostname`.
 
 ```sh
@@ -283,9 +286,9 @@ echo "myhostname" > /etc/hostname
 
 ### Update etc/hosts
 
-<!-- {.-literate-style} -->
-
 Update `/etc/hosts` with your new hostname. (Be sure to change `myhostname` to your chosen hostname.)
+
+<Figure code>
 
 ```sh
 vi /etc/hosts
@@ -297,9 +300,9 @@ vi /etc/hosts
 127.0.1.1 myhostname.localdomain myhostname
 ```
 
-### Change root password
+</Figure>
 
-<!-- {.-literate-style} -->
+### Change root password
 
 Change your password using `passwd`. This is _not_ your main user's password.
 
@@ -315,9 +318,9 @@ You'll need a boot loader in your EFI partition. Think of this as a small progra
 
 ### Install GRUB
 
-<!-- {.-literate-style} -->
-
 Let's install grub into `/boot`. Be sure to read the Arch wiki, instructions may be different for your system!
+
+<Figure code>
 
 ```bash
 # Install packages
@@ -334,15 +337,13 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+</Figure>
+
 <NextBlock title="Let's create the user you'll be logging in with."></NextBlock>
 
 ## Create your user
 
 _(This section is not listed in the Arch official installation guide, but I highly recommended this for most users.)_
-
-###
-
-<!-- {.-literate-style} -->
 
 You'll need a user that you'll be logging in with for your day-to-day. (Be sure to change `yourname` to whatever you feel like using.)
 
@@ -354,9 +355,9 @@ useradd -Nm -g users -G wheel,sys yourname
 
 ### Change the password
 
-<!-- {.-literate-style} -->
-
 Set a password using `passwd`.
+
+<Figure code>
 
 ```sh
 passwd yourname
@@ -368,9 +369,9 @@ Retype new password: ····
 passwd: password updated successfully
 ```
 
-### Add to groups
+</Figure>
 
-<!-- {.-literate-style} -->
+### Add to groups
 
 You'll want to add them to some other groups too.
 
@@ -392,8 +393,6 @@ _(This section is not listed in the Arch official installation guide, but I high
 
 ### Install sudo
 
-<!-- {.-literate-style} -->
-
 Add and configure the `sudo` package to grant your user some superuser rights.
 
 ```sh
@@ -403,9 +402,9 @@ pacman -S sudo
 
 ### Add sudo rights to your username
 
-<!-- {.-literate-style} -->
-
 Use `visudo` to edit the sudo config to add the `wheel` group to it. This allows all users in that group to use sudo. (You did add your user to `wheel`, right?)
+
+<Figure code>
 
 ```sh
 # Update config
@@ -416,6 +415,8 @@ EDITOR=vi visudo
 # Then add this line to the end of the file:
 %wheel ALL=(ALL) ALL
 ```
+
+</Figure>
 
 <NextBlock title="Install some packages."></NextBlock>
 
@@ -437,6 +438,8 @@ systemctl enable NetworkManager
 
 Congratulations, you now have a working Arch Linux installation. At this point, `exit` out of the chroot, and `reboot`. Be sure to remove the USB drive as you're rebooting, and you may need to go to your BIOS's boot order menu.
 
+<Figure code>
+
 ```
 exit
 ```
@@ -444,5 +447,7 @@ exit
 ```
 reboot
 ```
+
+</Figure>
 
 From here, I recommend proceeding to the [**After Installing Arch Linux**](/after-installing-arch-linux/) guide. A basic Arch Linux installation doesn't have a user, swap, a desktop environment, sudo, and many other facilities we may be taking for granted.

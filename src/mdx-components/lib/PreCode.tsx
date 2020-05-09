@@ -1,6 +1,6 @@
 import React from 'react'
-import CodeHighlight from './CodeHighlight'
 import CSS from './PreCode.module.css'
+import { Figurify } from './Figure'
 
 interface Props {
   children: React.ReactNode
@@ -8,9 +8,11 @@ interface Props {
 
 const PreCode = ({ children, ...props }: Props) => {
   return (
-    <div className={CSS.root} {...props}>
-      <CodeHighlight className={CSS.pre}>{children}</CodeHighlight>
-    </div>
+    <Figurify code>
+      <div className={CSS.root}>
+        <pre {...props}>{children}</pre>
+      </div>
+    </Figurify>
   )
 }
 

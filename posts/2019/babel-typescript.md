@@ -6,17 +6,15 @@ tags: [TypeScript, JavaScript, Featured]
 date: 2019-04-10
 ---
 
-<figure class='cover'>
-<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Display' />
-</figure>
+You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!
 
-**You can use Babel as a TypeScript compiler.** This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!
+<Figure cover>
+<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Display' />
+</Figure>
 
 To do this, we'll configure `tsc` (the TypeScript compiler) only check types, but not emit files. We'll use Babel to do the actual compilation.
 
 ## Installing packages
-
-<!-- {.-literate-style} -->
 
 Install Babel and its required packages. We'll be using [@babel/preset-typescript] to allow Babel to consume TypeScript files, and [typescript] to check our types.
 
@@ -38,12 +36,9 @@ yarn add --dev \
 
 ### Configure Babel
 
-<!-- {.-literate-style} -->
-
 In `babel.config.js`, add the `preset-typescript` preset. This strips out type annotations from your TypeScript files, allowing Babel to compile them just as it would regular JavaScript.
 
-<figure class='code'>
-<figcaption>babel.config.js</figcaption>
+<Figure code title='babel.config.js'>
 
 <!-- prettier-ignore -->
 ```javascript
@@ -55,7 +50,7 @@ module.exports = {
 }
 ```
 
-</figure>
+</Figure>
 
 This only makes Babel ignore the types&mdash;it doesn't check them! For that, we'll use TypeScript's `tsc`, which we'll get to later.
 
@@ -63,8 +58,7 @@ This only makes Babel ignore the types&mdash;it doesn't check them! For that, we
 
 Configure TypeScript by creating a file called `tsconfig.json`. Of particular interest here is `noEmit`, which prevents TypeScript from writing its own JavaScript files. We'll only be using TypeScript for type-checking. We'll leave the compilation duties to Babel.
 
-<figure class='code'>
-<figcaption>tsconfig.json</figcaption>
+<Figure code title='tsconfig.json'>
 
 ```javascript
 {
@@ -74,13 +68,11 @@ Configure TypeScript by creating a file called `tsconfig.json`. Of particular in
 }
 ```
 
-</figure>
+</Figure>
 
 ## Trying it out
 
 ### Check types with `tsc`
-
-<!-- {.-literate-style} -->
 
 Run `tsc` to check types. This should print a few errors if you have any.
 
@@ -89,8 +81,6 @@ yarn run tsc
 ```
 
 ### Build files with `babel`
-
-<!-- {.-literate-style} -->
 
 If you installed `@babel/cli`, you can test building files using the `babel` command. (Note: if you're using Webpack or Rollup, you don't need this package; use Webpack/Rollup to compile your JavaScript instead.)
 
@@ -106,8 +96,7 @@ You can use Babel without Webpack or Rollup. If you're using already Webpack or 
 
 You can use `@babel/cli` to compile files. In this example, we'll set up some NPM scripts to convert every TypeScript file in `src/` to JavaScript files into `lib/`.
 
-<figure class='code'>
-<figcaption>package.json</figcaption>
+<Figure code title='package.json'>
 
 ```sh
 "scripts": {
@@ -117,7 +106,7 @@ You can use `@babel/cli` to compile files. In this example, we'll set up some NP
 }
 ```
 
-</figure>
+</Figure>
 
 ## References
 

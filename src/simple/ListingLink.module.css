@@ -1,0 +1,32 @@
+@import '../css-utils/all.css';
+
+.link {
+  @apply block my-8 text-gray-900 no-underline;
+}
+
+.title {
+  @apply m-0 font-normal ms-1 text-n-bold;
+}
+
+.title,
+.meta,
+.description {
+  @apply block;
+}
+
+.description {
+  @apply type-italic-serif;
+}
+
+.meta {
+  @apply type-monospace -ms-1 mt-1;
+}
+
+.toRead::before {
+  content: '·';
+  @apply mx-2 text-n-mute;
+}
+
+.toRead {
+  @apply text-n-mute;
+}

@@ -6,9 +6,9 @@ description: Can we get the benefits of full type checking without using TypeScr
 date: 2019-04-07
 ---
 
-<figure class='cover'>
-<img src='https://source.unsplash.com/0X7ZNRcBT-k/600x400' alt='Display' />
-</figure>
+<Figure cover>
+<img src='https://source.unsplash.com/L5HG3CH_pgc/900x600' alt='Display' />
+</Figure>
 
 [TypeScript] lets you annotate your JavaScript with type annotations. It can even check these for errors in build-time, so you can catch errors before they get deployed to production. You'll never have to deal with another _undefined is not a function_ error ever again!
 
@@ -20,10 +20,13 @@ TypeScript, by default, requires you to make a few changes to your build setup. 
 
 Many people don't like how working with TypeScript means having to use a new syntax, even if it's a strict superset of JavaScript. If this describes you, then this article is for you.
 
-```js
+<Figure code title='typescript-syntax-example.ts'>
+
+```ts
+// highlight-range{6}
 /*
- * TypeScript syntax allows you to put inline type annotations... but it's not
- * really JavaScript anymore.
+ * TypeScript syntax allows you to put inline type annotations...
+ * but it's not really JavaScript anymore.
  */
 
 function repeat(text: string, count: number) {
@@ -31,7 +34,9 @@ function repeat(text: string, count: number) {
 }
 ```
 
-<div><NextBlock title="Let's learn about an alternative to the TypeScript syntax." /></div>
+</Figure>
+
+<NextBlock title="Let's learn about an alternative to the TypeScript syntax." />
 
 ## Documenting JavaScript
 
@@ -42,6 +47,7 @@ function repeat(text: string, count: number) {
 You can document TypeScript with [JSDoc] syntax&mdash;the standard syntax for documenting JavaScript. While JSDoc is primarily used as a means of writing documentation, TypeScript can read JSDoc's type annotations.
 
 ```js
+// highlight-range{4-5}
 /**
  * Repeats some text a given number of times.
  *
@@ -69,9 +75,7 @@ If you're using JSDoc to document your JavaScript, you might as well let TypeScr
 
 ## TypeScript setup
 
-### Install TypeScript
-
-You'll need TypeScript to do this. Install the [typescript][typescript-npm] npm package in your project to get started.
+We'll need TypeScript to get started. Install the [typescript][typescript-npm] npm package in your project to get started.
 
 [typescript-npm]: https://yarn.pm/typescript
 
@@ -85,7 +89,7 @@ yarn add typescript
 
 Configure TypeScript to check your JavaScript files. (By default, TypeScript only checks `.ts` files.) TypeScript is configured using the `tsconfig.json` file. We'll also be using the `noEmit` option, since we're only going to be using TypeScript as a type checker.
 
-<figure class='code' title='tsconfig.json'>
+<Figure code title='tsconfig.json'>
 
 ```js
 {
@@ -96,7 +100,7 @@ Configure TypeScript to check your JavaScript files. (By default, TypeScript onl
 }
 ```
 
-</figure>
+</Figure>
 
 ### Try it
 
@@ -117,6 +121,7 @@ yarn run tsc
 Use `@param` to document types of a function's parameters. You'll need to put these in JSDoc comments, which are block comments that begin with two stars.
 
 ```js
+// highlight-range{2-3}
 /**
  * @param {string} text
  * @param {number} count
@@ -132,6 +137,7 @@ function repeat(text, count) {
 JSDoc is, first and foremost, a documentation tool. Aside from adding type annotations, you might as well use it to document what your functions do.
 
 ```js
+// highlight-range{4-5}
 /**
  * Repeats a given string a certain number of times.
  *
@@ -155,6 +161,7 @@ Here's the same example, but with some text to describe what it does.
 Add an equal sign at the end of a type to signify that it's optional. In this example, `number=` is the same as `number | null | undefined`. This special syntax ("closure syntax") is only available in JSDoc types.
 
 ```js
+// highlight-range{3}
 /**
  * @param {string} text
  * @param {number=} count
@@ -169,7 +176,10 @@ function repeat(text, count = 1) {
 
 You can document properties of params, like `options.count` and `options.separator` in this example. You can use this to document React props in function components, too!
 
+<Figure code>
+
 ```js
+// highlight-range{3-5}
 /**
  * @param {string} text - Text to repeat
  * @param {Object} options
@@ -188,7 +198,9 @@ function repeat(text, options) {
 repeat('hello', { count: 2, separator: '-' })
 ```
 
-<div><NextBlock title="Let's write some more annotations." /></div>
+</Figure>
+
+<NextBlock title="Let's write some more annotations." />
 
 ## Type assertions
 
@@ -197,6 +209,7 @@ repeat('hello', { count: 2, separator: '-' })
 Use `@type` to provide inline type definitions to function arguments. This isn't typically needed for constants, as TypeScript can usually infer types pretty well. It's a great fit for non-constant variables, though (ie, `let`).
 
 ```js
+// highlight-range{3}
 /**
  * Time out in seconds.
  * @type number
@@ -211,6 +224,7 @@ let timeout = 3000
 
 <!-- prettier-ignore -->
 ```js
+// highlight-range{2-3}
 list.reduce((
   /** @type number */ acc,
   /** @type number */ item
@@ -227,11 +241,12 @@ list.reduce((
 
 Complex, reusable types are better defined in an external TypeScript file. You can then import these TypeScript definitions into your JavaScript files.
 
-```js
-/** @typedef { import('./myTypes').User } User */
-```
+<Figure code>
 
 ```js
+// highlight-range{1}
+/** @typedef { import('./myTypes').User } User */
+
 /**
  * @param {User} author
  */
@@ -241,19 +256,24 @@ function cite(author) {
 }
 ```
 
+</Figure>
+
 Import types using the special `import` syntax. You can then define your types in an external `.d.ts` file.
 
 ### Defining types externally
 
 Define your types in an ambient definition file (`.d.ts`). Note that these files need to be TypeScript files; there's no way to export type definitions from a `.js` file.
 
+<Figure code title='myTypes.d.ts'>
+
 ```js
-/* myTypes.d.ts */
 export interface User {
   name: string
   email: string
 }
 ```
+
+</Figure>
 
 Using _import()_, the JSDoc syntax effectively is as feature-rich as the TypeScript syntax. If the JSDoc syntax is too limiting, you can define your types in a TypeScript file and import them later.
 
@@ -265,15 +285,16 @@ Using _import()_, the JSDoc syntax effectively is as feature-rich as the TypeScr
 
 Use `@typedef` to define a type. External `.d.ts` files are preferred to this approach, but this syntax is available should you need it.
 
+<Figure code>
+
 ```js
+// highlight-range{2-4,10}
 /**
  * @typedef {Object} Props
  * @property {string} title - The title of the page
  * @property {number} updatedAt - Last updated time
  */
-```
 
-```js
 /**
  * A component.
  *
@@ -286,6 +307,8 @@ const ArticleLink = (props) => {
   // ...
 }
 ```
+
+</Figure>
 
 ### Union types
 
@@ -304,6 +327,7 @@ Use union types (`|`) to signify types that can be one or another. To simplify t
 Function components are plain functions. You can document them in any of the ways we previously learned to document functions. In this example, we'll document them using object types.
 
 ```js
+// highlight-range{4-7}
 /**
  * This is a React function component.
  *
@@ -323,6 +347,7 @@ const ArticleLink = (props) => {
 Use `@extends` to define the types for your props and state. You can then use `@typedef` (either inline or imports) to define what _Props_ and _State_ are.
 
 ```js
+// highlight-range{4}
 /**
  * This is a React class component.
  *
@@ -360,6 +385,7 @@ Consult the official [JSDoc in TypeScript][jsdoc-in-typescript] documentation fo
 Write your documentations as block comments that begin with a double-star. Document parameters with `@param`.
 
 ```js
+// highlight-range{3}
 /**
  * Multiply a number by itself.
  * @param {number} n - What to square
@@ -367,6 +393,7 @@ Write your documentations as block comments that begin with a double-star. Docum
 
 function square(n) {
   // ...
+}
 ```
 
 ### Importing type definitions
@@ -390,6 +417,7 @@ Use the equal sign to denote nullable types. This is equivalent to `User | null 
 Use `@type` to document parameters of an anonymous function.
 
 ```js
+// highlight-range{1}
 numbers.map((/** @type number */ n) => {
   return n * 2
 })
@@ -400,6 +428,7 @@ numbers.map((/** @type number */ n) => {
 You can document the properties of object parameters.
 
 ```js
+// highlight-range{2-4}
 /**
  * @param {Object} options
  * @param {number} options.count
@@ -408,4 +437,5 @@ You can document the properties of object parameters.
 
 function repeat(options) {
   // ... options.count, options.sep
+}
 ```

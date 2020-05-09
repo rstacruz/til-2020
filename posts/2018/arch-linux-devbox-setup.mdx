@@ -7,7 +7,7 @@ tags: [Linux, Featured]
 I do a lot of my day-to-day development work on a Linux VPS in the cloud. This lets me, say, run very taxing Rails projects without thrashing my laptop.
 
 <Figure cover>
-<img src='https://source.unsplash.com/0juC5JIhPks/600x300' alt='Display' />
+<img src='https://source.unsplash.com/0juC5JIhPks/900x450' alt='Display' />
 </Figure>
 
 For this, I use the same OS as I use on my workstation: Arch Linux! In this article, I'll show you what I did to set up my on-the-cloud development box.
@@ -68,6 +68,8 @@ For $20 a month, you can get 4GB RAM and 2x CPU. This is enough for most cases! 
 
 Create your everyday user. For me, that's `rsc`, but change that as you need. You'll also want to set up sudo, of course, so let's do that.
 
+<Figure code>
+
 ```sh
 # As root, add the user
 useradd -Nm -g users -G wheel,sys rsc
@@ -80,9 +82,13 @@ passwd rsc
 passwd
 ```
 
+</Figure>
+
 ### SSH setup
 
 Make sure you can connect to it! After doing this, you can start connecting to your devbox via SSH, and do the rest of this setup via SSH.
+
+<Figure code>
 
 ```sh
 # Let's assume the user `rsc`, if you're not that user yet.
@@ -99,6 +105,8 @@ chmod 600 ~/.ssh/authorized_keys
 # Generate our own key for later use
 ssh-keygen
 ```
+
+</Figure>
 
 ### Set up sudo
 
@@ -167,6 +175,8 @@ sudo ufw allow mosh
 
 You will need to add some overrides in `/etc/ufw/after.rules`. See this article for more info: [Solving ufw and Docker issues](https://github.com/chaifeng/ufw-docker/blob/master/README.md#solving-ufw-and-docker-issues).
 
+<Figure code>
+
 ```sh
 # Read the linked article for the edits
 # you will need to make here.
@@ -180,6 +190,8 @@ sudo vim /etc/ufw/after.rules
 sudo ufw route allow proto tcp from any to any port 80
 sudo ufw route allow proto tcp from any to any port 443
 ```
+
+</Figure>
 
 ### Start the firewall
 
@@ -211,6 +223,8 @@ sudo pacman -Syu fail2ban
 
 Configure fail2ban to "jail" sshd connections. This will shut off SSH access to IP's that try to log in and fail.
 
+<Figure code>
+
 ```sh
 nvim /etc/fail2ban/jail.d/sshd.local
 ```
@@ -219,6 +233,8 @@ nvim /etc/fail2ban/jail.d/sshd.local
 [sshd]
 enabled = true
 ```
+
+</Figure>
 
 ### Start it
 
@@ -250,6 +266,8 @@ sudo mount --bind /home/rsc/Dev /srv/Dev
 
 Edit fstab to auto-mount this path on every boot up.
 
+<Figure code>
+
 ```sh
 sudo vim /etc/fstab
 ```
@@ -258,9 +276,13 @@ sudo vim /etc/fstab
 /home/rsc/Dev /srv/Dev none rw,bind 0 0
 ```
 
+</Figure>
+
 ### Tell nfsd about it
 
 Edit nfs config to export this path.
+
+<Figure code>
 
 ```sh
 sudo vim /etc/exports
@@ -269,6 +291,8 @@ sudo vim /etc/exports
 ```
 /srv/Dev 10.8.0.0/24(rwsync)
 ```
+
+</Figure>
 
 ### Reload your config
 
@@ -302,6 +326,8 @@ git config --global user.email "rstacruz@users.noreply.github.com"
 
 Secure your SSH server by disabling root login, and only allowing SSH keys.
 
+<Figure code>
+
 ```sh
 sudo vim /etc/ssh/sshd_server
 ```
@@ -311,9 +337,13 @@ PermitRootLogin no
 PasswordAuthentication no
 ```
 
+</Figure>
+
 ## Rico's stuff
 
 Here are some other suggestions.
+
+<Figure code>
 
 ```sh
 # Install for puppeteer
@@ -325,17 +355,17 @@ yay chromium
 chsh -s /usr/bin/fish
 ```
 
+</Figure>
+
 ## Workstation setup
 
 ### Set up hosts
 
 In your laptop, it'd make sense to add the devbox IP to your `/etc/hosts`.
 
-```sh
-# /etc/hosts
-```
+<Figure code title='/etc/hosts'>
 
-```
+```sh
 # The local one works if you're connected to the VPN.
 # Use this when accessing resources, eg `http://devbox.local:4000/`
 devbox.local 10.8.0.1
@@ -345,17 +375,25 @@ devbox.local 10.8.0.1
 devbox.remote 123.234.123.234
 ```
 
+</Figure>
+
 ### Set up aliases
 
 Set up an alias so you only have to type `A` to attach to your working session.
 
+<Figure code>
+
 ```sh
 # for fish (type this in a shell)
 abbr A 'mosh --experimental-remote-ip=remote rsc@devbox.remote -- sh -c "tmux attach || tmux"'
+```
 
+```sh
 # or bash/zsh (add to your .bashrc or .zshrc)
 alias A='mosh --experimental-remote-ip=remote rsc@devbox.remote -- sh -c "tmux attach || tmux"'
 ```
+
+</Figure>
 
 ### Mounting NFS volumes
 

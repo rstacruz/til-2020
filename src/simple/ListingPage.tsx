@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import CSS from './ListingPage.module.css'
+import { ListingLink } from './ListingLink'
 
 export type PageLink = {
   slug: string
@@ -16,13 +16,10 @@ type Props = {
 const ListingPage = (props: Props) => {
   const { pages } = props
   return (
-    <div class={CSS.root}>
-      <div class={CSS.list}>
+    <div className={CSS.root}>
+      <div className={CSS.list}>
         {pages.map((page) => (
-          <Link to={page.slug} className={CSS.link}>
-            <span className={CSS.date}>{page.date || 'Draft'}</span>
-            <span className={CSS.title}>{page.title}</span>
-          </Link>
+          <ListingLink page={page} />
         ))}
       </div>
     </div>

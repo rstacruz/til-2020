@@ -4,9 +4,9 @@ description: Testing your React components don't need to be difficult
 tags: [React]
 ---
 
-<figure cover>
-<img src='https://source.unsplash.com/DErxVSSQNdM/600x400' />
-</figure>
+<Figure cover>
+<img src='https://source.unsplash.com/TW2bfT_tWDI/900x600' />
+</Figure>
 
 [react-testing-library](https://github.com/testing-library/react-testing-library) is a very light-weight tool for testing React components. Here's a few tips on how to get started with it.
 
@@ -15,6 +15,8 @@ tags: [React]
 ## Using test ID attributes
 
 Consider adding `data-testid` attributes to your components. This makes them easy to target, and lets us refer to them without having to resort to XPath or CSS.
+
+<Figure code title='data-testid-example.js'>
 
 ```js
 const TextToolbar = () => (
@@ -27,17 +29,21 @@ const TextToolbar = () => (
 )
 ```
 
+</Figure>
+
 Using test ID attributes is advocated by many testing frameworks. I first came across it in Cypress, [which recommends a very similar practice](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements).
 
 ## Smoke tests using test ID's
 
 The react-testing-library API comes with `getBy` functions that will raise an error if they're not found. By having a test that only has .getBy calls, we effectively make a "smoke" test that will fail if the elements are missing.
 
+<Figure code title='getByTestId-example.js'>
+
 ```js
 import { render } from 'react-testing-library'
 
 it('works', () => {
-  const co = render(<TextToolbar />)
+  const { getByTestId } = render(<TextToolbar />)
 
   // This test will fail if these aren't present.
   co.getByTestId('button:bold')
@@ -46,9 +52,13 @@ it('works', () => {
 })
 ```
 
+</Figure>
+
 ## Simulating events
 
 The API comes with a `fireEvent` helper that lets you simulate any DOM event. Use it to simulate clicks (`fireEvent.click(element)`), key presses (`fireEvent.keyPress(el)`, and anything else really!
+
+<Figure code title='simulating-events-example.js'>
 
 ```js
 import { render, fireEvent, act, cleanup } from 'react-testing-library'
@@ -57,23 +67,27 @@ import { render, fireEvent, act, cleanup } from 'react-testing-library'
 afterEach(cleanup)
 
 it('works', () => {
-  const co = render(<TextToolbar />)
+  const { getByTestId } = render(<TextToolbar />)
 
-  const button = co.getByTestId('button:insertImage')
+  const button = getByTestId('button:insertImage')
 
   // Click the button.
   act(() => { fireEvent.click(button) })
 
   // Ensure that something happens
   await waitForElement(() => (
-    co.getTestById('insertImageDialog')
+    getTestById('insertImageDialog')
   ))
 })
 ```
 
+</Figure>
+
 ## Jest DOM
 
 Try [`@testing-library/jest-dom`](https://npm.im/@testing-library/jest-dom) to add a few custom matchers.
+
+<Figure code title='jest-dom-example.js'>
 
 ```js
 // See https://github.com/kentcdodds/react-testing-library#global-config
@@ -93,6 +107,8 @@ it('works', () => {
   expect(button).toHaveStyle('color: red')
 })
 ```
+
+</Figure>
 
 <!--
 

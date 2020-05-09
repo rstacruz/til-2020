@@ -18,16 +18,17 @@
 }
 
 .root :global(h2) {
-  @apply font-bold text-gray-900 mb-md ms-4 type-body-sans;
+  @apply font-bold text-n-bold mb-md ms-3 type-body-sans;
   letter-spacing: -0.02em;
 }
 
 .root :global(h2::after) {
   content: '';
-  @apply block h-px mt-2 mb-4;
+  @apply block h-px mt-3 mb-3;
   background: linear-gradient(
     to right,
-    theme('colors.gray.400'),
+    theme('colors.a.500') 18%,
+    theme('colors.gray.300') 18%,
     transparent 150%
   );
 }
@@ -88,7 +89,7 @@
 }
 
 .root :global(strong.highlight) {
-  @apply font-semibold bg-yellow-100;
+  @apply font-medium bg-yellow-100;
 }
 
 .root :global(.isActive strong.highlight) {
@@ -100,9 +101,18 @@
  */
 
 .root :global(blockquote.next) {
-  @apply p-0 text-base italic bg-gray-100 type-italic-serif;
+  @apply p-0 text-base italic type-italic-serif;
   border-left: 0;
-  @apply bg-white;
+  @screen md {
+    @apply pb-6;
+  }
+}
+
+.root :global(blockquote.next::before) {
+  @screen md {
+    content: '';
+    @apply block w-24 h-4 my-4 dotted-background-12;
+  }
 }
 
 .root :global(blockquote.next strong) {
@@ -110,8 +120,20 @@
   @apply not-italic font-bold uppercase type-monospace;
 }
 
-.root :global(figure.code-compare) {
-  @screen lg {
-    @apply -mx-32;
-  }
+.root :global(ol),
+.root :global(ul) {
+  @apply pl-4 ml-0;
+}
+
+.root :global(ol > li) {
+  @apply pl-3;
+}
+
+.root :global(ul > li) {
+  @apply pl-2;
+}
+
+.root :global(ul > li::marker) {
+  content: '-';
+  @apply pl-2;
 }

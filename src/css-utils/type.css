@@ -1,7 +1,3 @@
-.type-body-sans {
-  font-family: 'Public Sans', Roboto, sans-serif;
-}
-
 .type-thin-heading {
   @apply font-thin type-body-sans;
   letter-spacing: -0.014em;
@@ -10,20 +6,6 @@
 .type-bold-heading {
   @apply font-bold type-body-sans;
   letter-spacing: -0.02rem;
-}
-
-.type-monospace {
-  font-size: 0.9em;
-  font-family: 'Roboto Mono', cousine, monospace;
-  line-height: 1.3;
-  letter-spacing: -0.06em;
-}
-
-.type-italic-serif {
-  font-family: 'Gentium Basic', serif;
-  font-weight: 400;
-  font-style: italic;
-  font-size: 1.1em;
 }
 
 .type-heading-serif {
