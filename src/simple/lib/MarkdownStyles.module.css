@@ -18,13 +18,13 @@
 }
 
 .root :global(h2) {
-  @apply font-bold text-gray-900 mb-md ms-4 type-body-sans;
+  @apply font-bold text-gray-900 mb-md ms-2 type-body-sans;
   letter-spacing: -0.02em;
 }
 
 .root :global(h2::after) {
   content: '';
-  @apply block h-px mt-2 mb-4;
+  @apply block h-px mt-2 mb-2;
   background: linear-gradient(
     to right,
     theme('colors.gray.400'),

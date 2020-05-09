@@ -1,6 +1,7 @@
 ---
 title: Inspecting JSON output in the command line
 date: 2019-03-24
+description: Using jq and less together makes JSON output readable
 tags: [Development, CLI]
 layout: simple
 ---

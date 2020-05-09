@@ -7,22 +7,3 @@
 .list {
   @apply my-md;
 }
-
-.link {
-  @apply flex p-2 px-4 no-underline;
-}
-
-.date,
-.title {
-  @apply block no-underline;
-}
-
-.date {
-  @apply flex-none w-24 mr-2 text-n-mute;
-  @apply type-monospace;
-  padding-top: 0.125rem;
-}
-
-.title {
-  @apply flex-1 text-gray-900;
-}

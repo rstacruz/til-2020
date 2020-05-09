@@ -43,7 +43,7 @@
 
 .root.isFixed {
   @apply py-0;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 0, 0, 0.04);
   transition: box-shadow 150ms linear, padding 150ms ease-out;
   line-height: 48px;
 }
@@ -66,7 +66,7 @@
 
 .left,
 .right {
-  @apply px-8 flex-initial w-8;
+  @apply flex-initial w-8 px-8;
 }
 
 .right {
