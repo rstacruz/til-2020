@@ -2,6 +2,7 @@
 title: Fractional scaling on Linux Xorg
 tags: [Linux, Featured]
 layout: simple
+description: Getting 1.5x scaling on Xorg isn't always very straight-forward. Here's how I got it working
 date: 2019-04-08
 ---
 

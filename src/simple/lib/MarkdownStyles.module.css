@@ -116,3 +116,21 @@
     @apply -mx-32;
   }
 }
+
+.root :global(ol),
+.root :global(ul) {
+  @apply pl-4 ml-0;
+}
+
+.root :global(ol > li) {
+  @apply pl-3;
+}
+
+.root :global(ul > li) {
+  @apply pl-2;
+}
+
+.root :global(ul > li::marker) {
+  content: '-';
+  @apply pl-2;
+}
