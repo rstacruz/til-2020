@@ -19,6 +19,13 @@ module.exports = {
         a: {
           '500': '#705075',
         },
+        // Code background
+        window: {
+          text: '#8a8ab1',
+          base: '#30304b',
+          title: '#2b2b41',
+          line: '#80809040',
+        },
         // Neutral
         n: {
           bold: '#111111',
@@ -63,14 +70,18 @@ module.exports = {
           boxShadow: [
             `0 0 1px rgba(0, 0, 180, 0.3)`,
             `0 0px 1px rgba(0, 0, 80, 0.04)`,
-            `0 2px 2px rgba(0, 0, 80, 0.03)`,
-            `0 4px 4px rgba(0, 0, 80, 0.03)`,
-            `0 8px 8px rgba(0, 0, 80, 0.03)`,
-            `0 16px 16px rgba(0, 0, 80, 0.03)`,
+            `0 2px 2px rgba(0, 0, 80, 0.04)`,
+            `0 4px 4px rgba(0, 0, 80, 0.04)`,
+            `0 8px 8px rgba(0, 0, 80, 0.04)`,
+            `0 16px 16px rgba(0, 0, 80, 0.04)`,
           ].join(', '),
         },
 
         '.type-body-sans': {
+          fontFamily: "'Public Sans', Roboto, sans-serif",
+        },
+
+        '.type-body-sans-x': {
           fontFamily: "'Public Sans', Roboto, sans-serif",
           fontWeight: '400',
           fontStyle: 'normal',
@@ -82,6 +93,13 @@ module.exports = {
           fontWeight: '400',
           fontStyle: 'italic',
           fontSize: '1.1em',
+        },
+
+        '.type-monospace': {
+          fontSize: '0.85em',
+          fontFamily: "'Fira Mono', 'Roboto Mono', cousine, monospace",
+          lineHeight: '1.3',
+          letterSpacing: '-0.04em',
         },
 
         '.small-font': {

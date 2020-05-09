@@ -5,7 +5,7 @@ import useSiteMetadata from '../hooks/useSiteMetadata'
 // Typefaces
 import 'typeface-gentium-basic'
 import 'typeface-public-sans'
-import 'typeface-roboto-mono'
+import 'typeface-fira-mono'
 
 // Global CSS
 import 'sanitize.css'

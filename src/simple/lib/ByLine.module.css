@@ -2,7 +2,7 @@
 @import '../../css-utils/ms.css';
 
 .root {
-  @apply my-6;
+  @apply my-4;
 }
 
 .author {
@@ -12,4 +12,20 @@
 .sep {
   @apply inline-block w-px h-6 mx-6 align-middle;
   border-right: solid 1px theme('colors.gray.400');
+}
+
+/* .date, */
+/* .draft { */
+/*   @apply type-monospace; */
+/* } */
+
+.root::after {
+  content: '';
+  @apply block h-px mt-4;
+  background: linear-gradient(
+    to right,
+    theme('colors.a.500') 18%,
+    theme('colors.gray.300') 18%,
+    transparent 150%
+  );
 }
