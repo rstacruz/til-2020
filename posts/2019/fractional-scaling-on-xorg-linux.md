@@ -49,7 +49,7 @@ and we'll set some environment variables to tackle `GDK` and `QT` scaling.
 
 Place this in `~/.profile`. These variables will take effect when you log in.
 
-<Figure title='~/.profile'>
+<Figure code title='~/.profile'>
 
 ```sh
 export GDK_SCALE=2
@@ -63,7 +63,7 @@ export QT_FONT_DPI=96
 
 Place this in `~/.Xresources`. These will take effect on your next log in.
 
-<Figure title='~/.Xresources'>
+<Figure code title='~/.Xresources'>
 
 ```sh
 Xft.dpi: 192
@@ -140,7 +140,7 @@ export QT_FONT_DPI=96
 
 After enlarging your UI by 2x, you can use `xrandr` to scale it down to your desired size. This example below gets you an effective scale of 175%. (2 / 1.75 = ~1.14)
 
-<Figure title='~'>
+<Figure code title='~'>
 
 ```sh
 xrandr --scale '1.14x1.14'

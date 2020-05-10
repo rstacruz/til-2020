@@ -15,7 +15,7 @@ It's a good idea to keep a different key for every host. That way, should one be
 
 Edit the file `~/.ssh/config` and add this `Host *` rule in. Whenever SSH connects to a host, it will now look for a corresponding key in `~/.ssh/key/<user>@<host>`.
 
-<Figure title='~/.ssh/config'>
+<Figure code title='~/.ssh/config'>
 
 ```sh
 Host *
@@ -28,7 +28,7 @@ Host *
 
 Put your SSH keys in `~/.ssh/keys/` in the format of `<user>@<host>`. My key folder looks a little bit something like this.
 
-<Figure title='~/.ssh/keys'>
+<Figure code title='~/.ssh/keys'>
 
 ```
 ~/.ssh/keys/

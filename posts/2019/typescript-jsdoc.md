@@ -20,6 +20,8 @@ TypeScript, by default, requires you to make a few changes to your build setup. 
 
 Many people don't like how working with TypeScript means having to use a new syntax, even if it's a strict superset of JavaScript. If this describes you, then this article is for you.
 
+<Figure code title='typescript-syntax-example.ts'>
+
 ```js
 /*
  * TypeScript syntax allows you to put inline type annotations... but it's not
@@ -31,7 +33,9 @@ function repeat(text: string, count: number) {
 }
 ```
 
-<div><NextBlock title="Let's learn about an alternative to the TypeScript syntax." /></div>
+</Figure>
+
+<NextBlock title="Let's learn about an alternative to the TypeScript syntax." />
 
 ## Documenting JavaScript
 
@@ -167,6 +171,8 @@ function repeat(text, count = 1) {
 
 You can document properties of params, like `options.count` and `options.separator` in this example. You can use this to document React props in function components, too!
 
+<Figure code>
+
 ```js
 /**
  * @param {string} text - Text to repeat
@@ -186,7 +192,9 @@ function repeat(text, options) {
 repeat('hello', { count: 2, separator: '-' })
 ```
 
-<div><NextBlock title="Let's write some more annotations." /></div>
+</Figure>
+
+<NextBlock title="Let's write some more annotations." />
 
 ## Type assertions
 
@@ -225,6 +233,8 @@ list.reduce((
 
 Complex, reusable types are better defined in an external TypeScript file. You can then import these TypeScript definitions into your JavaScript files.
 
+<Figure code>
+
 ```js
 /** @typedef { import('./myTypes').User } User */
 ```
@@ -239,19 +249,24 @@ function cite(author) {
 }
 ```
 
+</Figure>
+
 Import types using the special `import` syntax. You can then define your types in an external `.d.ts` file.
 
 ### Defining types externally
 
 Define your types in an ambient definition file (`.d.ts`). Note that these files need to be TypeScript files; there's no way to export type definitions from a `.js` file.
 
+<Figure code title='myTypes.d.ts'>
+
 ```js
-/* myTypes.d.ts */
 export interface User {
   name: string
   email: string
 }
 ```
+
+</Figure>
 
 Using _import()_, the JSDoc syntax effectively is as feature-rich as the TypeScript syntax. If the JSDoc syntax is too limiting, you can define your types in a TypeScript file and import them later.
 
@@ -262,6 +277,8 @@ Using _import()_, the JSDoc syntax effectively is as feature-rich as the TypeScr
 ### Object types
 
 Use `@typedef` to define a type. External `.d.ts` files are preferred to this approach, but this syntax is available should you need it.
+
+<Figure code>
 
 ```js
 /**
@@ -284,6 +301,8 @@ const ArticleLink = (props) => {
   // ...
 }
 ```
+
+</Figure>
 
 ### Union types
 

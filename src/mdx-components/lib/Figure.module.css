@@ -25,7 +25,9 @@
 
 /* Filename heading */
 .root > :global(figcaption:first-child) {
-  @apply px-4 py-2 m-0 -mb-8 text-sm text-center rounded-t-md relative;
+  @apply px-4 m-0 -mb-8 text-sm text-center rounded-t-md relative truncate;
+  height: 2.25rem;
+  line-height: 2.25rem;
   font-size: 0.8em;
   color: theme('colors.window.text');
   background: theme('colors.window.title');

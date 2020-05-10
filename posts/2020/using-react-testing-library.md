@@ -16,7 +16,7 @@ tags: [React]
 
 Consider adding `data-testid` attributes to your components. This makes them easy to target, and lets us refer to them without having to resort to XPath or CSS.
 
-<Figure title='data-testid-example.js'>
+<Figure code title='data-testid-example.js'>
 
 ```js
 const TextToolbar = () => (
@@ -37,7 +37,7 @@ Using test ID attributes is advocated by many testing frameworks. I first came a
 
 The react-testing-library API comes with `getBy` functions that will raise an error if they're not found. By having a test that only has .getBy calls, we effectively make a "smoke" test that will fail if the elements are missing.
 
-<Figure title='getByTestId-example.js'>
+<Figure code title='getByTestId-example.js'>
 
 ```js
 import { render } from 'react-testing-library'
@@ -58,7 +58,7 @@ it('works', () => {
 
 The API comes with a `fireEvent` helper that lets you simulate any DOM event. Use it to simulate clicks (`fireEvent.click(element)`), key presses (`fireEvent.keyPress(el)`, and anything else really!
 
-<Figure title='simulating-events-example.js'>
+<Figure code title='simulating-events-example.js'>
 
 ```js
 import { render, fireEvent, act, cleanup } from 'react-testing-library'
@@ -87,7 +87,7 @@ it('works', () => {
 
 Try [`@testing-library/jest-dom`](https://npm.im/@testing-library/jest-dom) to add a few custom matchers.
 
-<Figure title='jest-dom-example.js'>
+<Figure code title='jest-dom-example.js'>
 
 ```js
 // See https://github.com/kentcdodds/react-testing-library#global-config
