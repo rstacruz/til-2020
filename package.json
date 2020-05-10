@@ -9,12 +9,10 @@
     "@rstacruz/rehype-sectionize": "^0.1.1",
     "classnames": "^2.2.6",
     "gatsby": "^2.21.0",
-    "gatsby-plugin-manifest": "^2.4.0",
     "gatsby-plugin-mdx": "^1.2.0",
     "gatsby-plugin-postcss": "^2.3.0",
     "gatsby-plugin-purgecss": "^5.0.0",
     "gatsby-plugin-react-helmet": "^3.3.0",
-    "gatsby-plugin-sharp": "^2.6.0",
     "gatsby-remark-copy-linked-files": "^2.3.1",
     "gatsby-remark-images": "^3.3.0",
     "gatsby-source-filesystem": "^2.3.0",
@@ -34,6 +32,10 @@
     "typeface-gentium-basic": "^0.0.72",
     "typeface-public-sans": "^1.1.4",
     "typeface-roboto-mono": "^0.0.75"
+  },
+  "optionalDependencies": {
+    "gatsby-plugin-sharp": "^2.6.0",
+    "gatsby-plugin-manifest": "^2.4.0"
   },
   "keywords": [
     "gatsby"
