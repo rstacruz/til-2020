@@ -53,6 +53,15 @@ const plugins = () => [
             ]
           : []),
 
+        {
+          resolve: 'gatsby-remark-prismjs',
+          options: {
+            aliases: {
+              sh: 'bash',
+            },
+          },
+        },
+
         // Support animated GIF's
         // See: https://www.gatsbyjs.org/packages/gatsby-remark-images/#supported-formats
         'gatsby-remark-copy-linked-files',
