@@ -47,3 +47,9 @@
 .root :global(.comment) {
   color: theme('colors.gray.500');
 }
+
+:global(.gatsby-highlight-code-line) {
+  background-color: #caf2;
+  display: block;
+  @apply -mx-4 px-4;
+}
