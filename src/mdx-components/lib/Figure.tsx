@@ -41,10 +41,10 @@ const Figure = (props: Props) => {
   return (
     <FigureContext.Provider value={true}>
       <figure className={figureClass}>
-        {title || isCode ? (
+        {isCode ? (
           <figcaption className={CSS.titlebar}>{title || ''}</figcaption>
         ) : null}
-        {props.children}
+        <div className={CSS.body}>{props.children}</div>
       </figure>
     </FigureContext.Provider>
   )

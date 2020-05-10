@@ -24,7 +24,7 @@ module.exports = {
           text: '#8a8ab1',
           base: '#30304b',
           title: '#2b2b41',
-          line: '#8181e030',
+          line: '#8181e055',
         },
         // Neutral
         n: {

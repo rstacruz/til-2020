@@ -6,7 +6,7 @@ import NextBlock from './lib/NextBlock'
 import Figure from './lib/Figure'
 
 const components = {
-  /* pre: PreCode, */
+  pre: PreCode,
   section: H2Section,
   figure: Figure,
   NextBlock,
