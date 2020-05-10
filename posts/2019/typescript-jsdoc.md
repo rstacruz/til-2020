@@ -87,7 +87,7 @@ yarn add typescript
 
 Configure TypeScript to check your JavaScript files. (By default, TypeScript only checks `.ts` files.) TypeScript is configured using the `tsconfig.json` file. We'll also be using the `noEmit` option, since we're only going to be using TypeScript as a type checker.
 
-<figure title='tsconfig.json'>
+<Figure code title='tsconfig.json'>
 
 ```js
 {
@@ -98,7 +98,7 @@ Configure TypeScript to check your JavaScript files. (By default, TypeScript onl
 }
 ```
 
-</figure>
+</Figure>
 
 ### Try it
 
@@ -425,4 +425,5 @@ You can document the properties of object parameters.
 
 function repeat(options) {
   // ... options.count, options.sep
+}
 ```

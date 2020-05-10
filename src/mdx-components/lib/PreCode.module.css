@@ -1,20 +1,13 @@
 @import '../../css-utils/all.css';
 
 .root {
-  @apply p-5 mx-0 rounded-sm my-lg type-monospace;
-  @apply type-monospace;
-  @apply overflow-x-auto thin-scrollbar;
-  @apply shadow-32;
+  @apply p-5 type-monospace bg-transparent;
+  composes: _pre from './Figure.module.css';
   transition: box-shadow 300ms linear;
-  background: #30304b;
 }
 
 :global(.isInactive) .root {
   @apply shadow-8;
-}
-
-.root + .root {
-  @apply -mt-8;
 }
 
 .pre.pre > code {

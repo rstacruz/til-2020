@@ -1,7 +1,7 @@
 @import '../../css-utils/dotted-background.css';
 
-.root {
-  @apply relative mx-0 my-lg;
+/* Utilities */
+.figure-background {
   background: linear-gradient(
     to bottom,
     transparent 15%,
@@ -9,35 +9,6 @@
     theme('colors.gray.200') 85%,
     transparent 85%
   );
-}
-
-.root > :global(img) {
-  /* /project-switcher-using-startify has a big image */
-  /* /arch-linux-wifi-using-netctl has a partial image */
-  @apply block max-w-full mx-auto rounded-sm;
-}
-
-.isWide {
-  @screen md {
-    @apply -mx-4;
-  }
-}
-
-/* Filename heading */
-.root > :global(figcaption:first-child) {
-  @apply px-4 m-0 -mb-8 text-sm text-center rounded-t-md relative truncate;
-  height: 2.25rem;
-  line-height: 2.25rem;
-  font-size: 0.8em;
-  color: theme('colors.window.text');
-  background: theme('colors.window.title');
-  box-shadow: inset 0 -1px 0 theme('colors.window.line');
-  user-select: none;
-}
-
-/* TODO refactor this */
-.root > :global(figcaption:first-child ~ *) {
-  @apply rounded-t-none;
 }
 
 .window-traffic-lights {
@@ -54,7 +25,40 @@
   opacity: 0.5;
 }
 
-.root > :global(figcaption:first-child::before) {
+/* The thing */
+.root {
+  @apply relative -mx-2 my-lg;
+
+  &:not(.code) {
+    @apply figure-background;
+  }
+}
+
+.root > :global(img) {
+  /* /project-switcher-using-startify has a big image */
+  /* /arch-linux-wifi-using-netctl has a partial image */
+  @apply block max-w-full mx-auto rounded-sm;
+}
+
+.isWide {
+  @screen md {
+    @apply -mx-4;
+  }
+}
+
+/* Filename heading */
+.titlebar {
+  @apply relative px-4 m-0 text-sm text-center truncate rounded-t-md;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  font-size: 0.8em;
+  color: theme('colors.window.text');
+  background: theme('colors.window.title');
+  box-shadow: inset 0 -1px 0 theme('colors.window.line');
+  user-select: none;
+}
+
+.titlebar::before {
   @apply window-traffic-lights;
 }
 
@@ -97,6 +101,10 @@
   }
 }
 
+/*
+ * Variant: table
+ */
+
 .table {
   & {
     @apply relative shadow-8;
@@ -111,3 +119,16 @@
     @apply m-0 bg-white;
   }
 }
+
+/*
+ * Variant: code
+ */
+
+.code {
+  @apply overflow-x-auto thin-scrollbar shadow-32 bg-window-base rounded-md;
+
+  & ._pre + ._pre {
+    box-shadow: inset 0 1px 0 theme('colors.window.line');
+  }
+}
+

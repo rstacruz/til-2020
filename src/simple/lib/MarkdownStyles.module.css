@@ -89,7 +89,7 @@
 }
 
 .root :global(strong.highlight) {
-  @apply font-semibold bg-yellow-100;
+  @apply font-medium bg-yellow-100;
 }
 
 .root :global(.isActive strong.highlight) {
@@ -101,20 +101,23 @@
  */
 
 .root :global(blockquote.next) {
-  @apply p-0 text-base italic bg-gray-100 type-italic-serif;
+  @apply p-0 text-base italic type-italic-serif;
   border-left: 0;
-  @apply bg-white;
+  @screen md {
+    @apply pb-6;
+  }
+}
+
+.root :global(blockquote.next::before) {
+  @screen md {
+    content: '';
+    @apply block w-24 h-4 my-4 dotted-background-12;
+  }
 }
 
 .root :global(blockquote.next strong) {
   @apply mr-2 font-semibold;
   @apply not-italic font-bold uppercase type-monospace;
-}
-
-.root :global(figure.code-compare) {
-  @screen lg {
-    @apply -mx-32;
-  }
 }
 
 .root :global(ol),

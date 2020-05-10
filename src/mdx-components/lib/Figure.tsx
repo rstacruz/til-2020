@@ -35,12 +35,15 @@ const Figure = (props: Props) => {
     [CSS.isWide]: classes.includes('-wide'),
     [CSS.cover]: classes.includes('cover'),
     [CSS.table]: classes.includes('table'),
+    [CSS.code]: classes.includes('code'),
   })
 
   return (
     <FigureContext.Provider value={true}>
       <figure className={figureClass}>
-        {title || isCode ? <figcaption>{title || ''}</figcaption> : null}
+        {title || isCode ? (
+          <figcaption className={CSS.titlebar}>{title || ''}</figcaption>
+        ) : null}
         {props.children}
       </figure>
     </FigureContext.Provider>

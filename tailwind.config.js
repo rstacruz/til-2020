@@ -24,7 +24,7 @@ module.exports = {
           text: '#8a8ab1',
           base: '#30304b',
           title: '#2b2b41',
-          line: '#80809040',
+          line: '#8181e030',
         },
         // Neutral
         n: {
@@ -69,11 +69,11 @@ module.exports = {
         '.shadow-32': {
           boxShadow: [
             `0 0 1px rgba(0, 0, 180, 0.3)`,
-            `0 0px 1px rgba(0, 0, 80, 0.04)`,
-            `0 2px 2px rgba(0, 0, 80, 0.04)`,
-            `0 4px 4px rgba(0, 0, 80, 0.04)`,
-            `0 8px 8px rgba(0, 0, 80, 0.04)`,
-            `0 16px 16px rgba(0, 0, 80, 0.04)`,
+            `0 0px 1px rgba(0, 0, 80, 0.06)`,
+            `0 2px 2px rgba(0, 0, 80, 0.06)`,
+            `0 4px 4px rgba(0, 0, 80, 0.06)`,
+            `0 8px 8px rgba(0, 0, 80, 0.06)`,
+            `0 16px 16px rgba(0, 0, 80, 0.06)`,
           ].join(', '),
         },
 

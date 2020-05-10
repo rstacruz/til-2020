@@ -7,8 +7,7 @@ date: 2019-04-11
 
 Many desktop systems rely on [NetworkManager], but this isn't the only way to get a Linux system online. Arch Linux comes with [netctl]&mdash;a systemd-native way of managing physical network connections.
 
-<figure>
-<figcaption class='-title'>TLDR</figcaption>
+<Figure code title='TLDR'>
 
 ```sh
 # Open a menu to find Wi-Fi connections.
@@ -26,7 +25,7 @@ sudo netctl-auto enable wlp3s0-WifiNameHere
 sudo netctl-auto switch-to wlp3s0-WifiNameHere
 ```
 
-</figure>
+</Figure>
 
 ---
 
@@ -44,13 +43,11 @@ sudo wifi-menu
 
 ### What's wifi-menu?
 
-<!-- {.-literate-style} -->
-
 The `wifi-menu` is a utility to create netctl profiles. After selecting a network in wifi-menu, a profile will be created in `/etc/netctl`. After creating a profile, wifi-menu will automatically try to connect to it.
 
-<figure>
+<Figure>
 <img src='https://i.stack.imgur.com/ySl7b.png' />
-</figure>
+</Figure>
 
 Only do this once per Wi-Fi network! After the profile's been created, you can connect to it without wifi-menu.
 
