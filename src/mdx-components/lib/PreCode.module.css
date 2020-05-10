@@ -10,13 +10,12 @@
   @apply shadow-8;
 }
 
-.pre.pre > code {
+.root :global(pre > code) {
   color: theme('colors.gray.300');
 }
 
-.pre {
-  margin: 0;
-  padding: 0;
+.root :global(pre) {
+  @apply m-0 p-0;
 }
 
 .root :global(.keyword),
@@ -25,7 +24,7 @@
 }
 
 .root :global(.maybe-class-name) {
-  font-weight: bold;
+  @apply font-bold;
 }
 
 .root :global(.function) {
@@ -39,7 +38,7 @@
 
 .root :global(.number),
 .root :global(.string) {
-  font-weight: bold;
+  @apply font-bold;
   color: theme('colors.blue.600');
 }
 
@@ -47,4 +46,10 @@
 .root :global(.punctuation),
 .root :global(.comment) {
   color: theme('colors.gray.500');
+}
+
+:global(.gatsby-highlight-code-line) {
+  background-color: #caf2;
+  display: block;
+  @apply -mx-4 px-4;
 }

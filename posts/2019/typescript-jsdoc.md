@@ -22,10 +22,11 @@ Many people don't like how working with TypeScript means having to use a new syn
 
 <Figure code title='typescript-syntax-example.ts'>
 
-```js
+```ts
+// highlight-range{6}
 /*
- * TypeScript syntax allows you to put inline type annotations... but it's not
- * really JavaScript anymore.
+ * TypeScript syntax allows you to put inline type annotations...
+ * but it's not really JavaScript anymore.
  */
 
 function repeat(text: string, count: number) {
@@ -46,6 +47,7 @@ function repeat(text: string, count: number) {
 You can document TypeScript with [JSDoc] syntax&mdash;the standard syntax for documenting JavaScript. While JSDoc is primarily used as a means of writing documentation, TypeScript can read JSDoc's type annotations.
 
 ```js
+// highlight-range{4-5}
 /**
  * Repeats some text a given number of times.
  *
@@ -119,6 +121,7 @@ yarn run tsc
 Use `@param` to document types of a function's parameters. You'll need to put these in JSDoc comments, which are block comments that begin with two stars.
 
 ```js
+// highlight-range{2-3}
 /**
  * @param {string} text
  * @param {number} count
@@ -134,6 +137,7 @@ function repeat(text, count) {
 JSDoc is, first and foremost, a documentation tool. Aside from adding type annotations, you might as well use it to document what your functions do.
 
 ```js
+// highlight-range{4-5}
 /**
  * Repeats a given string a certain number of times.
  *
@@ -157,6 +161,7 @@ Here's the same example, but with some text to describe what it does.
 Add an equal sign at the end of a type to signify that it's optional. In this example, `number=` is the same as `number | null | undefined`. This special syntax ("closure syntax") is only available in JSDoc types.
 
 ```js
+// highlight-range{3}
 /**
  * @param {string} text
  * @param {number=} count
@@ -174,6 +179,7 @@ You can document properties of params, like `options.count` and `options.separat
 <Figure code>
 
 ```js
+// highlight-range{3-5}
 /**
  * @param {string} text - Text to repeat
  * @param {Object} options
@@ -203,6 +209,7 @@ repeat('hello', { count: 2, separator: '-' })
 Use `@type` to provide inline type definitions to function arguments. This isn't typically needed for constants, as TypeScript can usually infer types pretty well. It's a great fit for non-constant variables, though (ie, `let`).
 
 ```js
+// highlight-range{3}
 /**
  * Time out in seconds.
  * @type number
@@ -217,6 +224,7 @@ let timeout = 3000
 
 <!-- prettier-ignore -->
 ```js
+// highlight-range{2-3}
 list.reduce((
   /** @type number */ acc,
   /** @type number */ item
@@ -236,10 +244,9 @@ Complex, reusable types are better defined in an external TypeScript file. You c
 <Figure code>
 
 ```js
+// highlight-range{1}
 /** @typedef { import('./myTypes').User } User */
-```
 
-```js
 /**
  * @param {User} author
  */
@@ -281,14 +288,13 @@ Use `@typedef` to define a type. External `.d.ts` files are preferred to this ap
 <Figure code>
 
 ```js
+// highlight-range{2-4,10}
 /**
  * @typedef {Object} Props
  * @property {string} title - The title of the page
  * @property {number} updatedAt - Last updated time
  */
-```
 
-```js
 /**
  * A component.
  *
@@ -321,6 +327,7 @@ Use union types (`|`) to signify types that can be one or another. To simplify t
 Function components are plain functions. You can document them in any of the ways we previously learned to document functions. In this example, we'll document them using object types.
 
 ```js
+// highlight-range{4-7}
 /**
  * This is a React function component.
  *
@@ -340,6 +347,7 @@ const ArticleLink = (props) => {
 Use `@extends` to define the types for your props and state. You can then use `@typedef` (either inline or imports) to define what _Props_ and _State_ are.
 
 ```js
+// highlight-range{4}
 /**
  * This is a React class component.
  *
@@ -377,6 +385,7 @@ Consult the official [JSDoc in TypeScript][jsdoc-in-typescript] documentation fo
 Write your documentations as block comments that begin with a double-star. Document parameters with `@param`.
 
 ```js
+// highlight-range{3}
 /**
  * Multiply a number by itself.
  * @param {number} n - What to square
@@ -384,6 +393,7 @@ Write your documentations as block comments that begin with a double-star. Docum
 
 function square(n) {
   // ...
+}
 ```
 
 ### Importing type definitions
@@ -407,6 +417,7 @@ Use the equal sign to denote nullable types. This is equivalent to `User | null 
 Use `@type` to document parameters of an anonymous function.
 
 ```js
+// highlight-range{1}
 numbers.map((/** @type number */ n) => {
   return n * 2
 })
@@ -417,6 +428,7 @@ numbers.map((/** @type number */ n) => {
 You can document the properties of object parameters.
 
 ```js
+// highlight-range{2-4}
 /**
  * @param {Object} options
  * @param {number} options.count
