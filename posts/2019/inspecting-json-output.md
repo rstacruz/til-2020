@@ -4,11 +4,12 @@ date: 2019-03-24
 description: Using jq and less together makes JSON output readable
 tags: [Development, CLI]
 layout: simple
+book: notes
 ---
 
-<figure class='cover'>
+<Figure cover>
 <img src='./images/json-curl.png' alt='Code screenshot' />
-</figure>
+</Figure>
 
 View JSON output in the command line using [jq] together with _less_. This makes JSON output more readable.
 

@@ -4,12 +4,13 @@ description: A quick guide on setting up Babel as a TypeScript compiler
 layout: simple
 tags: [TypeScript, JavaScript, Featured]
 date: 2019-04-10
+book: articles
 ---
 
-You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript!
+You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript.
 
 <Figure cover>
-<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Display' />
+<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Unrelated photo' />
 </Figure>
 
 To do this, we'll configure `tsc` (the TypeScript compiler) only check types, but not emit files. We'll use Babel to do the actual compilation.
@@ -36,7 +37,7 @@ yarn add --dev \
 
 ### Configure Babel
 
-In `babel.config.js`, add the `preset-typescript` preset. This strips out type annotations from your TypeScript files, allowing Babel to compile them just as it would regular JavaScript.
+In `babel.config.js`, add the <strong class='highlight'>preset-typescript</strong> preset. This strips out type annotations from your TypeScript files, allowing Babel to compile them just as it would regular JavaScript.
 
 <Figure code title='babel.config.js'>
 

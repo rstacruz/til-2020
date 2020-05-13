@@ -3,6 +3,7 @@ title: A closer look at Tailwind CSS
 description: A deep-dive into Tailwind's surprising ideas hiding behind its unconventional syntax
 tags: [CSS]
 date: 2020-03-20
+book: articles
 ---
 
 <Figure cover>
@@ -25,7 +26,7 @@ You may come across Tailwind examples that have cryptic class names in HTML. I c
 <div class="mx-auto my-4 md:p-2"></div>
 ```
 
-If this doesn't sit right with you, you wouldn't be alone. <strong class='highlight'>Not all developers prefer not to use Tailwind in this way.</strong> For now, let's set this aside&mdash;lets look at the other Tailwind features that can help make cleaner markup.
+If this doesn't sit right with you, you wouldn't be alone. <strong class='highlight'>Not all developers prefer to use Tailwind in this way.</strong> For now, let's set this aside&mdash;lets look at the other Tailwind features that can help make cleaner markup.
 
 <div><NextBlock title="What else does Tailwind have other than a funny syntax?" /></div>
 

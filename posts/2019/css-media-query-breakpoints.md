@@ -3,6 +3,7 @@ title: 'What media query breakpoints should I use?'
 tags: [CSS]
 date: 2019-04-25
 layout: simple
+book: articles
 ---
 
 <figure cover>

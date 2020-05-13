@@ -1,16 +1,6 @@
-@import '../../css-utils/dotted-background.css';
+@import '../../css-utils/all.css';
 
 /* Utilities */
-.figure-background {
-  background: linear-gradient(
-    to bottom,
-    transparent 15%,
-    theme('colors.gray.200') 15%,
-    theme('colors.gray.200') 85%,
-    transparent 85%
-  );
-}
-
 .window-traffic-lights {
   content: '';
   @apply absolute block rounded-full;
@@ -30,7 +20,7 @@
   @apply relative -mx-2 my-lg;
 
   &:not(.code) {
-    @apply figure-background;
+    @apply figure-backdrop;
   }
 }
 
@@ -137,4 +127,12 @@
 .root :global(.gatsby-highlight) + :global(.gatsby-highlight) ._pre {
   /* gatsby-remark-prismjs adds a wrapper .gatsby-highlight */
   box-shadow: inset 0 1px 0 theme('colors.window.line');
+}
+
+/*
+ * Variant: bordered
+ */
+
+.root.bordered {
+  @apply light-panel;
 }

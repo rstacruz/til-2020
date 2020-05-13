@@ -4,27 +4,48 @@ import ListingPage from '../simple/ListingPage'
 
 const Home = () => {
   const data = useStaticQuery(query)
-  const pages = usePages(data)
+  const { pages } = usePages(data)
   return <ListingPage pages={pages} />
 }
 
 export const usePages = (data: any) => {
-  return data.allMdx.edges.map(({ node }: any) => {
+  const pages = data.allMdx.edges.map(({ node }: any) => {
     const { fields, frontmatter } = node
 
     return {
       slug: fields.slug,
       date: frontmatter.date,
       title: frontmatter.title,
+      book: fields.book,
       tags: frontmatter.tags,
       description: frontmatter.description,
-      timeToRead: node.timeToRead,
+      readingTime: fields.readingTime,
     }
   })
+
+  return { pages }
 }
 
 const query = graphql`
-  query {
+  fragment BlogListingNode on Mdx {
+    excerpt
+    fields {
+      slug
+      book
+      readingTime {
+        time
+        words
+      }
+    }
+    frontmatter {
+      date(formatString: "YYYY-MM-DD")
+      title
+      tags
+      description
+    }
+  }
+
+  query GetBlogListingPages {
     site {
       siteMetadata {
         title
@@ -33,17 +54,7 @@ const query = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          timeToRead
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YYYY-MM-DD")
-            title
-            tags
-            description
-          }
+          ...BlogListingNode
         }
       }
     }

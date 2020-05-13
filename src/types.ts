@@ -11,3 +11,17 @@ export interface PageNode {
     description: string | void
   }
 }
+
+export type PageLink = {
+  slug: string
+  date: string
+  title: string
+  book?: string | null | void
+  tags: string
+  description?: string | null | void
+  readingTime: {
+    time: number
+    words: number
+  }
+}
+

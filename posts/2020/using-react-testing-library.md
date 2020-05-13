@@ -2,6 +2,7 @@
 title: 'Using React testing library'
 description: Testing your React components don't need to be difficult
 tags: [React]
+book: notes
 ---
 
 <Figure cover>

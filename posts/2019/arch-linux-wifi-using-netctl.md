@@ -3,6 +3,7 @@ title: Managing Wi-Fi connections in Arch Linux with netctl
 tags: [Linux]
 layout: simple
 date: 2019-04-11
+book: articles
 ---
 
 Many desktop systems rely on [NetworkManager], but this isn't the only way to get a Linux system online. Arch Linux comes with [netctl]&mdash;a systemd-native way of managing physical network connections.
@@ -33,8 +34,6 @@ sudo netctl-auto switch-to wlp3s0-WifiNameHere
 
 ###
 
-<!-- {.-literate-style} -->
-
 Use `wifi-menu` to set up a profile. Running it will bring a CLI menu of nearby Wi-Fi networks.
 
 ```sh
@@ -60,8 +59,6 @@ sudo systemctl enable netctl-auto@wlp3s0.service
 ```
 
 ### Connecting to profile manually
-
-<!-- {.-literate-style} -->
 
 After creating a profile, you can connect to it using `netctl switch-to <name>`. The _name_ is the name you provided in wifi-menu.
 
@@ -100,8 +97,6 @@ $ iw dev
 ```
 
 ### Auto-connecting a profile
-
-<!-- {.-literate-style} -->
 
 Use `netctl enable` to "enable" a profile. This creates and enables a systemd service, which is invoked on every bootup.
 

@@ -1,7 +1,8 @@
 ---
-title: Why I prefer styled-jsx
+title: Writing CSS-in-JS declaratively
 date: '2018-11-08'
 tags: [React]
+aliases: [styled-jsx-is-awesome]
 ---
 
 <Figure cover>
@@ -20,7 +21,7 @@ Before I tell you why I prefer _styled-jsx_, let's learn about some programming 
 
 There are two styles of expressing data. The most common way is to simply write it out as a data structure. We can call this a **declarative** style of writing, where we try to express logic without providing any instructions.
 
-<Figure subtext={<>JSON is declarative.</>}>
+<Figure code title='declarative-example.json'>
 
 ```js
 {
@@ -36,7 +37,7 @@ There are two styles of expressing data. The most common way is to simply write 
 
 There are cases when this style may not be flexible enough, so some systems take an **imperative** approach. In contrast to the declarative style, it's a piece of code with instructions that runs procedurally. Here's an example of a Ruby [gem specification](https://guides.rubygems.org/specification-reference/), which defines a Ruby package's metadata.
 
-<Figure subtext={<>You can do the same thing above with imperative code.</>}>
+<Figure code title='imperative-example.rb'>
 
 ```rb
 Gem::Specification.new do |spec|
@@ -47,6 +48,8 @@ end
 ```
 
 </Figure>
+
+> You can do the same thing above with imperative code.
 
 <NextBlock title="What's the difference?" />
 

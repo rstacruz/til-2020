@@ -1,0 +1,11 @@
+.root {
+  @apply px-4 py-3 my-4 bg-yellow-100 text-yellow-900;
+}
+
+.root > :first-child {
+  @apply mt-0;
+}
+
+.root > :last-child {
+  @apply mb-0;
+}
