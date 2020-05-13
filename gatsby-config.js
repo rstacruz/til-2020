@@ -32,7 +32,7 @@ const plugins = () => [
   },
 
   // Posts
-  ...['2018', '2019', '2020'].map((year) => ({
+  ...['2013', '2015', '2017', '2018', '2019', '2020'].map((year) => ({
     resolve: 'gatsby-source-filesystem',
     options: { name: 'posts', path: `${__dirname}/posts/${year}` },
   })),
