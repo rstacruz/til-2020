@@ -69,6 +69,8 @@ const plugins = () => [
       rehypePlugins: [require('@rstacruz/rehype-sectionize').plugin],
     },
   },
+
+  'gatsby-remark-reading-time',
 ]
 
 const metadata = () => ({ title: 'TIL' })

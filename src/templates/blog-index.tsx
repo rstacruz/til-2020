@@ -20,6 +20,7 @@ export const usePages = (data: any) => {
       tags: frontmatter.tags,
       description: frontmatter.description,
       timeToRead: node.timeToRead,
+      readingTime: fields.readingTime,
     }
   })
 
@@ -41,6 +42,10 @@ const query = graphql`
           fields {
             slug
             book
+            readingTime {
+              time
+              words
+            }
           }
           frontmatter {
             date(formatString: "YYYY-MM-DD")
