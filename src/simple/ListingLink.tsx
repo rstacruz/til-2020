@@ -15,9 +15,11 @@ export function ListingLink({ page }: { page: PageLink }) {
       <article>
         <h2 className={CSS.title}>{page.title}</h2>
 
-        <span className={CSS.description}>
-          {formatDescription(page.description)}
-        </span>
+        {page.description ? (
+          <span className={CSS.description}>
+            {formatDescription(page.description) || ''}
+          </span>
+        ) : null}
 
         <span className={CSS.meta}>
           <span className={CSS.date}>{page.date || 'Draft'}</span>
@@ -37,8 +39,8 @@ export function ListingLink({ page }: { page: PageLink }) {
  * Add punctuation
  */
 
-function formatDescription(input: string | null | void): string {
-  if (!input) return input
+function formatDescription(input: string | null | void): string | void {
+  if (!input) return
   if (/[\.\?\!]$/.test(input)) return input
 
   return `${input}.`
