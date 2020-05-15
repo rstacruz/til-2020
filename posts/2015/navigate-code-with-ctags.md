@@ -6,8 +6,14 @@ layout: simple
 tags: [Vim]
 attachments:
   - ./images/unite-ctags.png
-outdated: Ctags is not always the best solution to this today. There are Language Server implementations for some modern languages that wpuld offer these features and more. Also, as of 2019, there are other ctags alternatives to consider today, such as Universal Ctags.
+book: archive
 ---
+
+<Notice archived>
+
+Ctags is not always the best solution to this today. There are Language Server implementations for some modern languages that wpuld offer these features and more. Also, as of 2019, there are other ctags alternatives to consider today, such as Universal Ctags.
+
+</Notice>
 
 <figure class='cover'>
 <img src='./images/unite-ctags.png' />
@@ -16,8 +22,6 @@ outdated: Ctags is not always the best solution to this today. There are Languag
 [Ctags] lets you navigate code fast, and is perhaps the single most useful productivity boosting tool in any developer's arsenal. If you're not using Ctags yet, let's get you started.
 
 ### What's it for?
-
-<!-- {.-wider-literate-style} -->
 
 Ctags indexes a project's _tags_, or names of its classes and methods. Coupled with some integration with your editor (shown: Vim's [unite-tag]), it will give you two interesting features to help you traverse code base:
 
@@ -33,8 +37,6 @@ Ctags indexes a project's _tags_, or names of its classes and methods. Coupled w
 
 ### Exuberant Ctags
 
-<!-- {.-literate-style} -->
-
 In OS X, use Homebrew to install [Exuberant Ctags][ctags]. This is a more useful version of ctags than the one that ships with Xcode.
 
 ```bash
@@ -42,8 +44,6 @@ brew install ctags
 ```
 
 ### Ctags options
-
-<!-- {.-literate-style} -->
 
 Let's make ctags ignore some common directories. Save this file as `~/.ctags`.
 
@@ -58,8 +58,6 @@ Let's make ctags ignore some common directories. Save this file as `~/.ctags`.
 
 ### Generate ctags for a project
 
-<!-- {.-literate-style} -->
-
 Go to your project's path, and run ctags to generate a `tags` file in your project. This is the index of all tags in your project that your editor will use.
 
 ```bash
@@ -67,8 +65,6 @@ ctags .
 ```
 
 ### Ignore all ctags files
-
-<!-- {.-literate-style} -->
 
 It's safe to make all projects ignore all files called `tags`. I recommend setting up a global git ignore list.
 
@@ -81,8 +77,6 @@ git config --global core.excludesfile $HOME/.global_ignore
 
 ### Auto-update ctags files
 
-<!-- {.-literate-style} -->
-
 Use [vim-autotag] to automatically update `tags` files. This will only work on projects that have already had `ctags -R` performed before.
 
 ```bash
@@ -91,8 +85,6 @@ Plug 'craigemery/vim-autotag'
 
 ### Jumping to tags
 
-<!-- {.-literate-style} -->
-
 Use `:tag` to go to the definition of a certain tag. Usually, you will want to use this to jump to a certain Class or Method. Yes, this supports tab completion!
 
 ```vim
@@ -100,8 +92,6 @@ Use `:tag` to go to the definition of a certain tag. Usually, you will want to u
 ```
 
 ### From the command line
-
-<!-- {.-literate-style} -->
 
 Use `vim -t` to open vim to a certain tag.
 
@@ -131,10 +121,6 @@ You can also place your cursor on some text and press `^]` to jump to that tag.
 | `g]`     | See all definitions       |
 
 ## Unite integration
-
-###
-
-<!-- {.-literate-style} -->
 
 If you're using [unite.vim], you can use [unite-tag] to browse tags. You can also check out my plugin, [vim-fastunite], which offers a pre-packaged distribution of Unite.vim.
 

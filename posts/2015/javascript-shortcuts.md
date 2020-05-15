@@ -4,6 +4,7 @@ title: JavaScript shortcuts using bitwise operators
 description: Learn some shorter ways to write some common JavaScript expressions.
 tags: [JavaScript]
 layout: simple
+book: archive
 ---
 
 Some common operations can be made shorter using bitwise operators. Here are some of my favorites.

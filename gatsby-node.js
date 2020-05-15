@@ -57,5 +57,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode }).replace(/\/$/, '')
     createNodeField({ name: `slug`, node, value })
+    createNodeField({
+      name: `book`,
+      node,
+      value: node.frontmatter.book || 'notes',
+    })
   }
 }

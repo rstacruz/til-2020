@@ -3,7 +3,7 @@ date: '2015-02-18'
 title: Inline partials in Rails
 tags: [Ruby]
 description: Organize long views into smaller sub-views with this tip.
-layout: simple
+book: archive
 ---
 
 Ever find it annoying to have really long blocks of code being hard to parse in your head?

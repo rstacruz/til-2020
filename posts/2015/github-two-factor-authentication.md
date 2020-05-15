@@ -3,7 +3,14 @@ date: '2015-03-27'
 title: GitHub two-factor authenication guide
 description: Secure your GitHub account with these easy steps.
 tags: [Git]
+book: archive
 ---
+
+<Notice archive>
+
+See GitHub's [Two factor authentication articles](https://help.github.com/categories/two-factor-authentication-2fa/) on help.github.com.
+
+</Notice>
 
 Two-factor authentication in GitHub is pretty simple to set up, though the exact steps are layed out in maybe 3 different articles. I've consolidated them all together to this one simple guide.
 
@@ -11,35 +18,19 @@ Two-factor authentication in GitHub is pretty simple to set up, though the exact
 
 ### Enable 2FA
 
-<!-- {.-literate-style} -->
-
 Enable [2 factor authentication](https://github.com/settings/security) on the GitHub website (Settings → Security → Two Factor Authentication).
 
-<figure>
-
-[2 factor authentication settings](https://github.com/settings/security) _(github.com)_
-
-</figure>
+- [2 factor authentication settings](https://github.com/settings/security) _(github.com)_
 
 ### Prepare your phone
 
-<!-- {.-literate-style} -->
-
 Install [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator), or an equivalent of such. Works for iOS and Android. In Authenticator, tap _Add_, then _Scan Barcode_. Take a picture of the QR code on your computer. ([More info on apps](https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/))
-
-<figure>
-
-[Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) _(en.wikipedia.org)_
-
-</figure>
 
 ## For HTTPS
 
 If you're using SSH keys to access your Git repos, you can skip this section. If you're using `https://` URL's in your Git repos, then read on!
 
 ### Enable git credential caching
-
-<!-- {.-literate-style} -->
 
 On your computer, [enable caching your GitHub HTTPS credentials](https://help.github.com/articles/caching-your-github-password-in-git/). This allows you to store your 2FA token and not get asked for it everytime.
 
@@ -57,19 +48,9 @@ This only applies if you use HTTP authentication for your Git repositories. If y
 
 ### Generate an API key
 
-<!-- {.-literate-style} -->
-
 [Generate a GitHub API key](https://github.com/settings/tokens) under "Personal Access Tokens". You'll use this for the Git command line. Leave the scopes unchanged.
 
-<figure>
-
-[Generate a GitHub API key](https://github.com/settings/tokens) _(github.com)_
-
-</figure>
-
 ### Use HTTPS on your repos
-
-<!-- {.-literate-style} -->
 
 If your git repos still use SSH (`git@github.com:user/repo.git`), change them to use HTTPS (`https://github.com/user/repo.git`). ([More info on remote URLs](https://help.github.com/articles/which-remote-url-should-i-use/#cloning-with-https-recommended))
 
@@ -92,8 +73,6 @@ $ git push
 Username for 'https://github.com': rstacruz
 Password for 'https://rstacruz@github.com':
 ```
-
-<!-- {.-wide} -->
 
 ### Save your recovery codes
 

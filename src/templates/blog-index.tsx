@@ -16,7 +16,7 @@ export const usePages = (data: any) => {
       slug: fields.slug,
       date: frontmatter.date,
       title: frontmatter.title,
-      book: frontmatter.book,
+      book: fields.book,
       tags: frontmatter.tags,
       description: frontmatter.description,
       timeToRead: node.timeToRead,
@@ -40,13 +40,13 @@ const query = graphql`
           excerpt
           fields {
             slug
+            book
           }
           frontmatter {
             date(formatString: "YYYY-MM-DD")
             title
             tags
             description
-            book
           }
         }
       }

@@ -3,7 +3,7 @@ date: '2015-03-02'
 title: Inline SVG in CSS
 tags: [CSS]
 description: Create complex shapes easily by combining SVG and CSS.
-layout: simple
+book: archive
 ---
 
 You can create complex shapes easily by combining SVG and CSS. **[Demo here](http://cssdeck.com/labs/ip24y9lj)** of a white triangle notch implemented using inline CSS, perfect for making parallelograms. The caveats:

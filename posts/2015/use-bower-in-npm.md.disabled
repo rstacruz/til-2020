@@ -3,7 +3,7 @@ date: '2015-02-23'
 title: Use Bower packages like npm packages
 tags: [JavaScript]
 description: Ever wanted to use some frontend packages but they're not npm-compatible?
-layout: simple
+book: archive
 ---
 
 <blockquote class='notice'>

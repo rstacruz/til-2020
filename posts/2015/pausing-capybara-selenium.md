@@ -4,12 +4,18 @@ title: Pausing Capybara tests
 tags: [Ruby]
 layout: simple
 description: Use the web inspector in Capybara/Selenium tests.
+book: archive
 ---
+
+<Notice archived>
+
+**Update (2019):** This article was written in 2015. Consider avoiding Poltergeist and PhantomJS mentioned in this article; they have since been deprecated.
+
+</Notice>
 
 Want to use the Web Inspector in Capybara/Selenium tests? The first thing you'll probably try is to use [pry-byebug](https://rubygems.org/gems/pry-byebug) to pause your tests. You'll probably find that this doesn't work as intended.
 
-<figure>
-<figcaption>A bad example</figcaption>
+<Figure code title='A bad example.rb'>
 
 ```rb
 scenario 'visiting the home page' do
@@ -18,7 +24,7 @@ scenario 'visiting the home page' do
 end
 ```
 
-</figure>
+</Figure>
 
 Using `binding.pry` will halt everything, making your browser not load anything because Rails can't respond to the request.
 
@@ -37,8 +43,7 @@ $stdin.gets
 
 If you're using Capybara with Rspec, you can turn this into a helper. You can then just use `pause` in your tests.
 
-<figure>
-<figcaption>spec/support/pause_helpers.rb</figcaption>
+<Figure code title='spec/support/pause_helpers.rb'>
 
 ```rb
 module PauseHelpers
@@ -49,10 +54,9 @@ module PauseHelpers
 end
 ```
 
-</figure>
+</Figure>
 
-<figure>
-<figcaption>spec/rails_helper.rb</figcaption>
+<Figure code title='spec/rails_helper.rb'>
 
 ```rb
 RSpec.configure do
@@ -60,7 +64,7 @@ RSpec.configure do
 end
 ```
 
-</figure>
+</Figure>
 
 ### Using Poltergeist
 

@@ -7,6 +7,7 @@ description: Here's how to get iojs on OSX using Homebrew.
 layout: simple
 attachments:
   - ./iojs-on-homebrew/iojs-linking.png
+book: archive
 ---
 
 <blockquote class='notice'>

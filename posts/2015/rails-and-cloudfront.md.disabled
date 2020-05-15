@@ -3,6 +3,7 @@ date: '2015-12-17'
 title: Using Cloudfront as a Rails CDN
 tags: [Ruby, Devops]
 description: This guide will walk you through using Amazon CloudFront as an asset CDN for your Rails app.
+book: archive
 ---
 
 Setting up a CDN for your application assets is easy nowadays. This guide will walk you through using Amazon CloudFront as an asset CDN for your Rails application.
@@ -11,11 +12,9 @@ There are other guides out there today; [Heroku's CloudFront guide](https://devc
 
 ## Set up CloudFront
 
-###
-
-<!-- {.-literate-style} -->
-
 Sign up in [aws.amazon.com](http://aws.amazon.com) and create a new CloudFront distribution. This will get you a subdomain (like `d1h2t3n5.cloudfront.net`) that will act as a caching proxy to your actual site. You may opt to use your own domain names if you like.
+
+<!-- TODO: <ExternalLink href='https://aws.amazon.com' title='Amazon Web Services (AWS)' domain='aws.amazon.com' /> -->
 
 <figure class='-bordered'>
 
@@ -24,8 +23,6 @@ Sign up in [aws.amazon.com](http://aws.amazon.com) and create a new CloudFront d
 </figure>
 
 ### Custom configuration
-
-<!-- {.-literate-style} -->
 
 Make sure that `OPTIONS` is also being passed through. This will allow CORS requests through (see next section). Also, enable "compress automatically" to let CloudFront handle gzip compression for you.
 
@@ -48,10 +45,6 @@ Make sure that `OPTIONS` is also being passed through. This will allow CORS requ
 
 ## Set up asset host
 
-###
-
-<!-- {.-literate-style} -->
-
 This will make `image_tag`, `asset_url` and other asset-related helpers point your assets to your CloudFront distribution. Do this only for `production.rb`.
 
 ```rb
@@ -63,10 +56,6 @@ config.action_controller.asset_host = '<YOUR DISTRIBUTION SUBDOMAIN>.cloudfront.
 ```
 
 ## Serve static assets
-
-###
-
-<!-- {.-literate-style} -->
 
 Enable the serving of static assets. You will want to do this if you're using Heroku or any 12-factor-style deployment.
 If you use a reverse proxy like Nginx or Haproxy, skip this section and configure your reverse proxy to handle CORS instead.
@@ -92,8 +81,6 @@ If you use `serve_static_assets`, you will need to enable cross-origin requests 
 
 ### Install the `rack-cors` gem
 
-<!-- {.-literate-style} -->
-
 Use the [rack-cors] gem to enable cross-origin requests. At time of writing, it is at version 0.4.0.
 
 [rack-cors]: https://rubygems.org/gems/rack-cors
@@ -104,8 +91,6 @@ gem 'rack-cors'
 ```
 
 ### Configure rack-cors
-
-<!-- {.-literate-style} -->
 
 This will make assets accessible from any website. You want to enable this because you'd want `yoursite.com` to be able to load assets out of `<id>.cloudfront.net`.
 
@@ -126,10 +111,6 @@ end
 ```
 
 ## Deny everything but /assets
-
-###
-
-<!-- {.-literate-style} -->
 
 Set up your app to disallow Cloudfront from fetching anything but `/assets`. This uses User Agent detection; see CloudFront's docs on [User-Agent headers](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-user-agent-header) for information.
 

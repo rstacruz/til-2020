@@ -3,11 +3,10 @@ date: '2015-02-16'
 title: '@extend sucks'
 tags: [CSS, Sass]
 description: Let me tell you why you should never use @extend again.
+book: archive
 ---
 
 ### What's with @extend?
-
-<!-- {.-literate-style} -->
 
 Using `@extend` in CSS preprocessors really suck... so use mixins instead. Consider this example.
 
@@ -21,8 +20,6 @@ Using `@extend` in CSS preprocessors really suck... so use mixins instead. Consi
 
 ### Using @extend
 
-<!-- {.-literate-style} -->
-
 Seems innocent enough:
 
 ```scss
@@ -32,8 +29,6 @@ h3 {
 ```
 
 ### With media queries
-
-<!-- {.-literate-style} -->
 
 Until you try it with media queries, then it won't work. Consider using mixins instead.
 

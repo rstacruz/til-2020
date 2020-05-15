@@ -3,6 +3,7 @@ date: '2015-05-29'
 title: Testing generated static sites
 tags: [Development, Jekyll]
 description: Ever feel guilty that your Jekyll sites don't have tests? Here's a way around that.
+book: archive
 ---
 
 You can make a test script use `grep` and `test` to check for generated output. Since grep will die with an error code if it doesn't match anything, the test will be considered a failure.

@@ -6,6 +6,7 @@ image: images/mocha-istanbul.png
 tags: [JavaScript]
 attachments:
   - ./mocha-istanbul-coverage/screenshot.png
+book: archive
 ---
 
 <figure class='-wide'>

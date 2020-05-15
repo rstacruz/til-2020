@@ -6,6 +6,7 @@ layout: simple
 attachments:
   - local-google-fonts/skyfonts.png
 description: Chances are you've downloaded a few Google fonts to your computer. Here's a better way to do it.
+book: archive
 ---
 
 <figure class='cover'>

@@ -4,6 +4,7 @@ title: Managing side effects in Redux
 tags: [React]
 layout: simple
 description: Learn to manage impure side effects in a Redux store with middleware.
+book: archive
 ---
 
 [Redux] is the preferred state management pattern for React apps today. Being a very "functional" library, it doesn't like side effects much. This means doing asynchronous actions in a Redux reducer is not just a bad idea, it simply won't work.

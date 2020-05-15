@@ -3,6 +3,7 @@ date: '2015-02-13'
 title: Get started with Mocha testing
 tags: [JavaScript]
 description: In 60 seconds, let's learn how to write tests for any Node.js package.
+book: archive
 ---
 
 Testing Node.js packages is easy. Here's the condensed 1-minute guide to setting up tests on a Node.js project.
@@ -10,8 +11,6 @@ Testing Node.js packages is easy. Here's the condensed 1-minute guide to setting
 ## Quickstart guide
 
 ### Start with a package
-
-<!-- {.-literate-style} -->
 
 Make a `package.json` file if you don't have one yet, then install your weapons of choice.
 
@@ -26,8 +25,6 @@ npm install --save-dev mocha chai
 ```
 
 ### Write tests
-
-<!-- {.-literate-style} -->
 
 Make your first test file `test/my_test.js`:
 
@@ -44,8 +41,6 @@ describe('my test suite', function() {
 
 ### Update scripts
 
-<!-- {.-literate-style} -->
-
 Update your `package.json` to use mocha.
 
 ```diff
@@ -56,10 +51,6 @@ Update your `package.json` to use mocha.
 ```
 
 ## Run tests
-
-###
-
-<!-- {.-literate-style} -->
 
 Type `npm test` to run your tests. It should fail. Now go write tests that will pass!
 

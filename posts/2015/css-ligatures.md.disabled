@@ -6,6 +6,7 @@ description: Implement fancy typographic ligatures with just CSS... no images re
 layout: simple
 attachments:
   - './css-ligatures/ligatures.png'
+book: archive
 ---
 
 Headings can benefit from nice ligatures. Use the [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) CSS property to enable these OpenType features. Here's a snippet to start you with:

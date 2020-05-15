@@ -4,6 +4,7 @@ title: Markdown in Jekyll
 description: Insert Markdown into any Jekyll document with this simple tag.
 layout: simple
 tags: [Development, Jekyll]
+book: archive
 ---
 
 To add Markdown to any HTML file in Jekyll, capture it into a variable and print that variable using _markdownify_. That is:

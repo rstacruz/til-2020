@@ -4,6 +4,7 @@ title: Bundle your gems inside your project
 description: Here's a tip to get the most out of your Ruby development experience.
 layout: simple
 tags: [Ruby]
+book: archive
 ---
 
 When working on a Ruby project, I always put the files in `vendor/bundle/`. This has the benefit of having a greppable index of all the gems of your project, while keeping your global gemset tidy.

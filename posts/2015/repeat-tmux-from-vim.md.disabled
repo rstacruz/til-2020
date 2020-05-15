@@ -6,6 +6,7 @@ description: The most intuitive way for me to run tests is to use tmux split pan
 layout: simple
 attachments:
   - ./repeat-tmux-from-vim/tmux-repeat.gif
+book: archive
 ---
 
 <figure class='cover'>

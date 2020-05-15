@@ -3,6 +3,7 @@ date: '2015-11-28'
 title: Using factory_bot with custom factories
 tags: [Ruby]
 description: Do you use an actual factory pattern in Rails? Set up factory_bot to use this factory.
+book: archive
 ---
 
 [Factory Bot](https://github.com/thoughtbot/factory_bot) is great when creating 'presets' of ActiveRecord models. This is all you really need for most simple cases.
@@ -72,4 +73,4 @@ UserCreator.create attributes_for(:user)
 
 ### Also see
 
-Also see the [Factory Bot cheatsheet](http://devhints.oo/factory_bot.html), along with other cheatsheets from my [cheatsheets](http://ricostacruz.com/cheatsheets) archive.
+Also see the [Factory Bot cheatsheet](http://devhints.io/factory_bot), along with other cheatsheets from my [cheatsheets](https://devhints.io/) archive.

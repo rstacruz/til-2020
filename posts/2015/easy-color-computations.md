@@ -1,9 +1,9 @@
 ---
 date: '2015-03-03'
-layout: simple
 title: Easy color computations using Sass & Stylus CLI
 tags: [CSS, Sass]
 description: Need to lighten or darken colors easily from the command line? Here's how you can do it with Sass or Stylus.
+book: notes
 ---
 
 **Use [stylus]'s CLI for easy color computations.** Stylus CLI is faster than Sass and has shorter syntax for color computations.
@@ -25,8 +25,6 @@ Here's _lighten_ and _hue shift_:
 
 ### One-liner version
 
-<!-- {.-literate-style} -->
-
 Not quite as elegant, but it can be useful.
 
 ```bash
@@ -35,8 +33,6 @@ echo "*{a: #ff0 - 10deg}" | stylus -p
 ```
 
 ### Using Sass
-
-<!-- {.-literate-style} -->
 
 If you need Sass for some reason, it also takes `-i`.
 

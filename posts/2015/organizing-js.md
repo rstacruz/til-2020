@@ -3,7 +3,14 @@ date: '2015-02-26'
 title: Organizing JavaScript for simple sites
 tags: [JavaScript]
 description: How do you sort JavaScript files in a Rails project? Here's one way.
+book: archive
 ---
+
+<Notice archived>
+
+This article was written in 2015, before Webpacker and React became mainstream. Much of this article refers to practices aimed towards Rails 4's asset pipeline.
+
+</Notice>
 
 Some sites don't need big JavaScript architectures, only bits of small behaviors that will affect certain elements. I prefer to put them into a directory called `behaviors`.
 
@@ -26,14 +33,14 @@ Some sites don't need big JavaScript architectures, only bits of small behaviors
 
 ```js
 // select2.js -- affects `.select2`
-$(function() {
+$(function () {
   $('.select2').select2()
 })
 ```
 
 ```js
 // wow.js -- affects `.wow`
-$(function() {
+$(function () {
   new WOW().init()
 })
 ```
@@ -46,10 +53,6 @@ $(document).on('hover', '.tooltip', function () {
 ```
 
 ## Using behaviors
-
-###
-
-<!-- {.literate-style} -->
 
 Just include them all into one file. In Rails, this should be as easy as:
 
