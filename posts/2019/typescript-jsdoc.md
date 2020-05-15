@@ -4,7 +4,7 @@ tags: [TypeScript, JavaScript, Featured]
 layout: simple
 description: Can we get the benefits of full type checking without using TypeScript's syntax? Yes we can!
 date: 2019-04-07
-book: 2019
+book: articles
 ---
 
 <Figure cover>

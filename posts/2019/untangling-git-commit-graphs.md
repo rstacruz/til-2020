@@ -3,7 +3,7 @@ title: Untangling git commit graphs
 date: 2019-03-24
 tags: [Git]
 layout: simple
-book: 2019
+book: articles
 ---
 
 Many of us have been frustrated with [Guitar Hero]-like git graphs. These are usually made by tools that can't tidy up the graphs. There's a way to make them readable!

@@ -3,7 +3,7 @@ title: Managing Wi-Fi connections in Arch Linux with netctl
 tags: [Linux]
 layout: simple
 date: 2019-04-11
-book: 2019
+book: articles
 ---
 
 Many desktop systems rely on [NetworkManager], but this isn't the only way to get a Linux system online. Arch Linux comes with [netctl]&mdash;a systemd-native way of managing physical network connections.

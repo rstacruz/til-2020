@@ -4,23 +4,26 @@ import ListingPage from '../simple/ListingPage'
 
 const Home = () => {
   const data = useStaticQuery(query)
-  const pages = usePages(data)
+  const { pages } = usePages(data)
   return <ListingPage pages={pages} />
 }
 
 export const usePages = (data: any) => {
-  return data.allMdx.edges.map(({ node }: any) => {
+  const pages = data.allMdx.edges.map(({ node }: any) => {
     const { fields, frontmatter } = node
 
     return {
       slug: fields.slug,
       date: frontmatter.date,
       title: frontmatter.title,
+      book: frontmatter.book,
       tags: frontmatter.tags,
       description: frontmatter.description,
       timeToRead: node.timeToRead,
     }
   })
+
+  return { pages }
 }
 
 const query = graphql`
@@ -43,6 +46,7 @@ const query = graphql`
             title
             tags
             description
+            book
           }
         }
       }
