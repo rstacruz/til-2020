@@ -4,6 +4,9 @@ title: Get started with Ansible in 2 minutes
 tags: [Development, Ansible]
 description: Provisioning servers is easy using Ansible. Here's a guide to set it up from scratch.
 ---
+<Notice archived>
+This post has been written in 2013.
+</Notice>
 
 [Ansible](http://ansible.com) is a fantastic tool for provisioning servers. I personally prefer it over Chef, Puppet and Salt. Here's how to get an Ansible project started.
 
@@ -16,8 +19,6 @@ brew install ansible            # OSX
 [sudo] pip install ansible      # elsewhere
 ```
 
-<!-- {.-terminal} -->
-
 ## Start your project
 
 Make the directory. Put this under version control, preferrably.
@@ -26,8 +27,6 @@ Make the directory. Put this under version control, preferrably.
 ~$ mkdir setup
 ~$ cd setup
 ```
-
-<!-- {.-terminal} -->
 
 ## Create an inventory file
 
@@ -77,8 +76,6 @@ hosts
 playbook.yml
 ```
 
-<!-- {.-terminal} -->
-
 ```sh
 ~/setup$ ansible-playbook -i hosts playbook.yml
 PLAY [all] ********************************************************************
@@ -93,8 +90,6 @@ TASK: [start nginx every bootup] **********************************************
 ok: [127.0.0.1]
 ...
 ```
-
-<!-- {.-wide} -->
 
 ## Further reading
 
