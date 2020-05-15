@@ -4,6 +4,7 @@ description: A quick guide on setting up Babel as a TypeScript compiler
 layout: simple
 tags: [TypeScript, JavaScript, Featured]
 date: 2019-04-10
+book: 2019
 ---
 
 You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript.

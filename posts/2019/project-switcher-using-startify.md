@@ -2,6 +2,7 @@
 title: Vim project switcher using Startify
 date: 2019-01-29
 tags: [Vim]
+book: 2019
 ---
 
 <Figure cover>
