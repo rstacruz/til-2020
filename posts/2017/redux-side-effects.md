@@ -10,6 +10,7 @@ book: archive
 [Redux] is the preferred state management pattern for React apps today. Being a very "functional" library, it doesn't like side effects much. This means doing asynchronous actions in a Redux reducer is not just a bad idea, it simply won't work.
 
 ```js
+// highlight-range{9-12}
 /* ✗ Warning: This won't work! */
 
 function reducer (state, action) {
@@ -36,8 +37,10 @@ You can't modify state here in an async callback. In fact, you can't even `dispa
 
 Fortunately, Redux has built-in provisions for managing side effects: [Middleware](http://redux.js.org/docs/advanced/Middleware.html)! You can write your own middleware with business logic. You don't need to use 3rd-party packages other than Redux itself.
 
+<Figure code title='redux-middleware.js'>
+
 ```js
-// Redux middleware
+// highlight-range{9-10}
 function ProfileLoader () {
   return store => dispatch => action {
     // First pass them through to the reducers.
@@ -59,6 +62,8 @@ store = createStore(reducers, {}, applyMiddleware(
 )
 ```
 
+</Figure>
+
 Redux middleware is simply a decorator for `dispatch()`. Here's an example where we extend `dispatch()` to perform certain side effects (an AJAX call, in this case) when certain actions come in.
 
 ## Other solutions
@@ -68,22 +73,23 @@ Redux middleware is simply a decorator for `dispatch()`. Here's an example where
 Perhaps the most well-known solution to this is [redux-thunk](https://www.npmjs.com/package/redux-thunk), which allows you to dispatch functions ("thunks").
 
 ```js
+// highlight-range{5-6}
 // Using a function as an action via redux-thunk
-store.dispatch(dispatch => {
+store.dispatch((dispatch) => {
   fetch('/my_profile')
-    .then(res => res.json())
-    .then(res => dispatch({ type: 'profile:set', payload: res.body }))
-    .catch(err => dispatch({ type: 'profile:error', payload: err }))
+    .then((res) => res.json())
+    .then((res) => dispatch({ type: 'profile:set', payload: res.body }))
+    .catch((err) => dispatch({ type: 'profile:error', payload: err }))
 })
 ```
 
 However, I personally advise against this approach for a number of reasons:
 
-- It moves logic to your action creators, which were supposed to be very simple pieces of code.
+1. It moves logic to your action creators, which were supposed to be very simple pieces of code.
 
-- It makes actions complicated, when they can just be simple JSON instructions (eg, `{ type: 'profile:load' }`).
+2. It makes actions complicated, when they can just be simple JSON instructions (eg, `{ type: 'profile:load' }`).
 
-- It can't interact with other side effects. For instance, you can't make a side effect to send `profile:error`s to an error tracking service. Middleware can do this.
+3. It can't interact with other side effects. For instance, you can't make a side effect to send `profile:error`s to an error tracking service. Middleware can do this.
 
 ## Naming convention
 
@@ -94,6 +100,8 @@ You may have noticed I named my action `profile:load!`. This is my preferred con
 ### Error tracker
 
 How about a middleware that tracks errors as they come in?
+
+<Figure code title='error-tracker-middleware.js'>
 
 ```js
 function ErrorTracker () {
@@ -110,9 +118,13 @@ function ErrorTracker () {
 }
 ```
 
+</Figure>
+
 ### Ticker
 
 Or a middleware that sends `tick` events every second? Great for timers or for RPG's.
+
+<Figure code title='ticker-middleware.js'>
 
 ```js
 function Ticker (options) {
@@ -136,6 +148,8 @@ function Ticker (options) {
   }
 }
 ```
+
+</Figure>
 
 ### Combining them
 

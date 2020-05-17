@@ -1,6 +1,7 @@
 ---
 title: Demystifying Arch Linux installation
 date: '2018-12-12'
+description: A lightning summary of the commands for installing Arch Linux
 tags: [Linux, Featured]
 ---
 
@@ -20,9 +21,17 @@ Arch Linux's wiki has a great [installation guide](https://wiki.archlinux.org/in
 
 _(Skip this step if you're not dual-booting Windows or MacOS.)_ Before you create your `ext4` (Linux) partition, you'll need make space for it. Resize your current OS's partition down at least 60GB less to give you some space to create your Linux partition.
 
-- **Windows users,** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in _Disk Management_.
+<Figure bordered>
 
-- **MacOS users,** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using _Disk Utility.app_ to resize your partition.
+**Windows users,** [Follow this guide](https://www.disk-partition.com/resource/resize-NTFS-partition-windows.html) to resize your partition in Windows using the built-in _Disk Management_.
+
+</Figure>
+
+<Figure bordered>
+
+**MacOS users,** [Follow this guide](http://osxdaily.com/2009/11/20/resize-partitions-in-mac-os-x-with-disk-utility/) in using _Disk Utility.app_ to resize your partition.
+
+</Figure>
 
 ## Create a boot disk
 
@@ -69,8 +78,6 @@ You will be installing packages from the Arch package repository over the Intern
 Try going online by typing `wifi-menu`. (If this didn't work, have a look at [other ways](https://github.com/rstacruz/arch-installer/blob/master/docs/getting_online.md) of getting online.)
 
 <Figure code>
-
-Connect to the Internet via Wi-Fi.
 
 ```sh
 wifi-menu

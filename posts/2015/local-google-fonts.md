@@ -3,13 +3,11 @@ date: '2015-05-18'
 title: The best way to get Google Fonts offline
 tags: [Misc]
 layout: simple
-attachments:
-  - local-google-fonts/skyfonts.png
 description: Chances are you've downloaded a few Google fonts to your computer. Here's a better way to do it.
 book: archive
 ---
 
-<Figure cover>
+<Figure cover transparent>
 <img src='local-google-fonts/skyfonts.png' />
 </Figure>
 

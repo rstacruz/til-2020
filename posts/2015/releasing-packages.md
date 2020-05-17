@@ -6,6 +6,12 @@ description: Make releasing packages easier with these 2 open-source tools.
 book: archive
 ---
 
+<Notice archived>
+
+**Update (2019):** This article was written on 2015. For newer alternatives, consider tools like [np](https://npmjs.com/package/np).
+
+</Notice>
+
 Releasing packages involves the same repetitive tasks: updating the change log, bumping versions, tagging a release, and so on. Here are a few tools to make this chore easier.
 
 ## Tools I recommend

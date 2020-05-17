@@ -3,19 +3,24 @@ date: '2015-03-06'
 title: Cleaner Mocha stack traces
 tags: [JavaScript]
 description: Suppress stack trace frames from 3rd-party modules in Mocha.js.
-image: https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/comparison.png
 book: archive
 ---
+
+<Notice archived>
+
+**Update (2018):** Much has changed in Mocha since this post was written in 2015.
+
+</Notice>
 
 [Mocha] is a great way to test JavaScript, but its stack traces are riddled
 with useless frames from Mocha internals and 3rd-party modules. Let's try and
 clean it up.
 
-<figure class='-panorama'>
+<Figure cover transparent>
 
-![Comparison screenshot](./mocha-clean/comparison.png)
+<img src='./mocha-clean/comparison.png' alt='Comparison screenshot' />
 
-</figure>
+</Figure>
 
 ## Introducing mocha-clean
 

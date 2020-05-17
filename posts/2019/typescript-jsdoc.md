@@ -8,7 +8,7 @@ book: articles
 ---
 
 <Figure cover>
-<img src='https://source.unsplash.com/L5HG3CH_pgc/900x600' alt='Display' />
+<img src='covers/zJDqiEGUCHY.jpg' alt='Photo unrelated' />
 </Figure>
 
 [TypeScript] lets you annotate your JavaScript with type annotations. It can even check these for errors in build-time, so you can catch errors before they get deployed to production. You'll never have to deal with another _undefined is not a function_ error ever again!
@@ -17,9 +17,11 @@ TypeScript, by default, requires you to make a few changes to your build setup. 
 
 [typescript]: https://www.typescriptlang.org/
 
-### TypeScript syntax
+<NextBlock title="Why not just use the TypeScript syntax?" />
 
-Many people don't like how working with TypeScript means having to use a new syntax, even if it's a strict superset of JavaScript. If this describes you, then this article is for you.
+## TypeScript syntax
+
+Working with TypeScript means having to use a new syntax, even if it's a strict superset of JavaScript. Many developers don't like having to deal with a new syntax. If this describes you, then this article is for you.
 
 <Figure code title='typescript-syntax-example.ts'>
 
@@ -39,9 +41,9 @@ function repeat(text: string, count: number) {
 
 <NextBlock title="Let's learn about an alternative to the TypeScript syntax." />
 
-## Documenting JavaScript
+## The JSDoc syntax
 
-### The JSDoc syntax
+### Documenting JavaScript
 
 [jsdoc]: http://usejsdoc.org/
 
@@ -93,6 +95,7 @@ Configure TypeScript to check your JavaScript files. (By default, TypeScript onl
 <Figure code title='tsconfig.json'>
 
 ```js
+// highlight-range{3-4}
 {
   "compilerOptions": {
     "allowJs": true,
@@ -117,9 +120,9 @@ yarn run tsc
 
 ## Basic annotations
 
-### Annotating function parameters
+### Function parameters
 
-Use `@param` to document types of a function's parameters. You'll need to put these in JSDoc comments, which are block comments that begin with two stars.
+<strong class='highlight'>Use <code>@param</code> to document types of a function's parameters.</strong> You'll need to put these in JSDoc comments, which are block comments that begin with two stars.
 
 ```js
 // highlight-range{2-3}
@@ -159,7 +162,7 @@ Here's the same example, but with some text to describe what it does.
 
 ### Optional types
 
-Add an equal sign at the end of a type to signify that it's optional. In this example, `number=` is the same as `number | null | undefined`. This special syntax ("closure syntax") is only available in JSDoc types.
+<strong class='highlight'>Add an equal sign at the end of a type to signify that it's optional.</strong> In this example, <code>number=</code> is the same as <code>number | null | undefined</code>. This special syntax ("closure syntax") is only available in JSDoc types.
 
 ```js
 // highlight-range{3}
@@ -207,7 +210,7 @@ repeat('hello', { count: 2, separator: '-' })
 
 ### Variables
 
-Use `@type` to provide inline type definitions to function arguments. This isn't typically needed for constants, as TypeScript can usually infer types pretty well. It's a great fit for non-constant variables, though (ie, `let`).
+<strong class='highlight'>Use <code>@type</code> to provide inline types to variable declarations.</strong> This isn't typically needed for constants, as TypeScript can usually infer types pretty well. It's a great fit for non-constant variables, though (ie, <em>let</em>).
 
 ```js
 // highlight-range{3}

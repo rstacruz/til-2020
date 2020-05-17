@@ -3,13 +3,12 @@ date: '2015-04-20'
 title: Navigate OS X with the keyboard
 description: Speed through the Mac OS X GUI with these shortcuts.
 tags: [macOS]
-layout: simple
 attachments:
   - ./osx-keyboard-shortcuts/keyboard.png
-book: archive
+book: notes
 ---
 
-<Figure cover>
+<Figure cover transparent>
 <img src='./osx-keyboard-shortcuts/keyboard.png' alt='Keyboard shortcuts dialog' />
 </Figure>
 
@@ -29,6 +28,8 @@ Under the _Keyboard_ preference pane, there's an option for _Full Keyboard Acces
 
 ## More shortcuts
 
+<Figure bordered>
+
 | Key         | Description                 |
 | ----------- | --------------------------- |
 | `^` `F1`    | Turn keyboard access on/off |
@@ -38,3 +39,5 @@ Under the _Keyboard_ preference pane, there's an option for _Full Keyboard Acces
 | `^` `F6`    | Floating window             |
 | `^` `F8`    | Status menu                 |
 | `⌘` `⇧` `/` | Help                        |
+
+</Figure>

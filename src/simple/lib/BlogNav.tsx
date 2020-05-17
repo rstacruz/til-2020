@@ -5,48 +5,29 @@ import { Link } from 'gatsby'
 import cn from 'classnames'
 import BackIcon from './BackIcon'
 
-interface Props {
+type Props = {
   title: string
 }
 
 const BlogNav = (props: Props) => {
+  /* const { title } = props */
   const { Wrapper, isFixed } = useNavWaypoint()
-  const { title } = props
+  const expanded = isFixed ? CSS.isCollapsed : CSS.isExpanded
 
   return (
     <>
       <Wrapper>
-        <span className={CSS.placeholder} />
+        <div className={CSS.placeholder} />
       </Wrapper>
 
-      <div
-        className={cn(CSS.root, {
-          [CSS.isFixed]: isFixed,
-        })}
-      >
-        <span className={CSS.left}>
-          <Link to='/'>
-            <BackIcon className={CSS.backIcon} />
-          </Link>
-        </span>
+      <div className={cn(CSS.topRight, expanded)}>
+        <span>Today I learned</span>
+      </div>
 
-        <span className={CSS.center}>
-          {isFixed ? (
-            <>
-              <Link to='/'>TIL</Link>
-              <span>
-                <span className={CSS.separator}>/</span>
-                <span className={CSS.title}>{title}</span>
-              </span>
-            </>
-          ) : (
-            <Link to='/'>Today I Learned</Link>
-          )}
-        </span>
-
-        <span className={CSS.right}>
-          <Link to='/'>&larr;</Link>
-        </span>
+      <div className={cn(CSS.topLeft, expanded)}>
+        <Link to='/' className={CSS.backLink} aria-label='Back to home'>
+          <BackIcon className={CSS.backIcon} />
+        </Link>
       </div>
     </>
   )
@@ -66,7 +47,7 @@ const useNavWaypoint = () => {
   const Wrapper = useMemo(
     () => (props: { children: React.ReactNode }) => {
       return (
-        <Waypoint {...{ onEnter, onLeave }}>
+        <Waypoint topOffset='-200px' {...{ onEnter, onLeave }}>
           <span>{props.children}</span>
         </Waypoint>
       )

@@ -7,7 +7,7 @@ layout: simple
 book: notes
 ---
 
-<Figure cover>
+<Figure cover transparent>
 <img src='./images/json-curl.png' alt='Code screenshot' />
 </Figure>
 

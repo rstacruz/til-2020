@@ -10,7 +10,7 @@ book: articles
 ---
 
 <Figure cover>
-<img src='https://source.unsplash.com/Rs5BQj5zbf8/900x450' alt='Unrelated photo' />
+<img src='covers/Rs5BQj5zbf8.jpg' alt='Unrelated photo with some hooks' />
 </Figure>
 
 **React now comes with hooks that can be used to manage state and propagate it throughout your app.** In essence&mdash;you can do Redux without using Redux! I've been trying to use [useState][usestate] and [useContext][usecontext] to manage a large block of state in a React app. In think it's a great alternative to Redux.
@@ -26,6 +26,7 @@ Let's write our state manager as a [custom React hook][custom]. This hook is a t
 <Figure code title='useAppState.js'>
 
 ```js
+// highlight-range{7}
 import { useState } from 'react'
 
 /**
@@ -71,6 +72,7 @@ You can use the `useAppState()` hook in your React components. It will provide t
 <Figure code title='MyApp.js'>
 
 ```js
+// highlight-range{9}
 import { useAppState } from './useAppState'
 
 /**
@@ -103,6 +105,7 @@ You can pass them to event props as-is.
 
 <!-- prettier-ignore -->
 ```js
+// highlight-range{3-4}
 <Toolbar
   count={state.count}
   onIncrement={actions.increment}
@@ -112,12 +115,11 @@ You can pass them to event props as-is.
 
 ### Passing many actions down
 
-<!-- {.-wider-literate-style} -->
-
 If you need to pass many functions down, it's also possible to simply pass the entire `actions` object downwards.
 
 <!-- prettier-ignore -->
 ```js
+// highlight-range{3}
 <Toolbar
   count={state.count}
   actions={actions}
@@ -137,6 +139,7 @@ In our `useAppState.js` file, we'll export a context created with [React.createC
 <Figure code title='useAppState.js'>
 
 ```js
+// highlight-range{7,14}
 import { useState, useContext } from 'react'
 
 const AppContext = React.createContext({})
@@ -166,6 +169,7 @@ In your app's root, use the _AppContext.Provider_ component. This makes it possi
 <Figure code title='MyApp.js'>
 
 ```js
+// highlight-range{9}
 import { AppContext, useAppState } from './useAppState'
 import Toolbar from './Toolbar'
 
@@ -194,6 +198,7 @@ The `useAppContext` hook allows you to use the app state anywhere inside the Pro
 <Figure code title='Toolbar.js'>
 
 ```js
+// highlight-range{10}
 import { useAppContext } from './useAppState'
 
 const Toolbar = () => {

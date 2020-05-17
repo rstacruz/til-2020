@@ -5,13 +5,11 @@ tags: [React]
 book: notes
 ---
 
-<Figure cover>
+<!-- <Figure cover>
 <img src='https://source.unsplash.com/TW2bfT_tWDI/900x600' />
-</Figure>
+</Figure> -->
 
 [react-testing-library](https://github.com/testing-library/react-testing-library) is a very light-weight tool for testing React components. Here's a few tips on how to get started with it.
-
----
 
 ## Using test ID attributes
 
@@ -20,6 +18,7 @@ Consider adding `data-testid` attributes to your components. This makes them eas
 <Figure code title='data-testid-example.js'>
 
 ```js
+// highlight-range{4-6}
 const TextToolbar = () => (
   <div>
     {/* Notice the data-testid attributes! */}
@@ -41,12 +40,13 @@ The react-testing-library API comes with `getBy` functions that will raise an er
 <Figure code title='getByTestId-example.js'>
 
 ```js
+// highlight-range{7-9}
 import { render } from 'react-testing-library'
 
 it('works', () => {
   const { getByTestId } = render(<TextToolbar />)
 
-  // This test will fail if these aren't present.
+  // This test will fail if one of these elements aren't present.
   co.getByTestId('button:bold')
   co.getByTestId('button:italic')
   co.getByTestId('button:underline')
@@ -62,6 +62,7 @@ The API comes with a `fireEvent` helper that lets you simulate any DOM event. Us
 <Figure code title='simulating-events-example.js'>
 
 ```js
+// highlight-range{12}
 import { render, fireEvent, act, cleanup } from 'react-testing-library'
 
 // Calls cleanup() after every test
@@ -96,6 +97,7 @@ import 'jest-dom/extend-expect'
 ```
 
 ```js
+// highlight-range{8-10}
 import React from 'react'
 import { render, fireEvent, screen } from '@testing-library/react'
 import HiddenMessage from '../hidden-message'

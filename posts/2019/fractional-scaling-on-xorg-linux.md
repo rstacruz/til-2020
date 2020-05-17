@@ -8,7 +8,7 @@ book: articles
 ---
 
 <Figure cover>
-<img src='https://source.unsplash.com/NpZmRfdgNT8/600x400' alt='Display' />
+<img src='./covers/NpZmRfdgNT8.jpg' alt='Unrelated photo' />
 </Figure>
 
 Getting fractional scaling right in Xorg is tricky, but possible. The solution
@@ -32,7 +32,7 @@ things, so we'll need to combine them appropriately. These things can either
 scale text (ie, increase font sizes) or scale UI elements (ie, increase "pixels"
 in margins and paddings).
 
-<Figure table>
+<Figure bordered>
 
 | Apps                          | Xresources | GDK env vars | QT env vars |
 | ----------------------------- | ---------- | ------------ | ----------- |

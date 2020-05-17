@@ -6,6 +6,7 @@ type Props = {
     title: string
     date: string
     description: string
+    book: string | null | void
   }
   children: React.ReactNode
 }

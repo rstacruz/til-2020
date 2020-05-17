@@ -1,25 +1,28 @@
 @import '../css-utils/all.css';
 
+.link:first-of-type .title {
+  @apply ms-4;
+}
+
 .link {
   @apply block my-8 text-gray-900 no-underline;
 }
 
 .title {
-  @apply m-0 font-normal ms-1 text-n-bold;
+  @apply inline m-0 ms-2 text-n-bold type-heading-serif;
 }
 
-.title,
+.titleLine,
 .meta,
 .description {
   @apply block;
 }
 
 .description {
-  @apply type-italic-serif;
 }
 
 .meta {
-  @apply type-monospace -ms-1 mt-1;
+  @apply mt-1 type-monospace -ms-1;
 }
 
 .toRead::before {
@@ -31,5 +34,9 @@
   @apply text-n-mute;
 }
 
-.date {
+.category {
+}
+
+.year {
+  @apply -ms-1 text-n-mute ml-1;
 }

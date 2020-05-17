@@ -1,82 +1,65 @@
-@import '../../css-utils/ms.css';
-@import '../../css-utils/type.css';
+@import '../../css-utils/all.css';
 
 .placeholder {
-  @apply block;
-  height: 48px;
+  & {
+    @apply h-8;
+  }
+
+  @screen md {
+    @apply h-12;
+  }
 }
 
-.root {
-  @apply z-50 flex py-1 small-font;
-  box-shadow: 0 1px rgba(0, 0, 0, 0);
-  line-height: 2.5rem;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  transition: box-shadow 300ms linear, padding 300ms ease-out;
+.topLeft {
+  & {
+    @apply absolute top-0 left-0 m-2 transition-md transition-margin;
+  }
+
+  @screen md {
+    @apply fixed z-10 m-4;
+  }
 }
 
-.root::after {
-  content: '';
-  @apply block;
-  position: absolute;
-  bottom: 0;
-  left: 2rem;
-  right: 2rem;
-  height: 1px;
-  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
-  transition: opacity 300ms linear, left 300ms ease-out, right 300ms ease-out;
+.topRight {
+  & {
+    @apply absolute top-0 right-0 m-4 opacity-0 transition-md transition-all;
+    @apply pointer-events-none type-bold-caps -ms-1;
+  }
+
+  @screen md {
+    @apply fixed z-10 m-6 opacity-100 pointer-events-auto;
+  }
 }
 
-.root.isFixed::after {
-  opacity: 0;
-  left: 0;
-  right: 0;
-}
+.backLink {
+  & {
+    @apply block p-2 text-center transition-all transition-fast;
+  }
 
-.root a {
-  @apply font-bold text-yellow-900 no-underline uppercase type-bold-caps;
-}
-
-.root.isFixed {
-  @apply py-0;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 150ms linear, padding 150ms ease-out;
-  line-height: 48px;
-}
-
-.separator {
-  @apply mx-2 text-gray-500;
-}
-
-.title {
-  @apply text-n-mute;
-}
-
-.root > span {
-  @apply inline-block truncate;
-}
-
-.center {
-  @apply flex-auto px-8;
-}
-
-.left,
-.right {
-  @apply flex-initial w-8 px-8;
-}
-
-.right {
-  @apply text-right;
-}
-
-.rotate-270 {
-  transform: rotate(270deg);
+  &:focus,
+  &:hover {
+    @apply text-a-500 bg-white shadow-8;
+    transform: scale(1.15);
+  }
 }
 
 .backIcon {
-  @apply w-5 h-5 rotate-270;
+  & {
+    @apply block w-6 h-6 rotate-270 transition-md transition-wh;
+  }
+
+  @screen md {
+    @apply w-8 h-8;
+  }
+}
+
+.isExpanded {
+}
+
+.isCollapsed {
+}
+
+.topRight.isCollapsed {
+  opacity: 0;
+  transform: translate3d(0, -0.25rem, 0);
 }

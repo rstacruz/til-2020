@@ -8,6 +8,8 @@ book: archive
 
 You can make a test script use `grep` and `test` to check for generated output. Since grep will die with an error code if it doesn't match anything, the test will be considered a failure.
 
+<Figure code title='test.sh'>
+
 ```bash
 #!/usr/bin/env sh
 set -o errexit # die on errors
@@ -15,22 +17,29 @@ set -o errexit # die on errors
 grep "<title>" _site/index.html >/dev/null
 grep display _site/style.css >/dev/null
 grep function _site/script.js >/dev/null
-test -f _site/image.jpg #check for file existence
+test -f _site/image.jpg # check for file existence
 ```
+
+</Figure>
 
 ### Travis support
 
 You can even integrate these with your [Travis-CI] tests. (Learn more about build configuration from their [documentation](http://docs.travis-ci.com/user/build-configuration/).)
 
+<Figure code title='.travis.yml'>
+
 ```yaml
-# .travis.yml
 before_script: bundle exec jekyll build
 script: ./test/test.sh
 ```
 
+</Figure>
+
 ### Makefiles
 
 Another good way is to use a `Makefile` so you can simply use `make test` to invoke tests.
+
+<Figure code title='Makefile'>
 
 ```bash
 test: _site
@@ -42,5 +51,7 @@ _site:
     bundle
     bundle exec jekyll build --safe
 ```
+
+</Figure>
 
 [travis-ci]: http://travis-ci.org

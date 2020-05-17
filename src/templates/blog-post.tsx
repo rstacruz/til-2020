@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import PostLayout from './blog-post/PostLayout'
 import MyMDXProvider from '../mdx-components/MyMDXProvider'
+import MetaTags from './shared/MetaTags'
 
 interface Props {
   data: {
@@ -19,15 +20,25 @@ interface Props {
 
 const BlogPost = (props: Props) => {
   const mdx = props.data.mdx
+  const { frontmatter, fields } = mdx
 
   const post = {
-    title: mdx.frontmatter.title,
-    date: mdx.frontmatter.date,
-    description: mdx.frontmatter.description,
+    title: frontmatter.title,
+    date: frontmatter.date,
+    description: frontmatter.description,
+    book: fields.book,
   }
 
   return (
     <div>
+      <MetaTags
+        lang={'en'}
+        title={frontmatter.title}
+        description={frontmatter.description}
+        keywords={frontmatter.tags}
+        ogType={'article'}
+      />
+
       <PostLayout post={post}>
         <MyMDXProvider>
           <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -48,6 +59,9 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
+      fields {
+        book
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

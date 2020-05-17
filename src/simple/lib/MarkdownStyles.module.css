@@ -104,19 +104,19 @@
   @apply p-0 text-base italic type-italic-serif;
   border-left: 0;
   @screen md {
-    @apply pb-6;
+    @apply pb-4;
   }
 }
 
 .root :global(blockquote.next::before) {
   @screen md {
     content: '';
-    @apply block w-24 h-4 my-4 dotted-background-12;
+    @apply block w-16 h-4 my-4 dotted-background-12 -ml-2;
   }
 }
 
 .root :global(blockquote.next strong) {
-  @apply mr-2 font-semibold;
+  @apply mr-2 font-semibold text-a-500;
   @apply not-italic font-bold uppercase type-monospace;
 }
 
@@ -130,10 +130,10 @@
 }
 
 .root :global(ul > li) {
-  @apply pl-2;
+  @apply pl-1;
 }
 
 .root :global(ul > li::marker) {
-  content: '-';
-  @apply pl-2;
+  content: '—';
+  @apply text-a-500;
 }

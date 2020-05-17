@@ -1,11 +1,23 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import ListingPage from '../simple/ListingPage'
+import MetaTags from './shared/MetaTags'
 
 const Home = () => {
   const data = useStaticQuery(query)
   const { pages } = usePages(data)
-  return <ListingPage pages={pages} />
+  return (
+    <>
+      <MetaTags
+        lang={'en'}
+        title={'Today I Learned - Rico Sta. Cruz'}
+        description={'Regular musings on web development'}
+        keywords={['JavaScript', 'Web Development', 'React', 'Ruby']}
+        ogType={'article'}
+      />
+      <ListingPage pages={pages} />
+    </>
+  )
 }
 
 export const usePages = (data: any) => {
@@ -46,11 +58,6 @@ const query = graphql`
   }
 
   query GetBlogListingPages {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

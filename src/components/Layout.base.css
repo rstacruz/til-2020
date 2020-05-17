@@ -13,3 +13,8 @@ body {
     font-size: 17px;
   }
 }
+
+img {
+  /* Hide captions when loading */
+  color: transparent;
+}

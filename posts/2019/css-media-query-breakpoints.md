@@ -1,18 +1,20 @@
 ---
 title: 'What media query breakpoints should I use?'
+description: "Let's dive into the most common media queries are used in frameworks today"
 tags: [CSS]
 date: 2019-04-25
-layout: simple
 book: articles
 ---
 
-<figure cover>
-<img src='https://source.unsplash.com/SO5jpAT2bN8/600x700' alt='Photo unrelated' />
-</figure>
+<Figure cover>
+<img src='./covers/SO5jpAT2bN8.jpg' alt='Photo unrelated' />
+</Figure>
 
 Before we can figure out what media query breakpoints to use, we need to look at what devices we're designing for.
 
 I've dug into some common device resolutions, and most can be grouped into categories. I've listed these categories, along with the resolutions they cater to:
+
+<Figure bordered>
 
 - **Mobile portait** (320px to 414px) &mdash; For devices with 4" to 6.9" screens.
 
@@ -24,13 +26,15 @@ I've dug into some common device resolutions, and most can be grouped into categ
 
 - **Laptop & desktop displays** (1200px+) &mdash; Varies a lot, but is usually 1200px and above
 
-> **Next:** So how do we make sense of these devices?
+</Figure>
+
+<NextBlock title='So how do we make sense of these devices?' />
 
 ## Devices
 
 I mostly looked at iOS devices. While Android devices are important too, they have a lot of variance&mdash;device DPI's are adjustable in most phones. Most Android phones ship with defaults that are comparable to iOS's anyway, so let's look at those:
 
-<figure class='table'>
+<Figure table>
 
 | Category              | Width    | Device                           |
 | --------------------- | -------- | -------------------------------- |
@@ -52,9 +56,9 @@ I mostly looked at iOS devices. While Android devices are important too, they ha
 | **Desktop displays**  | `1680px` | 13" MacBook Pro (1.5x scaling)   |
 |                       | `1920px` | 1080p displays                   |
 
-</figure>
+</Figure>
 
-> **Next:** What breakpoints are most common?
+<NextBlock title='What breakpoints are most common?' />
 
 ## The most common breakpoints
 

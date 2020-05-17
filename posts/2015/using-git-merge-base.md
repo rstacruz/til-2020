@@ -3,7 +3,7 @@ date: '2015-12-10'
 title: Use git merge-base for big merges
 tags: [Git]
 description: Use this one command to help you with big Git merges.
-book: notes
+book: archive
 ---
 
 When trying to merge two Git branches that have diverged a lot, it's a little difficult to make sense of what happened on both sides.

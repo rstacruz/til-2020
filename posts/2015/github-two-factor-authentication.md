@@ -6,7 +6,7 @@ tags: [Git]
 book: archive
 ---
 
-<Notice archive>
+<Notice archived>
 
 See GitHub's [Two factor authentication articles](https://help.github.com/categories/two-factor-authentication-2fa/) on help.github.com.
 

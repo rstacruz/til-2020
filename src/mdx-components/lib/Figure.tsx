@@ -10,6 +10,7 @@ type Props = {
   cover?: boolean
   bordered?: boolean
   code?: boolean
+  transparent?: boolean
 }
 
 /**
@@ -38,6 +39,7 @@ const Figure = (props: Props) => {
     [CSS.table]: classes.includes('table'),
     [CSS.bordered]: classes.includes('bordered'),
     [CSS.code]: classes.includes('code'),
+    [CSS.isTransparent]: classes.includes('transparent'),
   })
 
   return (
@@ -53,11 +55,11 @@ const Figure = (props: Props) => {
 }
 
 /**
- * Wrap something in a figure.
+ * Wrap something in a figure, but only if it isn't already.
  *
  * @example
  *     <Figurify>
- *       <div><CodeHighlight ... /></div>
+ *       <PreCode>...</PreCode>
  *     </Figurify>
  */
 

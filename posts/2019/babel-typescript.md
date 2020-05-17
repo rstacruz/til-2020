@@ -10,7 +10,7 @@ book: articles
 You can use Babel as a TypeScript compiler. This means much faster compilations, and you can use Babel plugins in TypeScript just as you would with JavaScript.
 
 <Figure cover>
-<img src='https://source.unsplash.com/CNmvgopt0L8/600x400' alt='Unrelated photo' />
+<img src='covers/V7SKRhXskv8.jpg' alt='Unrelated photo of a fish' />
 </Figure>
 
 To do this, we'll configure `tsc` (the TypeScript compiler) only check types, but not emit files. We'll use Babel to do the actual compilation.
@@ -43,6 +43,7 @@ In `babel.config.js`, add the <strong class='highlight'>preset-typescript</stron
 
 <!-- prettier-ignore -->
 ```javascript
+// highlight-range{3-4}
 module.exports = {
   presets: [
     '@babel/preset-typescript',
@@ -62,6 +63,7 @@ Configure TypeScript by creating a file called `tsconfig.json`. Of particular in
 <Figure code title='tsconfig.json'>
 
 ```javascript
+// highlight-range{3}
 {
   "compilerOptions": {
     "noEmit": true
@@ -99,11 +101,14 @@ You can use `@babel/cli` to compile files. In this example, we'll set up some NP
 
 <Figure code title='package.json'>
 
-```sh
-"scripts": {
-  "watch": "babel src --out-dir lib --extensions '.ts,.tsx' --watch",
-  "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
-  "tsc": "tsc"
+```js
+// highlight-range{3-4}
+{
+  "scripts": {
+    "watch": "babel src --out-dir lib --extensions '.ts,.tsx' --watch",
+    "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
+    "tsc": "tsc"
+  }
 }
 ```
 

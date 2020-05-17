@@ -1,8 +1,8 @@
 import React from 'react'
 import { groupBy } from 'lodash-es'
 import CSS from './ListingPage.module.css'
-import { ListingLink } from './ListingLink'
-import { PageLink } from '../types'
+import { PageLink, Book } from '../types'
+import ListingGroup from './ListingGroup'
 
 type Props = {
   pages: PageLink[]
@@ -10,21 +10,21 @@ type Props = {
 
 const ListingPage = (props: Props) => {
   const { pages } = props
-  const booksAndPages = Object.entries(groupBy(pages, 'book'))
+  const booksAndPages = groupBy(pages, 'book')
+
+  const books: Book[] = [
+    { id: 'articles', label: 'Articles' },
+    { id: 'notes', label: 'Notes' },
+    { id: 'archive', label: 'Archives', open: false },
+  ]
 
   return (
     <div className={CSS.root}>
       <div className={CSS.list}>
-        {booksAndPages.map(([bookName, pages]) => (
-          <>
-            <details open>
-              <summary>{bookName}</summary>
-              {pages.map((page) => (
-                <ListingLink page={page} />
-              ))}
-            </details>
-          </>
-        ))}
+        {books.map((book) => {
+          const pages = booksAndPages[book.id]
+          return <ListingGroup book={book} pages={pages} />
+        })}
       </div>
     </div>
   )
