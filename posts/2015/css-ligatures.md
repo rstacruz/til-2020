@@ -5,7 +5,7 @@ tags: [CSS]
 description: Implement fancy typographic ligatures with just CSS... no images required
 attachments:
   - './css-ligatures/ligatures.png'
-book: archive
+book: notes
 ---
 
 Headings can benefit from nice ligatures. Use the [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) CSS property to enable these OpenType features. Here's a snippet to start you with:
@@ -31,9 +31,9 @@ Headings can benefit from nice ligatures. Use the [font-feature-settings](https:
 
 Here is what they would look like with EB Garamond. Be sure to also check [List of OpenType features](http://en.wikipedia.org/wiki/List_of_typographic_features) for more features you can use.
 
-<figure>
+<Figure bordered>
 <img src='./css-ligatures/ligatures.png' />
-</figure>
+</Figure>
 
 ## Use brick.im
 

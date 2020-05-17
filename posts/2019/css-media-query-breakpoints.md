@@ -1,8 +1,8 @@
 ---
 title: 'What media query breakpoints should I use?'
+description: "Let's dive into the most common media queries are used in frameworks today"
 tags: [CSS]
 date: 2019-04-25
-layout: simple
 book: articles
 ---
 

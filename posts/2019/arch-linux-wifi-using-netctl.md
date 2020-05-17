@@ -1,7 +1,7 @@
 ---
 title: Managing Wi-Fi connections in Arch Linux with netctl
 tags: [Linux]
-layout: simple
+description: There's an alternative to using NetworkManager, and it's not too complicated to use
 date: 2019-04-11
 book: articles
 ---

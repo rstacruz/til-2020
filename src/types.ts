@@ -17,7 +17,7 @@ export type PageLink = {
   date: string
   title: string
   book?: string | null | void
-  tags: string
+  tags: string[]
   description?: string | null | void
   readingTime: {
     time: number

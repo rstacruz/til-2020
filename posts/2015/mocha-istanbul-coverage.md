@@ -9,9 +9,9 @@ attachments:
 book: archive
 ---
 
-<figure class='-wide'>
+<Figure cover>
 <img src='./mocha-istanbul-coverage/screenshot.png' />
-</figure>
+</Figure>
 
 This is all you really need to run coverage reports on [Mocha] tests via [Istanbul].
 
@@ -36,7 +36,7 @@ Preferably, though, you'll want to add `istanbul` to your project so you can pin
 [mocha]: http://mochajs.org/
 [istanbul]: https://www.npmjs.com/package/istanbul
 
-```nohighlight
+```sh
 npm install --save-dev istanbul
 ./node_modules/.bin/istanbul cover _mocha
 ```
@@ -45,7 +45,7 @@ npm install --save-dev istanbul
 
 There's no need to commit the coverage reports.
 
-```nohighlight
+```sh
 echo "/coverage" >> .gitignore
 ```
 
@@ -53,8 +53,9 @@ echo "/coverage" >> .gitignore
 
 To make things a bit easier, add a script to your `package.json` to run this. After that, just invoke `npm run coverage`.
 
+<Figure code title='package.json'>
+
 ```js
-/* package.json */
 {
   ...
   "scripts": {
@@ -63,13 +64,18 @@ To make things a bit easier, add a script to your `package.json` to run this. Af
 }
 ```
 
+</Figure>
+
 ### Travis integration
 
 If you're using [Travis] to automate your tests, you can also set it up to show coverage reports on your builds. [Looks like this](https://travis-ci.org/rstacruz/ractive-ractive).
 
+<Figure code title='travis.yml'>
+
 ```yml
-# .travis.yml
 script: npm run coverage
 ```
+
+</Figure>
 
 [travis]: https://travis-ci.org/

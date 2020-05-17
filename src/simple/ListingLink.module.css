@@ -5,10 +5,10 @@
 }
 
 .title {
-  @apply m-0 font-normal ms-1 text-n-bold;
+  @apply inline m-0 font-normal ms-1 text-n-bold;
 }
 
-.title,
+.titleLine,
 .meta,
 .description {
   @apply block;
@@ -19,7 +19,7 @@
 }
 
 .meta {
-  @apply type-monospace -ms-1 mt-1;
+  @apply mt-1 type-monospace -ms-1;
 }
 
 .toRead::before {
@@ -31,5 +31,9 @@
   @apply text-n-mute;
 }
 
-.date {
+.category {
+}
+
+.year {
+  @apply -ms-1 text-n-mute ml-1;
 }

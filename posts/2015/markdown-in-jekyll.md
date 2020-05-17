@@ -2,7 +2,6 @@
 date: '2015-05-25'
 title: Markdown in Jekyll
 description: Insert Markdown into any Jekyll document with this simple tag.
-layout: simple
 tags: [Development, Jekyll]
 book: archive
 ---

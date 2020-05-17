@@ -22,8 +22,6 @@ clean it up.
 
 </Figure>
 
-<img src='./mocha-clean/comparison.png' alt='Comparison screenshot' />
-
 ## Introducing mocha-clean
 
 `mocha-clean` is a plugin for Mocha. It strips away mocha internals,
