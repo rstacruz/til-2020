@@ -300,6 +300,8 @@ Most of these problems can be solved by Tailwind's PostCSS plugin&mdash;no other
 
 </Figure>
 
+---
+
 ## Recap
 
 Tailwind is much more than its syntax may lead you to believe. It's a utility-first philosophy, a foundation for a design system, and overall a modern way to write CSS in the age of React and dynamic frontends.
