@@ -3,7 +3,7 @@ date: '2015-12-17'
 title: Using Cloudfront as a Rails CDN
 tags: [Ruby, Devops]
 description: This guide will walk you through using Amazon CloudFront as an asset CDN for your Rails app.
-book: archive
+book: articles
 ---
 
 Setting up a CDN for your application assets is easy nowadays. This guide will walk you through using Amazon CloudFront as an asset CDN for your Rails application.
