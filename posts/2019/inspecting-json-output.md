@@ -4,7 +4,7 @@ date: 2019-03-24
 description: Using jq and less together makes JSON output readable
 tags: [Development, CLI]
 layout: simple
-book: articles
+book: notes
 ---
 
 <figure class='cover'>

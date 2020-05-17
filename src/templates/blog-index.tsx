@@ -19,7 +19,6 @@ export const usePages = (data: any) => {
       book: fields.book,
       tags: frontmatter.tags,
       description: frontmatter.description,
-      timeToRead: node.timeToRead,
       readingTime: fields.readingTime,
     }
   })
@@ -28,7 +27,25 @@ export const usePages = (data: any) => {
 }
 
 const query = graphql`
-  query {
+  fragment BlogListingNode on Mdx {
+    excerpt
+    fields {
+      slug
+      book
+      readingTime {
+        time
+        words
+      }
+    }
+    frontmatter {
+      date(formatString: "YYYY-MM-DD")
+      title
+      tags
+      description
+    }
+  }
+
+  query GetBlogListingPages {
     site {
       siteMetadata {
         title
@@ -37,22 +54,7 @@ const query = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          timeToRead
-          excerpt
-          fields {
-            slug
-            book
-            readingTime {
-              time
-              words
-            }
-          }
-          frontmatter {
-            date(formatString: "YYYY-MM-DD")
-            title
-            tags
-            description
-          }
+          ...BlogListingNode
         }
       }
     }

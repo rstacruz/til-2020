@@ -17,7 +17,7 @@ const ListingPage = (props: Props) => {
       <div className={CSS.list}>
         {booksAndPages.map(([bookName, pages]) => (
           <>
-            <details ooen>
+            <details open>
               <summary>{bookName}</summary>
               {pages.map((page) => (
                 <ListingLink page={page} />
