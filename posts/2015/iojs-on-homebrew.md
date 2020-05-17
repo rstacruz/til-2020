@@ -10,11 +10,11 @@ attachments:
 book: archive
 ---
 
-<blockquote class='notice'>
+<Figure archived>
 
 **Update (Jan 2019):** io.js has already been merged into Node.js since v4, and is now considered deprecated. Consider using nodejs instead.
 
-</blockquote>
+</Figure>
 
 <Figure cover>
 <img src='./iojs-on-homebrew/iojs-linking.png' />
