@@ -23,7 +23,7 @@ const plugins = () => [
 
   // Images
   ...(hasSharp() ? ['gatsby-plugin-sharp'] : []),
-  'gatsby-remark-images',
+  // 'gatsby-remark-images',
 
   // Allow pages in /pages instead of /src/pages
   {

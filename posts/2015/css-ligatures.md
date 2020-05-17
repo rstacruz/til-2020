@@ -3,7 +3,6 @@ date: '2015-03-05'
 title: Using ligatures in CSS
 tags: [CSS]
 description: Implement fancy typographic ligatures with just CSS... no images required
-layout: simple
 attachments:
   - './css-ligatures/ligatures.png'
 book: archive
