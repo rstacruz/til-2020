@@ -16,24 +16,19 @@ Sign up in [aws.amazon.com](http://aws.amazon.com) and create a new CloudFront d
 
 <!-- TODO: <ExternalLink href='https://aws.amazon.com' title='Amazon Web Services (AWS)' domain='aws.amazon.com' /> -->
 
-<figure class='-bordered'>
-
-[Amazon Web Services (AWS)](http://aws.amazon.com) _(aws.amazon.com)_
-
-</figure>
-
 ### Custom configuration
 
 Make sure that `OPTIONS` is also being passed through. This will allow CORS requests through (see next section). Also, enable "compress automatically" to let CloudFront handle gzip compression for you.
 
-<figure class='-bordered'>
+<Figure bordered>
 
 **Origin Settings**
 
 - Origin domain name: `www.yoursite.com`
 
-</figure>
-<figure class='-bordered'>
+</Figure>
+
+<Figure bordered>
 
 **Default Cache Behavior Settings**
 
@@ -41,27 +36,28 @@ Make sure that `OPTIONS` is also being passed through. This will allow CORS requ
 - Cached HTTP Methods: Turn on `OPTIONS`
 - Compress Objects Automatically: `on`
 
-</figure>
+</Figure>
 
 ## Set up asset host
 
 This will make `image_tag`, `asset_url` and other asset-related helpers point your assets to your CloudFront distribution. Do this only for `production.rb`.
 
-```rb
-# config/environments/production.rb
-```
+<Figure code title='config/environments/production.rb'>
 
 ```rb
 config.action_controller.asset_host = '<YOUR DISTRIBUTION SUBDOMAIN>.cloudfront.net'
 ```
+
+</Figure>
 
 ## Serve static assets
 
 Enable the serving of static assets. You will want to do this if you're using Heroku or any 12-factor-style deployment.
 If you use a reverse proxy like Nginx or Haproxy, skip this section and configure your reverse proxy to handle CORS instead.
 
+<Figure code title='config/environments/production.rb'>
+
 ```rb
-# config/environments/production.rb
 # Rails 5+
 config.public_file_server.enabled = true
 config.public_file_server.headers = {
@@ -69,11 +65,17 @@ config.public_file_server.headers = {
 }
 ```
 
+</Figure>
+
+<Figure code title='config/environments/production.rb'>
+
 ```rb
 # Rails 4.x and below
 config.serve_static_assets = true
 config.static_cache_control = 'public, max-age=31536000'
 ```
+
+</Figure>
 
 ## Enable CORS in assets
 
@@ -85,17 +87,21 @@ Use the [rack-cors] gem to enable cross-origin requests. At time of writing, it 
 
 [rack-cors]: https://rubygems.org/gems/rack-cors
 
+<Figure code title='Gemfile'>
+
 ```rb
-# Gemfile
 gem 'rack-cors'
 ```
+
+</Figure>
 
 ### Configure rack-cors
 
 This will make assets accessible from any website. You want to enable this because you'd want `yoursite.com` to be able to load assets out of `<id>.cloudfront.net`.
 
+<Figure code title='config/initializers/cors.rb'>
+
 ```rb
-# config/initializers/cors.rb
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins '*'
@@ -110,13 +116,15 @@ end
 # 'Rack::Cors' (as a string with quotes)
 ```
 
+</Figure>
+
 ## Deny everything but /assets
 
 Set up your app to disallow Cloudfront from fetching anything but `/assets`. This uses User Agent detection; see CloudFront's docs on [User-Agent headers](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-user-agent-header) for information.
 
-```rb
-# app/services/cloudfront_denier.rb
+<Figure code title='app/services/cloudfront_denier.rb'>
 
+```rb
 # Middleware to deny CloudFront requests to non-assets
 # http://ricostacruz.com/til/rails-and-cloudfront
 class CloudfrontDenier
@@ -143,10 +151,15 @@ class CloudfrontDenier
 end
 ```
 
+</Figure>
+
+<Figure code title='config/initializers/cloudfront.rb'>
+
 ```rb
-# config/initializers/cloudfront.rb
 Rails.application.config.middleware.use CloudfrontDenier,
   target: 'https://www.yoursite.com/'
 ```
+
+</Figure>
 
 If you miss this step, you'll be able to access the rest of your site in your CloudFront URL. While those aren't public, you'd best have them secured as it can open up security flaws and possibly lead to SEO penalties.

@@ -8,6 +8,7 @@ type Props = {
   title?: string
   wide?: boolean
   cover?: boolean
+  bordered?: boolean
   code?: boolean
 }
 
@@ -35,6 +36,7 @@ const Figure = (props: Props) => {
     [CSS.isWide]: classes.includes('-wide'),
     [CSS.cover]: classes.includes('cover'),
     [CSS.table]: classes.includes('table'),
+    [CSS.bordered]: classes.includes('bordered'),
     [CSS.code]: classes.includes('code'),
   })
 
