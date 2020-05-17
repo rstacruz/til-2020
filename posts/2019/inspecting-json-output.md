@@ -7,9 +7,9 @@ layout: simple
 book: notes
 ---
 
-<figure class='cover'>
+<Figure cover>
 <img src='./images/json-curl.png' alt='Code screenshot' />
-</figure>
+</Figure>
 
 View JSON output in the command line using [jq] together with _less_. This makes JSON output more readable.
 

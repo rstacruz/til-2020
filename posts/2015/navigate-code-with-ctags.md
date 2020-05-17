@@ -15,9 +15,9 @@ Ctags is not always the best solution to this today. There are Language Server i
 
 </Notice>
 
-<figure class='cover'>
+<Figure cover>
 <img src='./images/unite-ctags.png' />
-</figure>
+</Figure>
 
 [Ctags] lets you navigate code fast, and is perhaps the single most useful productivity boosting tool in any developer's arsenal. If you're not using Ctags yet, let's get you started.
 

@@ -7,9 +7,9 @@ date: 2019-04-08
 book: articles
 ---
 
-<figure class='cover'>
+<Figure cover>
 <img src='https://source.unsplash.com/NpZmRfdgNT8/600x400' alt='Display' />
-</figure>
+</Figure>
 
 Getting fractional scaling right in Xorg is tricky, but possible. The solution
 that works for me comes in 2 parts.

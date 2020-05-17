@@ -16,9 +16,9 @@ book: archive
 
 </blockquote>
 
-<figure class='cover'>
+<Figure cover>
 <img src='./iojs-on-homebrew/iojs-linking.png' />
-</figure>
+</Figure>
 
 ### Homebrew formula
 
