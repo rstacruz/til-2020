@@ -22,8 +22,6 @@ book: archive
 
 ### Homebrew formula
 
-<!-- {.-literate-style} -->
-
 An updated [homebrew-iojs] formula is maintained by [@aredridel] and is available with just one command.
 
 ```bash
@@ -31,8 +29,6 @@ brew install aredridel/iojs/iojs
 ```
 
 ### Default formula
-
-<!-- {.-literate-style} -->
 
 As of iojs 2.0.2, Homebrew ships with its own formula for iojs. This isn't preferrable, in my opinion, since global npm packages aren't being ran properly.
 

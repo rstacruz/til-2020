@@ -29,8 +29,6 @@ This works well in pages of your site placed in the root directory. Once you pat
 | `/me.html`            | `/`      | `/assets/style.css`       |  Good ✓ |
 | `/about/profile.html` | `/about` | `/about/assets/style.css` | Wrong ✗ |
 
-<!-- {.-wide} -->
-
 <next-block title="How do we usually work around them?"></next-block>
 
 ## A naive workaround
@@ -41,8 +39,6 @@ One workaround is to use absolute paths by adding a `/` in the beginning.
 <link href="/assets/style.css" rel="stylesheet" /> ^
 ```
 
-<!-- {.-wide} -->
-
 ### Why absolute URLs suck
 
 This works great for sites that live on its own domain. When your site will be hosted in a sub-directory (such as the case with [GitHub Project Pages][gh-pages]), this absolute path will not resolve to `/project/assets/style.css` as you probably would have intended.
@@ -51,8 +47,6 @@ This works great for sites that live on its own domain. When your site will be h
 | ------------------------- | ------------------- | ------: |
 | `user.github.io/`         | `/assets/style.css` |  Good ✓ |
 | `user.github.io/project/` | `/assets/style.css` | Wrong ✗ |
-
-<!-- {.-wide} -->
 
 <next-block title="Let's look at a better workaround."></next-block>
 
@@ -81,8 +75,6 @@ This snippet below automatically determines the relative base and stores it in t
 
 <figcaption>Tip: You can also collapse this into one line.</figcaption>
 </figure>
-
-<!-- {.-wide} -->
 
 ### Use it as a prefix
 

@@ -25,8 +25,6 @@ from stack traces.
 
 ### Usage
 
-<!-- {.-literate-style} -->
-
 Simply invoke Mocha with `-r mocha-clean`. The easiest way to do this is to add it to your _test/mocha.opts_ file.
 
 ```
@@ -34,8 +32,6 @@ Simply invoke Mocha with `-r mocha-clean`. The easiest way to do this is to add 
 ```
 
 ### Installation
-
-<!-- {.-literate-style} -->
 
 It's available via npm, and works with Mocha 1.x in Node.js and in the browser. The source is available in GitHub: [rstacruz/mocha-clean][src].
 

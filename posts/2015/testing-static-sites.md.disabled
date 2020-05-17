@@ -18,8 +18,6 @@ grep function _site/script.js >/dev/null
 test -f _site/image.jpg #check for file existence
 ```
 
-<!-- {.-wide} -->
-
 ### Travis support
 
 You can even integrate these with your [Travis-CI] tests. (Learn more about build configuration from their [documentation](http://docs.travis-ci.com/user/build-configuration/).)
@@ -29,8 +27,6 @@ You can even integrate these with your [Travis-CI] tests. (Learn more about buil
 before_script: bundle exec jekyll build
 script: ./test/test.sh
 ```
-
-<!-- {.-wide} -->
 
 ### Makefiles
 
@@ -46,7 +42,5 @@ _site:
     bundle
     bundle exec jekyll build --safe
 ```
-
-<!-- {.-wide} -->
 
 [travis-ci]: http://travis-ci.org
