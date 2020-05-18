@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import CSS from './ListingLink.module.css'
 import { PageLink } from '../types'
+import Unorphan from './lib/Unorphan'
 
 export function ListingLink({ page }: { page: PageLink }) {
   const { readingTime } = page
@@ -15,7 +16,9 @@ export function ListingLink({ page }: { page: PageLink }) {
     <Link to={page.slug} className={CSS.link}>
       <article>
         <div className={CSS.titleLine}>
-          <h2 className={CSS.title}>{page.title}</h2>{' '}
+          <h2 className={CSS.title}>
+            <Unorphan>{page.title}</Unorphan>
+          </h2>{' '}
           {year ? (
             <span
               className={CSS.year}
@@ -28,7 +31,7 @@ export function ListingLink({ page }: { page: PageLink }) {
 
         {page.description ? (
           <span className={CSS.description}>
-            {formatDescription(page.description) || ''}
+            <Unorphan>{formatDescription(page.description) || ''}</Unorphan>
           </span>
         ) : null}
 

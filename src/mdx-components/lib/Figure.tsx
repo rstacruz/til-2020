@@ -53,11 +53,11 @@ const Figure = (props: Props) => {
 }
 
 /**
- * Wrap something in a figure.
+ * Wrap something in a figure, but only if it isn't already.
  *
  * @example
  *     <Figurify>
- *       <div><CodeHighlight ... /></div>
+ *       <PreCode>...</PreCode>
  *     </Figurify>
  */
 
