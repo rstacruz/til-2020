@@ -46,11 +46,6 @@ const query = graphql`
   }
 
   query GetBlogListingPages {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

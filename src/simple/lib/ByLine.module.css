@@ -2,7 +2,7 @@
 @import '../../css-utils/ms.css';
 
 .root {
-  @apply my-6;
+  @apply relative my-6;
 }
 
 .author {
@@ -12,6 +12,17 @@
 .sep {
   @apply inline-block w-px h-6 mx-6 align-middle;
   border-right: solid 1px theme('colors.gray.400');
+}
+
+.avatar {
+  @apply w-10 h-10 rounded-md absolute bg-white text-transparent;
+  left: -4rem;
+  top: 0.25rem;
+  display: none;
+
+  @screen md {
+    @apply block;
+  }
 }
 
 /* .date, */

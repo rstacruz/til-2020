@@ -2,7 +2,6 @@
 date: '2015-06-22'
 title: Bundle your gems inside your project
 description: Here's a tip to get the most out of your Ruby development experience.
-layout: simple
 tags: [Ruby]
 book: archive
 ---

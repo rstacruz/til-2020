@@ -11,7 +11,7 @@ book: archive
 
 <Notice archived>
 
-Ctags is not always the best solution to this today. There are Language Server implementations for some modern languages that wpuld offer these features and more. Also, as of 2019, there are other ctags alternatives to consider today, such as Universal Ctags.
+Ctags is not always the best solution to this today. There are Language Server implementations for some modern languages that would offer these features and more. Also, as of 2019, there are other ctags alternatives to consider today, such as Universal Ctags.
 
 </Notice>
 

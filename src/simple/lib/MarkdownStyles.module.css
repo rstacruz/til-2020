@@ -111,12 +111,12 @@
 .root :global(blockquote.next::before) {
   @screen md {
     content: '';
-    @apply block w-24 h-4 my-4 dotted-background-12;
+    @apply block w-24 h-4 my-4 dotted-background-12 -ml-2;
   }
 }
 
 .root :global(blockquote.next strong) {
-  @apply mr-2 font-semibold;
+  @apply mr-2 font-semibold text-a-500;
   @apply not-italic font-bold uppercase type-monospace;
 }
 

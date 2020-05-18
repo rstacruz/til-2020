@@ -25,3 +25,8 @@ export type PageLink = {
   }
 }
 
+export type Book = {
+  id: string
+  label: string
+  open?: boolean
+}

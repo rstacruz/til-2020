@@ -93,6 +93,7 @@ Configure TypeScript to check your JavaScript files. (By default, TypeScript onl
 <Figure code title='tsconfig.json'>
 
 ```js
+// highlight-range{3-4}
 {
   "compilerOptions": {
     "allowJs": true,

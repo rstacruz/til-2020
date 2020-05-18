@@ -17,7 +17,7 @@
 
 /* The thing */
 .root {
-  @apply relative -mx-2 my-lg;
+  @apply relative mx-0 my-lg;
 
   &:not(.code) {
     @apply figure-backdrop;
@@ -134,5 +134,15 @@
  */
 
 .root.bordered {
-  @apply light-panel;
+  @apply light-panel py-2;
+
+  & > :first-child,
+  & > :first-child > :first-child {
+    @apply mt-0;
+  }
+
+  & > :last-child,
+  & > :last-child > :last-child {
+    @apply mb-0;
+  }
 }

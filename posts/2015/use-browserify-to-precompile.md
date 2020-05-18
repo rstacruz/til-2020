@@ -9,7 +9,7 @@ book: archive
 
 <Notice archived>
 
-**Update (Jan 2019):** This article was written with an outdated version of Babel (Babel 5). Also, please consider replacing Browserify with something more recent like Rollup.
+**Update (Jan 2019):** This article was written with an outdated version of Babel (Babel 5). Also, consider replacing Browserify with something more modern like [Rollup](https://npmjs.com/package/rollup).
 
 </Notice>
 
