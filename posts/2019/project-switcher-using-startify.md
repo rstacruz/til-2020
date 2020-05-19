@@ -3,6 +3,7 @@ title: Vim project switcher using Startify
 date: 2019-01-29
 tags: [Vim]
 book: notes
+description: Need to switch between projects in Vim? Here's a plugin I've been using for that
 ---
 
 <Figure cover>

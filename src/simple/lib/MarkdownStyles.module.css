@@ -104,14 +104,14 @@
   @apply p-0 text-base italic type-italic-serif;
   border-left: 0;
   @screen md {
-    @apply pb-6;
+    @apply pb-4;
   }
 }
 
 .root :global(blockquote.next::before) {
   @screen md {
     content: '';
-    @apply block w-24 h-4 my-4 dotted-background-12 -ml-2;
+    @apply block w-16 h-4 my-4 dotted-background-12 -ml-2;
   }
 }
 

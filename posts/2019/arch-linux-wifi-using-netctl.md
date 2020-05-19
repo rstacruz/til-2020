@@ -115,13 +115,15 @@ With that said, I've been trying to use netctl instead lately for one silly reas
 
 There's also something to be said about going with a slimmer setup. Netctl seems a little closer to the metal than NetworkManager, and comes built-in as part of the `base` package in Arch Linux.
 
+---
+
 ## Epilogue
 
 Thanks for reading my article! I've done some edits since this was first published.
 
-- Use `netctl-auto` instead of `netctl`. This gets you the benefits of "roaming" (auto-switching connections) and more.
+1. Used `netctl-auto` instead of `netctl`. This gets you the benefits of "roaming" (auto-switching connections) and more.
 
-- Removed the use of `netctl enable <profile>`. This works, but will make your boot time slower (Arch will wait for the connection to become successful before finishing the boot process).
+2. Removed the use of `netctl enable <profile>`. This works, but will make your boot time slower (Arch will wait for the connection to become successful before finishing the boot process).
 
 ## References
 

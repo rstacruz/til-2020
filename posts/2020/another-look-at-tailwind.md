@@ -36,7 +36,8 @@ Writing the class names out in HTML is only one way to use Tailwind. Here's anot
 
 <Figure code>
 
-```css
+```scss
+// highlight-range{2}
 .dialog {
   @apply md:p-2 mx-auto my-4;
 }
@@ -73,7 +74,8 @@ The `@apply` directive lets us compose CSS classes from other CSS classes. This,
 
 One way to make this easier to understand is to separate them into manageable chunks. Tailwind allows you to do just that.
 
-```css
+```scss
+// highlight-range{2-4}
 .banner {
   @apply .gradient-purple;
   @apply .shadow-4;
@@ -101,16 +103,22 @@ One key difference here is the Sass mixin is like a function that takes a _depth
 
 While parametric Sass mixins can be more liberating, it can also introduce some problems. While the mixin above may let us write `shadow(4px)`, it would also allow any value which potentially can lead to unexpected results. There are no restrictions to what parameters we can pass:
 
+<Figure code>
+
 ```scss
 .banner {
   @include shadow(4px); /* This is great. */
 }
+```
 
+```scss
 .large-banner {
   @include shadow(250.4px); /* But this... I'm not so sure. */
   @include shadow(25%); /* Probably even worse, oh no! */
 }
 ```
+
+</Figure>
 
 <strong class='highlight'>Tailwind doesn't have parametric mixins&mdash;it has something better.</strong> We'll see how this restriction makes sense when we try to write the snippet above in Tailwind.
 
@@ -122,7 +130,7 @@ Utilities in Tailwind are often written with a fixed set of values. This isn't a
 
 <strong class='highlight'>Parameter-less utilities allow us to build design systems.</strong> The shadow mixin above may be expressed in a Tailwind utility like this:
 
-```css
+```scss
 .shadow-4 {
   box-shadow: /* ... */ ;
 }
@@ -136,15 +144,14 @@ Utilities in Tailwind are often written with a fixed set of values. This isn't a
 }
 ```
 
-<blockquote class='next'>
-<strong>Next:</strong> Let's look at other features of the Tailwind CSS plugin.
-</blockquote>
+<NextBlock title="Let's look at other features of the Tailwind CSS plugin." />
 
 ## Theme constants
 
 One common way CSS files become unmanageable is writing some values more than once. It's quite common to use a value like a primary color across multiple rules:
 
-```css
+```scss
+// highlight-range{2,7}
 .primary-button {
   background-color: #3388aa;
   /* ... */
@@ -156,11 +163,10 @@ One common way CSS files become unmanageable is writing some values more than on
 }
 ```
 
-<!-- {data-line='2,7'} -->
-
 Tailwind itself has a solution to make this easier. Values can be defined as _theme constants_. These constants can be used via the `theme()` CSS function.
 
-```css
+```scss
+// highlight-range{2-3}
 .primary-button {
   background-color: theme('colors.primary');
   height: theme('dimensions.buttonHeight');
@@ -176,6 +182,7 @@ The values for theme constants are stored in a Tailwind's JavaScript configurati
 <Figure code title='tailwind.config.js'>
 
 ```javascript
+// highlight-range{4}
 module.exports = {
   colors: {
     // Can be accessed in CSS via theme("colors.primary")
@@ -197,6 +204,7 @@ Writing the values in JavaScript allows us to use any kind of logic we may need.
 <Figure code title='tailwind.config.js'>
 
 ```javascript
+// highlight-range{7-11}
 import { darken, lighten } from 'polished'
 const primary = '#3388ff'
 
@@ -222,6 +230,7 @@ Utility classes can be written in either CSS or JavaScript. Complicated logic do
 <Figure code title='tailwind.config.js'>
 
 ```javascript
+// highlight-range{9-14}
 module.exports = {
   themes: {
     modularscale: { ratio: 1.2 },

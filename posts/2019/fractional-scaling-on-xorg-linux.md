@@ -8,7 +8,7 @@ book: articles
 ---
 
 <Figure cover>
-<img src='https://source.unsplash.com/NpZmRfdgNT8/600x400' alt='Display' />
+<img src='./covers/NpZmRfdgNT8.jpg' alt='Unrelated photo' />
 </Figure>
 
 Getting fractional scaling right in Xorg is tricky, but possible. The solution
