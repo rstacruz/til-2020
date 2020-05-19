@@ -14,12 +14,14 @@ import SimplePostFooter from './lib/SimplePostFooter'
 interface Props {
   title: string
   description: string | null | void
+  book: string | null | void
   date: string | void
   children: React.ReactNode
 }
 
 const SimplePostContent = (props: Props) => {
-  const { title, date, description, children } = props
+  const { title, date, description, book, children } = props
+
   return (
     <div>
       <BlogNav title={title} />
@@ -27,11 +29,13 @@ const SimplePostContent = (props: Props) => {
         <h1 className={CSS.title}>
           <Unorphan>{title}</Unorphan>
         </h1>
-        {!!description && (
+
+        {!!description && book === 'articles' && (
           <p className={CSS.description}>
             <Unorphan>{description}</Unorphan>
           </p>
         )}
+
         <ByLine date={date} />
         <MarkdownStyles>{children}</MarkdownStyles>
 

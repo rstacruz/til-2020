@@ -19,11 +19,13 @@ interface Props {
 
 const BlogPost = (props: Props) => {
   const mdx = props.data.mdx
+  const { frontmatter, fields } = mdx
 
   const post = {
-    title: mdx.frontmatter.title,
-    date: mdx.frontmatter.date,
-    description: mdx.frontmatter.description,
+    title: frontmatter.title,
+    date: frontmatter.date,
+    description: frontmatter.description,
+    book: fields.book,
   }
 
   return (
@@ -48,6 +50,9 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
+      fields {
+        book
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
