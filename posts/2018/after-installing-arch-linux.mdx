@@ -2,7 +2,7 @@
 title: After installing Arch Linux
 description: Just installed Arch? Awesome! Here are some things you can try.
 date: '2018-12-12'
-layout: simple
+book: articles
 tags: [Linux]
 ---
 
@@ -13,8 +13,6 @@ tags: [Linux]
 **Here are some useful things I suggest to do after an Arch Linux installation.** These are items not covered in the official [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide#Network_configuration), but I strongly suggest you consider them!
 
 For these next steps, we're going to assume that you're logged in as your main user, who has `sudo` permissions enabled.
-
----
 
 ## Get online
 
@@ -190,6 +188,8 @@ sudo systemctl enable --now systemd-swap
 
 Add your swapfile to `/etc/fstab` so it'll be used on every boot.
 
+<Figure code>
+
 ```sh
 # Edit your fstab partitions
 sudo vim /etc/fstab
@@ -199,6 +199,8 @@ sudo vim /etc/fstab
 # add this to the end:
 /swapfile none swap defaults 0 0
 ```
+
+</Figure>
 
 <div><NextBlock title="What is the Arch User Repository?" /></div>
 
@@ -236,7 +238,7 @@ yay                  # check system for updates
 
 Some AUR packages I can recommend to almost any Arch Linux user:
 
-<Figure table>
+<Figure bordered>
 
 | Package                                                                                    | Description                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------ |
