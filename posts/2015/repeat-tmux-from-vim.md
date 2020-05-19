@@ -9,9 +9,9 @@ attachments:
 book: archive
 ---
 
-<figure class='cover'>
+<Figure cover>
 <img src='./repeat-tmux-from-vim/tmux-repeat.gif' alt='Screencast demo of tmux and vim' />
-</figure>
+</Figure>
 
 ### Using split panes
 

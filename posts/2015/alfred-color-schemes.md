@@ -3,14 +3,12 @@ date: '2015-06-06'
 title: Alfred color schemes
 description: Here's my nice color scheme for Alfred.
 tags: [MacOS]
-attachments:
-  - ./alfred-color-schemes/alfred-dark.png
 book: archive
 ---
 
-<figure class='-panorama'>
-<img src='./alfred-color-schemes/alfred-dark.png' />
-</figure>
+<Figure cover>
+<img src='./alfred-color-schemes/alfred-dark.png' alt='Screenshot of the Alfred app' />
+</Figure>
 
 Today I learned you can change colors in [Alfred]. [Here's mine.][color]
 

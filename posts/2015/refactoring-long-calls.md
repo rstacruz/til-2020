@@ -54,7 +54,7 @@ end
 
 1. **Simple and obvious.** The method `format_message` is simple and its purpose is immediately obvious.
 
-2. **Understandable at a glance.** Glancing at the view code (`format_message(event...)`), it's apparent how the message is being derived.
+2. **Understandable at a glance.** Glancing at the view code, it's apparent how the message is being derived.
 
 3. **Easy testing.** It can be easily tested&mdash;just need to pass it a string.
 

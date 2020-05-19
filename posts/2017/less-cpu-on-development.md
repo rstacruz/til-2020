@@ -8,7 +8,7 @@ book: archive
 
 Is Rails eating your CPU in development? Try lowering its priority using [renice(1)](http://manpages.ubuntu.com/manpages/zesty/en/man1/renice.1.html), a standard BSD utility that should be available in OS X and most Linux distributions. Here's a shell script that will automatically reset the priority to `+15` to common development processes:
 
-<Figure code title='renice-dev'>
+<Figure code title='renice-dev.sh'>
 
 ```sh
 #!/usr/bin/env sh
