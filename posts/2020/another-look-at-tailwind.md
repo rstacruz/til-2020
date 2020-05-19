@@ -260,7 +260,7 @@ Declaring utilities and constants in JavaScript is liberating. <strong class='hi
 
 Tailwind comes with a suite of CSS utility classes. They often come with preset values. For instance, the `margin` helper can accept values like these below, which Tailwind calls this the [spacing scale](https://tailwindcss.com/docs/customizing-spacing/#default-spacing-scale).
 
-<Figure table>
+<Figure bordered>
 
 | `.m-0` | `.m-px` | `.m-1` | `.m-2` | `.m-3` | `.m-4` | `.m-6` | `.m-8` | ... |
 | :----- | :------ | :----- | :----- | :----- | :----- | :----- | :----- | :-- |

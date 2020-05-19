@@ -16,7 +16,7 @@ book: archive
 with useless frames from Mocha internals and 3rd-party modules. Let's try and
 clean it up.
 
-<Figure cover>
+<Figure cover transparent>
 
 <img src='./mocha-clean/comparison.png' alt='Comparison screenshot' />
 

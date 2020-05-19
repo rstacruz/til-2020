@@ -8,7 +8,7 @@ attachments:
 book: notes
 ---
 
-<Figure cover>
+<Figure cover transparent>
 <img src='./osx-keyboard-shortcuts/keyboard.png' alt='Keyboard shortcuts dialog' />
 </Figure>
 
@@ -28,7 +28,7 @@ Under the _Keyboard_ preference pane, there's an option for _Full Keyboard Acces
 
 ## More shortcuts
 
-<Figure table>
+<Figure bordered>
 
 | Key         | Description                 |
 | ----------- | --------------------------- |
