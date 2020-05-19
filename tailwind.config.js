@@ -58,7 +58,7 @@ module.exports = {
 
         '.shadow-16': {
           boxShadow: [
-            `0 0 1px rgba(0, 0, 80, 0.3)`,
+            `0 0 1px rgba(0, 0, 80, 0.1)`,
             `0 0px 1px rgba(0, 0, 80, 0.06)`,
             `0 2px 2px rgba(0, 0, 80, 0.06)`,
             `0 4px 4px rgba(0, 0, 80, 0.02)`,
@@ -68,7 +68,7 @@ module.exports = {
 
         '.shadow-32': {
           boxShadow: [
-            `0 0 1px rgba(0, 0, 180, 0.3)`,
+            `0 0 1px rgba(0, 0, 180, 0.1)`,
             `0 0px 1px rgba(0, 0, 80, 0.06)`,
             `0 2px 2px rgba(0, 0, 80, 0.06)`,
             `0 4px 4px rgba(0, 0, 80, 0.06)`,

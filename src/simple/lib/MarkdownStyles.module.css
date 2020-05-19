@@ -130,10 +130,10 @@
 }
 
 .root :global(ul > li) {
-  @apply pl-2;
+  @apply pl-1;
 }
 
 .root :global(ul > li::marker) {
-  content: '-';
-  @apply pl-2;
+  content: '—';
+  @apply text-a-500;
 }

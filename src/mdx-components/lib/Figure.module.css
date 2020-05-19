@@ -86,7 +86,7 @@
   }
 
   &:not(.isTransparent) .body {
-    @apply relative z-10 bg-white rounded-sm shadow-32;
+    @apply relative z-10 bg-white shadow-32;
   }
 
   & .body > :global(img) {

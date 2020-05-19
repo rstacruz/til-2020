@@ -7,7 +7,7 @@ book: articles
 ---
 
 <Figure cover>
-<img src='https://source.unsplash.com/SO5jpAT2bN8/900x450' alt='Photo unrelated' />
+<img src='./covers/SO5jpAT2bN8.jpg' alt='Photo unrelated' />
 </Figure>
 
 Before we can figure out what media query breakpoints to use, we need to look at what devices we're designing for.

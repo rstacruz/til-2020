@@ -7,7 +7,7 @@ book: articles
 ---
 
 <Figure cover>
-<img src='./covers/9APFPoNb9iw.jpg' alt='Photo of a bird' />
+<img src='covers/9APFPoNb9iw.jpg' alt='Photo of a bird' />
 </Figure>
 
 Tailwind is perhaps the hottest CSS framework to come out of 2019. It's gotten not only a lot of hype, but a lot of criticisms as well. Its syntax can easily evoke some bad reactions from even the most experienced developers&mdash;including myself, to be honest.
