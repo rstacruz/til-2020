@@ -298,7 +298,7 @@ Tailwind can be used alongside Sass, Less, Stylus, and just about any CSS proces
 
 Most of these problems can be solved by Tailwind's PostCSS plugin&mdash;no other preprocessor required. <strong class='highlight'>Tailwind can make Sass redundant.</strong>
 
-<Figure table>
+<Figure bordered>
 
 | Problem              | Sass's solution | Tailwind's solution |
 | :------------------- | :-------------: | :-----------------: |
