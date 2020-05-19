@@ -85,6 +85,10 @@
     @apply relative z-10;
   }
 
+  &:not(.isTransparent) .body {
+    @apply relative z-10 bg-white rounded-sm shadow-32;
+  }
+
   & .body > :global(img) {
     @apply relative z-10 object-cover w-full bg-gray-800 shadow-32;
     border-radius: 3px;

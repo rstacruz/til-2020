@@ -7,7 +7,7 @@ description: Chances are you've downloaded a few Google fonts to your computer. 
 book: archive
 ---
 
-<Figure cover>
+<Figure cover transparent>
 <img src='local-google-fonts/skyfonts.png' />
 </Figure>
 
