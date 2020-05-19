@@ -43,10 +43,6 @@ const BlogNav = (props: Props) => {
             <Link to='/'>Today I Learned</Link>
           )}
         </span>
-
-        <span className={CSS.right}>
-          <Link to='/'>&larr;</Link>
-        </span>
       </div>
     </>
   )

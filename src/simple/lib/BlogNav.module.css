@@ -7,34 +7,19 @@
 }
 
 .root {
-  @apply z-50 flex py-1 small-font;
+  @apply z-50 flex py-1 pr-6 text-center small-font;
   box-shadow: 0 1px rgba(0, 0, 0, 0);
   line-height: 2.5rem;
-  text-align: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: white;
   transition: box-shadow 300ms linear, padding 300ms ease-out;
-}
 
-.root::after {
-  content: '';
-  @apply block;
-  position: absolute;
-  bottom: 0;
-  left: 2rem;
-  right: 2rem;
-  height: 1px;
-  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
-  transition: opacity 300ms linear, left 300ms ease-out, right 300ms ease-out;
-}
-
-.root.isFixed::after {
-  opacity: 0;
-  left: 0;
-  right: 0;
+  @screen md {
+    @apply text-right pr-0;
+  }
 }
 
 .root a {
@@ -61,7 +46,7 @@
 }
 
 .center {
-  @apply flex-auto px-8;
+  @apply flex-auto px-6;
 }
 
 .left,
