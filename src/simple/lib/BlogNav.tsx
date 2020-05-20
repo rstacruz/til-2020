@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import cn from 'classnames'
 import BackIcon from './BackIcon'
 
-interface Props {
+type Props = {
   title: string
 }
 
@@ -25,7 +25,7 @@ const BlogNav = (props: Props) => {
       </div>
 
       <div className={cn(CSS.topLeft, expanded)}>
-        <Link to='/' className={CSS.backLink}>
+        <Link to='/' className={CSS.backLink} aria-label='Back to home'>
           <BackIcon className={CSS.backIcon} />
         </Link>
       </div>

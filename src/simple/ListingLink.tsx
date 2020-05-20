@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import CSS from './ListingLink.module.css'
 import { PageLink } from '../types'
 import Unorphan from './lib/Unorphan'
+import { slug } from 'github-slugger'
 
 export function ListingLink({ page }: { page: PageLink }) {
   const { readingTime } = page
@@ -12,11 +13,13 @@ export function ListingLink({ page }: { page: PageLink }) {
   const apples = mins <= 2 ? 1 : mins <= 5 ? 2 : 3
   const year = getYear(page.date)
 
+  const h2id = `${slug(page.title)}-link`
+
   return (
-    <Link to={page.slug} className={CSS.link}>
+    <Link to={page.slug} className={CSS.link} aria-labelledby={h2id}>
       <article>
         <div className={CSS.titleLine}>
-          <h2 className={CSS.title}>
+          <h2 className={CSS.title} id={h2id}>
             <Unorphan>{page.title}</Unorphan>
           </h2>{' '}
           {year ? (
