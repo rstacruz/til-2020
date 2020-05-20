@@ -1,7 +1,13 @@
 @import '../../css-utils/all.css';
 
 .placeholder {
-  @apply h-8;
+  & {
+    @apply h-8;
+  }
+
+  @screen md {
+    @apply h-12;
+  }
 }
 
 .topLeft {
@@ -10,30 +16,30 @@
   }
 
   @screen md {
-    @apply fixed z-20 m-4;
+    @apply fixed z-10 m-4;
   }
 }
 
 .topRight {
   & {
-    @apply absolute top-0 right-0 m-4 transition-md transition-all;
-    @apply type-bold-caps -ms-1;
+    @apply absolute top-0 right-0 m-4 opacity-0 transition-md transition-all;
+    @apply pointer-events-none type-bold-caps -ms-1;
   }
 
   @screen md {
-    @apply fixed z-20 m-6;
+    @apply fixed z-10 m-6 opacity-100 pointer-events-auto;
   }
 }
 
 .backLink {
   & {
-    @apply block p-2 text-center transition-all transition-md;
+    @apply block p-2 text-center transition-all transition-fast;
   }
 
   &:focus,
   &:hover {
-    @apply text-white bg-a-500 shadow-8 transition-fast;
-    transform: scale(1.05);
+    @apply text-a-500 bg-white shadow-8;
+    transform: scale(1.15);
   }
 }
 

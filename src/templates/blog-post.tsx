@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import PostLayout from './blog-post/PostLayout'
 import MyMDXProvider from '../mdx-components/MyMDXProvider'
+import MetaTags from './shared/MetaTags'
 
 interface Props {
   data: {
@@ -30,6 +31,14 @@ const BlogPost = (props: Props) => {
 
   return (
     <div>
+      <MetaTags
+        lang={'en'}
+        title={frontmatter.title}
+        description={frontmatter.description}
+        keywords={frontmatter.tags}
+        ogType={'article'}
+      />
+
       <PostLayout post={post}>
         <MyMDXProvider>
           <MDXRenderer>{mdx.body}</MDXRenderer>

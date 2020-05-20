@@ -82,15 +82,15 @@
   }
 
   & :global(.gatsby-resp-image-wrapper) {
-    @apply relative z-10;
+    @apply relative z-20;
   }
 
   &:not(.isTransparent) .body {
-    @apply relative z-10 bg-white shadow-32;
+    @apply relative z-20 bg-white shadow-32;
   }
 
   & .body > :global(img) {
-    @apply relative z-10 object-cover w-full bg-gray-800 shadow-32;
+    @apply relative z-20 object-cover w-full bg-gray-800 shadow-32;
     border-radius: 3px;
     height: 16rem;
 
