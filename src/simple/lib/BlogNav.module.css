@@ -1,67 +1,59 @@
-@import '../../css-utils/ms.css';
-@import '../../css-utils/type.css';
+@import '../../css-utils/all.css';
 
 .placeholder {
-  @apply block;
-  height: 48px;
+  @apply h-8;
 }
 
-.root {
-  @apply z-50 flex py-1 pr-6 text-center small-font;
-  box-shadow: 0 1px rgba(0, 0, 0, 0);
-  line-height: 2.5rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  transition: box-shadow 300ms linear, padding 300ms ease-out;
+.topLeft {
+  & {
+    @apply absolute top-0 left-0 m-2 transition-md transition-margin;
+  }
 
   @screen md {
-    @apply text-right pr-0;
+    @apply fixed z-20 m-4;
   }
 }
 
-.root a {
-  @apply font-bold text-yellow-900 no-underline uppercase type-bold-caps;
+.topRight {
+  & {
+    @apply absolute top-0 right-0 m-4 transition-md transition-all;
+    @apply type-bold-caps -ms-1;
+  }
+
+  @screen md {
+    @apply fixed z-20 m-6;
+  }
 }
 
-.root.isFixed {
-  @apply py-0;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 150ms linear, padding 150ms ease-out;
-  line-height: 48px;
-}
+.backLink {
+  & {
+    @apply block p-2 text-center transition-all transition-md;
+  }
 
-.separator {
-  @apply mx-2 text-gray-500;
-}
-
-.title {
-  @apply text-n-mute;
-}
-
-.root > span {
-  @apply inline-block truncate;
-}
-
-.center {
-  @apply flex-auto px-6;
-}
-
-.left,
-.right {
-  @apply flex-initial w-8 px-8;
-}
-
-.right {
-  @apply text-right;
-}
-
-.rotate-270 {
-  transform: rotate(270deg);
+  &:focus,
+  &:hover {
+    @apply text-white bg-a-500 shadow-8 transition-fast;
+    transform: scale(1.05);
+  }
 }
 
 .backIcon {
-  @apply w-5 h-5 rotate-270;
+  & {
+    @apply block w-6 h-6 rotate-270 transition-md transition-wh;
+  }
+
+  @screen md {
+    @apply w-8 h-8;
+  }
+}
+
+.isExpanded {
+}
+
+.isCollapsed {
+}
+
+.topRight.isCollapsed {
+  opacity: 0;
+  transform: translate3d(0, -0.25rem, 0);
 }

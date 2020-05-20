@@ -5,7 +5,7 @@
 @import './code-background.css';
 
 .light-panel {
-  @apply bg-white border-solid border-n-line px-4 py-0 rounded-md shadow-16;
+  @apply px-4 py-0 bg-white border-solid border-n-line rounded-md shadow-16;
   border-width: 1px;
   background: white;
 }
@@ -20,3 +20,24 @@
   );
 }
 
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.transition-fast {
+  transition-duration: 100ms;
+  transition-timing-function: ease-out;
+}
+
+.transition-md {
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+}
+
+.transition-margin {
+  transition-property: margin;
+}
+
+.transition-wh {
+  transition-property: width, height;
+}
