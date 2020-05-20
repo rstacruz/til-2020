@@ -5,7 +5,7 @@
 }
 
 .title {
-  @apply inline m-0 font-normal ms-1 text-n-bold;
+  @apply inline m-0 ms-1 text-n-bold type-heading-serif;
 }
 
 .titleLine,
@@ -15,7 +15,6 @@
 }
 
 .description {
-  @apply type-italic-serif;
 }
 
 .meta {
