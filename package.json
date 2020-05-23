@@ -10,6 +10,7 @@
     "@types/lodash-es": "^4.17.3",
     "classnames": "^2.2.6",
     "gatsby": "^2.21.0",
+    "gatsby-plugin-feed": "^2.5.3",
     "gatsby-plugin-mdx": "^1.2.0",
     "gatsby-plugin-postcss": "^2.3.0",
     "gatsby-plugin-purgecss": "^5.0.0",
