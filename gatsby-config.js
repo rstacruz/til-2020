@@ -3,6 +3,12 @@ const config = () => ({
   plugins: plugins(),
 })
 
+const metadata = () => ({
+  title: 'TIL',
+  // For the feed
+  siteUrl: 'https://ricostacruz.com/til',
+})
+
 const plugins = () => [
   'gatsby-plugin-typescript',
   'gatsby-plugin-react-helmet',
@@ -70,10 +76,65 @@ const plugins = () => [
     },
   },
 
+  // Reading time
   'gatsby-remark-reading-time',
-]
 
-const metadata = () => ({ title: 'TIL' })
+  // Feed
+  {
+    resolve: 'gatsby-plugin-feed',
+    options: {
+      query: `
+          {
+            site {
+              siteMetadata {
+                title
+                siteUrl
+              }
+            }
+          }
+        `,
+      feeds: [
+        {
+          serialize: ({ query: { site, allMdx } }) => {
+            return allMdx.edges.map((edge) => {
+              return {
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              }
+            })
+          },
+          query: `
+            {
+              allMdx(
+                sort: { order: DESC, fields: [frontmatter___date] }
+              ) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            }
+          `,
+          output: '/rss.xml',
+          title: "Your Site's RSS Feed",
+        },
+      ],
+    },
+  },
+]
 
 function hasSharp() {
   try {
