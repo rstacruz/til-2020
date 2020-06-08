@@ -29,7 +29,6 @@ const plugins = () => [
 
   // Images
   ...(hasSharp() ? ['gatsby-plugin-sharp'] : []),
-  // 'gatsby-remark-images',
 
   // Allow pages in /pages instead of /src/pages
   {
@@ -59,11 +58,13 @@ const plugins = () => [
             ]
           : []),
 
+        // Syntax highlighting
         {
           resolve: 'gatsby-remark-prismjs',
           options: {
             aliases: {
               sh: 'bash',
+              dosini: 'ini',
             },
           },
         },
@@ -72,64 +73,42 @@ const plugins = () => [
         // See: https://www.gatsbyjs.org/packages/gatsby-remark-images/#supported-formats
         'gatsby-remark-copy-linked-files',
       ],
-      rehypePlugins: [require('@rstacruz/rehype-sectionize').plugin],
+      rehypePlugins: [
+        // Put h2's into its own section
+        require('@rstacruz/rehype-sectionize').plugin,
+      ],
     },
   },
 
   // Reading time
   'gatsby-remark-reading-time',
 
-  // Feed
+  // RSS feed
   {
     resolve: 'gatsby-plugin-feed',
     options: {
-      query: `
-          {
-            site {
-              siteMetadata {
-                title
-                siteUrl
-              }
-            }
-          }
-        `,
+      query: feedSiteQuery,
       feeds: [
         {
           serialize: ({ query: { site, allMdx } }) => {
             return allMdx.edges.map((edge) => {
+              const { node } = edge
+              const { frontmatter } = node
+              const { siteMetadata } = site
+
               return {
-                ...edge.node.frontmatter,
-                description: edge.node.excerpt,
-                date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
+                title: frontmatter.title,
+                date: frontmatter.date,
+                description: frontmatter.description || node.excerpt,
+                url: siteMetadata.siteUrl + node.fields.slug,
+                guid: siteMetadata.siteUrl + node.fields.slug,
+                custom_elements: [{ 'content:encoded': node.html }],
               }
             })
           },
-          query: `
-            {
-              allMdx(
-                sort: { order: DESC, fields: [frontmatter___date] }
-              ) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    fields {
-                      slug
-                    }
-                    frontmatter {
-                      title
-                      date
-                    }
-                  }
-                }
-              }
-            }
-          `,
+          query: feedEntriesQuery,
           output: '/rss.xml',
-          title: "Your Site's RSS Feed",
+          title: "Rico Sta. Cruz's blog",
         },
       ],
     },
@@ -144,5 +123,40 @@ function hasSharp() {
     return false
   }
 }
+
+// To allow gql`...` for syntax highlighting
+const gql = String.raw
+
+const feedSiteQuery = gql`
+  {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+      }
+    }
+  }
+`
+
+const feedEntriesQuery = gql`
+  {
+    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date
+            description
+          }
+        }
+      }
+    }
+  }
+`
 
 module.exports = config()
