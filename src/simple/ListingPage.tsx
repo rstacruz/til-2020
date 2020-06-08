@@ -3,6 +3,7 @@ import { groupBy } from 'lodash-es'
 import CSS from './ListingPage.module.css'
 import { PageLink, Book } from '../types'
 import ListingGroup from './ListingGroup'
+import ArticleListingGroup from './lib/ArticleListingGroup'
 
 type Props = {
   pages: PageLink[]
@@ -23,7 +24,11 @@ const ListingPage = (props: Props) => {
       <div className={CSS.list}>
         {books.map((book) => {
           const pages = booksAndPages[book.id]
-          return <ListingGroup book={book} pages={pages} />
+          if (book.id === 'articles') {
+            return <ArticleListingGroup book={book} pages={pages} />
+          } else {
+            return <ListingGroup book={book} pages={pages} />
+          }
         })}
       </div>
     </div>

@@ -1,0 +1,14 @@
+.fade-to-transparent {
+  background: linear-gradient(to bottom, transparent, white 90%);
+}
+
+.root {
+  @apply relative overflow-hidden;
+  max-height: 400px;
+  border-bottom: solid 1px #ccc;
+}
+
+.root::after {
+  content: '';
+  @apply block absolute bottom-0 left-0 w-full h-32 pointer-events-none fade-to-transparent;
+}

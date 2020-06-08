@@ -4,7 +4,11 @@ const config = () => ({
 })
 
 const metadata = () => ({
-  title: 'TIL',
+  title: "Rico Sta. Cruz's blog",
+  // Home page title
+  fullTitle: 'Today I Learned — web development musings semi-daily',
+  description: 'Regular musings on web development',
+
   // For the feed
   siteUrl: 'https://ricostacruz.com/til',
 })
