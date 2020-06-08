@@ -2,16 +2,18 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import ListingPage from '../simple/ListingPage'
 import MetaTags from './shared/MetaTags'
+import useSiteMetadata from '../hooks/useSiteMetadata'
 
 const Home = () => {
   const data = useStaticQuery(query)
+  const site = useSiteMetadata()
   const { pages } = usePages(data)
   return (
     <>
       <MetaTags
         lang={'en'}
-        title={'Today I Learned - Rico Sta. Cruz'}
-        description={'Regular musings on web development'}
+        title={site.fullTitle || site.title}
+        description={site.description}
         keywords={['JavaScript', 'Web Development', 'React', 'Ruby']}
         ogType={'article'}
       />
