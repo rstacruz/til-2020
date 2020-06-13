@@ -4,10 +4,10 @@ import ListingPage from '../simple/ListingPage'
 import MetaTags from './shared/MetaTags'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 
-const Home = () => {
+const Home = (props: { data?: any }) => {
   const data = useStaticQuery(query)
   const site = useSiteMetadata()
-  const { pages } = usePages(data)
+  const { pages } = usePages(props.data || data)
   return (
     <>
       <MetaTags
@@ -60,7 +60,10 @@ const query = graphql`
   }
 
   query GetBlogListingPages {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      filter: { frontmatter: { date: { ne: null } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           ...BlogListingNode
