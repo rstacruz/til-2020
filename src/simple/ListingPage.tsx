@@ -24,6 +24,8 @@ const ListingPage = (props: Props) => {
       <div className={CSS.list}>
         {books.map((book) => {
           const pages = booksAndPages[book.id]
+          if (!pages) return null
+
           if (book.id === 'articles') {
             return <ArticleListingGroup book={book} pages={pages} />
           } else {
