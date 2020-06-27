@@ -9,8 +9,8 @@ function ListingGroup(props: { book: Book; pages: PageLink[] }) {
     <details open={book.open !== false} className={CSS.root}>
       <summary className={CSS.summary}>{book.label}</summary>
       <div className={CSS.list}>
-        {pages.map((page) => (
-          <ListingLink page={page} />
+        {pages.map((page, index) => (
+          <ListingLink page={page} key={index} />
         ))}
       </div>
     </details>

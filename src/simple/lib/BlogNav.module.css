@@ -23,7 +23,7 @@
 .topRight {
   & {
     @apply absolute top-0 right-0 m-4 opacity-0 transition-md transition-all;
-    @apply pointer-events-none type-bold-caps -ms-1;
+    @apply pointer-events-none type-bold-caps -rms-1;
   }
 
   @screen md {
@@ -38,7 +38,7 @@
 
   &:focus,
   &:hover {
-    @apply text-a-500 bg-white shadow-8;
+    @apply bg-white text-a-500 shadow-8;
     transform: scale(1.15);
   }
 }

@@ -8,8 +8,8 @@ function ArticleListingGroup(props: { book: Book; pages: PageLink[] }) {
 
   return (
     <div className={CSS.root}>
-      {pages.map((page) => (
-        <ListingLink page={page} />
+      {pages.map((page, index) => (
+        <ListingLink page={page} key={index} big={index === 0} />
       ))}
     </div>
   )

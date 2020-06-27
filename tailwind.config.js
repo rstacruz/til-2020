@@ -1,5 +1,6 @@
 // https://tailwindcss.com/docs/configuration/
 const plugin = require('tailwindcss/plugin')
+const { between, lighten } = require('polished')
 
 module.exports = {
   theme: {
@@ -18,6 +19,7 @@ module.exports = {
         //  Brand A
         a: {
           '500': '#705075',
+          '300': lighten(0.2, '#705075'),
         },
         // Code background
         window: {
@@ -107,5 +109,6 @@ module.exports = {
         },
       })
     }),
+    require('./src/tailwind-responsive-modular-scale').plugin(),
   ],
 }

@@ -1,11 +1,15 @@
 import React from 'react'
+import cn from 'classnames'
 import { Link } from 'gatsby'
 import CSS from './ListingLink.module.css'
 import { PageLink } from '../types'
 import Unorphan from './lib/Unorphan'
 import { slug } from 'github-slugger'
 
-export function ListingLink({ page }: { page: PageLink }) {
+type Props = { page: PageLink; big?: boolean }
+
+export function ListingLink(props: Props) {
+  const { page } = props
   const { readingTime } = page
 
   // Approximate reading time
@@ -16,11 +20,17 @@ export function ListingLink({ page }: { page: PageLink }) {
   const h2id = `${slug(page.title)}-link`
 
   return (
-    <Link to={page.slug} className={CSS.link} aria-labelledby={h2id}>
+    <Link
+      to={page.slug}
+      className={cn(CSS.link, { [CSS.bigLink]: props.big })}
+      aria-labelledby={h2id}
+    >
       <article>
         <div className={CSS.titleLine}>
           <h2 className={CSS.title} id={h2id}>
-            <Unorphan>{page.title}</Unorphan>
+            <span className={CSS.titleSpan}>
+              <Unorphan>{page.title}</Unorphan>
+            </span>
           </h2>{' '}
           {year ? (
             <span
@@ -44,10 +54,13 @@ export function ListingLink({ page }: { page: PageLink }) {
           </span>
 
           <span className={CSS.toRead} title={`${readingTime.words} words`}>
-            {mins} {mins === 1 ? 'min' : 'mins'}{' '}
-            {[...Array(apples)].map((_, index) => (
-              <span key={index}>&mdash; </span>
-            ))}
+            {mins} {mins === 1 ? 'min' : 'mins'}
+            {/*
+              {' '}
+              {[...Array(apples)].map((_, index) => (
+                <span key={index}>&mdash; </span>
+                ))}
+            */}
           </span>
         </span>
       </article>

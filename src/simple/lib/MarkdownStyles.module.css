@@ -1,4 +1,3 @@
-@import '../../css-utils/ms.css';
 @import '../../css-utils/container.css';
 @import '../../css-utils/type.css';
 @import '../../css-utils/dotted-background.css';
@@ -18,7 +17,7 @@
 }
 
 .root :global(h2) {
-  @apply font-bold text-n-bold mb-md ms-3 type-body-sans;
+  @apply font-bold text-n-bold mb-md rms-3 type-body-sans;
   letter-spacing: -0.02em;
 }
 
@@ -34,7 +33,7 @@
 }
 
 .root :global(h3) {
-  @apply mt-8 mb-0 text-gray-900 ms-1 type-bold-heading;
+  @apply mt-8 mb-0 text-gray-900 rms-1 type-bold-heading;
 }
 
 .root :global(a) {
@@ -111,7 +110,7 @@
 .root :global(blockquote.next::before) {
   @screen md {
     content: '';
-    @apply block w-16 h-4 my-4 dotted-background-12 -ml-2;
+    @apply block w-16 h-4 my-4 -ml-2 dotted-background-12;
   }
 }
 
