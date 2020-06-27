@@ -2,7 +2,7 @@
 
 .bigLink {
   & .title {
-    @apply font-bold rms-6;
+    @apply font-bold rms-7;
   }
 
   & .titleSpan {
@@ -13,6 +13,10 @@
 
   & .description {
     @apply mt-2;
+
+    @screen md {
+      @apply mb-12;
+    }
   }
 }
 
@@ -22,7 +26,7 @@
 }
 
 .link:not(.bigLink) {
-  border-top: solid 2px #ccc;
+  border-top: solid 2px theme('colors.a.300');
   @apply pt-4;
 }
 
@@ -37,7 +41,7 @@
 }
 
 .meta {
-  @apply mt-2 -rms-1;
+  @apply mt-2;
 }
 
 .vertical-line {

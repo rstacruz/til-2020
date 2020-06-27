@@ -14,6 +14,7 @@ describe('default settings', () => {
     expect(Object.keys(utils)).toMatchInlineSnapshot(`
       Array [
         ".-rms-1",
+        ".rms-0",
         ".rms-1",
         ".rms-2",
         ".rms-3",
@@ -27,17 +28,32 @@ describe('default settings', () => {
     `)
   })
 
-  it('works', () => {
+  it('works (rms-1)', () => {
+    expect(utils['.rms-0'].fontSize).toMatchInlineSnapshot(`
+      Array [
+        "16px",
+      ]
+    `)
+    expect(utils['.rms-0'].lineHeight).toMatchInlineSnapshot(`
+      Array [
+        "25.6px",
+      ]
+    `)
+  })
+
+  it('works (rms-1)', () => {
     expect(utils['.rms-1'].fontSize).toMatchInlineSnapshot(`
       Array [
         "19px",
-        "clamp(calc(17.89px + 0.11vw), 18px, 19px)",
+        "calc(17.89px + 0.11vw)",
+        "clamp(18px, calc(17.89px + 0.11vw), 19px)",
       ]
     `)
     expect(utils['.rms-1'].lineHeight).toMatchInlineSnapshot(`
       Array [
         "29px",
-        "clamp(calc(27.39px + 0.17vw), 27px, 29px)",
+        "calc(27.39px + 0.17vw)",
+        "clamp(27px, calc(27.39px + 0.17vw), 29px)",
       ]
     `)
   })

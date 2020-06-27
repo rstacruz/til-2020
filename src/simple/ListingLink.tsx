@@ -54,7 +54,7 @@ export function ListingLink(props: Props) {
           </span>
 
           <span className={CSS.toRead} title={`${readingTime.words} words`}>
-            {mins} {mins === 1 ? 'min' : 'mins'}
+            {mins} min read
             {/*
               {' '}
               {[...Array(apples)].map((_, index) => (

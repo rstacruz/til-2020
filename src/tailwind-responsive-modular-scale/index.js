@@ -36,7 +36,7 @@ const DEFAULTS = {
     screenwidth: '1200px',
   },
   prefix: 'rms',
-  steps: [-1, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  steps: [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 }
 
 /**
@@ -98,11 +98,9 @@ function getDefinition(n, min, max) {
     math(`${max.linebase * max.lineratio ** n} * ${fontSize[1]}`),
   ]
 
-  /* prettier-ignore */
-  // Listed as tuples here to add fallback values for IE11.
   return {
-    fontSize: [round(fontSize[1], 0), clampedBetween(...fontSize, ...screen)],
-    lineHeight: [round(lineHeight[1], 0), clampedBetween(...lineHeight, ...screen)],
+    fontSize: clampedBetween(...fontSize, ...screen),
+    lineHeight: clampedBetween(...lineHeight, ...screen),
   }
 }
 
@@ -113,12 +111,25 @@ function getDefinition(n, min, max) {
  * @param {number | string} max
  * @param {number | string} screenMin
  * @param {number | string} screenMax
- * @returns {string}
+ * @returns {string[]}
  */
 
 function clampedBetween(min, max, screenMin, screenMax) {
   const bet = between(min, max, screenMin, screenMax)
-  return `clamp(${bet}, ${round(min, 2)}, ${round(max, 2)})`
+
+  if (min === max) {
+    // For simpler cases
+    return [min]
+  } else {
+    return [
+      // Fallback for browsers without calc() support (IE11)
+      round(max, 0),
+      // Fallback for browsers without clamp() support
+      bet,
+      // Full
+      `clamp(${round(min, 2)}, ${bet}, ${round(max, 2)})`,
+    ]
+  }
 }
 
 /**
