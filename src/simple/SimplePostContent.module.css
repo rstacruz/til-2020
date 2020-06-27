@@ -1,4 +1,3 @@
-@import '../css-utils/ms.css';
 @import '../css-utils/container.css';
 @import '../css-utils/type.css';
 
@@ -9,8 +8,7 @@
 }
 
 .title {
-  @apply mt-12 mb-4 text-gray-700 ms-7 type-heading-serif;
-  color: #111;
+  @apply mt-12 mb-4 text-n-bold rms-7 type-heading-serif;
 
   @screen md {
     @apply mt-32;
@@ -19,6 +17,6 @@
 }
 
 .description {
-  @apply type-italic-serif ms-2 -mt-2;
+  @apply -mt-2 type-italic-serif rms-2;
   color: theme('colors.a.500');
 }

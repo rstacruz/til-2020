@@ -1,5 +1,4 @@
 @import '../../css-utils/type.css';
-@import '../../css-utils/ms.css';
 
 .root {
   @apply relative my-6;
@@ -15,7 +14,7 @@
 }
 
 .avatar {
-  @apply w-10 h-10 rounded-md absolute bg-white text-transparent;
+  @apply absolute w-10 h-10 text-transparent bg-white rounded-md;
   left: -4rem;
   top: 0.25rem;
   display: none;

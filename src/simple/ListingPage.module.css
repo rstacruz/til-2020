@@ -1,7 +1,7 @@
 @import '../css-utils/all.css';
 
 .root {
-  @apply container pt-32;
+  @apply pt-32 container-wide;
 }
 
 .list {
