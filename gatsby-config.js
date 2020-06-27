@@ -1,4 +1,5 @@
 const config = () => ({
+  pathPrefix: '/til',
   siteMetadata: metadata(),
   plugins: plugins(),
 })

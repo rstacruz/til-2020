@@ -3,6 +3,11 @@ const plugin = require('tailwindcss/plugin')
 const { between, lighten } = require('polished')
 
 module.exports = {
+  // Tailwind's purging will only reduce the footprint of its built-in
+  // utilities. gatsby-plugin-purgecss will further remove custom non-Tailwind
+  // utilities.
+  purge: ['src/**/*.{html,js,ts,tsx}', 'pages/**/*.{html,js,ts,tsx}'],
+
   theme: {
     extend: {
       spacing: {
@@ -11,9 +16,8 @@ module.exports = {
         xl: '3rem', // dunno
         xxl: '4rem', // between H2sections
       },
-      modscale: {
-        sm: { ratio: 1.14, linebase: 1.6, lineratio: 0.957 },
-        md: { ratio: 1.18, linebase: 1.6, lineratio: 0.957 },
+      responsiveModularScale: {
+        max: { ratio: 1.19, screenwidth: '920px' },
       },
       colors: {
         //  Brand A

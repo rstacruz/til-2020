@@ -1,6 +1,28 @@
+@import '../../css-utils/dotted-background.css';
+@import '../../css-utils/type.css';
+
 .root {
   @screen md {
+    @apply relative pt-56;
     columns: 2;
     column-gap: 2rem;
+
+    & > :first-child {
+      @apply -mt-56;
+    }
+
+    &::after {
+      @apply absolute block dotted-background-12;
+      background-attachment: fixed;
+      top: 0;
+      right: 0;
+      width: calc(50% - 1rem);
+      height: 12rem;
+      content: '';
+    }
   }
+}
+
+.heading {
+  @apply mb-12 type-bold-caps rms-0;
 }

@@ -72,8 +72,8 @@
 
   /* Screen thing */
   &::after {
-    @apply absolute z-auto block;
-    @apply dotted-background-12;
+    @apply absolute z-auto block dotted-background-12;
+    background-attachment: fixed;
     content: '';
     top: 4rem;
     bottom: -2rem;
@@ -138,7 +138,7 @@
  */
 
 .root.bordered {
-  @apply light-panel py-2;
+  @apply py-2 light-panel;
 
   & > :first-child,
   & > :first-child > :first-child {

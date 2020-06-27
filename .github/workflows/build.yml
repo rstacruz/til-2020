@@ -1,4 +1,4 @@
-name: Build and test
+name: Build
 on: push
 
 jobs:
@@ -7,6 +7,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with: { node-version: '12.x' }
 
       # https://github.com/actions/cache/blob/master/examples.md#node---yarn
       - name: 'Cache: Get yarn cache directory path'
@@ -22,13 +26,66 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with: { node-version: '12.x' }
-
       - name: Setup dependencies
         run: yarn --frozen-lockfile
 
       - run: yarn build
       - run: yarn test
       - run: yarn prettier:check
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/v2020' && github.repository == 'rstacruz/til'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with: { node-version: '12.x' }
+
+      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+      - name: 'Cache: Get yarn cache directory path'
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: 'Cache: Set up yarn cache'
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Setup dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Build Gatsby website
+        run: yarn build:production
+
+      # - name: Deploy to Netlify (production) 🚀
+      #   run: |
+      #     yarn netlify link --id '${{ secrets.NETLIFY_SITE_ID }}'
+      #     yarn netlify deploy \
+      #       --site '${{ secrets.NETLIFY_SITE_ID }}' \
+      #       --auth '${{ secrets.NETLIFY_AUTH_TOKEN }}' \
+      #       --dir public \
+      #       --alias v2020 \
+      #       --prod \
+      #       --message 'Production deploy from GitHub Actions: ${{ github.ref }} (${{ github.sha }})' \
+
+      - name: Deploy to Netlify (production)
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: './public'
+          production-branch: v2020
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          enable-commit-comment: true
+          deploy-message: 'Production deploy from GitHub Actions: ${{ github.ref }} (${{ github.sha }})'
+          netlify-config-path: './netlify.toml'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 3

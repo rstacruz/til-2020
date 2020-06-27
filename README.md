@@ -1,79 +1,22 @@
-<br>
-
 <p align='center'>
-  <a href='https://www.gatsbyjs.org'>
-    <img alt='Gatsby' src='https://www.gatsbyjs.org/monogram.svg' width='60' />
-  </a>
+<br><img src='https://user-images.githubusercontent.com/74385/47948807-e0779800-df72-11e8-81e8-68ec5c61de46.png' width='160'><br>
 </p>
 
-<br>
-
-<h1 align="center">
-  Gatsby simplified starter
+<h1 align='center'>
+til.ricostacruz.com
 </h1>
 
 <p align='center'>
-This is a simplified version of the default Gatsby boilerplate.<br>
-See <a href='https://github.com/gatsbyjs/gatsby-starter-default'>gatsbyjs/gatsby-starter-default</a>.
+A blog with too many articles
 </p>
 
-## Quick start
+<p align='center'>
+<!-- <a href='https://app.netlify.com/sites/rstacruz-tilnext/deploys'>
+<img src='https://api.netlify.com/api/v1/badges/66598723-416e-4305-9b16-b9fe561b1efb/deploy-status'>
+</a> -->
+<a href='https://github.com/rstacruz/til/actions?query=workflow%3A%22Build%22'>
+<img src='https://github.com/rstacruz/til/workflows/Build/badge.svg' alt='Build status badge' />
+</a>
+</p>
 
-Use the Gatsby CLI to create a new site, specifying this starter. After this, See [CONTRIBUTING.md](CONTRIBUTING.md) on info on how to start a server.
-
-```sh
-# Using the official Gatsby tool
-npx gatsby new my-project-name https://github.com/rstacruz/gatsby-starter-simplified
-#              ^-------------^
-```
-
-```sh
-# ...or using degit
-npx degit rstacruz/gatsby-starter-simplified my-project-name
-#                                            ^-------------^
-```
-
-_([degit](https://yarn.pm/degit) automates starting projects using templates in GitHub.)_
-
-## Simplified starter
-
-These are the files you'll find here. They're a reduced subset of the original _gatsby-starter-default_ package.
-
-##### / src / components /
-
-- [Layout.js](/src/components/Layout.js) - Layout component
-
-##### / src / images /
-
-- [icon.png](/src/images/icon.png) - Site icon
-
-##### / src / pages /
-
-- [404.js](/src/pages/404.js) - Not found page
-- [index.js](/src/pages/index.js) - Home page
-
-##### /
-
-- [gatsby-config.js](/gatsby-config.js) - Gatsby config
-- [package.json](/package.json) - Package manifest
-
-## About this boilerplate
-
-This is the same as the default starter pack, except with these omissions:
-
-- All default CSS has been removed.
-- Extraneous config files have been removed.
-- Service workers support (`gatsby-plugin-offline`) has been removed.
-- Responsive image support (`gatsby-image`) has been removed.
-- Image optimization (`gatsby-plugin-sharp`) has been removed.
-
-These things have been added:
-
-- Normalize/reset CSS ([sanitize.css](https://yarn.pm/sanitize.css)) has been added.
-
-Some of these omissions (and other features) can be added back as you need them:
-
-- [Blogging support](https://github.com/rstacruz/gatsby-starter-simplified/pull/3)
-- [Responsive images](https://github.com/rstacruz/gatsby-starter-simplified/pull/4)
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for developer notes.
+<br>

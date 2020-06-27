@@ -9,7 +9,7 @@
 }
 
 .type-heading-serif {
-  font-family: 'Gentium Basic', serif;
+  font-family: Eczar, serif;
   font-weight: 400;
 }
 
@@ -17,4 +17,9 @@
   font-family: 'Public Sans', sans-serif;
   @apply font-extrabold text-gray-900 uppercase;
   letter-spacing: 0.08em;
+}
+
+.type-heading-serif-bold {
+  font-family: Eczar, serif;
+  font-weight: 500;
 }

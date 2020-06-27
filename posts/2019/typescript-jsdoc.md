@@ -2,7 +2,7 @@
 title: Type annotations in JavaScript files
 tags: [TypeScript, JavaScript, Featured]
 layout: simple
-description: Can we get the benefits of full type checking without using TypeScript's syntax? Yes we can!
+description: Is it possible to get the benefits of type checking without TypeScript's syntax? Absolutely
 date: 2019-04-07
 book: articles
 ---

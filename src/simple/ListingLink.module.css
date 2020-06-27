@@ -2,17 +2,24 @@
 
 .bigLink {
   & .title {
-    @apply font-bold rms-6;
+    @apply type-heading-serif-bold rms-6;
+
+    @media lg {
+      @apply rms-7;
+    }
   }
 
   & .titleSpan {
     text-decoration: underline;
     text-underline-offset: 10%;
     text-decoration-color: theme('colors.a.300');
+    text-decoration-thickness: 3px;
   }
 
   & .description {
-    @apply mt-2;
+    @screen md {
+      @apply mb-12;
+    }
   }
 }
 
@@ -22,12 +29,19 @@
 }
 
 .link:not(.bigLink) {
-  border-top: solid 2px #ccc;
+  border-top: solid 2px theme('colors.a.300');
   @apply pt-4;
 }
 
 .title {
-  @apply inline m-0 rms-2 text-n-bold type-heading-serif;
+  @apply inline m-0 rms-3 text-n-bold type-heading-serif-bold;
+}
+
+.titleLine {
+  @apply mb-2;
+  @screen md {
+    @apply pr-8;
+  }
 }
 
 .titleLine,
@@ -37,7 +51,7 @@
 }
 
 .meta {
-  @apply mt-2 -rms-1;
+  @apply mt-2;
 }
 
 .vertical-line {
@@ -60,5 +74,5 @@
 }
 
 .year {
-  @apply ml-1 -rms-1 text-n-mute;
+  @apply ml-1 text-n-mute type-monospace;
 }

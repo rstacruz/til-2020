@@ -1,3 +1,7 @@
 [build]
 publish = 'public'
-build = 'gatsby build'
+command = 'yarn build:production'
+
+[[redirects]]
+from = '/'
+to = '/til'

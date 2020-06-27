@@ -20,20 +20,23 @@ const ListingPage = (props: Props) => {
   ]
 
   return (
-    <div className={CSS.root}>
-      <div className={CSS.list}>
-        {books.map((book) => {
-          const pages = booksAndPages[book.id]
-          if (!pages) return null
+    <>
+      <div className={CSS.screen} />
+      <div className={CSS.root}>
+        <div className={CSS.list}>
+          {books.map((book) => {
+            const pages = booksAndPages[book.id]
+            if (!pages) return null
 
-          if (book.id === 'articles') {
-            return <ArticleListingGroup book={book} pages={pages} />
-          } else {
-            return <ListingGroup book={book} pages={pages} />
-          }
-        })}
+            if (book.id === 'articles') {
+              return <ArticleListingGroup book={book} pages={pages} />
+            } else {
+              return <ListingGroup book={book} pages={pages} />
+            }
+          })}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
