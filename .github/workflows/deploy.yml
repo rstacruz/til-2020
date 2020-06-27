@@ -1,5 +1,8 @@
 name: Deploy
-on: push
+on:
+  push:
+    branches:
+      - v2020
 
 jobs:
   deploy:
@@ -31,14 +34,31 @@ jobs:
 
       - run: yarn build
 
-      - name: Deploy to Netlify
+      - name: Deploy to Netlify (production)
         uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: './public'
           production-branch: v2020
+          production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
           enable-commit-comment: true
+          deploy-message: "Production deploy from GitHub Actions: ${{ github.ref }} (${{ github.sha }})"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 3
+
+      # - name: Deploy to Netlify (pull request)
+      #   uses: nwtgck/actions-netlify@v1.1
+      #   if: ${{ github.head_ref != null }}
+      #   with:
+      #     publish-dir: './public'
+      #     production-branch: v2020
+      #     production-deploy: false
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     enable-commit-comment: true
+      #     deploy-message: "PR deploy from GitHub Actions: #${{ github.event.number }} (${{ github.sha }})"
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      #   timeout-minutes: 3
