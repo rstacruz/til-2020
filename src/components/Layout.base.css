@@ -8,6 +8,7 @@ body {
 body {
   font-family: 'Public Sans', Roboto, sans-serif;
   line-height: 1.5;
+  position: relative;
 
   @screen md {
     font-size: 17px;

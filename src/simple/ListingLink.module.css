@@ -2,13 +2,14 @@
 
 .bigLink {
   & .title {
-    @apply font-bold rms-7;
+    @apply type-heading-serif-bolder rms-7;
   }
 
   & .titleSpan {
     text-decoration: underline;
     text-underline-offset: 10%;
     text-decoration-color: theme('colors.a.300');
+    text-decoration-thickness: 3px;
   }
 
   & .description {
@@ -31,7 +32,13 @@
 }
 
 .title {
-  @apply inline m-0 rms-2 text-n-bold type-heading-serif;
+  @apply inline m-0 rms-3 text-n-bold type-heading-serif-bold;
+}
+
+.titleLine {
+  @screen md {
+    @apply pr-8;
+  }
 }
 
 .titleLine,
@@ -64,5 +71,5 @@
 }
 
 .year {
-  @apply ml-1 -rms-1 text-n-mute;
+  @apply ml-1 text-n-mute type-monospace;
 }

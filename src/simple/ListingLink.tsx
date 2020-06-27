@@ -14,7 +14,7 @@ export function ListingLink(props: Props) {
 
   // Approximate reading time
   const mins = Math.max(1, Math.round(readingTime.time / 60000))
-  const apples = mins <= 2 ? 1 : mins <= 5 ? 2 : 3
+  // const apples = mins <= 2 ? 1 : mins <= 5 ? 2 : 3
   const year = getYear(page.date)
 
   const h2id = `${slug(page.title)}-link`

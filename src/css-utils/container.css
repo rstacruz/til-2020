@@ -10,6 +10,10 @@
   @apply max-w-xl px-4 mx-auto;
 
   @screen md {
+    max-width: 48rem;
+  }
+
+  @screen lg {
     max-width: 64rem;
   }
 }

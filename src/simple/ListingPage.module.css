@@ -1,7 +1,12 @@
 @import '../css-utils/all.css';
 
 .root {
-  @apply pt-32 container-wide;
+  @apply relative z-0 pt-32 container-wide;
+}
+
+.screen {
+  @apply absolute inset-0 block m-4;
+  background: #fafafc;
 }
 
 .list {

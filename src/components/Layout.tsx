@@ -3,9 +3,10 @@ import { Helmet } from 'react-helmet'
 import useSiteMetadata from '../hooks/useSiteMetadata'
 
 // Typefaces
+import 'typeface-eczar'
+import 'typeface-fira-mono'
 import 'typeface-gentium-basic'
 import 'typeface-public-sans'
-import 'typeface-fira-mono'
 
 // Global CSS
 import 'sanitize.css'
