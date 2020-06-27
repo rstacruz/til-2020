@@ -14,11 +14,8 @@ A blog with too many articles
 <!-- <a href='https://app.netlify.com/sites/rstacruz-tilnext/deploys'>
 <img src='https://api.netlify.com/api/v1/badges/66598723-416e-4305-9b16-b9fe561b1efb/deploy-status'>
 </a> -->
-<a href='https://github.com/rstacruz/til/actions?query=workflow%3A%22Build+and+test%22'>
-<img src='https://github.com/rstacruz/til/workflows/Build%20and%20test/badge.svg' alt='Build status badge' />
-</a>
-<a href='https://github.com/rstacruz/til/actions?query=workflow%3ADeploy'>
-<img src='https://github.com/rstacruz/til/workflows/Deploy/badge.svg?branch=v2020' alt='Deploy status badge' />
+<a href='https://github.com/rstacruz/til/actions?query=workflow%3A%22Build%22'>
+<img src='https://github.com/rstacruz/til/workflows/Build/badge.svg' alt='Build status badge' />
 </a>
 </p>
 
