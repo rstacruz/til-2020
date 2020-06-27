@@ -41,6 +41,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with: { node-version: '12.x' }
+
       # https://github.com/actions/cache/blob/master/examples.md#node---yarn
       - name: 'Cache: Get yarn cache directory path'
         id: yarn-cache-dir-path
@@ -55,10 +59,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with: { node-version: '12.x' }
-
       - name: Setup dependencies
         run: yarn --frozen-lockfile
 
@@ -72,12 +72,11 @@ jobs:
           production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
           enable-commit-comment: true
-          deploy-message: "Production deploy from GitHub Actions: ${{ github.ref }} (${{ github.sha }})"
+          deploy-message: 'Production deploy from GitHub Actions: ${{ github.ref }} (${{ github.sha }})'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 3
-
       # - name: Deploy to Netlify (pull request)
       #   uses: nwtgck/actions-netlify@v1.1
       #   if: ${{ github.head_ref != null }}
