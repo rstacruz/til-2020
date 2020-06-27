@@ -28,12 +28,18 @@ describe('default settings', () => {
   })
 
   it('works', () => {
-    expect(utils['.rms-1'].fontSize).toMatchInlineSnapshot(
-      `"clamp(calc(17.64px + 0.11vw), 18px, 19px)"`
-    )
-    expect(utils['.rms-1'].lineHeight).toMatchInlineSnapshot(
-      `"clamp(calc(27.00px + 0.17vw), 27px, 29px)"`
-    )
+    expect(utils['.rms-1'].fontSize).toMatchInlineSnapshot(`
+      Array [
+        "19px",
+        "clamp(calc(17.89px + 0.11vw), 18px, 19px)",
+      ]
+    `)
+    expect(utils['.rms-1'].lineHeight).toMatchInlineSnapshot(`
+      Array [
+        "29px",
+        "clamp(calc(27.39px + 0.17vw), 27px, 29px)",
+      ]
+    `)
   })
 })
 
