@@ -46,14 +46,14 @@ describe('default settings', () => {
       Array [
         "19px",
         "calc(17.89px + 0.11vw)",
-        "clamp(18px, calc(17.89px + 0.11vw), 19px)",
+        "min(max(18px, calc(17.89px + 0.11vw)), 19px)",
       ]
     `)
     expect(utils['.rms-1'].lineHeight).toMatchInlineSnapshot(`
       Array [
         "29px",
         "calc(27.39px + 0.17vw)",
-        "clamp(27px, calc(27.39px + 0.17vw), 29px)",
+        "min(max(27px, calc(27.39px + 0.17vw)), 29px)",
       ]
     `)
   })

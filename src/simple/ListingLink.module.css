@@ -1,11 +1,15 @@
 @import '../css-utils/all.css';
 
 .bigLink {
+  @screen lg {
+    @apply -ml-16;
+  }
+
   & .title {
     @apply type-heading-serif-bold rms-6;
 
-    @media lg {
-      @apply rms-7;
+    @screen lg {
+      font-weight: 700;
     }
   }
 
@@ -74,5 +78,5 @@
 }
 
 .year {
-  @apply ml-1 text-n-mute type-monospace;
+  @apply ml-1 text-a-500 type-monospace;
 }

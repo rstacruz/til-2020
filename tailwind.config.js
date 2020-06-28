@@ -1,6 +1,6 @@
 // https://tailwindcss.com/docs/configuration/
 const plugin = require('tailwindcss/plugin')
-const { between, lighten } = require('polished')
+const { saturate } = require('polished')
 
 module.exports = {
   // Tailwind's purging will only reduce the footprint of its built-in
@@ -17,13 +17,14 @@ module.exports = {
         xxl: '4rem', // between H2sections
       },
       responsiveModularScale: {
-        max: { ratio: 1.19, screenwidth: '920px' },
+        min: { ratio: 1.14, linebase: 1.56 },
+        max: { ratio: 1.21, linebase: 1.56, screenwidth: '920px' },
       },
       colors: {
         //  Brand A
         a: {
-          '500': '#705075',
-          '300': lighten(0.2, '#705075'),
+          '500': '#405075',
+          '300': saturate(0.4, '#C29CF4'),
         },
         // Code background
         window: {
