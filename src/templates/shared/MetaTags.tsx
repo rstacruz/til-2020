@@ -2,36 +2,52 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 type Props = {
-  ogType?: 'article'
+  /** Description */
+  description?: string
+  /* Language in the <html> tag */
   lang?: 'en'
+  /** Title to appear in social cards, defaults to the value of `title` */
+  ogTitle?: string
+  ogDescription?: string
+  /** (eg `'article'`) */
+  ogType?: string
+  /** Title to appear in <title>, defaults to the value of `title` */
+  seoTitle?: string
+  seoDescription?: string
+  /** Default title */
   title?: string
   keywords?: string[]
-  description?: string
+  /** Canonical URL */
   url?: string
 }
 
 function MetaTags(meta: Props) {
+  const seoTitle = meta.seoTitle || meta.title
+  const ogTitle = meta.ogTitle || meta.title
+  const ogDescription = meta.ogDescription || meta.description
+  const seoDescription = meta.seoDescription || meta.description
+
   return (
     <Helmet>
       {meta.lang ? <html lang={meta.lang} /> : null}
       {meta.ogType ? <meta property='og:type' content={meta.ogType} /> : null}
 
-      {meta.title ? <title>{meta.title}</title> : null}
-      {meta.title ? <meta property='og:title' content={meta.title} /> : null}
-      {meta.title ? <meta name='twitter:title' content={meta.title} /> : null}
+      {seoTitle ? <title>{seoTitle}</title> : null}
+      {ogTitle ? <meta property='og:title' content={ogTitle} /> : null}
+      {ogTitle ? <meta name='twitter:title' content={ogTitle} /> : null}
 
       {meta.keywords ? (
         <meta name='keywords' content={meta.keywords.join(',')} />
       ) : null}
 
-      {meta.description ? (
-        <meta name='description' content={meta.description} />
+      {seoDescription ? (
+        <meta name='description' content={seoDescription} />
       ) : null}
-      {meta.description ? (
-        <meta property='og:description' content={meta.description} />
+      {ogDescription ? (
+        <meta property='og:description' content={ogDescription} />
       ) : null}
-      {meta.description ? (
-        <meta name='twitter:description' content={meta.description} />
+      {ogDescription ? (
+        <meta name='twitter:description' content={ogDescription} />
       ) : null}
 
       {meta.url ? <link rel='canonical' href={meta.url} /> : null}
