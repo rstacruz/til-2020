@@ -4,6 +4,7 @@ import CSS from './ListingPage.module.css'
 import { PageLink, Book } from '../types'
 import ListingGroup from './ListingGroup'
 import ArticleListingGroup from './lib/ArticleListingGroup'
+import { SectionRoot, Section } from '../templates/shared/SectionNavigation'
 
 type Props = {
   pages: PageLink[]
@@ -13,27 +14,46 @@ const ListingPage = (props: Props) => {
   const { pages } = props
   const booksAndPages = groupBy(pages, 'book')
 
-  const books: Book[] = [
-    { id: 'articles', label: 'Articles' },
-    { id: 'notes', label: 'Notes' },
-    { id: 'archive', label: 'Archives', open: false },
-  ]
+  /* const books: { [key: string]: Book } = { */
+  /*   articles: { id: 'articles', label: 'Articles' }, */
+  /*   notes: { id: 'notes', label: 'Notes' }, */
+  /*   archive: { id: 'archive', label: 'Archives', open: false }, */
+  /* } */
 
   return (
     <>
       <div className={CSS.screen} />
       <div className={CSS.root}>
         <div className={CSS.list}>
-          {books.map((book) => {
-            const pages = booksAndPages[book.id]
-            if (!pages) return null
+          {/* Articles */}
+          {booksAndPages.articles ? (
+            <Section id='articles'>
+              <ArticleListingGroup
+                book={{ id: 'articles', label: 'Articles' }}
+                pages={booksAndPages.articles}
+              />
+            </Section>
+          ) : null}
 
-            if (book.id === 'articles') {
-              return <ArticleListingGroup book={book} pages={pages} />
-            } else {
-              return <ListingGroup book={book} pages={pages} />
-            }
-          })}
+          {/* Notes */}
+          {booksAndPages.notes ? (
+            <Section id='notes'>
+              <ListingGroup
+                book={{ id: 'notes', label: 'Notes' }}
+                pages={booksAndPages.notes}
+              />
+            </Section>
+          ) : null}
+
+          {/* Archive */}
+          {booksAndPages.archive ? (
+            <Section id='archive'>
+              <ListingGroup
+                book={{ id: 'archive', label: 'Archive', open: false }}
+                pages={booksAndPages.archive}
+              />
+            </Section>
+          ) : null}
         </div>
       </div>
     </>
