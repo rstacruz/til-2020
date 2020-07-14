@@ -40,18 +40,28 @@ const SectionRoot = (props: {
  * A section
  */
 
-const Section = (props: { id: string; children: React.ReactNode }) => {
-  const sections = useSection()
-  if (!sections) return null
+const Section = (props: {
+  id: string
+  children: React.ReactNode
+  className?: string
+}) => {
+  const inside = (
+    <div id={props.id} className={props.className}>
+      {props.children}
+    </div>
+  )
 
-  // TODO pass waypoint options
+  const sections = useSection()
+  if (!sections) return inside
+
   return (
     <Waypoint
+      topOffset='80%'
       onEnter={() => {
         sections.setActiveSection(props.id)
       }}
     >
-      <span>{props.children}</span>
+      {inside}
     </Waypoint>
   )
 }
@@ -64,6 +74,7 @@ const Section = (props: { id: string; children: React.ReactNode }) => {
  *       sections.active
  *     }
  */
+
 const useSection = () => {
   return React.useContext(SectionContext)
 }

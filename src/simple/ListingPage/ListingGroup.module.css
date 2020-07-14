@@ -3,7 +3,7 @@
 }
 
 .summary {
-  @apply block;
+  @apply block my-8;
 }
 
 .list {

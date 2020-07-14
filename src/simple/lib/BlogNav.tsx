@@ -5,12 +5,7 @@ import { Link } from 'gatsby'
 import cn from 'classnames'
 import BackIcon from './BackIcon'
 
-type Props = {
-  title: string
-}
-
-const BlogNav = (props: Props) => {
-  /* const { title } = props */
+const BlogNav = () => {
   const { Wrapper, isFixed } = useNavWaypoint()
   const expanded = isFixed ? CSS.isCollapsed : CSS.isExpanded
 
