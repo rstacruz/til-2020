@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useMemo } from 'react'
-import CSS from './BlogNav.module.css'
+import CSS from './BlogNav/BlogNav.module.css'
 import { Waypoint } from 'react-waypoint'
 import { Link } from 'gatsby'
 import cn from 'classnames'
-import BackIcon from './BackIcon'
+import BackIcon from './BlogNav/BackIcon'
 
 const BlogNav = () => {
   const { Wrapper, isFixed } = useNavWaypoint()

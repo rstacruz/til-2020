@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import CSS from './Figure.module.css'
+import CSS from './MyMDXProvider/PreCode/Figure.module.css'
 import cn from 'classnames'
 
 type Props = {

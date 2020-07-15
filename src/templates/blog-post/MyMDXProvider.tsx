@@ -1,10 +1,10 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import PreCode from './lib/PreCode'
-import H2Section from './lib/H2Section'
-import NextBlock from './lib/NextBlock'
-import Notice from './lib/Notice'
-import Figure from './lib/Figure'
+import PreCode from './MyMDXProvider/PreCode'
+import H2Section from './MyMDXProvider/H2Section'
+import NextBlock from './MyMDXProvider/NextBlock'
+import Notice from './MyMDXProvider/Notice'
+import Figure from './Figure'
 
 const components = {
   pre: PreCode,

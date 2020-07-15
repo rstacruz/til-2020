@@ -4,12 +4,12 @@
 /* import NextBlock from './lib/NextBlock' */
 
 import React from 'react'
-import MarkdownStyles from './lib/MarkdownStyles'
-import BlogNav from './lib/BlogNav'
-import Unorphan from './lib/Unorphan'
-import CSS from './SimplePostContent.module.css'
-import ByLine from './lib/ByLine'
-import SimplePostFooter from './lib/SimplePostFooter'
+import MarkdownStyles from './PostLayout/SimplePostContent/MarkdownStyles'
+import BlogNav from './PostLayout/SimplePostContent/BlogNav'
+import Unorphan from '../shared/Unorphan'
+import CSS from './PostLayout/SimplePostContent/SimplePostContent.module.css'
+import ByLine from './PostLayout/SimplePostContent/ByLine'
+import SimplePostFooter from './PostLayout/SimplePostContent/SimplePostFooter'
 
 interface Props {
   title: string

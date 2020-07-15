@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListingLink } from './ListingLink'
-import { PageLink } from '../../types'
-import CSS from './ArticleListingGroup.module.css'
+import { PageLink } from '../../../types'
+import CSS from './ArticleListingGroup/ArticleListingGroup.module.css'
 
 function ArticleListingGroup(props: { pages: PageLink[] }) {
   const { pages } = props

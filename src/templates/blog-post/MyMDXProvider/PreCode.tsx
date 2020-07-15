@@ -1,6 +1,6 @@
 import React from 'react'
-import CSS from './PreCode.module.css'
-import { Figurify } from './Figure'
+import CSS from './PreCode/PreCode.module.css'
+import { Figurify } from '../Figure'
 
 interface Props {
   children: React.ReactNode

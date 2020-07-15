@@ -1,6 +1,6 @@
 import React from 'react'
 import { ListingLink } from './ListingLink'
-import { PageLink, Book } from '../../types'
+import { PageLink, Book } from '../../../types'
 import CSS from './ListingGroup.module.css'
 
 function ListingGroup(props: { book: Book; pages: PageLink[] }) {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import ListingPage from '../simple/ListingPage'
+import ListingPage from './blog-index/ListingPage'
 import MetaTags from './shared/MetaTags'
-import useSiteMetadata from '../hooks/useSiteMetadata'
+import useSiteMetadata from './shared/useSiteMetadata'
 
 const Home = (props: { data?: any }) => {
   const data = useStaticQuery(query)

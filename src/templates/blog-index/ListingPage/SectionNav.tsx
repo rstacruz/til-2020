@@ -1,6 +1,6 @@
 import React from 'react'
-import CSS from './SectionNav.module.css'
-import { useSection } from '../../templates/shared/SectionNavigation'
+import CSS from './SectionNav/SectionNav.module.css'
+import { useSection } from '../SectionNavigation'
 import SectionNavLink from './SectionNav/SectionNavLink'
 
 function SectionNav(props: { sections: { [key: string]: { label: string } } }) {

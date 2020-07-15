@@ -1,9 +1,9 @@
 import React from 'react'
 import cn from 'classnames'
 import { Link } from 'gatsby'
-import CSS from './ListingLink.module.css'
-import { PageLink } from '../../types'
-import Unorphan from '../lib/Unorphan'
+import CSS from './ArticleListingGroup/ListingLink.module.css'
+import { PageLink } from '../../../types'
+import Unorphan from '../../shared/Unorphan'
 import { slug } from 'github-slugger'
 
 type Props = { page: PageLink; big?: boolean }
@@ -38,8 +38,8 @@ export function ListingLink(props: Props) {
               title={page.date || ''}
             >{`(${year})`}</span>
           ) : (
-            <span className={CSS.year}>{`(Draft)`}</span>
-          )}
+              <span className={CSS.year}>{`(Draft)`}</span>
+            )}
         </div>
 
         {page.description ? (

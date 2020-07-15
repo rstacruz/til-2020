@@ -1,7 +1,7 @@
 import React from 'react'
-import CSS from './H2Section.module.css'
+import CSS from './H2Section/H2Section.module.css'
 import cn from 'classnames'
-import { useWaypoint } from '../../simple/lib/useWaypoint'
+import { useWaypoint } from './H2Section/useWaypoint'
 
 interface Props {
   children: React.ReactNode
