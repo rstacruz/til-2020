@@ -1,0 +1,33 @@
+@import 'css-utils/dotted-background.css';
+
+.root {
+  @apply relative block mb-xxl;
+}
+
+.root :global(h2::before) {
+  content: 'H2';
+  @apply absolute block px-2 text-center rounded-md;
+  box-sizing: content-box;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  left: -4rem;
+  top: 0.5rem;
+  box-shadow: inset 0 0 0 1px theme('colors.n.line');
+  color: theme('colors.n.faded');
+}
+
+/* .separator { */
+/* @apply block mt-8 mb-10; */
+/* opacity: 0.5; */
+/* } */
+
+/* Horizontal */
+/* .separator::before { */
+/*   @apply block w-32 h-6 mx-auto; */
+/*   @apply dotted-background-12; */
+/*   content: ''; */
+/* } */
+
+/* .inner > :global(hr:last-child) { */
+/*   display: none; */
+/* } */

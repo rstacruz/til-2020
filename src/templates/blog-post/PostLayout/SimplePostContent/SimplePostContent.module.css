@@ -1,0 +1,22 @@
+@import 'css-utils/container.css';
+@import 'css-utils/type.css';
+
+.root {
+  @apply container antialiased leading-relaxed;
+  @apply type-body-sans;
+  color: #181818;
+}
+
+.title {
+  @apply mt-12 mb-4 text-n-bold rms-7 type-heading-serif;
+
+  @screen md {
+    @apply mt-32;
+    padding-right: 10%;
+  }
+}
+
+.description {
+  @apply -mt-2 type-italic-serif rms-3;
+  color: theme('colors.a.500');
+}

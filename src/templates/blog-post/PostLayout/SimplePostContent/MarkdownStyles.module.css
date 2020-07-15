@@ -1,0 +1,138 @@
+@import 'css-utils/container.css';
+@import 'css-utils/type.css';
+@import 'css-utils/dotted-background.css';
+
+.root :global(pre, ol, ul, h1, h2, h3, h4, h5, h6, figure) {
+  @apply my-md;
+}
+
+.root :global(em) {
+  @apply type-italic-serif;
+  font-size: 1.12em;
+}
+
+.root :global(hr) {
+  @apply block w-32 h-3 mt-8 mb-8 bg-gray-300 border-0;
+  @apply dotted-background-12;
+}
+
+.root :global(h2) {
+  @apply font-bold text-n-bold mb-md rms-3 type-body-sans;
+  letter-spacing: -0.02em;
+}
+
+.root :global(h2::after) {
+  content: '';
+  @apply block h-px mt-3 mb-3;
+  background: linear-gradient(
+    to right,
+    theme('colors.a.500') 18%,
+    theme('colors.gray.300') 18%,
+    transparent 150%
+  );
+}
+
+.root :global(h3) {
+  @apply mt-8 mb-0 text-gray-900 rms-1 type-bold-heading;
+}
+
+.root :global(a) {
+  @apply no-underline text-n-mute;
+}
+
+.root :global(code) {
+  @apply text-n-mute type-monospace;
+  font-size: 1em;
+}
+
+.root :global(h3 + div > p),
+.root :global(h3 + p) {
+  @apply mt-0;
+}
+
+.root :global(blockquote) {
+  @apply type-italic-serif;
+  @apply px-0 pl-4 mx-0;
+  border-left: solid 2px theme('colors.n.line');
+}
+
+.root :global(table) {
+  min-width: 100%;
+  @apply my-8;
+}
+
+.root :global(tr) {
+  border-bottom: solid 1px theme('colors.n.line');
+}
+
+.root :global(table > :last-child > tr:last-child) {
+  border-bottom: 0;
+}
+
+.root :global(td),
+.root :global(th) {
+  @apply p-2 text-left;
+}
+
+.root :global(p) {
+  @apply relative z-0;
+}
+
+.root :global(blockquote.notice) {
+  @apply relative shadow-8;
+  @apply border-purple-300 border-solid;
+
+  @screen md {
+    @apply px-6 my-8 mb-6 -mx-6;
+  }
+}
+
+.root :global(strong.highlight) {
+  @apply font-medium bg-yellow-100;
+}
+
+.root :global(.isActive strong.highlight) {
+  @apply bg-yellow-200;
+}
+
+/*
+ * Blockquote: next
+ */
+
+.root :global(blockquote.next) {
+  @apply p-0 text-base italic type-italic-serif;
+  border-left: 0;
+  @screen md {
+    @apply pb-4;
+  }
+}
+
+.root :global(blockquote.next::before) {
+  @screen md {
+    content: '';
+    @apply block w-16 h-4 my-4 -ml-2 dotted-background-12;
+  }
+}
+
+.root :global(blockquote.next strong) {
+  @apply mr-2 font-semibold text-a-500;
+  @apply not-italic font-bold uppercase type-monospace;
+}
+
+.root :global(ol),
+.root :global(ul) {
+  @apply pl-4 ml-0;
+}
+
+.root :global(ol > li) {
+  @apply pl-3;
+}
+
+.root :global(ul > li) {
+  @apply pl-1;
+}
+
+.root :global(ul > li::marker) {
+  content: '—';
+  @apply text-a-500;
+}

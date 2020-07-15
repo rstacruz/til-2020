@@ -1,5 +1,0 @@
-@import '../../css-utils/all.css';
-
-.root {
-  @apply block;
-}

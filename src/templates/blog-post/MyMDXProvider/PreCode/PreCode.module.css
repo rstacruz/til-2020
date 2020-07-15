@@ -1,0 +1,65 @@
+@import 'css-utils/all.css';
+
+.root {
+  @apply p-5 bg-transparent type-monospace;
+  composes: _pre from './Figure.module.css';
+  transition: box-shadow 300ms linear;
+}
+
+:global(.isInactive) .root {
+  @apply shadow-8;
+}
+
+.root :global(pre > code) {
+  color: theme('colors.gray.300');
+}
+
+.root :global(pre) {
+  @apply p-0 m-0;
+}
+
+.root :global(.rule) /* CSS @media */,
+.root :global(.keyword) /* JS import, const */,
+.root :global(.maybe-class-name) {
+  color: theme('colors.blue.500');
+}
+
+.root :global(.maybe-class-name) {
+  @apply font-bold;
+}
+
+.root :global(.selector) /* CSS selector */,
+.root :global(.function) {
+  color: theme('colors.teal.400');
+}
+
+.root :global(.attr-name) /* HTML attribute */,
+.root :global(.property) /* CSS properties (eg, 'min-width') */,
+.root :global(.parameter),
+.root :global(.property-access) {
+  color: theme('colors.teal.500');
+}
+
+.root :global(.attr-value) /* HTML attribute */,
+.root :global(.number),
+.root :global(.string) {
+  /* @apply font-bold; */
+  color: theme('colors.blue.400');
+}
+
+.root :global(.operator),
+.root :global(.punctuation) {
+  @apply font-normal;
+  color: theme('colors.gray.600');
+}
+
+.root :global(.comment) {
+  @apply font-normal;
+  color: theme('colors.gray.500');
+}
+
+:global(.gatsby-highlight-code-line) {
+  background-color: #caf2;
+  display: block;
+  @apply -mx-4 px-4;
+}

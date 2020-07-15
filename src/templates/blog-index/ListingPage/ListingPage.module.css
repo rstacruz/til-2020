@@ -1,0 +1,29 @@
+@import 'css-utils/all.css';
+
+.root {
+  @apply relative z-0 pt-32 container-wide;
+}
+
+.screen {
+  @apply absolute inset-0 block m-4;
+  background: #fafafc;
+}
+
+.list {
+  @apply relative my-md;
+}
+
+.nav {
+  display: none;
+
+  @screen lg {
+    @apply fixed block w-32 pl-4;
+    left: 50vw;
+    margin-left: 27rem;
+    top: 15rem;
+  }
+}
+
+.section {
+  scroll-padding-top: 8rem;
+}

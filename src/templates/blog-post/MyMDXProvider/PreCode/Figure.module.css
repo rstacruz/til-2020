@@ -1,0 +1,152 @@
+@import 'css-utils/all.css';
+
+/* Utilities */
+.window-traffic-lights {
+  content: '';
+  @apply absolute block rounded-full;
+  width: 0.25rem;
+  height: 0.25rem;
+  margin-top: -0.125rem;
+  top: 50%;
+  left: 1rem;
+  background: theme('colors.window.text');
+  box-shadow: 1.5rem 0 0 theme('colors.window.text'),
+    3rem 0 0 theme('colors.window.text');
+  opacity: 0.5;
+}
+
+/* The thing */
+.root {
+  @apply relative mx-0 my-lg;
+
+  &:not(.code) {
+    @apply figure-backdrop;
+  }
+}
+
+/* Scrollable area */
+.body {
+  @apply overflow-x-auto thin-scrollbar;
+}
+
+.root > .body > :global(img) {
+  /* /project-switcher-using-startify has a big image */
+  /* /arch-linux-wifi-using-netctl has a partial image */
+  @apply block max-w-full mx-auto rounded-sm;
+}
+
+.isWide {
+  @screen md {
+    @apply -mx-4;
+  }
+}
+
+/* Filename heading */
+.titlebar {
+  @apply relative px-4 m-0 text-sm text-center truncate rounded-t-md;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  font-size: 0.8em;
+  color: theme('colors.window.text');
+  background: theme('colors.window.title');
+  box-shadow: inset 0 -1px 0 theme('colors.window.line');
+  user-select: none;
+}
+
+.titlebar::before {
+  @apply window-traffic-lights;
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  & {
+    @apply relative my-12;
+
+    @screen md {
+      @apply mb-20 -mx-32;
+    }
+  }
+
+  /* Screen thing */
+  &::after {
+    @apply absolute z-auto block dotted-background-12;
+    background-attachment: fixed;
+    content: '';
+    top: 4rem;
+    bottom: -2rem;
+    left: -18rem;
+    right: -18rem;
+  }
+
+  & :global(.gatsby-resp-image-wrapper) {
+    @apply relative z-20;
+  }
+
+  &:not(.isTransparent) .body {
+    @apply relative z-20 bg-white shadow-32;
+  }
+
+  & .body > :global(img) {
+    @apply relative z-20 object-cover w-full bg-gray-800 shadow-32;
+    border-radius: 3px;
+    height: 16rem;
+
+    @screen md {
+      height: 24rem;
+    }
+  }
+}
+
+/*
+ * Variant: table
+ */
+
+.table {
+  & {
+    @apply relative shadow-8;
+    @apply border-gray-300 border-solid;
+
+    @screen md {
+      @apply -mx-16 my-lg;
+    }
+  }
+
+  & :global(table) {
+    @apply m-0 bg-white;
+  }
+}
+
+/*
+ * Variant: code
+ */
+
+.code {
+  @apply shadow-32 bg-window-base rounded-md;
+}
+
+.root ._pre + ._pre,
+.root :global(.gatsby-highlight) + :global(.gatsby-highlight) ._pre {
+  /* gatsby-remark-prismjs adds a wrapper .gatsby-highlight */
+  box-shadow: inset 0 1px 0 theme('colors.window.line');
+}
+
+/*
+ * Variant: bordered
+ */
+
+.root.bordered {
+  @apply py-2 light-panel;
+
+  & > :first-child,
+  & > :first-child > :first-child {
+    @apply mt-0;
+  }
+
+  & > :last-child,
+  & > :last-child > :last-child {
+    @apply mb-0;
+  }
+}

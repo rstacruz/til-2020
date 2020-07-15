@@ -1,5 +1,5 @@
 import React from 'react'
-import SimplePostContent from '../../simple/SimplePostContent'
+import SimplePostContent from './SimplePostContent'
 
 type Props = {
   post: {

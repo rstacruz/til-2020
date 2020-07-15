@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import PostLayout from './blog-post/PostLayout'
-import MyMDXProvider from '../mdx-components/MyMDXProvider'
+import MyMDXProvider from './blog-post/MyMDXProvider'
 import MetaTags from './shared/MetaTags'
 
 interface Props {

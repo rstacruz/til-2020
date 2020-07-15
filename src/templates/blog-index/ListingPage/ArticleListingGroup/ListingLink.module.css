@@ -1,0 +1,82 @@
+@import 'css-utils/all.css';
+
+.bigLink {
+  @screen lg {
+    @apply -ml-16;
+  }
+
+  & .title {
+    @apply type-heading-serif-bold rms-6;
+
+    @screen lg {
+      font-weight: 700;
+    }
+  }
+
+  & .titleSpan {
+    text-decoration: underline;
+    text-underline-offset: 10%;
+    text-decoration-color: theme('colors.a.300');
+    text-decoration-thickness: 3px;
+  }
+
+  & .description {
+    @screen md {
+      @apply mb-12;
+    }
+  }
+}
+
+.link {
+  @apply block mb-8 text-gray-900 no-underline;
+  page-break-inside: avoid;
+}
+
+.link:not(.bigLink) {
+  border-top: solid 2px theme('colors.a.300');
+  @apply pt-4;
+}
+
+.title {
+  @apply inline m-0 rms-3 text-n-bold type-heading-serif-bold;
+}
+
+.titleLine {
+  @apply mb-2;
+  @screen md {
+    @apply pr-8;
+  }
+}
+
+.titleLine,
+.meta,
+.description {
+  @apply block;
+}
+
+.meta {
+  @apply mt-4;
+}
+
+.vertical-line {
+  @apply inline-block w-px bg-n-line;
+  vertical-align: middle;
+}
+
+.toRead::before {
+  @apply h-4 mx-4 vertical-line;
+  content: '';
+}
+
+.toRead {
+  @apply text-n-mute;
+  @apply type-italic-serif;
+}
+
+.category {
+  @apply font-bold;
+}
+
+.year {
+  @apply ml-1 text-a-500 type-monospace;
+}
