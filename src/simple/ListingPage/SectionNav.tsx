@@ -1,7 +1,7 @@
 import React from 'react'
 import CSS from './SectionNav.module.css'
 import { useSection } from '../../templates/shared/SectionNavigation'
-import cn from 'classnames'
+import SectionNavLink from './SectionNav/SectionNavLink'
 
 function SectionNav(props: { sections: { [key: string]: { label: string } } }) {
   const sections = useSection()
@@ -11,15 +11,7 @@ function SectionNav(props: { sections: { [key: string]: { label: string } } }) {
     <div className={CSS.root}>
       {Object.entries(props.sections).map(([id, { label: label }]) => {
         const isActive = activeSection === id
-        return (
-          <a
-            href={`#${id}`}
-            className={cn(CSS.item, { [CSS.isActive]: isActive })}
-            key={id}
-          >
-            {label}
-          </a>
-        )
+        return <SectionNavLink {...{ id, isActive, label }} />
       })}
     </div>
   )

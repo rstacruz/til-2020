@@ -56,6 +56,7 @@ const Section = (props: {
 
   return (
     <Waypoint
+      fireOnRapidScroll
       topOffset='80%'
       onEnter={() => {
         sections.setActiveSection(props.id)

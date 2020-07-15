@@ -3,34 +3,3 @@
 .root {
   @apply block;
 }
-
-.item {
-  @apply block pt-2 pb-8 no-underline type-italic-serif rms-1;
-
-  &,
-  &:visited {
-    @apply text-n-mute;
-  }
-
-  @media (min-height: 480px) {
-    @apply pb-16;
-  }
-}
-
-.item::before {
-  content: '';
-  @apply block mb-2;
-  height: 2px;
-  box-shadow: inset 0 1px theme('colors.n.line');
-}
-
-.item.isActive {
-  &::before {
-    box-shadow: inset 0 2px theme('colors.a.300');
-  }
-
-  &,
-  &:visited {
-    @apply not-italic type-bold-heading text-n-bold;
-  }
-}
