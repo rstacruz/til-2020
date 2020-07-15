@@ -1,6 +1,6 @@
-@import '../../css-utils/container.css';
-@import '../../css-utils/type.css';
-@import '../../css-utils/dotted-background.css';
+@import 'css-utils/container.css';
+@import 'css-utils/type.css';
+@import 'css-utils/dotted-background.css';
 
 .root :global(pre, ol, ul, h1, h2, h3, h4, h5, h6, figure) {
   @apply my-md;

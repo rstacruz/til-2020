@@ -1,4 +1,4 @@
-@import '../../css-utils/dotted-background.css';
+@import 'css-utils/dotted-background.css';
 
 .root {
   @apply relative block mb-xxl;

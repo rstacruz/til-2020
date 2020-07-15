@@ -1,4 +1,4 @@
-@import '../../../css-utils/all.css';
+@import 'css-utils/all.css';
 
 .item {
   @apply block pt-2 no-underline type-italic-serif rms-1;

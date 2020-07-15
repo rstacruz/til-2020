@@ -1,4 +1,4 @@
-@import '../../css-utils/type.css';
+@import 'css-utils/type.css';
 
 .root {
   @apply relative my-6;

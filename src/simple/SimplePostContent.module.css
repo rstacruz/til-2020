@@ -1,5 +1,5 @@
-@import '../css-utils/container.css';
-@import '../css-utils/type.css';
+@import 'css-utils/container.css';
+@import 'css-utils/type.css';
 
 .root {
   @apply container antialiased leading-relaxed;

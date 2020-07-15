@@ -1,4 +1,4 @@
-@import '../css-utils/all.css';
+@import 'css-utils/all.css';
 
 .root {
   @apply relative z-0 pt-32 container-wide;

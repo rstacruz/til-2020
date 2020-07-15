@@ -1,5 +1,5 @@
-@import '../../css-utils/dotted-background.css';
-@import '../../css-utils/type.css';
+@import 'css-utils/dotted-background.css';
+@import 'css-utils/type.css';
 
 .root {
   @screen md {
