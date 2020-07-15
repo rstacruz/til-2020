@@ -1,10 +1,10 @@
 import React from 'react'
-import { ListingLink } from '../ListingLink'
-import { Book, PageLink } from '../../types'
+import { ListingLink } from './ListingLink'
+import { PageLink } from '../../types'
 import CSS from './ArticleListingGroup.module.css'
 
-function ArticleListingGroup(props: { book: Book; pages: PageLink[] }) {
-  const { book, pages } = props
+function ArticleListingGroup(props: { pages: PageLink[] }) {
+  const { pages } = props
 
   return (
     <div className={CSS.root}>

@@ -10,5 +10,20 @@
 }
 
 .list {
-  @apply my-md;
+  @apply relative my-md;
+}
+
+.nav {
+  display: none;
+
+  @screen lg {
+    @apply fixed block w-32 pl-4;
+    left: 50vw;
+    margin-left: 27rem;
+    top: 15rem;
+  }
+}
+
+.section {
+  scroll-padding-top: 8rem;
 }

@@ -24,7 +24,7 @@ const SimplePostContent = (props: Props) => {
 
   return (
     <div>
-      <BlogNav title={title} />
+      <BlogNav />
       <div className={CSS.root}>
         <h1 className={CSS.title}>
           <Unorphan>{title}</Unorphan>

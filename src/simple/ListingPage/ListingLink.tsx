@@ -2,8 +2,8 @@ import React from 'react'
 import cn from 'classnames'
 import { Link } from 'gatsby'
 import CSS from './ListingLink.module.css'
-import { PageLink } from '../types'
-import Unorphan from './lib/Unorphan'
+import { PageLink } from '../../types'
+import Unorphan from '../lib/Unorphan'
 import { slug } from 'github-slugger'
 
 type Props = { page: PageLink; big?: boolean }
