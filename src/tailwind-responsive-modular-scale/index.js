@@ -124,8 +124,7 @@ function clampedBetween(min, max, screenMin, screenMax) {
     return [
       // Fallback for browsers without calc() support (IE11)
       round(max, 0),
-      // Fallback for browsers without clamp() support
-      bet,
+
       // Full (min/max has better browser support)
       // `clamp(${round(min, 2)}, ${bet}, ${round(max, 2)})`,
       `min(max(${round(min, 2)}, ${bet}), ${round(max, 2)})`,
