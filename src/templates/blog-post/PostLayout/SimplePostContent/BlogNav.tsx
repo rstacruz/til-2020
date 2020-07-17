@@ -3,7 +3,7 @@ import CSS from './BlogNav/BlogNav.module.css'
 import { Waypoint } from 'react-waypoint'
 import { Link } from 'gatsby'
 import cn from 'classnames'
-import BackIcon from './BlogNav/BackIcon'
+import BackIcon from '../../../../icons/BackIcon'
 
 const BlogNav = () => {
   const { Wrapper, isFixed } = useNavWaypoint()
