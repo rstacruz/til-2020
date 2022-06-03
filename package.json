@@ -11,7 +11,7 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.23.11",
     "gatsby-plugin-feed": "^2.5.7",
-    "gatsby-plugin-mdx": "^1.2.18",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-postcss": "^2.3.6",
     "gatsby-plugin-purgecss": "^5.0.0",
     "gatsby-plugin-react-helmet": "^3.3.6",
